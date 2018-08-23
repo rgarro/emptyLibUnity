@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using emptyLibUnity;
 
-namespace emptyLibUnity{
+namespace emptyLibUnity.Controllable {
+    public class Car :  Empty {
 
-    public class Empty : MonoBehaviour{
+        public int is_controllable =1;
 
         // Use this for initialization
 	void Start () {
