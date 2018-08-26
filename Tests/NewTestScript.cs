@@ -2,10 +2,16 @@
 using UnityEngine.TestTools;
 using NUnit.Framework;
 using System.Collections;
+using emptyLibUnity;
 
 public class NewTestScript {
 
     [Test]
+    public void NewTestScriptEmptyTest() {
+       Empty em = new Empty();
+       Assert.IsTrue( em.is_empty );
+
+    }
     public void NewTestScriptSimplePasses() {
         int[] array = new int[] { 1, 2, 3 };
 Assert.That(array, Has.Exactly(1).EqualTo(3));
