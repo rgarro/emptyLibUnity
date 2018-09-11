@@ -27,8 +27,7 @@ namespace emptyLibUnity.UI.Util {
 	
 	public void getTilter(double tiltVal){
 		this.tilter = tiltVal;
-		//Debug.Log("tilt ...");
-		//Debug.Log(this.tilter);
+//Debug.Log(this.tilter);
 		this.setRotation();
 	}
 
@@ -38,8 +37,8 @@ namespace emptyLibUnity.UI.Util {
 	}
 
 	// Update is called once per frame
-	void Update () {
-		this.Needle.rectTransform.eulerAngles = new Vector3(0,0,(float)rotationZ);
+	public void tiltNeedle() {
+		this.Needle.rectTransform.eulerAngles = new Vector3(0,0,(float)this.rotationZ);
 	}
 }
 }
