@@ -28,7 +28,7 @@ namespace emptyLibUnity.UI.Util {
 	
 	public void getTilter(double tiltVal){
 		this.tilter = tiltVal;
-Debug.Log(this.tilter);
+//Debug.Log(this.tilter);
 		this.setRotation();
 	}
 
