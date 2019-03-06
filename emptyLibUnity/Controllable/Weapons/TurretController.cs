@@ -13,8 +13,8 @@ public class TurretController : MonoBehaviour {
 	public string leftTurnKey;
 	public string rightTurnKey;
 	public float rotationSteps;
-	public float xPivot;
-	public float zPivot;
+	//public float xPivot;
+	//public float zPivot;
 	private float yRot;
 	private Vector3 tPos;
 	private AudioSource servoSound;
@@ -32,13 +32,15 @@ public class TurretController : MonoBehaviour {
 		//Debug.Log ("here IM is only rocknroll ....");
 		if(Input.GetKeyDown(this.leftTurnKey)){
 			gLeft = true;
+Debug.Log ("Going Left ..");
+Debug.Log(this.transform.eulerAngles.x);			
 		}
 		if(gLeft){
 			if (!this.servoSound.isPlaying) {
 				this.servoSound.Play ();
 			}
 			this.yRot = this.yRot - rotationSteps;
-			Quaternion target = Quaternion.Euler(this.xPivot,this.yRot,this.zPivot);
+			Quaternion target = Quaternion.Euler(this.transform.eulerAngles.x,this.yRot,this.transform.eulerAngles.z);
 			this.transform.SetPositionAndRotation(this.transform.position,target);
 			//transform.Rotate(Vector3.left * Time.deltaTime * rotationSteps);///la 
 		}
@@ -51,7 +53,7 @@ public class TurretController : MonoBehaviour {
 			}
 			//transform.Rotate(Vector3.right * Time.deltaTime * rotationSteps);
 			this.yRot = this.yRot + rotationSteps;
-			Quaternion target = Quaternion.Euler(this.xPivot,this.yRot,this.zPivot);
+			Quaternion target = Quaternion.Euler(this.transform.eulerAngles.x,this.yRot,this.transform.eulerAngles.z);
 			this.transform.SetPositionAndRotation(this.transform.position,target);
 		}
 		if (Input.GetKeyUp (this.rightTurnKey) || Input.GetKeyUp(this.leftTurnKey)) {
