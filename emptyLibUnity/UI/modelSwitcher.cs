@@ -19,7 +19,14 @@ using UnityEngine;
 
 public class modelSwitcher : MonoBehaviour
 {
-    protected int buttons_x_corner = 200;
+    public float buttons_x_corner = 200;
+    public float buttons_y_corner = 10;
+    public float BoxWidth = 108;
+    public float BoxHeight = 73;
+    public float IconWidth = 40;
+    public float IconHeight = 40;
+    public float IconsY = 40;
+    public float IconXSeparation = 55;
     protected bool model_a_is_hidden =  false;
     protected bool model_b_is_hidden =  true;
 
@@ -37,8 +44,8 @@ public class modelSwitcher : MonoBehaviour
 
 void OnGUI(){
       //GUI.skin = this.btnSkin;
-      GUI.Box(new Rect(this.buttons_x_corner,10,108,73), this.ButtonsLabel);
-      if(GUI.Button(new Rect(this.buttons_x_corner+10,40,40,40), this.ModelAIcon))
+      GUI.Box(new Rect(this.buttons_x_corner,this.buttons_y_corner,this.BoxWidth,this.BoxHeight), this.ButtonsLabel);
+      if(GUI.Button(new Rect(this.buttons_x_corner+10,this.IconsY,this.IconWidth,this.IconHeight), this.ModelAIcon))
         {
             if(this.model_a_is_hidden){
                 this.model_a_is_hidden = false;
@@ -48,7 +55,7 @@ void OnGUI(){
             }
         }
     
-        if(GUI.Button(new Rect(this.buttons_x_corner+55,40,40,40), this.ModelBIcon)) 
+        if(GUI.Button(new Rect(this.buttons_x_corner+55,this.IconsY,this.IconWidth,this.IconHeight), this.ModelBIcon)) 
         {
             if(this.model_b_is_hidden){
                 this.model_b_is_hidden = false;

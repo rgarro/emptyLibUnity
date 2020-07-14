@@ -23,6 +23,9 @@ public class restartIconButton : MonoBehaviour
     public Texture2D RestartIcon;
     public float IconX = 10;
     public float IconY = 10;
+    public float IconWidth = 128;
+    public float IconHeight = 128;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +33,7 @@ public class restartIconButton : MonoBehaviour
     }
 
     void OnGUI(){
-        if (GUI.Button (new Rect (this.IconX,this.IconY, 100, 50), this.RestartIcon)) 
+        if(GUI.Button(new Rect (this.IconX,this.IconY,this.IconWidth,this.IconHeight),this.RestartIcon)) 
         {
             //print ("you clicked the icon");
             this.doRestart();//Confirm Box Here

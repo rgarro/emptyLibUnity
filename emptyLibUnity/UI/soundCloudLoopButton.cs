@@ -24,6 +24,8 @@ public class soundCloudLoopButton : MonoBehaviour
     public AudioSource audioData;
     public float IconX = 10;
     public float IconY = 10;
+    public float IconWidth = 128;
+    public float IconHeight = 128;
     void Start()
     {
         this.audioData = GetComponent<AudioSource>();
@@ -31,7 +33,7 @@ public class soundCloudLoopButton : MonoBehaviour
     }
 
     void OnGUI(){
-        if (GUI.Button (new Rect (this.IconX,this.IconY, 100, 50), soundCloudIcon)) 
+        if (GUI.Button (new Rect(this.IconX,this.IconY,this.IconWidth,this.IconHeight),soundCloudIcon)) 
         {
             if(this.audio_is_on){
                 this.audioData.Pause();
