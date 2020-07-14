@@ -22,6 +22,8 @@ public class soundCloudLoopButton : MonoBehaviour
      public Texture2D soundCloudIcon;
     protected bool audio_is_on = true;
     public AudioSource audioData;
+    public float IconX = 10;
+    public float IconY = 10;
     void Start()
     {
         this.audioData = GetComponent<AudioSource>();
@@ -29,7 +31,7 @@ public class soundCloudLoopButton : MonoBehaviour
     }
 
     void OnGUI(){
-        if (GUI.Button (new Rect (10,10, 100, 50), soundCloudIcon)) 
+        if (GUI.Button (new Rect (this.IconX,this.IconY, 100, 50), soundCloudIcon)) 
         {
             if(this.audio_is_on){
                 this.audioData.Pause();
