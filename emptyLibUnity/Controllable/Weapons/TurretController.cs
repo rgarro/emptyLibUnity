@@ -1,4 +1,6 @@
 /**
+ *
+ *
  * turns horizontally rotationSteps current transform
  * clockwise or counterclockwise from input turn key
  * 
@@ -10,56 +12,15 @@ using UnityEngine;
 
 public class TurretController : MonoBehaviour {
 
-	public string leftTurnKey;
-	public string rightTurnKey;
-	public float rotationSteps;
-	//public float xPivot;
-	//public float zPivot;
-	private float yRot;
-	private Vector3 tPos;
-	private AudioSource servoSound;
-	private bool gRight;
-	private bool gLeft;
+	public GameObject turretObj;
+	public GameObject barrelsObj;
+	
 
 	void Start () {
-		this.yRot = this.transform.rotation.y;
-		this.servoSound = GetComponent<AudioSource> ();
-		gRight = false;
-		gLeft = false;
+		
 	}
 
 	void Update () {
-		//Debug.Log ("here IM is only rocknroll ....");
-		if(Input.GetKeyDown(this.leftTurnKey)){
-			gLeft = true;
-Debug.Log ("Going Left ..");
-Debug.Log(this.transform.eulerAngles.x);			
-		}
-		if(gLeft){
-			if (!this.servoSound.isPlaying) {
-				this.servoSound.Play ();
-			}
-			this.yRot = this.yRot - rotationSteps;
-			Quaternion target = Quaternion.Euler(this.transform.eulerAngles.x,this.yRot,this.transform.eulerAngles.z);
-			this.transform.SetPositionAndRotation(this.transform.position,target);
-			//transform.Rotate(Vector3.left * Time.deltaTime * rotationSteps);///la 
-		}
-		if(Input.GetKeyDown(this.rightTurnKey)){
-			gRight = true;
-		}
-		if(gRight){
-			if (!this.servoSound.isPlaying) {
-				this.servoSound.Play ();
-			}
-			//transform.Rotate(Vector3.right * Time.deltaTime * rotationSteps);
-			this.yRot = this.yRot + rotationSteps;
-			Quaternion target = Quaternion.Euler(this.transform.eulerAngles.x,this.yRot,this.transform.eulerAngles.z);
-			this.transform.SetPositionAndRotation(this.transform.position,target);
-		}
-		if (Input.GetKeyUp (this.rightTurnKey) || Input.GetKeyUp(this.leftTurnKey)) {
-			gRight = false;
-			gLeft = false;
-			this.servoSound.Stop ();
-		}
+		
 	}
 }
