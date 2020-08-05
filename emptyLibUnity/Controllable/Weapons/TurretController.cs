@@ -47,7 +47,7 @@ public class TurretController : MonoBehaviour {
 	}
 
 	private void elevationKeys(){
-		//float elevRad = this.barrelsObj.transform.localEulerAngles.x;
+		//float elevRad = this.barrelsObj.transform.localEulerAngles.y;
 		if(Input.GetKeyDown(this.downKey)){
             this.gDown = true;
             this.gUP = false;
@@ -72,22 +72,27 @@ public class TurretController : MonoBehaviour {
 
 	private void elevateBarrels(){
 		this.playServoSoundOn();
-//Debug.Log ("frankling marshall es un violador ...." + this.barrelsElevationY);
 		this.barrelsObj.transform.Rotate(0,this.barrelsElevationY,0);
 	}
 
 	private void rotationKeys(){
+		float rotationDeg = this.turretObj.transform.localEulerAngles.z;
+
 		if(Input.GetKeyDown(this.leftTurnKey)){
-           this.gLeft = true;
+	//Debug.Log("left rotation radians "+(rotationDeg-360));		
 		   this.gRight = false;
-			this.turretRotationZ = (Mathf.Abs(this.turretRotationZ) + rotationSteps)*-1;
-			//this.turretRotationY = this.turretRotationY - rotationSteps;
+		   //if((rotationDeg-360) < this.farLeftTurretRotationAngle){
+			   this.turretRotationZ = (Mathf.Abs(this.turretRotationZ) + rotationSteps)*-1;
+			   this.gLeft = true;
+		   //}
         }
 		if(Input.GetKeyDown(this.rightTurnKey)){
-            this.gRight = true;
+	//Debug.Log("right rotation radians "+rotationDeg);			
 			this.gLeft = false;
-			this.turretRotationZ = Mathf.Abs(this.turretRotationZ) + rotationSteps;
-			//this.turretRotationY = this.turretRotationY + rotationSteps;
+			//if(rotationDeg < this.farRightTurretRotationAngle){
+				this.turretRotationZ = Mathf.Abs(this.turretRotationZ) + rotationSteps;
+				this.gRight = true;
+			//}
         }  
 		if(this.gLeft || this.gRight){
 			this.rotateTurret();
