@@ -17,6 +17,7 @@ public class TurretController : MonoBehaviour {
     public string rightTurnKey = "g";
     public float rotationSteps = 0.38f;
 	private AudioSource servoSoundPlayer;
+	private AudioSource gunSoundPlayer;
     public AudioClip servoSoundClip;
 	private float turretRotationZ;
 	public float farLeftTurretRotationAngle = -130;
@@ -34,31 +35,60 @@ public class TurretController : MonoBehaviour {
     public float elevationSteps = 0.37f;
 	private bool gUP = false;
     private bool gDown = false;
+	public GameObject bullet;
+	public float bulletSpeed;
+	 public AudioClip gunShotSound;
+    private bool is_shooting = false;
 
 	void Start () {
 		this.turretRotationZ = this.turretObj.transform.rotation.z;
 		this.barrelsElevationY = this.barrelsObj.transform.rotation.y;
 		this.servoSoundPlayer = GetComponent<AudioSource> ();
+		this.gunSoundPlayer = GetComponent<AudioSource> ();
+		this.gunSoundPlayer.volume = 0.2F;
 	}
 
 	void Update () {
         this.rotationKeys();
 		this.elevationKeys();
+		this.shootKeys();
 	}
 
+	private void shootKeys(){
+		if(Input.GetKeyDown(KeyCode.Space)){
+            this.is_shooting = true;
+            //this.gunSound.Play ();
+        }
+        if (Input.GetKeyUp (KeyCode.Space)) {
+            this.is_shooting = false;
+            //this.gunSound.Stop ();
+        }
+		if(this.is_shooting){
+			 this.playGunSoundOn();
+		}
+	}
+
+	private void playGunSoundOn(){
+        this.gunSoundPlayer.clip = this.gunShotSound;
+        if (!this.gunSoundPlayer.isPlaying) {
+            this.gunSoundPlayer.Play ();
+        }
+    }
 	private void elevationKeys(){
-		//float elevRad = this.barrelsObj.transform.localEulerAngles.y;
+		float elevRad = this.barrelsObj.transform.localEulerAngles.y;
 		if(Input.GetKeyDown(this.downKey)){
             this.gDown = true;
             this.gUP = false;
-			//if (elevRad < this.minElev) 
-			this.barrelsElevationY = (Mathf.Abs(this.barrelsElevationY) + this.elevationSteps)*-1; 
+			//if (elevRad < this.minElevationAngle){
+				this.barrelsElevationY = (Mathf.Abs(this.barrelsElevationY) + this.elevationSteps)*-1;
+			//}  
         }
 		if(Input.GetKeyDown(this.upKey)){
             this.gDown = false;
             this.gUP = true;
-			//if (elevRad > this.maxElev)
-			this.barrelsElevationY = Mathf.Abs(this.barrelsElevationY) + this.elevationSteps; 
+			//if (elevRad > this.maxElevationAngle){
+				this.barrelsElevationY = Mathf.Abs(this.barrelsElevationY) + this.elevationSteps;
+			//} 
         }
 		if(this.gDown || this.gUP){
 			this.elevateBarrels();
