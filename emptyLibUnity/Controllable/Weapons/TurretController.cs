@@ -36,7 +36,7 @@ public class TurretController : MonoBehaviour {
 	private bool gUP = false;
     private bool gDown = false;
 	public GameObject bullet;
-	public float bulletSpeed;
+	public float bulletSpeed = 75;
 	 public AudioClip gunShotSound;
     private bool is_shooting = false;
 
@@ -65,6 +65,11 @@ public class TurretController : MonoBehaviour {
         }
 		if(this.is_shooting){
 			 this.playGunSoundOn();
+			 Quaternion rotation = Quaternion.Euler(this.barrelsObj.transform.localRotation.x,this.barrelsObj.transform.localRotation.y,this.barrelsObj.transform.localRotation.z);
+			 Vector3 position = new Vector3(this.turretObj.transform.position.x,this.turretObj.transform.position.y,this.turretObj.transform.position.z);
+			 GameObject go = (GameObject)Instantiate (this.bullet,position,rotation);
+             Rigidbody rb =  go.GetComponent<Rigidbody>();
+             rb.velocity = transform.forward * bulletSpeed;
 		}
 	}
 
