@@ -65,10 +65,10 @@ public class TurretController : MonoBehaviour {
         }
 		if(this.is_shooting){
 			 this.playGunSoundOn();
-			//Quaternion rotation = Quaternion.Euler(this.barrelsObj.transform.localRotation.x,this.barrelsObj.transform.localRotation.y,this.barrelsObj.transform.localRotation.z);
-	Debug.Log(this.turretObj.transform.localEulerAngles.z);
-	Quaternion rotation = Quaternion.Euler(this.turretObj.transform.localEulerAngles.x,this.turretObj.transform.localEulerAngles.y,this.turretObj.transform.localEulerAngles.z);		 
-			 Vector3 position = new Vector3(this.turretObj.transform.position.x,this.turretObj.transform.position.y,this.turretObj.transform.position.z);
+			Quaternion rotation = Quaternion.Euler(this.barrelsObj.transform.localRotation.x,this.barrelsObj.transform.localRotation.y,this.barrelsObj.transform.localRotation.z);
+	//Debug.Log(this.turretObj.transform.localEulerAngles.z);
+	//Quaternion rotation = Quaternion.Euler(this.turretObj.transform.localEulerAngles.x,this.turretObj.transform.localEulerAngles.y,this.turretObj.transform.localEulerAngles.z);		 
+			 Vector3 position = new Vector3(this.barrelsObj.transform.position.x,this.barrelsObj.transform.position.y,this.barrelsObj.transform.position.z);
 			 GameObject go = (GameObject)Instantiate (this.bullet,position,rotation);
              Rigidbody rb =  go.GetComponent<Rigidbody>();
              rb.velocity = transform.forward * bulletSpeed;
