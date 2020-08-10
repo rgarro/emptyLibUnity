@@ -66,8 +66,10 @@ public class TurretController : MonoBehaviour {
 		if(this.is_shooting){
 			 this.playGunSoundOn();
 //Quaternion rotation = Quaternion.Euler(this.barrelsObj.transform.localRotation.x,this.barrelsObj.transform.localRotation.y,this.barrelsObj.transform.localRotation.z);
-Quaternion rotation = Quaternion.Euler(this.barrelsObj.transform.localRotation.x,this.barrelsObj.transform.localRotation.y,this.barrelsObj.transform.localRotation.z);
-	//Debug.Log(this.turretObj.transform.localEulerAngles.z);
+Quaternion rotation = Quaternion.Euler(0,this.barrelsObj.transform.localRotation.y*Time.deltaTime,this.turretObj.transform.localEulerAngles.z*Time.deltaTime);
+Debug.Log("rotZ: " + this.turretObj.transform.localEulerAngles.z);
+Debug.Log("elevY: " + this.barrelsObj.transform.localEulerAngles.y);
+Debug.Log("posX: " + this.turretObj.transform.localPosition.x);
 	//Quaternion rotation = Quaternion.Euler(this.turretObj.transform.localEulerAngles.x,this.turretObj.transform.localEulerAngles.y,this.turretObj.transform.localEulerAngles.z);		 
 			 Vector3 position = new Vector3(this.turretObj.transform.position.x,this.turretObj.transform.position.y,this.turretObj.transform.position.z);
 			 GameObject go = (GameObject)Instantiate (this.bullet,position,rotation);
