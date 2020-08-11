@@ -17,13 +17,14 @@ public class turretRoller : MonoBehaviour
     public float zPivot;
     private float yRot;
     private Vector3 tPos;
-    private AudioSource servoSound;
+    private AudioSource servoSoundPlayer;
+    public AudioClip servoSoundClip;
     private bool gRight;
     private bool gLeft;
 
     void Start () {
         this.yRot = this.transform.rotation.y;
-        this.servoSound = GetComponent<AudioSource> ();
+        this.servoSoundPlayer = GetComponent<AudioSource> ();
         gRight = false;
         gLeft = false;
     }
@@ -34,9 +35,7 @@ public class turretRoller : MonoBehaviour
             gLeft = true;
         }
         if(gLeft){
-            if (!this.servoSound.isPlaying) {
-                this.servoSound.Play ();
-            }
+            this.playServoSoundOn();
             this.yRot = this.yRot - rotationSteps;
             Quaternion target = Quaternion.Euler(this.xPivot,this.yRot,this.zPivot);
             this.transform.SetPositionAndRotation(this.transform.position,target);
@@ -46,9 +45,7 @@ public class turretRoller : MonoBehaviour
             gRight = true;
         }
         if(gRight){
-            if (!this.servoSound.isPlaying) {
-                this.servoSound.Play ();
-            }
+            this.playServoSoundOn();
             //transform.Rotate(Vector3.right * Time.deltaTime * rotationSteps);
             this.yRot = this.yRot + rotationSteps;
             Quaternion target = Quaternion.Euler(this.xPivot,this.yRot,this.zPivot);
@@ -57,7 +54,14 @@ public class turretRoller : MonoBehaviour
         if (Input.GetKeyUp (this.rightTurnKey) || Input.GetKeyUp(this.leftTurnKey)) {
             gRight = false;
             gLeft = false;
-            this.servoSound.Stop ();
+            this.servoSoundPlayer.Stop ();
+        }
+    }
+
+    private void playServoSoundOn(){
+        this.servoSoundPlayer.clip = this.servoSoundClip;
+        if (!this.servoSoundPlayer.isPlaying) {
+            this.servoSoundPlayer.Play ();
         }
     }
 
