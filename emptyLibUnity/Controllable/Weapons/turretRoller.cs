@@ -1,5 +1,5 @@
 ﻿/**
- *                    ____                  
+ *                   ____                  
  *                _.' :  `._               
  *            .-.'`.  ;   .'`.-.           
  *   __      / : ___\ ;  /___ ; \      __  
@@ -10,7 +10,7 @@
  *            L ' /.------.\ ' J           
  *             "-.   "--"   .-"            
  *            __.l"-:_JL_;-";.__           
- *   -- Frankling Marshall es un violador --
+ *   -- Frankling Marshall es un Violador --
  *
  * turns horizontally rotationSteps current transform
  * clockwise or counterclockwise from input turn key
@@ -44,7 +44,6 @@ public class turretRoller : MonoBehaviour
             gRight = false;
         }
         if(gLeft){
-            //this.turretRotationZ = this.turretRotationZ - rotationSteps;
             this.turretRotationZ = (Mathf.Abs(this.turretRotationZ) + rotationSteps)*-1;
             this.rotateTurret();
         }
@@ -53,7 +52,6 @@ public class turretRoller : MonoBehaviour
             gLeft = false;
         }
         if(gRight){
-            //this.turretRotationZ = this.turretRotationZ + rotationSteps;
             this.turretRotationZ = Mathf.Abs(this.turretRotationZ) + rotationSteps;
             this.rotateTurret();
         }

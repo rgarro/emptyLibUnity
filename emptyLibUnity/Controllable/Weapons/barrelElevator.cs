@@ -1,8 +1,27 @@
 ﻿/**
+ *              _.-'|         \,._
+ *           .-'    |         |   ~'=-.
+ *        .-'       |         |       |
+ *        | ___ []  | _______ |  []   |___.-----.
+ *        ||___|    ||       ||       |___|__(*=/
+ *        |_..._____||_______||.._____|   \##*----=          ---         ---
+ *        [__        \__|||__,"     _/
+ *           ((-))______--_____((-))                   . ' .' , '
+ *           | I |             | I |               ___' . ' '. . .'
+ *           |   |             |   |             _/__* , . ,' '  '
+ *           || ||             || ||             _|___*|
+ *           || ||             || ||              \____|
+ *           ((-))             ((-))
+ *           |   |             |   |
+ *           |   |             |   |
+ *           /O.O\             /O.O\
+ *          `====='           `====='       Nadie en el Tercio sabía
+ *  -       -"^-^"-           -"^-^"-         Quién era aquel legionario ...
+ *
  * turns vertically rotationSteps current transform
  * clockwise or counterclockwise from input turn key
  * 
- * @rolando <rolando@emptyart.xyz>
+ * @author Rolanddo<rgarro@gmail.com>
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -13,8 +32,8 @@ public class barrelElevator : MonoBehaviour {
 	public string upTurnKey;
 	public string downTurnKey;
 	public float rotationSteps;
-	private AudioSource servoSound;
-	public AudioClip servoSounding;
+	private AudioSource servoSoundPlayer;
+	public AudioClip servoSoundClip;
 	private bool gUP;
 	private bool gDown;
 
@@ -22,14 +41,10 @@ public class barrelElevator : MonoBehaviour {
 	public float maxElev;
 
 	void Start () {
-		this.servoSound = GetComponent<AudioSource> ();
-		//servoSound.Play();
-		//servoSound.clip = Resources.Load<AudioClip>("CerroGordo/Assets/Audio/Tek_Open-Marco-7541_hifi");
-
+		this.servoSoundPlayer = GetComponent<AudioSource>();
 		this.gUP = false;
 		this.gDown = false;
 	}
-
 	private float radianToDegree(float angle){
 		return angle * (180.0f / Mathf.PI);
 	}
@@ -41,12 +56,10 @@ public class barrelElevator : MonoBehaviour {
 			this.gUP = false;
 		}
 		if(this.gDown){
-			if (elevRad < this.minElev) { 
-				Debug.Log ("here");		
-				this.soundOn ();
+			if (elevRad < this.minElev) { 						
+				this.playServoSoundOn();
 				this.rotateUp ();
 			}
-			
 		}
 		if(Input.GetKeyDown(this.upTurnKey)){
 			this.gDown = false;
@@ -54,12 +67,12 @@ public class barrelElevator : MonoBehaviour {
 		}
 		if(this.gUP){
 			if (elevRad > this.maxElev) {
-				this.soundOn ();
+				this.playServoSoundOn();
 				this.rotateDown ();
 			}
 		}
 		if (Input.GetKeyUp (this.downTurnKey) || Input.GetKeyUp(this.upTurnKey)) {
-			this.servoSound.Stop ();
+			this.servoSoundPlayer.Stop ();
 			this.resetLed ();
 		}
 	}
@@ -72,12 +85,13 @@ public class barrelElevator : MonoBehaviour {
 		transform.Rotate (Vector3.left * Time.deltaTime * rotationSteps);
 	}
 
-	private void soundOn(){
-		this.servoSound.clip = this.servoSounding;
-		if (!this.servoSound.isPlaying) {
-			this.servoSound.Play ();
-		}
-	}
+	
+	private void playServoSoundOn(){
+        this.servoSoundPlayer.clip = this.servoSoundClip;
+        if (!this.servoSoundPlayer.isPlaying) {
+            this.servoSoundPlayer.Play ();
+        }
+    }
 
 	private void resetLed(){
 		this.gUP = false;
