@@ -1,4 +1,17 @@
 ﻿/**
+ *                    ____                  
+ *                _.' :  `._               
+ *            .-.'`.  ;   .'`.-.           
+ *   __      / : ___\ ;  /___ ; \      __  
+ * ,'_ ""--.:__;".-.";: :".-.":__;.--"" _`,
+ * :' `.t""--.. '<@.`;_  ',@>` ..--""j.' `;
+ *      `:-.._J '-.-'L__ `-- ' L_..-;'     
+ *        "-.__ ;  .-"  "-.  : __.-"       
+ *            L ' /.------.\ ' J           
+ *             "-.   "--"   .-"            
+ *            __.l"-:_JL_;-";.__           
+ *   -- Frankling Marshall es un violador --
+ *
  * turns horizontally rotationSteps current transform
  * clockwise or counterclockwise from input turn key
  * 
@@ -10,46 +23,39 @@ using UnityEngine;
 
 public class turretRoller : MonoBehaviour
 {
- public string leftTurnKey;
-    public string rightTurnKey;
+ public string leftTurnKey = "f";
+    public string rightTurnKey = "g";
     public float rotationSteps;
-    public float xPivot;
-    public float zPivot;
-    private float yRot;
-    private Vector3 tPos;
+    private float turretRotationZ;
     private AudioSource servoSoundPlayer;
     public AudioClip servoSoundClip;
     private bool gRight;
     private bool gLeft;
 
     void Start () {
-        this.yRot = this.transform.rotation.y;
+        this.turretRotationZ = this.transform.rotation.z;
         this.servoSoundPlayer = GetComponent<AudioSource> ();
         gRight = false;
         gLeft = false;
     }
-
     void Update () {
-        //Debug.Log ("here IM is only rocknroll ....");
         if(Input.GetKeyDown(this.leftTurnKey)){
             gLeft = true;
+            gRight = false;
         }
         if(gLeft){
-            this.playServoSoundOn();
-            this.yRot = this.yRot - rotationSteps;
-            Quaternion target = Quaternion.Euler(this.xPivot,this.yRot,this.zPivot);
-            this.transform.SetPositionAndRotation(this.transform.position,target);
-            //transform.Rotate(Vector3.left * Time.deltaTime * rotationSteps);///la 
+            //this.turretRotationZ = this.turretRotationZ - rotationSteps;
+            this.turretRotationZ = (Mathf.Abs(this.turretRotationZ) + rotationSteps)*-1;
+            this.rotateTurret();
         }
         if(Input.GetKeyDown(this.rightTurnKey)){
             gRight = true;
+            gLeft = false;
         }
         if(gRight){
-            this.playServoSoundOn();
-            //transform.Rotate(Vector3.right * Time.deltaTime * rotationSteps);
-            this.yRot = this.yRot + rotationSteps;
-            Quaternion target = Quaternion.Euler(this.xPivot,this.yRot,this.zPivot);
-            this.transform.SetPositionAndRotation(this.transform.position,target);
+            //this.turretRotationZ = this.turretRotationZ + rotationSteps;
+            this.turretRotationZ = Mathf.Abs(this.turretRotationZ) + rotationSteps;
+            this.rotateTurret();
         }
         if (Input.GetKeyUp (this.rightTurnKey) || Input.GetKeyUp(this.leftTurnKey)) {
             gRight = false;
@@ -58,11 +64,14 @@ public class turretRoller : MonoBehaviour
         }
     }
 
+    private void rotateTurret(){
+		this.playServoSoundOn();
+		this.transform.Rotate(0,0,this.turretRotationZ);
+	}
     private void playServoSoundOn(){
         this.servoSoundPlayer.clip = this.servoSoundClip;
         if (!this.servoSoundPlayer.isPlaying) {
             this.servoSoundPlayer.Play ();
         }
     }
-
 }
