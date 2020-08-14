@@ -1,5 +1,5 @@
 ﻿/**
- *              _.-'|         \,._
+ *              _.-'| ------- \,._
  *           .-'    |         |   ~'=-.
  *        .-'       |         |       |
  *        | ___ []  | _______ |  []   |___.-----.
@@ -29,9 +29,9 @@ using UnityEngine;
 
 public class barrelElevator : MonoBehaviour {
 
-	public string upTurnKey;
-	public string downTurnKey;
-	public float rotationSteps;
+	public string upTurnKey = "r";
+	public string downTurnKey = "t";
+	public float elevationSteps = 0.25f;
 	private AudioSource servoSoundPlayer;
 	public AudioClip servoSoundClip;
 	private bool gUP;
@@ -39,6 +39,7 @@ public class barrelElevator : MonoBehaviour {
 
 	public float minElev;
 	public float maxElev;
+	private float barrelsElevationY;
 
 	void Start () {
 		this.servoSoundPlayer = GetComponent<AudioSource>();
@@ -50,26 +51,24 @@ public class barrelElevator : MonoBehaviour {
 	}
 
 	void Update () {
-		float elevRad = this.transform.localEulerAngles.x;
+		//float elevRad = this.transform.localEulerAngles.x;
+//Debug.Log("downTurn: " + this.downTurnKey);		
+		float elevRad = this.transform.localEulerAngles.y;
 		if(Input.GetKeyDown(this.downTurnKey)){
 			this.gDown = true;
 			this.gUP = false;
-		}
-		if(this.gDown){
-			if (elevRad < this.minElev) { 						
-				this.playServoSoundOn();
-				this.rotateUp ();
-			}
+			this.barrelsElevationY = (Mathf.Abs(this.barrelsElevationY) + this.elevationSteps)*-1;
 		}
 		if(Input.GetKeyDown(this.upTurnKey)){
 			this.gDown = false;
 			this.gUP = true;
+			this.barrelsElevationY = Mathf.Abs(this.barrelsElevationY) + this.elevationSteps;
 		}
-		if(this.gUP){
-			if (elevRad > this.maxElev) {
+		if(this.gDown || this.gUP){
+			//if (elevRad < this.minElev) { 						
 				this.playServoSoundOn();
-				this.rotateDown ();
-			}
+				this.elevateBarrels();
+			//}
 		}
 		if (Input.GetKeyUp (this.downTurnKey) || Input.GetKeyUp(this.upTurnKey)) {
 			this.servoSoundPlayer.Stop ();
@@ -77,15 +76,18 @@ public class barrelElevator : MonoBehaviour {
 		}
 	}
 
-	public void rotateUp(){
+	private void elevateBarrels(){
+		this.playServoSoundOn();
+		this.transform.Rotate(0,this.barrelsElevationY,0);
+	}
+	/*public void rotateUp(){
 		transform.Rotate (Vector3.right * Time.deltaTime * rotationSteps);	
 	}
 
 	public void rotateDown(){
 		transform.Rotate (Vector3.left * Time.deltaTime * rotationSteps);
-	}
+	}*/
 
-	
 	private void playServoSoundOn(){
         this.servoSoundPlayer.clip = this.servoSoundClip;
         if (!this.servoSoundPlayer.isPlaying) {
