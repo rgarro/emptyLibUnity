@@ -1,6 +1,17 @@
 ﻿/**
- * la version trigonometrica es la que le corta la pinga al que mato al general ochoa.....
- *  
+ *                    /-----^\
+ *                   /==     |
+ *               +-o/   ==B) |            
+ *                  /__/-----|        
+ *                     =====                        
+ *                     ( \ \ \        
+ *                      \ \ \ \  
+ *                       ( ) ( )      
+ *                       / /  \ \        
+ *                     / /     | |        
+ *                     /        |  
+ *                   _^^oo    _^^oo  
+ * on key pushes bullet from given position and  rotation at given speed
  *
  * @author Rolando <rgarro@gmail.com>
  */
@@ -12,40 +23,37 @@ using UnityEngine;
 public class gunLoader : MonoBehaviour {
 
 
-	public GameObject bullet;
-	public GameObject turret;
-	public float bulletSpeed;
-	public float modelCorrectionAngle;
-	private AudioSource gunSound;
-	public AudioClip gunShot;
-	private bool is_shooting = false;
+	public GameObject bulletObj;
+	public GameObject turretObj;
+	public float bulletSpeed = 75;
+	public float correctionAngle = 90;
+	private AudioSource soundPlayer;
+	public AudioClip gunShotClip;
+	private bool shootingOn = false;
 
 	void Start () {
-		this.gunSound = GetComponent<AudioSource> ();
-		//this.gunSound.clip = gunShot;
-		this.gunSound.volume = 0.2F;
+		this.soundPlayer = GetComponent<AudioSource> ();
+		this.soundPlayer.volume = 0.2F;
 	}
 
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Space)){
-			this.is_shooting = true;
-			//this.gunSound.Play ();
+			this.shootingOn = true;
 		}
 		if (Input.GetKeyUp (KeyCode.Space)) {
-			this.is_shooting = false;
-			//this.gunSound.Stop ();
+			this.shootingOn = false;
 		}
-		if(this.is_shooting){
-			this.gunSound.clip = gunShot;
-			if (!this.gunSound.isPlaying) {
-				this.gunSound.Play ();
+		if(this.shootingOn){
+			this.soundPlayer.clip = this.gunShotClip;
+			if (!this.soundPlayer.isPlaying) {
+				this.soundPlayer.Play ();
 			}
-			float rotX = this.transform.localEulerAngles.x + modelCorrectionAngle;
-			Quaternion rotation = Quaternion.Euler(rotX,turret.transform.eulerAngles.y,this.transform.localEulerAngles.z);
+			float rotX = this.transform.localEulerAngles.x + this.correctionAngle;
+			Quaternion rotation = Quaternion.Euler(rotX,this.turretObj.transform.eulerAngles.y,this.transform.localEulerAngles.z);
 			Vector3 position = new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z);
-			GameObject go = (GameObject)Instantiate (bullet,position,rotation);
+			GameObject go = (GameObject)Instantiate (this.bulletObj,position,rotation);
 			Rigidbody rb =  go.GetComponent<Rigidbody>();
-			rb.velocity = transform.forward * bulletSpeed;
+			rb.velocity = transform.forward * this.bulletSpeed;
 		}
 	}
 }
