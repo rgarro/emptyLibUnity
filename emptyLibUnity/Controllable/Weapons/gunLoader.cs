@@ -48,8 +48,12 @@ public class gunLoader : MonoBehaviour {
 			if (!this.soundPlayer.isPlaying) {
 				this.soundPlayer.Play ();
 			}
-			float rotX = this.transform.localEulerAngles.x + this.correctionAngle;
-			Quaternion rotation = Quaternion.Euler(rotX,this.turretObj.transform.eulerAngles.y,this.transform.localEulerAngles.z);
+			//float rotX = this.transform.localEulerAngles.x + this.correctionAngle;
+			//Quaternion rotation = Quaternion.Euler(rotX,this.turretObj.transform.eulerAngles.y,this.transform.localEulerAngles.z);
+			float rotationX = this.transform.localEulerAngles.x;// + this.correctionAngle;
+			float elevationY = this.transform.localEulerAngles.y;
+			float horizontalRotationZ = this.turretObj.transform.localEulerAngles.z; 
+			Quaternion rotation = Quaternion.Euler(rotationX,elevationY,horizontalRotationZ);
 			Vector3 position = new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z);
 			GameObject go = (GameObject)Instantiate (this.bulletObj,position,rotation);
 			Rigidbody rb =  go.GetComponent<Rigidbody>();
