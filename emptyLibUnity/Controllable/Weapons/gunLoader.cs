@@ -51,10 +51,13 @@ public class gunLoader : MonoBehaviour {
 			//float rotX = this.transform.localEulerAngles.x + this.correctionAngle;
 			//Quaternion rotation = Quaternion.Euler(rotX,this.turretObj.transform.eulerAngles.y,this.transform.localEulerAngles.z);
 			float rotationX = this.transform.localEulerAngles.x;// + this.correctionAngle;
-			float elevationY = this.transform.localEulerAngles.y;
-			float horizontalRotationZ = this.turretObj.transform.localEulerAngles.z; 
+			//float elevationY = this.transform.localEulerAngles.y;
+			float elevationY = (this.transform.rotation.y-90);//this.correctionAngle;
+Debug.Log("elevY9: "+elevationY);			
+			float horizontalRotationZ = (this.turretObj.transform.localEulerAngles.z-180);
+Debug.Log("horizZ: " + horizontalRotationZ);			 
 			Quaternion rotation = Quaternion.Euler(rotationX,elevationY,horizontalRotationZ);
-			Vector3 position = new Vector3(this.transform.position.x,this.transform.position.y,this.transform.position.z);
+			Vector3 position = new Vector3(this.turretObj.transform.position.x,this.turretObj.transform.position.y,this.turretObj.transform.position.z);
 			GameObject go = (GameObject)Instantiate (this.bulletObj,position,rotation);
 			Rigidbody rb =  go.GetComponent<Rigidbody>();
 			rb.velocity = transform.forward * this.bulletSpeed;
