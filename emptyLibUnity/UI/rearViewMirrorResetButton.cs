@@ -25,7 +25,7 @@ using UnityEngine;
  * Displays ON /OFF button for rearView mirror
  * more than one camera should be avoided on webGl
  *
- *@author Rolando<rgarro@gmail.com> 
+ *@author Rolando<rgarro@gmail.com>
  */
 public class rearViewMirrorResetButton : MonoBehaviour
 {
@@ -35,15 +35,14 @@ public class rearViewMirrorResetButton : MonoBehaviour
     public float IconY = 10;
     public float IconWidth = 45;
     public float IconHeight = 45;
-    
-    // Start is called before the first frame update
+
     void Start()
     {
-        
+
     }
 
     void OnGUI(){
-        if(GUI.Button(new Rect (this.IconX,this.IconY,this.IconWidth,this.IconHeight),this.rearViewMirrorIcon)) 
+        if(GUI.Button(new Rect (this.IconX,this.IconY,this.IconWidth,this.IconHeight),this.rearViewMirrorIcon))
         {
             this.doReset();
         }
@@ -56,9 +55,9 @@ public class rearViewMirrorResetButton : MonoBehaviour
             this.rearViewMirrorObj.SetActive(true);
         }
     }
-    // Update is called once per frame
+
     void Update()
     {
-        
+
     }
 }
