@@ -31,12 +31,31 @@ public class rearViewMirrorResetButton : MonoBehaviour
 {
     public Texture2D rearViewMirrorIcon;
     public GameObject rearViewMirrorObj;
+    public float IconX = 234;
+    public float IconY = 10;
+    public float IconWidth = 45;
+    public float IconHeight = 45;
+    
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
+    void OnGUI(){
+        if(GUI.Button(new Rect (this.IconX,this.IconY,this.IconWidth,this.IconHeight),this.rearViewMirrorIcon)) 
+        {
+            this.doReset();
+        }
+    }
+
+    protected void doReset(){
+        if(this.rearViewMirrorObj.activeSelf){
+            this.rearViewMirrorObj.SetActive(false);
+        }else{
+            this.rearViewMirrorObj.SetActive(true);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
