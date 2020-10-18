@@ -23,12 +23,13 @@ public class LamboDoor : MonoBehaviour
   public float openedDoorAngle;
   public float closedDoorAngle;
   public int doorSteps;
-  public AudioSource audioData;
+  public AudioClip closeDoorSound;
+  private AudioSource audioPlayer;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.audioData = GetComponent<AudioSource>();
+        this.audioPlayer = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -51,6 +52,7 @@ public class LamboDoor : MonoBehaviour
     }
 
     void playCloseSound(){
-      
+      this.audioPlayer.clip = this.closeDoorSound;
+      this.audioPlayer.Play();
     }
 }
