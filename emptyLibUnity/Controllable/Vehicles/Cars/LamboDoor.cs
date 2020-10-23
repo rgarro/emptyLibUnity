@@ -25,11 +25,18 @@ public class LamboDoor : MonoBehaviour
   public int doorSteps;
   public AudioClip closeDoorSound;
   private AudioSource audioPlayer;
+  public bool startWithOpenDoors = true;
 
     // Start is called before the first frame update
     void Start()
     {
         this.audioPlayer = GetComponent<AudioSource>();
+        if(this.startWithOpenDoors){
+          this.setOpen();
+        }
+        if(!this.startWithOpenDoors){
+          this.setClose();
+        }
     }
 
     // Update is called once per frame
@@ -40,10 +47,26 @@ public class LamboDoor : MonoBehaviour
 
     void closeRightDoor()
     {
-
+      //neg y
     }
 
     void closeLeftDoor(){
+
+    }
+
+    void openBoth(){
+
+    }
+
+    void closeBoth(){
+
+    }
+
+    void setOpen(){
+
+    }
+
+    void setClose(){
 
     }
 
