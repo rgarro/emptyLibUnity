@@ -42,6 +42,9 @@ public class LamboDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      if(this.startWithOpenDoors){
+        this.closeBoth();
+      }
 
     }
 
@@ -63,7 +66,7 @@ public class LamboDoor : MonoBehaviour
     }
 
     void setOpen(){
-
+      this.RightDoor.transform.rotation.y = this.openedDoorAngle;
     }
 
     void setClose(){
