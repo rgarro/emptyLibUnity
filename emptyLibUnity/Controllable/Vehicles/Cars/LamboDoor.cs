@@ -66,7 +66,8 @@ public class LamboDoor : MonoBehaviour
     }
 
     void setOpen(){
-      this.RightDoor.transform.rotation.y = this.openedDoorAngle;
+      this.RightDoor.transform.Rotate(this.RightDoor.transform.rotation.x,(this.openedDoorAngle *-1),this.RightDoor.transform.rotation.z);
+      this.LeftDoor.transform.Rotate(this.LeftDoor.transform.rotation.x,this.openedDoorAngle,this.LeftDoor.transform.rotation.z);
     }
 
     void setClose(){
