@@ -24,6 +24,7 @@ public class LamboDoor : MonoBehaviour
   public float closedDoorAngle;
   public int doorSteps;
   public AudioClip closeDoorSound;
+  public AudioClip openDoorSound;
   private AudioSource audioPlayer;
   public bool startWithOpenDoors = true;
 
@@ -76,7 +77,8 @@ public class LamboDoor : MonoBehaviour
     }
 
     void playOpenSound(){
-
+      this.audioPlayer.clip = this.openDoorSound;
+      this.audioPlayer.Play();
     }
 
     void playCloseSound(){
