@@ -49,13 +49,15 @@ public class LamboDoor : MonoBehaviour
 
     }
 
-    void closeRightDoor()
+    void closingRightDoor()
     {
-      //neg y
+      
     }
 
-    void closeLeftDoor(){
-
+    void closingLeftDoor(){
+      if(this.LeftDoor.transform.rotation.y >this.closedDoorAngle){
+        this.LeftDoor.transform.Rotate(this.LeftDoor.transform.rotation.x,(this.LeftDoor.transform.rotation.y - this.doorSteps),this.LeftDoor.transform.rotation.z);
+      }
     }
 
     void openBoth(){
