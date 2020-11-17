@@ -27,6 +27,7 @@ public class LamboDoor : MonoBehaviour
   public AudioClip openDoorSound;
   private AudioSource audioPlayer;
   public bool startWithOpenDoors = true;
+  public bool closeDoors = true;
 
     // Start is called before the first frame update
     void Start()
@@ -44,14 +45,21 @@ public class LamboDoor : MonoBehaviour
     void Update()
     {
       if(this.startWithOpenDoors){
-        this.closeBoth();
+        this.setOpen();
+        this.startWithOpenDoors = false;
+      }
+      if(this.closeDoors){
+        this.closingLeftDoor();
+        this.closingRightDoor();
       }
 
     }
 
     void closingRightDoor()
     {
-      
+      if(this.rightDoor.transform.rotation.y > (this.closedDoorAngle * -1)){
+        this.rightDoor.transform.Rotate(this.rightDoor.transform.rotation.x,(this.rightDoor.transform.rotation.y - this.doorSteps),this.rightDoor.transform.rotation.z);
+      }
     }
 
     void closingLeftDoor(){
