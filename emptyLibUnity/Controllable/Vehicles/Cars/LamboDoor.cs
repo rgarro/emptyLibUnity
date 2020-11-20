@@ -22,7 +22,7 @@ public class LamboDoor : MonoBehaviour
   public GameObject RightDoor;
   public float openedDoorAngle;
   public float closedDoorAngle;
-  public int doorSteps;
+  public float doorSteps;
   public AudioClip closeDoorSound;
   public AudioClip openDoorSound;
   private AudioSource audioPlayer;
@@ -44,10 +44,6 @@ public class LamboDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if(this.startWithOpenDoors){
-        this.setOpen();
-        this.startWithOpenDoors = false;
-      }
       if(this.closeDoors){
         this.closingLeftDoor();
         this.closingRightDoor();
@@ -57,10 +53,12 @@ public class LamboDoor : MonoBehaviour
 
     void closingRightDoor()
     {
+ Debug.Log("closing left");     
       if(this.RightDoor.transform.rotation.y > (this.closedDoorAngle * -1)){
         this.RightDoor.transform.Rotate(this.RightDoor.transform.rotation.x,(this.RightDoor.transform.rotation.y - this.doorSteps),this.RightDoor.transform.rotation.z);
       }else{
         this.closeDoors = false;
+        this.playCloseSound();
       }
     }
 
@@ -69,6 +67,7 @@ public class LamboDoor : MonoBehaviour
         this.LeftDoor.transform.Rotate(this.LeftDoor.transform.rotation.x,(this.LeftDoor.transform.rotation.y - this.doorSteps),this.LeftDoor.transform.rotation.z);
       }else{
         this.closeDoors = false;
+        this.playCloseSound();
       }
     }
 
@@ -83,11 +82,14 @@ public class LamboDoor : MonoBehaviour
     void setOpen(){
       this.RightDoor.transform.Rotate(this.RightDoor.transform.rotation.x,(this.openedDoorAngle *-1),this.RightDoor.transform.rotation.z);
       this.LeftDoor.transform.Rotate(this.LeftDoor.transform.rotation.x,this.openedDoorAngle,this.LeftDoor.transform.rotation.z);
+      this.startWithOpenDoors = false;
+      this.playOpenSound();
     }
 
     void setClose(){
       this.RightDoor.transform.Rotate(this.RightDoor.transform.rotation.x,(this.closedDoorAngle *-1),this.RightDoor.transform.rotation.z);
       this.LeftDoor.transform.Rotate(this.LeftDoor.transform.rotation.x,this.closedDoorAngle,this.LeftDoor.transform.rotation.z);
+      this.playCloseSound();
     }
 
     void playOpenSound(){
