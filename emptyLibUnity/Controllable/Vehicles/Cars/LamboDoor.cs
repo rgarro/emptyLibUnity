@@ -6,7 +6,7 @@ using UnityEngine;
  *              __.. ' _'.""""""\\""""""""- .`-._
  *  ______.-'         (_) |      \\           ` \\`-. _
  * /_       --------------'-------\\---....______\\__`.`  -..___
- * | T      _.----._           Xxx|x...           |          _.._`--. _
+ * | T      _.----._          XXxx|x...           |          _.._`--. _
  * | |    .' ..--.. `.         XXX|XXXXXXXXXxx==  |       .'.---..`.     -._
  * \_j   /  /  __  \  \        XXX|XXXXXXXXXXX==  |      / /  __  \ \        `-.
  * _|  |  |  /  \  |  |       XXX|""'            |     / |  /  \  | |          |
@@ -36,9 +36,9 @@ public class LamboDoor : MonoBehaviour
         if(this.startWithOpenDoors){
           this.setOpen();
         }
-        if(!this.startWithOpenDoors){
+        /*if(!this.startWithOpenDoors){
           this.setClose();
-        }
+        }*/
     }
 
     // Update is called once per frame
@@ -53,7 +53,7 @@ public class LamboDoor : MonoBehaviour
 
     void closingRightDoor()
     {
- Debug.Log("closing left");     
+ Debug.Log("closing left");
       if(this.RightDoor.transform.rotation.y > (this.closedDoorAngle * -1)){
         this.RightDoor.transform.Rotate(this.RightDoor.transform.rotation.x,(this.RightDoor.transform.rotation.y - this.doorSteps),this.RightDoor.transform.rotation.z);
       }else{
