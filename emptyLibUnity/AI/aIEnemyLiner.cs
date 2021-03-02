@@ -27,6 +27,7 @@ public class aIEnemyLiner : MonoBehaviour {
 	public float spawnWait;
 	public float startWait;
 	public float waveWait;
+	public float distanceFromSpanwnX = 100;
 	//public Text scoreBox;
 	public int Score;
 	//public dashBoard theDashBoard;
@@ -43,7 +44,7 @@ public class aIEnemyLiner : MonoBehaviour {
 		yield return new WaitForSeconds (startWait);
 		while(true){
 			for (int i = 0; i < hazardCount; i++) {
-				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+				Vector3 spawnPosition = new Vector3 (Random.Range (spawnValues.x - distanceFromSpanwnX, spawnValues.x + distanceFromSpanwnX), spawnValues.y, spawnValues.z);
 				Quaternion spawnRotation = Quaternion.identity;
 				if(this.count%2 == 0){
 					Instantiate (hazard, spawnPosition, spawnRotation);
