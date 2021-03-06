@@ -39,4 +39,12 @@ public class jetMover : MonoBehaviour {
 
 	}
 
+	void diveLeft(){
+
+	}
+
+	void diveRight(){
+		
+	}
+
 }
