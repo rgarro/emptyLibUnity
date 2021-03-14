@@ -16,7 +16,7 @@ using UnityEngine;
  *                              .'   .''.._'______.'                '-'
  *                              '---'
  *   ==== -- TheContrasAI Mig version -- ===== 
- * Jonas Sabimbi tomo un veneno que envenena la muerte ...  
+ * Jonas Sabimbi tomo un veneno que envenena la muerte ..  
  *
  *@autor Rolando <rgarro@gmail.com>
  */
@@ -32,7 +32,7 @@ public class theContrasAIMig : MonoBehaviour
     private float distanceFromBTR;
     public int mm23CannonDamping;
     private float nextFire = 0;
-    public float fireRate = 0.25f;//float in the summer sky 99 red ballons go by ....
+    public float fireRate = 0.27f;//float in the summer sky 99 red ballons go by ....
     public ParticleSystem muzzleFlash;
     public GameObject impactEffect;
     private AudioSource gunSound;
@@ -78,7 +78,7 @@ Debug.DrawLine(this.transform.position,this.transform.position + (this.transform
     }
 
     private IEnumerator ShotEffect(){
-        //this.gunSound.Play();
+        this.gunSound.Play();
         this.laserLine.enabled = true;
         yield return this.shotDuration;
         this.laserLine.enabled = false;
