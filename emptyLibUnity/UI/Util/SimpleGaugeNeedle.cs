@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 /**
  * Tilts Gauge Needle from pivot adjusting tilter value from needle far side z rotations value
+ * LIM farright, farleft = (x/cosY)*H
+ * Calculus diferentiation to figure out a gauge ui
+ * slope = rise/run alaways a rate
  *
  * @author Rolando <rgarro@gmail.com>
  */
@@ -34,6 +37,7 @@ namespace emptyLibUnity.UI.Util {
 
 	protected void setRotation(){
 		//LIM farright, farleft = (x/cosY)*H
+		//slope = rise/run alaways a rate
 		string current_style = this.styles[this.selectedStyleKey];
 		switch(current_style){
 			case "descending":
