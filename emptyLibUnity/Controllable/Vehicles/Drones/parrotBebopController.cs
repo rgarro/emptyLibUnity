@@ -11,6 +11,7 @@ public class parrotBebopController : MonoBehaviour
     void Start()
     {
         this.ani = GetComponent<Animator>();
+        //this.ani.Play("HelipadsBL");
     }
 
     // Update is called once per frame
