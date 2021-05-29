@@ -6,29 +6,31 @@ public class heliRotator : MonoBehaviour
 {
     
     public GameObject heliPad;
-    public float rotationSteps = 0.37f;
+    public float rotationSteps = 0.87f;
     public bool turnClocwise = true;
+    private float helipadRotationZ;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.helipadRotationZ = this.heliPad.transform.rotation.z;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(this.turnClocwise){
-            this.heliPad.transform.rotation.z += this.rotationSteps;
-        } else {
-            this.heliPad.transform.rotation.z += this.rotationSteps * -1;
-        }
-        /*
-        Vector3 lookPos = target. position - transform. position;
-Quaternion lookRot = Quaternion. LookRotation(lookPos, Vector3. up);
-float eulerY = lookRot. eulerAngles. y;
-Quaternion rotation = Quaternion. Euler (0, eulerY, 0);
-transform. rotation = rotation;
-        */
+       this.rotateHelipad();
     }
+
+    private void rotateHelipad(){
+		//this.playHeliEngineSoundOn();
+        if(this.turnClocwise){
+            //this.heliPad.transform.rotation.z += this.rotationSteps;//threejs way
+            this.helipadRotationZ += this.rotationSteps;
+        } else {
+            this.helipadRotationZ -= this.rotationSteps;
+        }
+		this.heliPad.transform.Rotate(0,0,this.helipadRotationZ+this.rotationSteps);
+	}
+
 }
