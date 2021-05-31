@@ -17,9 +17,10 @@ public class parrotBebopController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //this.ani.wrapMode=WrapMode.Loop
         this.ani.Play("HelipadsBL");
-        this.ani.Play("HelipadsBR");
+       /* this.ani.Play("HelipadsBR");
         this.ani.Play("HelipadsFL");
-        this.ani.Play("HelipadsFR");
+        this.ani.Play("HelipadsFR");*/
     }
 }
