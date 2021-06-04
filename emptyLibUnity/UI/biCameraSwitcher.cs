@@ -20,7 +20,7 @@ public class biCameraSwitcher : MonoBehaviour
 {
     protected bool gun_camera_is_hidden =  true;//forklift carriage camera
     protected bool follow_camera_is_hidden =  false;
-    protected int buttons_x_corner = 200;
+    public int buttons_x_corner = 200;
 
     public GUISkin btnSkin;
     public Texture2D GunCamera2d;
