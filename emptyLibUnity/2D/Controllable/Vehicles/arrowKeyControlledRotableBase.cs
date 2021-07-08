@@ -15,7 +15,7 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
 {
 
     public float rotationSteps = 3.014f;
-    private GameObject TheBase;
+    public GameObject TheBase;
     private AudioSource servoSoundPlayer;
 	public AudioClip servoSoundClip;
 
@@ -23,7 +23,7 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
     void Start()
     {
         this.servoSoundPlayer = GetComponent<AudioSource>();
-        this.TheBase = GetComponent<GameObject>();
+        //this.TheBase = GetComponent<GameObject>();
     }
 
     private void keyListeners(){
@@ -48,23 +48,26 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
 
      private void leftArrowAction(){
         Debug.Log("left arrow action ...");
+        this.playServoSoundOn();
         float rotate = this.TheBase.transform.rotation.z + this.rotationSteps;
          this.TheBase.transform.Rotate(0,0,rotate);
     }
     private void rightArrowAction(){
         Debug.Log("right arrow action ...");
-        float rotate = this.TheBase.transform.rotation.z + this.rotationSteps;
+        this.playServoSoundOn();
+        float rotate = this.TheBase.transform.rotation.z - this.rotationSteps;
         this.TheBase.transform.Rotate(0,0,rotate);
+        
+    }
+
+    private void upArrowAction(){
+        Debug.Log("upArrowAction here...");
         /*
         If you have the hypotenuse, multiply it by sin(θ) to get the length of the side opposite to the angle.
          Alternatively, multiply the hypotenuse by cos(θ) to get the side adjacent to the angle.
           If you have the non-hypotenuse side adjacent to the angle, divide it by cos(θ) to get the length of the hypotenuse.
         */
-    }
-
-    private void upArrowAction(){
-        Debug.Log("upArrowAction here...");
-        this.playServoSoundOn();
+        
     }
 
     private void downArrowAction(){
