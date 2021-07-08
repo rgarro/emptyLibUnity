@@ -19,9 +19,21 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
         
     }
 
+    private void keyListeners(){
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            this.upArrowAction();
+        }
+    }
+
+    private void upArrowAction(){
+        Debug.Log("upArrowAction here...");
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+        this.keyListeners();
     }
+
 }
