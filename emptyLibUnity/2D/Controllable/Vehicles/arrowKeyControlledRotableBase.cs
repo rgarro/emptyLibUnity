@@ -7,7 +7,9 @@ using UnityEngine;
 * I███████████████████].
 * ◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤...
 *
-* c mayor scale controlling a sprite with triangulated forward from a qwerty input  
+* c mayor scale controlled tile with triangulated forward from a qwerty input  
+* like if the base were a kitesurf board x'ing an infinite rienman sum 
+* the pytagorean 2d stepper
 *
 *@author Rolando <rgarro@gmail.com>
 */
@@ -15,15 +17,20 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
 {
 
     public float rotationSteps = 3.014f;
+    public float forwardSteps = 5.014f;
     public GameObject TheBase;
     private AudioSource servoSoundPlayer;
 	public AudioClip servoSoundClip;
+    private float tetha = 0.00f;//the angle
+    private float nextX;
+    private float nextY;
 
     // Start is called before the first frame update
     void Start()
     {
         this.servoSoundPlayer = GetComponent<AudioSource>();
         //this.TheBase = GetComponent<GameObject>();
+        this.tetha = this.TheBase.transform.rotation.z;
     }
 
     private void keyListeners(){
@@ -47,31 +54,48 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
 
 
      private void leftArrowAction(){
-        Debug.Log("left arrow action ...");
+        //Debug.Log("left arrow action ...");
         this.playServoSoundOn();
-        float rotate = this.TheBase.transform.rotation.z + this.rotationSteps;
-         this.TheBase.transform.Rotate(0,0,rotate);
+        this.tetha = this.TheBase.transform.rotation.z + this.rotationSteps;
+         this.TheBase.transform.Rotate(0,0,this.tetha);
     }
     private void rightArrowAction(){
-        Debug.Log("right arrow action ...");
+        //Debug.Log("right arrow action ...");
         this.playServoSoundOn();
-        float rotate = this.TheBase.transform.rotation.z - this.rotationSteps;
-        this.TheBase.transform.Rotate(0,0,rotate);
+        this.tetha = this.TheBase.transform.rotation.z - this.rotationSteps;
+        this.TheBase.transform.Rotate(0,0,this.tetha);
         
     }
 
     private void upArrowAction(){
         Debug.Log("upArrowAction here...");
-        /*
-        If you have the hypotenuse, multiply it by sin(θ) to get the length of the side opposite to the angle.
-         Alternatively, multiply the hypotenuse by cos(θ) to get the side adjacent to the angle.
-          If you have the non-hypotenuse side adjacent to the angle, divide it by cos(θ) to get the length of the hypotenuse.
-        */
-        
+        this.calculateNexts(true);
+        this.TheBase.transform.Translate(this.nextX,this.nextY,0);
     }
 
     private void downArrowAction(){
         Debug.Log("downArrowAction here...");
+        this.calculateNexts(false);
+        this.TheBase.transform.Translate(this.nextX,this.nextY,0);
+    }
+
+    private void calculateNexts(bool goForward=true){
+        /**
+        * fractally speaking c blues smoke in the water pytagorean 2d stepper
+        If you have the hypotenuse, multiply it by sin(θ) to get the length of the side opposite to the angle.
+         Alternatively, multiply the hypotenuse by cos(θ) to get the side adjacent to the angle.
+          If you have the non-hypotenuse side adjacent to the angle, divide it by cos(θ) to get the length of the hypotenuse.
+        */
+        float hypotenuse = this.forwardSteps;
+        float oppositeSide = hypotenuse * Mathf.Sin(this.tetha);
+        float adjacentSide = hypotenuse *Mathf.Cos(this.tetha);
+        if(goForward){
+            this.nextX = this.TheBase.transform.position.x + adjacentSide;
+            this.nextY = this.TheBase.transform.position.y + oppositeSide;
+        } else{
+            this.nextX = this.TheBase.transform.position.x - adjacentSide;
+            this.nextY = this.TheBase.transform.position.y - oppositeSide;
+        }
     }
 
     private void playServoSoundOn(){
