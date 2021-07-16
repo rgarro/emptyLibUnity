@@ -19,17 +19,19 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
     public float rotationSteps = 3.014f;
     public float forwardSteps = 5.014f;
     public GameObject TheBase;
+    //private GameObject TheBase;
     private AudioSource servoSoundPlayer;
 	public AudioClip servoSoundClip;
     private float tetha = 0.00f;//the angle
     private float nextX;
     private float nextY;
+    public float screenBodyCorrectionNorthDegrees = 90.00f;//si uno esta frente a la tetha de mongongui de donde vienen los space invaders? 
 
     // Start is called before the first frame update
     void Start()
     {
         this.servoSoundPlayer = GetComponent<AudioSource>();
-        //this.TheBase = GetComponent<GameObject>();
+        //this.TheBase = GetComponent<GameObject>();//meter el objeto dentro del calculador de la tetha provoca el problema
         this.tetha = this.TheBase.transform.rotation.z;
     }
 
@@ -87,8 +89,16 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
           If you have the non-hypotenuse side adjacent to the angle, divide it by cos(θ) to get the length of the hypotenuse.
         */
         float hypotenuse = this.forwardSteps;
-        float oppositeSide = hypotenuse * Mathf.Sin(this.tetha);
-        float adjacentSide = hypotenuse *Mathf.Cos(this.tetha);
+        float corretedTetha = this.tetha + this.screenBodyCorrectionNorthDegrees;
+        //float oppositeSide = hypotenuse * Mathf.Sin(this.tetha);
+        //float adjacentSide = hypotenuse *Mathf.Cos(this.tetha);
+        float oppositeSide = hypotenuse * Mathf.Sin(corretedTetha);
+        float adjacentSide = hypotenuse *Mathf.Cos(corretedTetha);
+        Debug.Log("la tetha de tomar cafe de modongui: " + this.tetha);
+       Debug.Log("la tetha corregida: "+corretedTetha);//solo mondongui sabe donde esta el quacker de calle blancos
+       //dijeron que el dia que se graduara el primero mataban al profesor de termodinamica
+       // en nicaragua matan periodistas , en costarica desaparecen profesores
+       // muchos graduados del conservatorio castella padecen de SIDA y han posado de profesores de u privada
         if(goForward){
             this.nextX = this.TheBase.transform.position.x + adjacentSide;
             this.nextY = this.TheBase.transform.position.y + oppositeSide;
@@ -96,6 +106,7 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
             this.nextX = this.TheBase.transform.position.x - adjacentSide;
             this.nextY = this.TheBase.transform.position.y - oppositeSide;
         }
+        Debug.Log("x: "+this.nextX+" y: "+this.nextY);
     }
 
     private void playServoSoundOn(){

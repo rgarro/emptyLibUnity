@@ -25,7 +25,7 @@ using UnityEngine;
 *      \|   |\ \________/ /|   |/
 *       \___|-\|________|/-|___/
 * Transformers are always shooting and pointing guns
-* fighting autobots are the disease ...
+* autobots are the disease ...
 *
 *@author Rolando<rgarro@gmail.com>
 */
