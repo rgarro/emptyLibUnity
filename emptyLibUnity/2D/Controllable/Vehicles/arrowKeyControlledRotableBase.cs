@@ -96,9 +96,7 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
         float adjacentSide = hypotenuse *Mathf.Cos(corretedTetha);
         Debug.Log("la tetha de tomar cafe de modongui: " + this.tetha);
        Debug.Log("la tetha corregida: "+corretedTetha);//solo mondongui sabe donde esta el quacker de calle blancos
-       //dijeron que el dia que se graduara el primero mataban al profesor de termodinamica
-       // en nicaragua matan periodistas , en costarica desaparecen profesores
-       // muchos graduados del conservatorio castella padecen de SIDA y han posado de profesores de u privada
+       
         if(goForward){
             this.nextX = this.TheBase.transform.position.x + adjacentSide;
             this.nextY = this.TheBase.transform.position.y + oppositeSide;
