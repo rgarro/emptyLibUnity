@@ -16,11 +16,11 @@ public class sumMover : MonoBehaviour
     void nextStep(){
         //gameObject.transform.position.y = gameObject.transform.position.y - this.stepsDown;
         //transform.Translate(Vector3.forward * Time.deltaTime);
-        float x = this.bodyToMove.transform.position.x;
-        float y = this.bodyToMove.transform.position.y - this.stepsDown;
-        float z = this.bodyToMove.transform.position.z;
+        //float x = this.bodyToMove.transform.position.x;
+        //float y = this.bodyToMove.transform.position.y - this.stepsDown;
+        //float z = this.bodyToMove.transform.position.z;
         //this.bodyToMove.transform.Translate(x,y,z);
-        transform.Translate(x,y,z);
+        transform.Translate(0,Time.deltaTime,0);   
     }
 
     // Update is called once per frame

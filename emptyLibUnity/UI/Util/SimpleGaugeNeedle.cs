@@ -22,7 +22,7 @@ namespace emptyLibUnity.UI.Util {
 	protected double tilter;
 	protected double rotation;
 	private double rotationZ = 15.2F;
-	private bool tilterIsSet = false; 
+	//private bool tilterIsSet = false; 
 	protected string[] styles = new string[]{"descending"};
 	public int selectedStyleKey = 0;
 	void Start () {
