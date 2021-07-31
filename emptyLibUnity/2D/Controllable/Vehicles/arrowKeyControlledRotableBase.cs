@@ -22,6 +22,7 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
     //private GameObject TheBase;
     private AudioSource servoSoundPlayer;
 	public AudioClip servoSoundClip;
+    public AudioClip engineSoundClip;
     private float tetha = 0.00f;//the angle
     private float nextX;
     private float nextY;
@@ -70,15 +71,19 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
     }
 
     private void upArrowAction(){
-        Debug.Log("upArrowAction here...");
+        //Debug.Log("upArrowAction here...");
         this.calculateNexts(true);
-        this.TheBase.transform.Translate(this.nextX,this.nextY,0);
+        //this.TheBase.transform.Translate(this.nextX,this.nextY,0);
+        this.playEngineSoundOn();
+        this.TheBase.transform.Translate(Vector3.right * Time.deltaTime);
     }
 
     private void downArrowAction(){
-        Debug.Log("downArrowAction here...");
+        //Debug.Log("downArrowAction here...");
         this.calculateNexts(false);
-        this.TheBase.transform.Translate(this.nextX,this.nextY,0);
+        //this.TheBase.transform.Translate(this.nextX,this.nextY,0);
+        this.playEngineSoundOn();
+        this.TheBase.transform.Translate(Vector3.left * Time.deltaTime);
     }
 
     private void calculateNexts(bool goForward=true){
@@ -94,8 +99,8 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
         //float adjacentSide = hypotenuse *Mathf.Cos(this.tetha);
         float oppositeSide = hypotenuse * Mathf.Sin(corretedTetha);
         float adjacentSide = hypotenuse *Mathf.Cos(corretedTetha);
-        Debug.Log("la tetha de tomar cafe de modongui: " + this.tetha);
-       Debug.Log("la tetha corregida: "+corretedTetha);//solo mondongui sabe donde esta el quacker de calle blancos
+        //Debug.Log("la tetha de tomar cafe de modongui: " + this.tetha);
+      // Debug.Log("la tetha corregida: "+corretedTetha);//solo mondongui sabe donde esta el quacker de calle blancos
        
         if(goForward){
             this.nextX = this.TheBase.transform.position.x + adjacentSide;
@@ -109,6 +114,13 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
 
     private void playServoSoundOn(){
         this.servoSoundPlayer.clip = this.servoSoundClip;
+        if (!this.servoSoundPlayer.isPlaying) {
+            this.servoSoundPlayer.Play ();
+        }
+    }
+
+     private void playEngineSoundOn(){
+        this.servoSoundPlayer.clip = this.engineSoundClip;
         if (!this.servoSoundPlayer.isPlaying) {
             this.servoSoundPlayer.Play ();
         }
