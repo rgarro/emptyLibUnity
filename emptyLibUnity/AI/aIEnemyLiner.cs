@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine;
 using UnityEngine.UI;
 /**
  *      _..--""````""--.._
@@ -59,16 +58,7 @@ public class aIEnemyLiner : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void Start () {
-		StartCoroutine(spawnWaves ());
-		this.UpdateScore ();
-		//this.theDashBoard = GameObject.AddComponent<dashBoard> as dashBoard;
-	}
-
-	// Update is called once per frame
-	void Update () {
-
-	}
+	   
 
 	void OnGUI(){
 		GUI.Label(new Rect(410,10,150,20),this.theScore);
