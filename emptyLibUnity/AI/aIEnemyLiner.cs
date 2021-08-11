@@ -55,23 +55,11 @@ public class aIEnemyLiner : MonoBehaviour {
 			}
 			yield return new WaitForSeconds (waveWait);
 		}
-	}
-
-	// Use this for initialization
-	   
+	}  
 
 	void OnGUI(){
 		GUI.Label(new Rect(410,10,150,20),this.theScore);
 
-		/*if (GUI.Button (new Rect (10,10, 50, 50), this.RestartIcon))
-        {
-            //print ("you clicked the icon");
-			this.doRestart();//Confirm Box Here
-        }*/
-		/*if (GUI.Button (new Rect (this.dbPicX,this.dbPicY, 40, 60), this.dashBoardPicIcon))
-        {
-            Debug.Log("jodido ...");
-        }*/
 	}
 
 	public void addScore(int scoreValue){
@@ -82,10 +70,5 @@ public class aIEnemyLiner : MonoBehaviour {
 	void UpdateScore(){
 		this.theScore = Score  + " points";
 	}
-
-	/*public void doRestart(){
-		//Debug.Log("will restart");
-		Application.LoadLevel(Application.loadedLevel);
-	}*/
 
 }
