@@ -36,8 +36,19 @@ public class enemyLiner : MonoBehaviour {
 	//public float dbPicX = 600;
 	//public float dbPicY = 10;
 	//public int count = 0;
+	public float windowX = 10;
+    public float windowY = 65;
+    public float windowHeight = 170;
+    public float windowWidth = 150;
+	private Rect windowRect;
+
+	void Start(){
+		this.UpdateScore();
+		StartCoroutine(spawnWaves());
+	}
 
 	IEnumerator spawnWaves(){
+Debug.Log("spawning waves ...");
 		yield return new WaitForSeconds (startWait);
 		while(true){
 			for (int i = 0; i < hazardCount; i++) {
@@ -52,7 +63,11 @@ public class enemyLiner : MonoBehaviour {
 	}
 
 	void OnGUI(){
-		GUI.Label(new Rect(410,10,150,20),this.theScore);
+Debug.Log("starting on gui ..."+this.theScore);		
+Debug.Log("starting on gui ..."+this.theScore);
+		this.windowRect = new Rect(this.windowX,this.windowY,this.windowHeight,this.windowWidth);
+        //this.windowRect = GUI.Window(0,windowRect,WindowFunction,this.labelString);		
+		GUI.Label(this.windowRect,this.theScore);
 	}
 
 	public void addScore(int scoreValue){
