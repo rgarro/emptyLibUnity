@@ -63,10 +63,7 @@ Debug.Log("spawning waves ...");
 	}
 
 	void OnGUI(){
-Debug.Log("starting on gui ..."+this.theScore);		
-Debug.Log("starting on gui ..."+this.theScore);
-		this.windowRect = new Rect(this.windowX,this.windowY,this.windowHeight,this.windowWidth);
-        //this.windowRect = GUI.Window(0,windowRect,WindowFunction,this.labelString);		
+		this.windowRect = new Rect(this.windowX,this.windowY,this.windowHeight,this.windowWidth);		
 		GUI.Label(this.windowRect,this.theScore);
 	}
 
