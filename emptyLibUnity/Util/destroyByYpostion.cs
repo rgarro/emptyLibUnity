@@ -15,7 +15,7 @@ public class destroyByYpostion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(this.transform.position.y < this.destroyAt){
+        if(this.transform.position.y > this.destroyAt){
             Destroy(this.gameObject);
         }
     }

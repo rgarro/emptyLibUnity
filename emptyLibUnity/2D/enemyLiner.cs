@@ -55,6 +55,7 @@ Debug.Log("spawning waves ...");
 				Vector3 spawnPosition = new Vector3 (Random.Range (spawnValues.x - distanceFromSpanwnX, spawnValues.x + distanceFromSpanwnX), spawnValues.y, spawnValues.z);
 				Quaternion spawnRotation = Quaternion.identity;
 				Instantiate (hazard, spawnPosition, spawnRotation);
+				//Instantiate (hazard, spawnPosition);
 				
 				yield return new WaitForSeconds (spawnWait);
 			}
@@ -73,7 +74,7 @@ Debug.Log("spawning waves ...");
 	}
 
 	void UpdateScore(){
-		this.theScore = Score  + " points";
+		this.theScore = Score  + " Points";
 	}
 
 }
