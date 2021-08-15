@@ -27,16 +27,9 @@ public class aIEnemyLiner : MonoBehaviour {
 	public float startWait;
 	public float waveWait;
 	public float distanceFromSpanwnX = 100;
-	//public Text scoreBox;
 	public int Score;
-	//public dashBoard theDashBoard;
 	protected string theScore;
 	public GUISkin btnSkin;
-
-	//public Texture2D RestartIcon;
-	//public Texture2D dashBoardPicIcon;
-	//public float dbPicX = 600;
-	//public float dbPicY = 10;
 	public int count = 0;
 
 	IEnumerator spawnWaves(){
