@@ -11,6 +11,7 @@ public class scoreDisplay : MonoBehaviour
 	private Rect windowRect;
     public int Score =0;
     protected string theScore;
+    
     // Start is called before the first frame update
     void Start()
     {

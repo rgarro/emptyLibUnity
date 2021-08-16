@@ -12,8 +12,7 @@ using UnityEngine.UI;
  *   \ |/   \.-.  .-./   \| /
  *    '._       \/       _.'
  *       ''--..____..--''
- *    === Will Spawn enemies traveling up to a rect ===
- *         Fast Strange Times Fast Strange Ways 
+ *    Will Spawn enemies on a horizontal rect to travel vertically
  *     writing magic to summon a surf wing 
  *
  * @author Rolando <rgarro@gmail.com>
@@ -30,18 +29,20 @@ public class enemyLiner : MonoBehaviour {
 	public GUISkin btnSkin;
 	public float rangeValueLeft = -6f;
 	public float rangeValueRight = 6f;
+	public float zRotation = 0.0f;
 
 	void Start(){
 		StartCoroutine(spawnWaves());
 	}
 
 	IEnumerator spawnWaves(){
-//Debug.Log("blowing on my wing stabilizing foil ...");
+//Debug.Log("sadam hussein hanging on sad hill ...");
 		yield return new WaitForSeconds (startWait);
 		while(true){
 			for (int i = 0; i < hazardCount; i++) {
 				Vector3 spawnPosition = new Vector3 (Random.Range (this.rangeValueLeft,rangeValueRight), spawnValues.y, spawnValues.z);
-				Quaternion spawnRotation = Quaternion.identity;//specific rotation one of this days
+				Quaternion spawnRotation = Quaternion.identity;
+				spawnRotation.z = this.zRotation;
 				Instantiate (hazard, spawnPosition, spawnRotation);
 				
 				yield return new WaitForSeconds (spawnWait);
