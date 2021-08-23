@@ -109,7 +109,7 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
             this.nextX = this.TheBase.transform.position.x - adjacentSide;
             this.nextY = this.TheBase.transform.position.y - oppositeSide;
         }
-        Debug.Log("x: "+this.nextX+" y: "+this.nextY);
+        //Debug.Log("x: "+this.nextX+" y: "+this.nextY);
     }
 
     private void playServoSoundOn(){
