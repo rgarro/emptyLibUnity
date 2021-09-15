@@ -26,7 +26,7 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
     private float tetha = 0.00f;//the angle
     private float nextX;
     private float nextY;
-    public float screenBodyCorrectionNorthDegrees = 90.00f;//si uno esta frente a la tetha de mongongui de donde vienen los space invaders? 
+    public float screenBodyCorrectionNorthDegrees = 90.00f; 
 
     // Start is called before the first frame update
     void Start()
@@ -99,8 +99,6 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
         //float adjacentSide = hypotenuse *Mathf.Cos(this.tetha);
         float oppositeSide = hypotenuse * Mathf.Sin(corretedTetha);
         float adjacentSide = hypotenuse *Mathf.Cos(corretedTetha);
-        //Debug.Log("la tetha de tomar cafe de modongui: " + this.tetha);
-      // Debug.Log("la tetha corregida: "+corretedTetha);//solo mondongui sabe donde esta el quacker de calle blancos
        
         if(goForward){
             this.nextX = this.TheBase.transform.position.x + adjacentSide;

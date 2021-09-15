@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class roundMover : MonoBehaviour
 {
-    public  float roundVelocity = 0.01f;
+    public  float roundVelocity = 2.0f;
     public GameObject roundBody;
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.nextStep();
     }
 
     void nextStep(){
-        transform.Translate(0,Time.deltaTime*2,0);
+        transform.Translate(0,Time.deltaTime*this.roundVelocity,0);
         //transform.Translate(Vector3.forward * Time.deltaTime);   
     }
 
