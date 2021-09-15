@@ -15,6 +15,15 @@ public class autoDestroyRound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        this.countDown();
     }
+
+    void countDown(){
+        if(this.secondsToLive > 0){
+            this.secondsToLive = this.secondsToLive - Time.deltaTime;
+        }else{
+            Destroy(this.gameObject);
+        }
+    }
+
 }
