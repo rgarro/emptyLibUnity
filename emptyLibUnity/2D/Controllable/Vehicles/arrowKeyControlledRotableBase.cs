@@ -32,7 +32,6 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
     void Start()
     {
         this.servoSoundPlayer = GetComponent<AudioSource>();
-        //this.TheBase = GetComponent<GameObject>();//meter el objeto dentro del calculador de la tetha provoca el problema
         this.tetha = this.TheBase.transform.rotation.z;
     }
 
@@ -62,6 +61,7 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
         this.tetha = this.TheBase.transform.rotation.z + this.rotationSteps;
          this.TheBase.transform.Rotate(0,0,this.tetha);
     }
+    
     private void rightArrowAction(){
         //Debug.Log("right arrow action ...");
         this.playServoSoundOn();
