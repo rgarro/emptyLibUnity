@@ -56,14 +56,12 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
 
 
      private void leftArrowAction(){
-        //Debug.Log("left arrow action ...");
         this.playServoSoundOn();
         this.tetha = this.TheBase.transform.rotation.z + this.rotationSteps;
          this.TheBase.transform.Rotate(0,0,this.tetha);
     }
     
     private void rightArrowAction(){
-        //Debug.Log("right arrow action ...");
         this.playServoSoundOn();
         this.tetha = this.TheBase.transform.rotation.z - this.rotationSteps;
         this.TheBase.transform.Rotate(0,0,this.tetha);
@@ -71,9 +69,7 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
     }
 
     private void upArrowAction(){
-        //Debug.Log("upArrowAction here...");
         this.calculateNexts(true);
-        //this.TheBase.transform.Translate(this.nextX,this.nextY,0);
         this.playEngineSoundOn();
         this.TheBase.transform.Translate(Vector3.right * Time.deltaTime);
     }

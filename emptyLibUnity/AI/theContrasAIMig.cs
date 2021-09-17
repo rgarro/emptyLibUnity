@@ -62,7 +62,7 @@ public class theContrasAIMig : MonoBehaviour
     }
 
     void m23CannonShootsRays(){
-Debug.Log("shooting here peanutMM...... "+ this.transform.position + (this.transform.forward * this.ammoEffectiveDistance));
+//Debug.Log("shooting here peanutMM...... "+ this.transform.position + (this.transform.forward * this.ammoEffectiveDistance));
 Debug.DrawLine(this.transform.position,this.transform.position + (this.transform.forward * this.ammoEffectiveDistance),Color.red,0.5f);
         this.StartCoroutine(this.ShotEffect());
         Vector3 rayOrigin = this.mm23Cannon.transform.position;
