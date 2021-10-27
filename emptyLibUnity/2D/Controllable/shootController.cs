@@ -29,11 +29,11 @@ public class shootController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("trigger pulled ..");
-            //Vector3 spawnPosition = new Vector3 (Random.Range (this.rangeValueLeft,rangeValueRight), spawnValues.y, spawnValues.z);
-			//Quaternion spawnRotation = Quaternion.identity;
-			//spawnRotation.z = this.zRotation;
+            Vector3 spawnPosition = new Vector3 (this.gunObject.transform.position);
+		    Quaternion spawnRotation = Quaternion.identity;
+			spawnRotation.z = this.zRotation;
             
-            //Instantiate (roundObject, spawnPosition, spawnRotation);
+            Instantiate (roundObject, spawnPosition, spawnRotation);
         }
     }
 }
