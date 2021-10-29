@@ -29,7 +29,9 @@ public class shootController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("trigger pulled ..");
-            Vector3 spawnPosition = new Vector3 (this.gunObject.transform.position);
+            Debug.Log(" ++X:"+this.gunObject.transform.position.x);
+            Debug.Log(" ++Rot:"+this.zRotation);
+            Vector3 spawnPosition = new Vector3 (this.gunObject.transform.position.x,this.gunObject.transform.position.y,this.gunObject.transform.position.z);
 		    Quaternion spawnRotation = Quaternion.identity;
 			spawnRotation.z = this.zRotation;
             
