@@ -40,8 +40,7 @@ public class shootController : MonoBehaviour
             Debug.Log(" ++X:"+this.gunObject.transform.position.x);
             //0 mus be 90 gun pipe pointing at
             Vector3 spawnPosition = new Vector3 (this.gunObject.transform.position.x,this.gunObject.transform.position.y,this.gunObject.transform.position.z);
-		    Quaternion spawnRotation = Quaternion.identity;
-			spawnRotation = this.gunObject.transform.rotation;
+		    Quaternion spawnRotation = Quaternion.identity;//;.eulerAngles;
             //spawnRotation.z = spawnRotation.z + 90;// this.correctionDegrees;
             Debug.Log(" -+++Rot:"+spawnRotation.ToString());
             Instantiate (roundObject, spawnPosition, spawnRotation);
