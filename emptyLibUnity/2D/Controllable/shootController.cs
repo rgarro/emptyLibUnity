@@ -36,11 +36,11 @@ public class shootController : MonoBehaviour
     }
 
     private void shoot(){
-     Debug.Log("trigger pulled ..");
+     //Debug.Log("trigger pulled ..");
         Vector3 spawnPosition = new Vector3 (this.gunObject.transform.position.x,this.gunObject.transform.position.y,this.gunObject.transform.position.z);
 		Quaternion spawnRotation = this.gunObject.transform.rotation;
         //spawnRotation.z = spawnRotation.z + this.correctionDegrees;//euler  angles are square ...
-     Debug.Log(" -+++Rot:"+spawnRotation.ToString());
+     //Debug.Log(" -+++Rot:"+spawnRotation.ToString());
         Instantiate (roundObject, spawnPosition, spawnRotation);
     }
 }
