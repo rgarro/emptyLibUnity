@@ -15,7 +15,7 @@ using UnityEngine;
  * _____.,-#%&$@%#&#~,._____
  *
  * === Will remove collided and trigger blast or visual effect ===
- *   
+ *   includes score counter
  *
  * @author Rolando <rgarro@gmail.com>
  */
@@ -38,5 +38,9 @@ public class roundDetonator : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other){
         Debug.Log("Bulls eyes ..");
+        GameObject e = Instantiate(this.explosion) as GameObject;
+        e.transform.position = transform.position;
+        Destroy(other.gameObject);
+        this.gameObject.SetActive(false);
     }
 }
