@@ -37,10 +37,11 @@ public class roundDetonator : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other){
-        Debug.Log("Bulls eyes ..");
+        //Debug.Log("Bulls eyes ..");
         GameObject e = Instantiate(this.explosion) as GameObject;
         e.transform.position = transform.position;
         Destroy(other.gameObject);
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
+        Destroy(this.gameObject);//fucking destroy
     }
 }
