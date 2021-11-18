@@ -34,8 +34,9 @@ public class scoreDisplay : MonoBehaviour
 	}
 
 	public void addScore(int scoreValue){
-		Score += scoreValue;
-		UpdateScore ();
+        Debug.Log("increasing score ..");
+		//Score += scoreValue;
+		//UpdateScore ();
 	}
 
 	void UpdateScore(){

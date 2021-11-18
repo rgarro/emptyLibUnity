@@ -23,11 +23,13 @@ public class roundDetonator : MonoBehaviour
 {
 
     public GameObject explosion;
+    public string scoreManagerTag = "BatComputer";
+    private GameObject scoreManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+       this.scoreManager = FindWithTag(this.scoreManagerTag);
     }
 
     // Update is called once per frame
@@ -36,12 +38,15 @@ public class roundDetonator : MonoBehaviour
         
     }
 
+    void increaseScore(){
+        this.scoreManager.addScore(10);
+    }
+
     private void OnTriggerEnter2D(Collider2D other){
         //Debug.Log("Bulls eyes ..");
         GameObject e = Instantiate(this.explosion) as GameObject;
         e.transform.position = transform.position;
         Destroy(other.gameObject);
-        //this.gameObject.SetActive(false);
         Destroy(this.gameObject);//fucking destroy
     }
 }
