@@ -31,6 +31,20 @@ public class machineGunAI : MonoBehaviour
 
     }
 
+    void openFire(){
+        /*
+        a =  _root.tank_mc._y - this._y;
+			b =  _root.tank_mc._x - this._x;
+			anguloRadianes = Math.atan2(b,a);
+			angleb = (Math.round(anguloRadianes * 180 / Math.PI)*-1);	
+			this._rotation = angleb;
+			this.myangle = (angleb/360)*2*Math.PI;
+			xcomponent = this.cannonLength*Math.sin(this.myangle);
+			ycomponent = -this.cannonLength*Math.cos(this.myangle);
+			_x = xcomponent+xp;
+        */
+    }
+
     // Update is called once per frame
     void Update()
     {
