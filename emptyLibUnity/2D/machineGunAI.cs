@@ -31,6 +31,10 @@ public class machineGunAI : MonoBehaviour
 
     }
 
+    void getTargetInverseRotation(){
+
+    }
+
     void openFire(){
         /*
         a =  _root.tank_mc._y - this._y;
