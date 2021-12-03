@@ -6,6 +6,8 @@ public class roundMover : MonoBehaviour
 {
     public  float roundVelocity = 2.0f;
     public GameObject roundBody;
+    public bool is_rocket = false;
+    public bool is_round = false;
 
     void Start()
     {
