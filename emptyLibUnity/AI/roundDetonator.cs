@@ -24,12 +24,14 @@ public class roundDetonator : MonoBehaviour
 
     public GameObject explosion;
     public string scoreManagerTag = "BatComputer";
-    //private GameObject scoreManager;
+    private GameObject scoreManager;
 
     // Start is called before the first frame update
     void Start()
     {
-       //this.scoreManager = GameObject.FindWithTag(this.scoreManagerTag);
+       this.scoreManager = GameObject.FindWithTag(this.scoreManagerTag).GetComponent<scoreDisplay>();
+       Debug.Log("loading score manager");
+       Debug.Log(this.scoreManager);
     }
 
     // Update is called once per frame
@@ -38,8 +40,8 @@ public class roundDetonator : MonoBehaviour
         
     }
 
-    void increaseScore(){
-        //this.scoreManager.addScore(10);
+    public void increaseScore(){
+        this.scoreManager.addScore(10);
         //this.scoreManager.GetComponent<addScore>(10);
     }
 
