@@ -29,7 +29,7 @@ public class roundDetonator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       this.scoreManager = GameObject.FindWithTag(this.scoreManagerTag).GetComponent<scoreDisplay>();
+       this.scoreManager = GameObject.FindWithTag(this.scoreManagerTag);//.GetComponent<scoreDisplay>();
        Debug.Log("loading score manager");
        Debug.Log(this.scoreManager);
     }
