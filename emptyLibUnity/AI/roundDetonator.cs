@@ -33,7 +33,7 @@ public class roundDetonator : MonoBehaviour
     }
 
     void getScoreManager(){
-        this.scoreManager = GameObject.FindWithTag(this.scoreManagerTag);//.GetComponent<scoreDisplay>();
+        this.scoreManager = GameObject.FindWithTag(this.scoreManagerTag).GetComponent<scoreDisplay>;//;
        Debug.Log("loading score manager");
        Debug.Log(this.scoreManager);
     }
@@ -47,7 +47,7 @@ public class roundDetonator : MonoBehaviour
     public void increaseScore(){
          Debug.Log("increasing score ...");
         //this.scoreManager.addScore(10);
-        //this.scoreManager.GetComponent<addScore>(10);
+        this.scoreManager.addScore(10);
     }
 
     private void OnTriggerEnter2D(Collider2D other){
