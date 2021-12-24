@@ -39,6 +39,7 @@ public class instructionsText : MonoBehaviour
     public string labelString = "Instructions";
     public float marginVal = 25;
     private Rect windowRect;
+     public GUIStyle style;
 
     void OnGUI(){
         this.windowRect = new Rect(this.windowX,this.windowY,this.windowHeight,this.windowWidth);
@@ -47,7 +48,7 @@ public class instructionsText : MonoBehaviour
 
     void WindowFunction(int windowID){
       //place instructions here ...
-      GUI.Label(new Rect(this.marginVal,this.marginVal,this.windowHeight,this.windowWidth),this.instructionsString);
+      GUI.Label(new Rect(this.marginVal,this.marginVal,this.windowHeight,this.windowWidth),this.instructionsString,this.style);
     }
 
     // Start is called before the first frame update

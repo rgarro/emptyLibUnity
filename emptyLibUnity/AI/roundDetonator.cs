@@ -46,7 +46,7 @@ public class roundDetonator : MonoBehaviour
     public void increaseScore(){
          scoreDisplay tmpObj = this.scoreManager.GetComponent(typeof(scoreDisplay)) as scoreDisplay;
          tmpObj.addScore(this.ptsToIncrease);
-         Debug.Log(this.ptsToIncrease +" pts ...");
+         //Debug.Log(this.ptsToIncrease +" pts ...");
     }
 
     private void OnTriggerEnter2D(Collider2D other){

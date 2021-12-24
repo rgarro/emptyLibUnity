@@ -1,7 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ *   T
+ * .-"-.
+ * |  ___|
+ * | (.\/.)
+ * |  ,,,' 
+ * | '###
+ *  '----'
+ * Displays and Manages Score int
+ *
+ * @author Rolando <rgarro@gmail.com>
+ */
 public class scoreDisplay : MonoBehaviour
 {
     public float windowX = 10;
@@ -11,6 +22,7 @@ public class scoreDisplay : MonoBehaviour
 	private Rect windowRect;
     public int Score =0;
     protected string theScore;
+    public GUIStyle style;
     
     // Start is called before the first frame update
     void Start()
@@ -30,13 +42,13 @@ public class scoreDisplay : MonoBehaviour
 
     void OnGUI(){
 		this.windowRect = new Rect(this.windowX,this.windowY,this.windowHeight,this.windowWidth);		
-		GUI.Label(this.windowRect,this.theScore);
+		GUI.Label(this.windowRect,this.theScore,this.style);
 	}
 
 	public void addScore(int scoreValue){
-        Debug.Log("increasing score .." + scoreValue);
-		//this.Score += scoreValue;
-		//UpdateScore ();
+        //Debug.Log("increasing score .." + scoreValue);
+		this.Score += scoreValue;
+		this.UpdateScore ();
 	}
 
 	void UpdateScore(){
