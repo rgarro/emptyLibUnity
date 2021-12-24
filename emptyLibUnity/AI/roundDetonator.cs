@@ -23,8 +23,9 @@ public class roundDetonator : MonoBehaviour
 {
 
     public GameObject explosion;
-    public string scoreManagerTag = "BatComputer";
+    public string scoreManagerTag = "BatComputer";//Andrea watching east on a december morning, blind south, regaeton murmur ...
     private GameObject scoreManager;
+    public int ptsToIncrease = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -33,9 +34,7 @@ public class roundDetonator : MonoBehaviour
     }
 
     void getScoreManager(){
-        this.scoreManager = GameObject.FindWithTag(this.scoreManagerTag);//.GetComponent<scoreDisplay>;
-       Debug.Log("loading score manager");
-       Debug.Log(this.scoreManager);
+        this.scoreManager = GameObject.FindWithTag(this.scoreManagerTag);
     }
 
     // Update is called once per frame
@@ -45,11 +44,9 @@ public class roundDetonator : MonoBehaviour
     }
 
     public void increaseScore(){
-        Debug.Log("Again loading score manager");
-       Debug.Log(this.scoreManager);
-         Debug.Log("increasing score ...");
-        //this.scoreManager.GetComponent<scoreDisplay>.addScore(10);
-        //this.scoreManager.addScore(10);
+         scoreDisplay tmpObj = this.scoreManager.GetComponent(typeof(scoreDisplay)) as scoreDisplay;
+         tmpObj.addScore(this.ptsToIncrease);
+         Debug.Log(this.ptsToIncrease +" pts ...");
     }
 
     private void OnTriggerEnter2D(Collider2D other){
