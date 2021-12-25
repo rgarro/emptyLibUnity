@@ -21,11 +21,12 @@ public class machineGunAI : MonoBehaviour
     public float secondsBeforeShoot = 0.5f;
     public string targetTag = "m1tank";
     private GameObject targetTank;
+    private float distanceFromTarget;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.setTargetTank();
     }
 
     void setTargetTank(){
@@ -33,11 +34,12 @@ public class machineGunAI : MonoBehaviour
     }
 
     void getTargetPosition(){
-
+        
     }
 
     void getDistanceFromTaget(){
-
+        this.distanceFromTarget = Vector2.Distance(gameObject.transform.position, this.targetTank.transform.position);
+        Debug.Log(this.distanceFromTarget + " distance from target ...");
     }
 
     void getTargetInverseRotation(){
@@ -46,6 +48,11 @@ public class machineGunAI : MonoBehaviour
 
     void openFire(){
         /*
+        la primera version la escribi junto a carol y charlie
+        en los pupitres de Avventa en los galerones del parque industrial en 2007,
+        Esta version esta dedicada a tavo quien me metio en esto del opengl por aquellos dias.
+        malparidos de rackspace se les estrello un camion en la entrada, se murio el del tour of champions
+        eran unos tiempos raros en la onda de los ultimos procesadores powerpc ,95.5 jazz se apago ...___...___
         a =  _root.tank_mc._y - this._y;
 			b =  _root.tank_mc._x - this._x;
 			anguloRadianes = Math.atan2(b,a);
@@ -61,6 +68,6 @@ public class machineGunAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        this.getTargetPosition();
     }
 }

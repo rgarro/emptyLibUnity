@@ -25,7 +25,7 @@ using UnityEngine;
 *─────────▀█▌▐█████▌▐█▀─────────
 *────────────███████────────────
 * Displays a textbox with Instruction Text
-* I cant save cybertron
+* I cant save cybertron ...
 *
 *@author Rolando <rgarro@gmail.com>
 */
