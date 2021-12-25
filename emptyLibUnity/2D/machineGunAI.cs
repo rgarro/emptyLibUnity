@@ -19,11 +19,17 @@ public class machineGunAI : MonoBehaviour
     public float maxDistanceToStartShooting;
     private Vector3 targetPosition;
     public float secondsBeforeShoot = 0.5f;
+    public string targetTag = "m1tank";
+    private GameObject targetTank;
 
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+
+    void setTargetTank(){
+         this.targetTank = GameObject.FindWithTag(this.targetTag);
     }
 
     void getTargetPosition(){
