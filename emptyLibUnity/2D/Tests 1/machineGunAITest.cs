@@ -3,7 +3,21 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-
+/**
+ *  /\ /\  /\      
+ * | V  \/  \---. 
+ *  \_        /   
+ *   (o)(o)  <__. 
+ *  _C         /  
+ * /____,   )  \  
+ *  \     /----' 
+ *   ooooo       
+ *  /     \
+ * Barth simpson es homosexual, Nelson es el hijo de scorpio, Bar de Moe por la ulatina ....
+ * 
+ *
+ * @author Rolando <rgarro@gmail.com>
+ */
 namespace Tests
 {
     public class machineGunAITest
@@ -29,6 +43,14 @@ namespace Tests
             var type = tmp.GetType();
              Assert.IsTrue(type.GetMethod("getTargetInverseRotation"));
         }
+        [Test]
+        public void shouldHaveopenFireMethodTest()
+        {
+            machineGunAI tmp = new machineGunAI();
+            var type = tmp.GetType();
+             Assert.IsTrue(type.GetMethod("openFire"));
+        }
+
 
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
         // `yield return null;` to skip a frame.
