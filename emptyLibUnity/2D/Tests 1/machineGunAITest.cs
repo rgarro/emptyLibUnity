@@ -22,6 +22,13 @@ namespace Tests
             var type = tmp.GetType();
              Assert.IsTrue(type.GetMethod("getDistanceFromTaget"));
         }
+        [Test]
+        public void shouldHavegetTargetInverseRotationMethodTest()
+        {
+            machineGunAI tmp = new machineGunAI();
+            var type = tmp.GetType();
+             Assert.IsTrue(type.GetMethod("getTargetInverseRotation"));
+        }
 
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
         // `yield return null;` to skip a frame.
