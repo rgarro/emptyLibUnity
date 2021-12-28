@@ -50,6 +50,13 @@ namespace Tests
             var type = tmp.GetType();
              Assert.IsTrue(type.GetMethod("openFire"));
         }
+        [Test]
+        public void shouldHaveSetTargetTankMethodTest()
+        {
+            machineGunAI tmp = new machineGunAI();
+            var type = tmp.GetType();
+             Assert.IsTrue(type.GetMethod("setTargetTank"));
+        }
 
 
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
