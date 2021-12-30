@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 /**
  * Tilts Gauge Needle from pivot adjusting tilter value from needle far side z rotations value
- * LIM farright, farleft = (x/cosY)*H
+ * LIM farRight, farLeft = (x/cosY)*H
  * Calculus diferentiation to figure out a gauge ui
  * slope = rise/run alaways a rate
  *

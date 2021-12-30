@@ -14,7 +14,6 @@ using UnityEngine.TestTools;
  *   ooooo       
  *  /     \
  * Barth simpson es homosexual, Nelson es el hijo de scorpio, Bar de Moe por la ulatina ....
- * 
  *
  * @author Rolando <rgarro@gmail.com>
  */
@@ -29,7 +28,7 @@ namespace Tests
             // Use the Assert class to test conditions
              Assert.IsTrue(true);
         }
-        [Test]
+        /*[Test]
         public void shouldHaveGetDistanceFromTagetMethodTest()
         {
             machineGunAI tmp = new machineGunAI();
@@ -63,7 +62,7 @@ namespace Tests
             machineGunAI tmp = new machineGunAI();
             var type = tmp.GetType();
              Assert.IsTrue(type.GetMethod("targetIsHit"));
-        }
+        }*/
         [Test]
         public void shouldHaveTargetIsHitMethodReturnsBoolTest()
         {
