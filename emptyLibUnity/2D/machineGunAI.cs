@@ -34,7 +34,7 @@ public class machineGunAI : MonoBehaviour
     }
 
     void getTargetPosition(){
-        
+        Debug.Log(" target position ...");
     }
 
     void getDistanceFromTaget(){
@@ -69,5 +69,8 @@ public class machineGunAI : MonoBehaviour
     void Update()
     {
         this.getTargetPosition();
+        if(this.distanceFromTarget < this.maxDistanceToStartShooting){
+
+        }
     }
 }

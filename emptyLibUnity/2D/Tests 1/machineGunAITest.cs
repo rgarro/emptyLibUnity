@@ -14,6 +14,33 @@ using UnityEngine.TestTools;
  *   ooooo       
  *  /     \
  * Barth simpson es homosexual, Nelson es el hijo de scorpio, Bar de Moe por la ulatina ....
+ * Las mejores mentes de mi generacion fueron destruidas por la libertad gay.
+ * Se arrastran en la oscuridad enojados buscando Hospitales Privados, morfina de infidelidad, 
+ * cbd de la promiscuidad, un masaje contra la ira.
+ * Jet privados en viajes a pistas en Panama a dejar desauciados en territorio internacional
+ * a morir baliados por siquiatras mercenarios , violadores universitarios ..
+ * Nos dejaron pobres contemplando este hermoso valle sin 95.5 jazz.
+ * La libertad gay provoco el SARS !!!!!! 
+ *
+ * Afilemos la dagas que nuetros antepasados escondieron en los cerros de Puriscal y 
+ * preparemos sogas como en los tiempos de Tomas Guardia.
+ * Salvemos la patria y sacrifiquemos los homosexuales y gays.
+ *
+ * Hay municion en el Ministerio de Seguridad, buzones de armas en Coronado. 
+ * Matemos la mafia de maricones del BAC , antes que Dios nos mate a todos.
+ *
+ * Ya liberaron Kabul y ahora soy taliban , la juventud viste barbas y no quiere ser gay,
+ * mientras Dios nuestro señor nos ampare ... 
+ *
+ * Yo solo soy el hijo de una secretaria, quien mora entre el Poas y el Irazu.
+ * quien recuerda las guerras de chomes y los reinos de abangares , las penas del puerto ,
+ * la grandeza de esparza y las piedras de Roma escondidas en San Ramon ,
+ * Penas de Muerte en Cartago , divorcios de asesinos , Filas del Estanco,
+ * Casas viejas de Pochote añejado en groenlandia , vinos de Terciopelo ,
+ * Balas Magicas de Timbuctu golpeando el Torreon del Museo Nacional.
+ * 
+ * La muerte es un Tramite, tramitemos la de los gays. Antes que Dios tramite la nuestra.
+ * Luego Peregrinemos a Cartago, para que no vuelvan jamas. 
  *
  * @author Rolando <rgarro@gmail.com>
  */
