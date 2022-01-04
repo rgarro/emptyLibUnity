@@ -34,7 +34,8 @@ public class machineGunAI : MonoBehaviour
     }
 
     void getTargetPosition(){
-        Debug.Log(" target position ...");
+        //Debug.Log(" target position ...");
+        this.getDistanceFromTaget();
     }
 
     void getDistanceFromTaget(){
@@ -63,6 +64,10 @@ public class machineGunAI : MonoBehaviour
 			ycomponent = -this.cannonLength*Math.cos(this.myangle);
 			_x = xcomponent+xp;
         */
+        Debug.Log("Shooting Shooting ...");
+        Vector3 spawnPosition = new Vector3 (this.transform.position.x,this.transform.position.y,this.transform.position.z);
+		Quaternion spawnRotation = this.transform.rotation;//this.getTargetInverseRotation()
+        Instantiate (round, spawnPosition, spawnRotation);
     }
 
     // Update is called once per frame
@@ -70,7 +75,7 @@ public class machineGunAI : MonoBehaviour
     {
         this.getTargetPosition();
         if(this.distanceFromTarget < this.maxDistanceToStartShooting){
-
+            this.openFire();
         }
     }
 }
