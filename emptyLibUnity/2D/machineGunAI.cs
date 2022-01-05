@@ -18,7 +18,7 @@ public class machineGunAI : MonoBehaviour
     public GameObject round;
     public float maxDistanceToStartShooting;
     private Vector3 targetPosition;
-    public float secondsBeforeShoot = 0.5f;
+    public float secondsBeforeShoot = 0.8f;
     public string targetTag = "m1tank";
     private GameObject targetTank;
     private float distanceFromTarget;
@@ -27,6 +27,7 @@ public class machineGunAI : MonoBehaviour
     void Start()
     {
         this.setTargetTank();
+        StartCoroutine(trigger());
     }
 
     void setTargetTank(){
@@ -65,17 +66,24 @@ public class machineGunAI : MonoBehaviour
 			_x = xcomponent+xp;
         */
         Debug.Log("Shooting Shooting ...");
-        Vector3 spawnPosition = new Vector3 (this.transform.position.x,this.transform.position.y,this.transform.position.z);
+        /*Vector3 spawnPosition = new Vector3 (this.transform.position.x,this.transform.position.y,this.transform.position.z);
 		Quaternion spawnRotation = this.transform.rotation;//this.getTargetInverseRotation()
-        Instantiate (round, spawnPosition, spawnRotation);
+        Instantiate (round, spawnPosition, spawnRotation);*/
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.getTargetPosition();
-        if(this.distanceFromTarget < this.maxDistanceToStartShooting){
-            this.openFire();
+        
+    }
+
+    IEnumerator trigger(){
+        yield return new WaitForSeconds (this.secondsBeforeShoot);
+        while(true){
+            this.getTargetPosition();
+            if(this.distanceFromTarget < this.maxDistanceToStartShooting){
+                this.openFire();
+            }
         }
     }
 }
