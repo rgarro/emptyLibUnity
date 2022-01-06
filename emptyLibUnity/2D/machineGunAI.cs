@@ -65,7 +65,7 @@ public class machineGunAI : MonoBehaviour
 			ycomponent = -this.cannonLength*Math.cos(this.myangle);
 			_x = xcomponent+xp;
         */
-        Debug.Log("Shooting Shooting ...");
+        Debug.Log("Shooting Shooting +++++++++++++++++++++++ Puerto Argentino nunca existio ...");
         /*Vector3 spawnPosition = new Vector3 (this.transform.position.x,this.transform.position.y,this.transform.position.z);
 		Quaternion spawnRotation = this.transform.rotation;//this.getTargetInverseRotation()
         Instantiate (round, spawnPosition, spawnRotation);*/
@@ -78,10 +78,11 @@ public class machineGunAI : MonoBehaviour
     }
 
     IEnumerator trigger(){
-        yield return new WaitForSeconds (this.secondsBeforeShoot);
         while(true){
+            yield return new WaitForSeconds(this.secondsBeforeShoot);
             this.getTargetPosition();
             if(this.distanceFromTarget < this.maxDistanceToStartShooting){
+                Debug.Log("pulling trigger ***************************** ...");
                 this.openFire();
             }
         }
