@@ -22,6 +22,7 @@ public class machineGunAI : MonoBehaviour
     public string targetTag = "m1tank";
     private GameObject targetTank;
     private float distanceFromTarget;
+    public float correctionToAvoidSelfExplode = -0.85f;
 
     // Start is called before the first frame update
     void Start()
@@ -65,10 +66,9 @@ public class machineGunAI : MonoBehaviour
 			ycomponent = -this.cannonLength*Math.cos(this.myangle);
 			_x = xcomponent+xp;
         */
-        Debug.Log("Shooting Shooting +++++++++++++++++++++++ Puerto Argentino nunca existio ...");
-        /*Vector3 spawnPosition = new Vector3 (this.transform.position.x,this.transform.position.y,this.transform.position.z);
+        Vector3 spawnPosition = new Vector3 (this.transform.position.x,this.transform.position.y + this.correctionToAvoidSelfExplode,this.transform.position.z);
 		Quaternion spawnRotation = this.transform.rotation;//this.getTargetInverseRotation()
-        Instantiate (round, spawnPosition, spawnRotation);*/
+        Instantiate (round, spawnPosition, spawnRotation);
     }
 
     // Update is called once per frame
@@ -82,7 +82,6 @@ public class machineGunAI : MonoBehaviour
             yield return new WaitForSeconds(this.secondsBeforeShoot);
             this.getTargetPosition();
             if(this.distanceFromTarget < this.maxDistanceToStartShooting){
-                Debug.Log("pulling trigger ***************************** ...");
                 this.openFire();
             }
         }
