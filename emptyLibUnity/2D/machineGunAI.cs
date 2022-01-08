@@ -51,11 +51,24 @@ public class machineGunAI : MonoBehaviour
 
     void openFire(){
         /*
-        la primera version la escribi junto a carol y charlie
+        la primera version la escribi junto a Carol y Charlie
         en los pupitres de Avventa en los galerones del parque industrial en 2007,
-        Esta version esta dedicada a tavo quien me metio en esto del opengl por aquellos dias.
-        malparidos de rackspace se les estrello un camion en la entrada, se murio el del tour of champions
-        eran unos tiempos raros en la onda de los ultimos procesadores powerpc ,95.5 jazz se apago ...___...___
+        Esta version esta dedicada a tavo quien me metio en esto del opengl y me enseño a denunciar comprando mota en calleblancos .
+        Yo acuse a los de Avventa de homosexualizar empleados en el parque industrial, los fichamos en secreto en el chapui,
+        con los siquiatras de las zonas francas.luego todos eran edecanes del BAC pensiones, con titulos falsos del INCAE, 
+        soñando con juegos de cisco y promiscuidades corporativas.
+        Las mejores mentes de mi generacion vieron a los managers periqueros de avventa en los as400
+        de los ultimos gendarmes viejos del INS de los tiempos de Oduber, los detectives dijeron que avventa significaba La Gran Puta, en honor a alguna 
+        promiscuidad de escuelas montessori, como abogados me aconsejaron que me largara lo mas pronto posible. 
+        El SIDA y el SARS ha matado algunos. Los del PAE y Contadora pelearon a muerte salir de Managua para que tengamos zonas francas....
+       El comandante cero ya murio y tuvo un iphone del futuro, malparidos talibanes ...
+       Putas becadas de la ulatina, atacadas con condones que alteran el ph vaginal , Java lang Java bin fuck ...
+       Mario el de marka desaparecio y aparecio en la montañas nevadas de chile , sportbooks del mall sanpedro, vacios
+       con recuerdos de desaucios terminales, malparida NFL y sus camisetas prohibidas en los tuneles bajo el lago de la sabana.
+       Mafias de Quebec fumando jamaiquina con putas colombianas en las orillas de Jaco ...
+       Por que Mataron a los Cranio Metal?  Por que Mataron a los Cranio Metal?  Por que Mataron a los Cranio Metal?
+       Papas fritas comian las tilapias de forum, cerros de santana con brillos pintados de clubes de ski de canada,
+       Este juego esta inscrito el la casa del artista de santana , sosteniendo el tapezco 
         a =  _root.tank_mc._y - this._y;
 			b =  _root.tank_mc._x - this._x;
 			anguloRadianes = Math.atan2(b,a);
@@ -67,7 +80,13 @@ public class machineGunAI : MonoBehaviour
 			_x = xcomponent+xp;
         */
         Vector3 spawnPosition = new Vector3 (this.transform.position.x,this.transform.position.y + this.correctionToAvoidSelfExplode,this.transform.position.z);
-		Quaternion spawnRotation = this.transform.rotation;//this.getTargetInverseRotation()
+		//Quaternion spawnRotation = this.transform.rotation;//this.getTargetInverseRotation()
+        //Instantiate (round, spawnPosition, spawnRotation);
+        
+        float a = this.targetTank.transform.position.y - this.transform.position.y;
+        float b = this.targetTank.transform.position.x - this.transform.position.y;
+        float roundRotationY = Mathf.atan2();//quien mato a parmenio medina?, fue oscar arias?
+        
         Instantiate (round, spawnPosition, spawnRotation);
     }
 
