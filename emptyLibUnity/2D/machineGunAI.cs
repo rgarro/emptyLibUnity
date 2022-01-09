@@ -45,8 +45,11 @@ public class machineGunAI : MonoBehaviour
         Debug.Log(this.distanceFromTarget + " distance from target ...");
     }
 
-    void getTargetInverseRotation(){
-
+    float getTargetInverseRotation(){
+        float a = this.targetTank.transform.position.y - this.transform.position.y;
+        float b = this.targetTank.transform.position.x - this.transform.position.y;
+        float roundRotationZ = Mathf.Atan2(a,b);//quien mato a parmenio medina?, fue oscar arias?
+        return roundRotationZ;
     }
 
     void openFire(){
@@ -69,6 +72,11 @@ public class machineGunAI : MonoBehaviour
        Por que Mataron a los Cranio Metal?  Por que Mataron a los Cranio Metal?  Por que Mataron a los Cranio Metal?
        Papas fritas comian las tilapias de forum, cerros de santana con brillos pintados de clubes de ski de canada,
        Este juego esta inscrito el la casa del artista de santana , sosteniendo el tapezco 
+       Kincho es playo, le gustaba un travesti de la gimnacia olimpica. Creia que nos engañaba, yo siempre sabia que kincho es gay
+       un experimento de profesores hondureños de la UNED, mis vecinos lo excomulgaron en publico , fumabamos cajeta
+       para que Dios lo fulminara y no lo volvieramos a ver jamas, mi compa el vladi se fumo 20 joints una tarde y kincho desaparecio...
+       Era un vecindario heterosexual, habiamos nicas, ticos, filipinos, chilenos y algun bhutanes, la policia de goicoechea nos 
+       puso guardias para que nos respetaran de inquisicion ...
         a =  _root.tank_mc._y - this._y;
 			b =  _root.tank_mc._x - this._x;
 			anguloRadianes = Math.atan2(b,a);
@@ -80,13 +88,9 @@ public class machineGunAI : MonoBehaviour
 			_x = xcomponent+xp;
         */
         Vector3 spawnPosition = new Vector3 (this.transform.position.x,this.transform.position.y + this.correctionToAvoidSelfExplode,this.transform.position.z);
-		//Quaternion spawnRotation = this.transform.rotation;//this.getTargetInverseRotation()
+		Quaternion spawnRotation = this.transform.rotation;
         //Instantiate (round, spawnPosition, spawnRotation);
-        
-        float a = this.targetTank.transform.position.y - this.transform.position.y;
-        float b = this.targetTank.transform.position.x - this.transform.position.y;
-        float roundRotationY = Mathf.atan2();//quien mato a parmenio medina?, fue oscar arias?
-        
+        spawnRotation.z = this.getTargetInverseRotation();
         Instantiate (round, spawnPosition, spawnRotation);
     }
 
