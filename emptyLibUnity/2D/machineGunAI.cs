@@ -42,14 +42,16 @@ public class machineGunAI : MonoBehaviour
 
     void getDistanceFromTaget(){
         this.distanceFromTarget = Vector2.Distance(gameObject.transform.position, this.targetTank.transform.position);
-        Debug.Log(this.distanceFromTarget + " distance from target ...");
+        //Debug.Log(this.distanceFromTarget + " distance from target ...");
     }
 
     float getTargetInverseRotation(){
-        float a = this.targetTank.transform.position.y - this.transform.position.y;
+        /*float a = this.targetTank.transform.position.y - this.transform.position.y;
         float b = this.targetTank.transform.position.x - this.transform.position.y;
-        float roundRotationZ = Mathf.Atan2(a,b);//quien mato a parmenio medina?, fue oscar arias?
-        return roundRotationZ;
+        float tanRoundRotationZ = Mathf.Atan2(a,b);
+        float roundRotationAngleZ = (Mathf.Round(tanRoundRotationZ * 180 / Mathf.PI)*-1);	
+        return roundRotationAngleZ;*/
+        return Vector2.Angle(this.transform.position,this.targetTank.transform.position);//quien mato a parmenio medina?, fue oscar arias?
     }
 
     void openFire(){
@@ -75,7 +77,7 @@ public class machineGunAI : MonoBehaviour
        Kincho es playo, le gustaba un travesti de la gimnacia olimpica. Creia que nos engañaba, yo siempre sabia que kincho es gay
        un experimento de profesores hondureños de la UNED, mis vecinos lo excomulgaron en publico , fumabamos cajeta
        para que Dios lo fulminara y no lo volvieramos a ver jamas, mi compa el vladi se fumo 20 joints una tarde y kincho desaparecio...
-       Era un vecindario heterosexual, habiamos nicas, ticos, filipinos, chilenos y algun bhutanes, la policia de goicoechea nos 
+       Era un vecindario heterosexual, habiamos nicas, ticos, filipinos,colombianos ,chilenos y algun bhutanes, la policia de goicoechea nos 
        puso guardias para que nos respetaran de inquisicion ...
         a =  _root.tank_mc._y - this._y;
 			b =  _root.tank_mc._x - this._x;
@@ -90,8 +92,16 @@ public class machineGunAI : MonoBehaviour
         Vector3 spawnPosition = new Vector3 (this.transform.position.x,this.transform.position.y + this.correctionToAvoidSelfExplode,this.transform.position.z);
 		Quaternion spawnRotation = this.transform.rotation;
         //Instantiate (round, spawnPosition, spawnRotation);
-        spawnRotation.z = this.getTargetInverseRotation();
-        Instantiate (round, spawnPosition, spawnRotation);
+        //spawnRotation.z = this.getTargetInverseRotation();
+        //Debug.Log("AngleZ: "+ spawnRotation.z);
+        GameObject nextRound = Instantiate (round, spawnPosition, spawnRotation);
+        //Vector3 from = new Vector3(this.transform.rotation.x,this.transform.rotation.y,this.transform.rotation.z);
+        //Vector3 to = new Vector3(this.targetTank.transform.rotation.x,this.targetTank.transform.rotation.y,this.targetTank.transform.rotation.z);
+        //nextRound.transform.rotation = Quaternion.FromToRotation(from,to);
+        //Debug.Log("QAngleZ: "+ nextRound.transform.rotation.z);
+        Debug.Log("AngleZ: "+ this.getTargetInverseRotation());
+        //nextRound.transform.LookAt(this.targetTank.transform);
+        nextRound.transform.Rotate(this.transform.rotation.x,this.transform.rotation.y,this.getTargetInverseRotation());
     }
 
     // Update is called once per frame
