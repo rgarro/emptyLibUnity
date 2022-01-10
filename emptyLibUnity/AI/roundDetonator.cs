@@ -23,7 +23,7 @@ public class roundDetonator : MonoBehaviour
 {
 
     public GameObject explosion;
-    public string scoreManagerTag = "BatComputer";//Andrea watching east on a december morning, blind south, regaeton murmur ...
+    public string scoreManagerTag = "BatComputer";
     private GameObject scoreManager;
     public int ptsToIncrease = 10;
 

@@ -59,26 +59,17 @@ public class machineGunAI : MonoBehaviour
         la primera version la escribi junto a Carol y Charlie
         en los pupitres de Avventa en los galerones del parque industrial en 2007,
         Esta version esta dedicada a tavo quien me metio en esto del opengl y me enseño a denunciar comprando mota en calleblancos .
-        Yo acuse a los de Avventa de homosexualizar empleados en el parque industrial, los fichamos en secreto en el chapui,
-        con los siquiatras de las zonas francas.luego todos eran edecanes del BAC pensiones, con titulos falsos del INCAE, 
-        soñando con juegos de cisco y promiscuidades corporativas.
-        Las mejores mentes de mi generacion vieron a los managers periqueros de avventa en los as400
-        de los ultimos gendarmes viejos del INS de los tiempos de Oduber, los detectives dijeron que avventa significaba La Gran Puta, en honor a alguna 
-        promiscuidad de escuelas montessori, como abogados me aconsejaron que me largara lo mas pronto posible. 
-        El SIDA y el SARS ha matado algunos. Los del PAE y Contadora pelearon a muerte salir de Managua para que tengamos zonas francas....
-       El comandante cero ya murio y tuvo un iphone del futuro, malparidos talibanes ...
-       Putas becadas de la ulatina, atacadas con condones que alteran el ph vaginal , Java lang Java bin fuck ...
-       Mario el de marka desaparecio y aparecio en la montañas nevadas de chile , sportbooks del mall sanpedro, vacios
-       con recuerdos de desaucios terminales, malparida NFL y sus camisetas prohibidas en los tuneles bajo el lago de la sabana.
-       Mafias de Quebec fumando jamaiquina con putas colombianas en las orillas de Jaco ...
-       Por que Mataron a los Cranio Metal?  Por que Mataron a los Cranio Metal?  Por que Mataron a los Cranio Metal?
-       Papas fritas comian las tilapias de forum, cerros de santana con brillos pintados de clubes de ski de canada,
-       Este juego esta inscrito el la casa del artista de santana , sosteniendo el tapezco 
-       Kincho es playo, le gustaba un travesti de la gimnacia olimpica. Creia que nos engañaba, yo siempre sabia que kincho es gay
-       un experimento de profesores hondureños de la UNED, mis vecinos lo excomulgaron en publico , fumabamos cajeta
-       para que Dios lo fulminara y no lo volvieramos a ver jamas, mi compa el vladi se fumo 20 joints una tarde y kincho desaparecio...
-       Era un vecindario heterosexual, habiamos nicas, ticos, filipinos,colombianos ,chilenos y algun bhutanes, la policia de goicoechea nos 
-       puso guardias para que nos respetaran de inquisicion ...
+        En los 80's Aviones de guerra volavan sobre las cumbres del volcan Barva, 
+        Pensamos que eran Migs que venian del Yemmen
+        Los Marines mataron a Sombra mi compañero del cole, porque vivia en Chiriki
+        Triple AAA era una hojalateria por calle 12 cerca de las paradas de Bagaces
+        Mis vecinos perdieron duelos a cuchillo contra los constructores de la Ruta32 en el 79 ,
+        A los tibaseños que fueron a la guerra de los contras , los envenenamos con anfetaminas
+        al norte de Rio Frio despues de amputarles los genitales en el 83
+        La Barra de Tibas perecio en duelos de pedradas en las afueras de la discoteca LeBarons en el 87
+        los arrancatroncas murieron en Tikrit en el 96
+        Sorprendi una gorda trotando , escondiendo una pistola automatica cerca se SanMiguel de Heredia
+        Yo soy un aprendiz de Miguel Salguereo, CostaRica is like this. .....
         a =  _root.tank_mc._y - this._y;
 			b =  _root.tank_mc._x - this._x;
 			anguloRadianes = Math.atan2(b,a);
