@@ -24,7 +24,7 @@ public class roundDetonator : MonoBehaviour
 
     public GameObject explosion;
     public string scoreManagerTag = "BatComputer";
-    private GameObject scoreManager;
+    private GameObject scoreUpdater;
     private GameObject damageCountdown;
     public int ptsToIncrease = 10;
     public bool isDamage = false;
@@ -36,7 +36,12 @@ public class roundDetonator : MonoBehaviour
     }
 
     void getScoreManager(){
-        this.scoreManager = GameObject.FindWithTag(this.scoreManagerTag);
+        if(this.isDamage){
+            this.damageCountdown = GameObject.FindWithTag(this.scoreManagerTag);
+        }else{
+            this.scoreUpdater = GameObject.FindWithTag(this.scoreManagerTag);
+        }
+        
     }
 
     // Update is called once per frame
@@ -47,11 +52,10 @@ public class roundDetonator : MonoBehaviour
 
     public void increaseScore(){
          if(this.isDamage){
-             damageCountdown tmpObj = this.scoreManager.GetComponent(typeof(scoreDisplay)) as scoreDisplay;
-            tmpObj.addScore(this.ptsToIncrease);
-            //Debug.Log(this.ptsToIncrease +" pts ...");
+             damageCountdown tmpObj = this.damageCountdown.GetComponent(typeof(damageCountdown)) as damageCountdown;
+            tmpObj.decreaseLife();
         }else{
-            scoreDisplay tmpObj = this.scoreManager.GetComponent(typeof(scoreDisplay)) as scoreDisplay;
+            scoreDisplay tmpObj = this.scoreUpdater.GetComponent(typeof(scoreDisplay)) as scoreDisplay;
             tmpObj.addScore(this.ptsToIncrease);
             //Debug.Log(this.ptsToIncrease +" pts ...");
         }
