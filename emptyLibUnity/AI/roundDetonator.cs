@@ -25,7 +25,9 @@ public class roundDetonator : MonoBehaviour
     public GameObject explosion;
     public string scoreManagerTag = "BatComputer";
     private GameObject scoreManager;
+    private GameObject damageCountdown;
     public int ptsToIncrease = 10;
+    public bool isDamage = false;
 
     // Start is called before the first frame update
     void Start()
@@ -44,9 +46,15 @@ public class roundDetonator : MonoBehaviour
     }
 
     public void increaseScore(){
-         scoreDisplay tmpObj = this.scoreManager.GetComponent(typeof(scoreDisplay)) as scoreDisplay;
-         tmpObj.addScore(this.ptsToIncrease);
-         //Debug.Log(this.ptsToIncrease +" pts ...");
+         if(this.isDamage){
+             damageCountdown tmpObj = this.scoreManager.GetComponent(typeof(scoreDisplay)) as scoreDisplay;
+            tmpObj.addScore(this.ptsToIncrease);
+            //Debug.Log(this.ptsToIncrease +" pts ...");
+        }else{
+            scoreDisplay tmpObj = this.scoreManager.GetComponent(typeof(scoreDisplay)) as scoreDisplay;
+            tmpObj.addScore(this.ptsToIncrease);
+            //Debug.Log(this.ptsToIncrease +" pts ...");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other){
