@@ -63,10 +63,24 @@ public class roundDetonator : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other){
         //Debug.Log("Bulls eyes ..");
-        GameObject e = Instantiate(this.explosion) as GameObject;
-        e.transform.position = transform.position;
-        Destroy(other.gameObject);
-        Destroy(this.gameObject);//fucking destroy
-        this.increaseScore();
+        if(this.isDamage){
+            damageCountdown tmpObj = this.damageCountdown.GetComponent(typeof(damageCountdown)) as damageCountdown;
+            if(tmpObj.remainingLife < 0){
+                 GameObject e = Instantiate(this.explosion) as GameObject;
+                e.transform.position = transform.position;
+                Destroy(other.gameObject);
+                Destroy(this.gameObject);//fucking destroy
+                this.increaseScore();
+                //POPUP RESTART HERE
+            }
+        }else{
+             GameObject e = Instantiate(this.explosion) as GameObject;
+            e.transform.position = transform.position;
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);//fucking destroy
+            this.increaseScore();
+        }
+        
     }
+
 }

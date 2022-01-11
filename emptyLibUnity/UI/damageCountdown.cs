@@ -20,7 +20,7 @@ public class damageCountdown : MonoBehaviour
     public float windowHeight = 170;
     public float windowWidth = 150;
 	private Rect windowRect;
-    protected int remainingLife = 100;
+    public int remainingLife = 100;
     public int lifeToDecreasePerHit = 5;
     protected string theScore;
     public GUIStyle style;
