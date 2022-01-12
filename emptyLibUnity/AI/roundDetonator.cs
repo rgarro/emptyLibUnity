@@ -23,6 +23,7 @@ public class roundDetonator : MonoBehaviour
 {
 
     public GameObject explosion;
+    public GameObject roundHit;
     public string scoreManagerTag = "BatComputer";
     private GameObject scoreUpdater;
     private GameObject damageCountdown;
@@ -62,16 +63,26 @@ public class roundDetonator : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other){
-        //Debug.Log("Bulls eyes ..");
         if(this.isDamage){
+            Debug.Log("Checking Damage ..");
+            if (other.gameObject.CompareTag(this.scoreManagerTag)){
+            Debug.Log("The Other ..");    
+                this.increaseScore();
             damageCountdown tmpObj = this.damageCountdown.GetComponent(typeof(damageCountdown)) as damageCountdown;
             if(tmpObj.remainingLife < 0){
                  GameObject e = Instantiate(this.explosion) as GameObject;
                 e.transform.position = transform.position;
                 Destroy(other.gameObject);
                 Destroy(this.gameObject);//fucking destroy
-                this.increaseScore();
                 //POPUP RESTART HERE
+                    //post username and points to firebase
+                    //get top ten scores
+                    //legend pointing to restart
+            }else{
+                GameObject e = Instantiate(this.roundHit) as GameObject;
+                e.transform.position = other.gameObject.transform.position;
+                Destroy(this.gameObject);//fucking destroy
+            }
             }
         }else{
              GameObject e = Instantiate(this.explosion) as GameObject;

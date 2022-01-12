@@ -90,7 +90,7 @@ public class machineGunAI : MonoBehaviour
         //Vector3 to = new Vector3(this.targetTank.transform.rotation.x,this.targetTank.transform.rotation.y,this.targetTank.transform.rotation.z);
         //nextRound.transform.rotation = Quaternion.FromToRotation(from,to);
         //Debug.Log("QAngleZ: "+ nextRound.transform.rotation.z);
-        Debug.Log("AngleZ: "+ this.getTargetInverseRotation());
+        //Debug.Log("AngleZ: "+ this.getTargetInverseRotation());
         //nextRound.transform.LookAt(this.targetTank.transform);
         nextRound.transform.Rotate(this.transform.rotation.x,this.transform.rotation.y,this.getTargetInverseRotation());
     }
