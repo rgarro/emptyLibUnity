@@ -24,6 +24,8 @@ public class roundDetonator : MonoBehaviour
 
     public GameObject explosion;
     public GameObject roundHit;
+
+    public string originTag = "m1tank";
     public string scoreManagerTag = "BatComputer";
     private GameObject scoreUpdater;
     private GameObject damageCountdown;
@@ -63,7 +65,11 @@ public class roundDetonator : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other){
-        if(this.isDamage){
+        if(this.originTag == other.gameObject.tag){
+            //Debug.Log("No dejes que nos lleve el diablo amor .."+ this.originTag +".."+other.gameObject.tag);
+            //cuando veo atravez del humo me voy volando y tu eres mi guia ....
+        }else{
+             if(this.isDamage){
             Debug.Log("Checking Damage .."+this.scoreManagerTag +".."+other.gameObject.tag);
             if (other.gameObject.CompareTag(this.scoreManagerTag)){
             Debug.Log("The Other .."+this.scoreManagerTag);    
@@ -91,7 +97,7 @@ public class roundDetonator : MonoBehaviour
             Destroy(this.gameObject);//fucking destroy
             this.increaseScore();
         }
-        
+        } 
     }
 
 }
