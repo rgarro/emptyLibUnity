@@ -56,7 +56,7 @@ public class roundDetonator : MonoBehaviour
     public void increaseScore(){
          if(this.isDamage){
              damageCountdown tmpObj = this.damageCountdown.GetComponent(typeof(damageCountdown)) as damageCountdown;
-             Debug.Log("decrease pts ...");
+             //Debug.Log("decrease pts ...");
             tmpObj.decreaseLife();
         }else{
             scoreDisplay tmpObj = this.scoreUpdater.GetComponent(typeof(scoreDisplay)) as scoreDisplay;
@@ -70,9 +70,9 @@ public class roundDetonator : MonoBehaviour
             //cuando veo atravez del humo me voy volando y tu eres mi guia ....
         }else{
              if(this.isDamage){
-            Debug.Log("Checking Damage .."+this.scoreManagerTag +".."+other.gameObject.tag);
+           // Debug.Log("Checking Damage .."+this.scoreManagerTag +".."+other.gameObject.tag);
             if (other.gameObject.CompareTag(this.scoreManagerTag)){
-            Debug.Log("The Other .."+this.scoreManagerTag);    
+           // Debug.Log("The Other .."+this.scoreManagerTag);    
                 this.increaseScore();
             damageCountdown tmpObj = this.damageCountdown.GetComponent(typeof(damageCountdown)) as damageCountdown;
             if(tmpObj.remainingLife < 0){
