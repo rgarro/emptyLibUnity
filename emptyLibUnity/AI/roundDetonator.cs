@@ -54,19 +54,19 @@ public class roundDetonator : MonoBehaviour
     public void increaseScore(){
          if(this.isDamage){
              damageCountdown tmpObj = this.damageCountdown.GetComponent(typeof(damageCountdown)) as damageCountdown;
+             Debug.Log("decrease pts ...");
             tmpObj.decreaseLife();
         }else{
             scoreDisplay tmpObj = this.scoreUpdater.GetComponent(typeof(scoreDisplay)) as scoreDisplay;
             tmpObj.addScore(this.ptsToIncrease);
-            //Debug.Log(this.ptsToIncrease +" pts ...");
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other){
         if(this.isDamage){
-            Debug.Log("Checking Damage ..");
+            Debug.Log("Checking Damage .."+this.scoreManagerTag +".."+other.gameObject.tag);
             if (other.gameObject.CompareTag(this.scoreManagerTag)){
-            Debug.Log("The Other ..");    
+            Debug.Log("The Other .."+this.scoreManagerTag);    
                 this.increaseScore();
             damageCountdown tmpObj = this.damageCountdown.GetComponent(typeof(damageCountdown)) as damageCountdown;
             if(tmpObj.remainingLife < 0){
