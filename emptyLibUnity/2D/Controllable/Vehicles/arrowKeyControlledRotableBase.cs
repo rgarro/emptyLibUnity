@@ -28,6 +28,8 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
     private float nextY;
     public float screenBodyCorrectionNorthDegrees = 90.00f; 
 
+    public GameObject baseTracks;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,18 +41,22 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             this.upArrowAction();
+            this.drawTracks();
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             this.downArrowAction();
+            this.drawTracks();
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             this.rightArrowAction();
+            this.drawTracks();
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             this.leftArrowAction();
+            this.drawTracks();
         }
     }
 
@@ -80,6 +86,12 @@ public class arrowKeyControlledRotableBase : MonoBehaviour
         //this.TheBase.transform.Translate(this.nextX,this.nextY,0);
         this.playEngineSoundOn();
         this.TheBase.transform.Translate(Vector3.left * Time.deltaTime);
+    }
+
+    private void drawTracks(){
+        Vector3 spawnPosition = new Vector3 (this.TheBase.transform.position.x,this.TheBase.transform.position.y ,this.TheBase.transform.position.z);
+		Quaternion spawnRotation = this.TheBase.transform.rotation;
+        Instantiate (this.baseTracks, spawnPosition, spawnRotation);
     }
 
     private void calculateNexts(bool goForward=true){
