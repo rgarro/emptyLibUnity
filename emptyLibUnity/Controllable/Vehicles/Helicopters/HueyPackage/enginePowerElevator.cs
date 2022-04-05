@@ -10,10 +10,15 @@ using UnityEngine;
 public class enginePowerElevator : MonoBehaviour
 {
     public float initialAltitude = 0.0f;
-    
+    public float maxAltitude = 300.0f;
+    public GameObject blades;
     // Start is called before the first frame update
     void Start()
     {
+        
+    }
+
+    void rotateBlades(){
         
     }
 
