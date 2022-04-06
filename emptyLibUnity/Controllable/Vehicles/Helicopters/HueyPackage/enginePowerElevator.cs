@@ -19,6 +19,10 @@ public class enginePowerElevator : MonoBehaviour
     }
 
     void rotateBlades(){
+
+    }
+
+    void increseRotationSpeed(){
         
     }
 
