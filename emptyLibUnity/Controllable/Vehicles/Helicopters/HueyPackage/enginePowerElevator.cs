@@ -2,8 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 /**
- * Increases engine power rotation speed and helicopter elevation
  *
+ *                ,,,,,,,,,,---''''---,,,,,,,,,,
+ *      --''''''''          ````][''''          ''''''''--
+ *                           _3'''':.
+ * _                  .,---------------.
+ * \\    / _________./  |[__]| o   |J@"\\__
+ *  \\==o=========:;    |____|[IL__|''''/_/')
+ *     /            `'-,._____===\=_____.,-'
+ *                          \         \     ,
+ *                    """"""""""""""""""""""
+ * Increases engine power rotation speed and helicopter elevation
+ * We are going to change the name of this radio station to Kowalsky
+ * to whom speed meant freedom of soul ...
  *
  *
  */
@@ -14,6 +25,10 @@ public class enginePowerElevator : MonoBehaviour
     public GameObject blades;
 
     public GameObject helicopter;
+
+    private float pitch;
+
+    private float yaw; 
 
     private int rotationSteps = 5;
     // Start is called before the first frame update
@@ -30,7 +45,9 @@ public class enginePowerElevator : MonoBehaviour
 
     }
 
-    void increaseHelicopterAltitude(){}
+    void increaseHelicopterAltitude(){
+
+    }
 
     // Update is called once per frame
     void Update()
