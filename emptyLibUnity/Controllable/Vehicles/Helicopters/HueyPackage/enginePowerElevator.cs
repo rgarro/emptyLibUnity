@@ -49,6 +49,23 @@ public class enginePowerElevator : MonoBehaviour
 
     }
 
+    void yawLeft(){
+
+    }
+
+    void yawRight(){
+
+    }
+
+    void pitchFront(){
+
+    }
+
+    void pitchBack(){
+
+    }
+
+
     // Update is called once per frame
     void Update()
     {
