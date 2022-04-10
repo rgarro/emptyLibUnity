@@ -65,6 +65,26 @@ public class enginePowerElevator : MonoBehaviour
 
     }
 
+    void moveForward(){
+
+    }
+
+    void moveBackward(){
+
+    }
+
+    void rotateLeft(){
+
+    }
+
+    void rotateRight(){
+
+    }
+
+    void joystickControls(){
+        //find a cheap joystick ina walmart next to an airbase where real pilots have stepped
+    }
+
 
     // Update is called once per frame
     void Update()
