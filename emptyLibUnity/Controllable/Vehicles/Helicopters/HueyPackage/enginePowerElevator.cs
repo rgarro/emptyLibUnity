@@ -30,6 +30,8 @@ public class enginePowerElevator : MonoBehaviour
 
     private float yaw; 
 
+    private float rudderAngle;
+
     private int rotationSteps = 5;
     // Start is called before the first frame update
     void Start()
@@ -73,11 +75,11 @@ public class enginePowerElevator : MonoBehaviour
 
     }
 
-    void rotateLeft(){
+    void rudderLeft(){
 
     }
 
-    void rotateRight(){
+    void rudderRight(){
 
     }
 
