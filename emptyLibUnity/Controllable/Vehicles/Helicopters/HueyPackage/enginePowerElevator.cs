@@ -32,11 +32,16 @@ public class enginePowerElevator : MonoBehaviour
 
     private float rudderAngle;
 
+    private AudioSource soundPlayer;
+    public AudioClip helicopterThrottleSoundClip;
+    
+
     private int rotationSteps = 5;
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.soundPlayer = GetComponent<AudioSource> ();
+        this.soundPlayer.volume = 0.2F;
     }
 
     void rotateBlades(){
