@@ -16,7 +16,7 @@ using UnityEngine;
  * We are going to change the name of this radio station to Kowalsky
  * to whom speed meant freedom of soul ...
  *
- *
+ *@author Rolando<rgarro@gmail.com>
  */
 public class enginePowerElevator : MonoBehaviour
 {
