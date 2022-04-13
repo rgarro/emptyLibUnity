@@ -28,7 +28,12 @@ public class cameras : MonoBehaviour
 
     public GameObject rightCamera;
     protected bool follow_camera_is_hidden =  false;
-    protected bool front_camera_is_hidden =  false;
+    protected bool front_camera_is_hidden =  true;
+    protected bool left_camera_is_hidden =  true;
+    protected bool right_camera_is_hidden =  true;
+    public int buttonWidth = 40;
+    public int buttonHeight = 40;
+
     // Start is called before the first frame update
     void Start()
     {
