@@ -40,7 +40,13 @@ public class cameras : MonoBehaviour
     public int buttonY = 40;
     public string boxLabel = "Cameras";
 
+    public Texture2D FollowIcon;
+    public Texture2D FrontIcon;
+    public Texture2D LeftIcon;
+    public Texture2D RightIcon;
+
     public GUISkin btnSkin;
+    public int buttons_x_corner = 200;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +57,14 @@ public class cameras : MonoBehaviour
     void OnGUI(){
         GUI.skin = this.btnSkin;
         GUI.Box(new Rect(this.buttons_x_corner,this.boxY,this.boxWidth,this.boxHeight), this.boxLabel);
+          if(GUI.Button(new Rect(this.buttons_x_corner+55,this.buttonY,this.buttonWidth,this.buttonHeight), FollowIcon)) 
+        {
+            if(this.follow_camera_is_hidden){
+                this.follow_camera_is_hidden = false;
+                this.followingCamera.SetActive(true);
+                Debug.Log("Activating follow camera");
+            } 
+        }
     }
 
     // Update is called once per frame
