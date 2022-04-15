@@ -31,13 +31,26 @@ public class cameras : MonoBehaviour
     protected bool front_camera_is_hidden =  true;
     protected bool left_camera_is_hidden =  true;
     protected bool right_camera_is_hidden =  true;
+   
+     public int boxWidth = 265;
+    public int boxHeight = 90;
+    public int boxY = 10;
     public int buttonWidth = 40;
     public int buttonHeight = 40;
+    public int buttonY = 40;
+    public string boxLabel = "Cameras";
+
+    public GUISkin btnSkin;
 
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+
+    void OnGUI(){
+        GUI.skin = this.btnSkin;
+        GUI.Box(new Rect(this.buttons_x_corner,this.boxY,this.boxWidth,this.boxHeight), this.boxLabel);
     }
 
     // Update is called once per frame
