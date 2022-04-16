@@ -62,7 +62,26 @@ public class cameras : MonoBehaviour
             if(this.follow_camera_is_hidden){
                 this.follow_camera_is_hidden = false;
                 this.followingCamera.SetActive(true);
-                Debug.Log("Activating follow camera");
+                //Debug.Log("Activating follow camera");
+                this.frontCamera.SetActive(false);
+                this.front_camera_is_hidden = true;
+                this.rightCamera.SetActive(false);
+                this.right_camera_is_hidden = true;
+                this.leftCamera.SetActive(false);
+                this.left_camera_is_hidden = true;
+            } 
+        }
+        if(GUI.Button(new Rect(this.buttons_x_corner+110,this.buttonY,this.buttonWidth,this.buttonHeight), FrontIcon)){
+            if(this.front_camera_is_hidden){
+                this.front_camera_is_hidden = false;
+                this.frontCamera.SetActive(true);
+                //Debug.Log("Activating front camera");
+                this.followingCamera.SetActive(false);
+                this.follow_camera_is_hidden = true;
+                this.rightCamera.SetActive(false);
+                this.right_camera_is_hidden = true;
+                this.leftCamera.SetActive(false);
+                this.left_camera_is_hidden = true;
             } 
         }
     }
