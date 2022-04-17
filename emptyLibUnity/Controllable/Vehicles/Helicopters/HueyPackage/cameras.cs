@@ -84,6 +84,19 @@ public class cameras : MonoBehaviour
                 this.left_camera_is_hidden = true;
             } 
         }
+        if(GUI.Button(new Rect(this.buttons_x_corner+160,this.buttonY,this.buttonWidth,this.buttonHeight), LeftIcon)){
+            if(this.left_camera_is_hidden){
+                this.left_camera_is_hidden = false;
+                this.leftCamera.SetActive(true);
+                this.front_camera_is_hidden = true;
+                this.frontCamera.SetActive(false);
+                //Debug.Log("Activating front camera");
+                this.followingCamera.SetActive(false);
+                this.follow_camera_is_hidden = true;
+                this.rightCamera.SetActive(false);
+                this.right_camera_is_hidden = true;  
+            } 
+        }
     }
 
     // Update is called once per frame
