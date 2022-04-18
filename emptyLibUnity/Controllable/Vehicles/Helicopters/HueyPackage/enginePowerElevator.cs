@@ -42,6 +42,14 @@ public class enginePowerElevator : MonoBehaviour
     {
         this.soundPlayer = GetComponent<AudioSource> ();
         this.soundPlayer.volume = 0.2F;
+        this.playEngineSound();
+    }
+
+    private void playEngineSound(){
+        this.soundPlayer.clip = this.helicopterThrottleSoundClip;
+        if (!this.soundPlayer.isPlaying) {
+            this.soundPlayer.Play ();
+        }
     }
 
     void rotateBlades(){
