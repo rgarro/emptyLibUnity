@@ -48,10 +48,20 @@ public class cameras : MonoBehaviour
     public GUISkin btnSkin;
     public int buttons_x_corner = 200;
 
+    private AudioSource soundPlayer;
+    public AudioClip cameraTransitionSoundClip;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+         this.soundPlayer = GetComponent<AudioSource> ();
+    }
+
+    private void playTransitionSound(){
+        this.soundPlayer.clip = this.cameraTransitionSoundClip;
+        if (!this.soundPlayer.isPlaying) {
+            this.soundPlayer.Play ();
+        }
     }
 
     void OnGUI(){
@@ -69,6 +79,7 @@ public class cameras : MonoBehaviour
                 this.right_camera_is_hidden = true;
                 this.leftCamera.SetActive(false);
                 this.left_camera_is_hidden = true;
+                this.playTransitionSound();
             } 
         }
         if(GUI.Button(new Rect(this.buttons_x_corner+110,this.buttonY,this.buttonWidth,this.buttonHeight), FrontIcon)){
@@ -82,6 +93,7 @@ public class cameras : MonoBehaviour
                 this.right_camera_is_hidden = true;
                 this.leftCamera.SetActive(false);
                 this.left_camera_is_hidden = true;
+                this.playTransitionSound();
             } 
         }
         if(GUI.Button(new Rect(this.buttons_x_corner+160,this.buttonY,this.buttonWidth,this.buttonHeight), LeftIcon)){
@@ -95,6 +107,22 @@ public class cameras : MonoBehaviour
                 this.follow_camera_is_hidden = true;
                 this.rightCamera.SetActive(false);
                 this.right_camera_is_hidden = true;  
+                this.playTransitionSound();
+            } 
+        }
+
+         if(GUI.Button(new Rect(this.buttons_x_corner+205,this.buttonY,this.buttonWidth,this.buttonHeight), RightIcon)){
+            if(this.left_camera_is_hidden){
+                this.rightCamera.SetActive(true);
+                this.right_camera_is_hidden = false;
+                this.left_camera_is_hidden = true;
+                this.leftCamera.SetActive(false);
+                this.front_camera_is_hidden = true;
+                this.frontCamera.SetActive(false);
+                //Debug.Log("Activating front camera");
+                this.followingCamera.SetActive(false);
+                this.follow_camera_is_hidden = true;  
+                this.playTransitionSound();
             } 
         }
     }
