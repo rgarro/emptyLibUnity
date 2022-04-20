@@ -42,7 +42,8 @@ public class enginePowerElevator : MonoBehaviour
     public float topRotationSpeed;
     
 
-    private int rotationSteps = 5;
+    //private int rotationSteps = 5;
+    
     // Start is called before the first frame update
     void Start()
     {
