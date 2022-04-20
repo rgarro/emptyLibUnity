@@ -34,12 +34,21 @@ public class enginePowerElevator : MonoBehaviour
 
     private AudioSource soundPlayer;
     public AudioClip helicopterThrottleSoundClip;
+
+    public float rotationSteps = 0.87f;
+    public bool turnClocwise = true;
+    private float helipadRotationZ;
+
+    public float topRotationSpeed;
     
 
     private int rotationSteps = 5;
     // Start is called before the first frame update
     void Start()
     {
+        this.helipadRotationZ = this.blades.transform.rotation.z;
+        
+        //Engine Sound
         this.soundPlayer = GetComponent<AudioSource> ();
         this.soundPlayer.volume = 0.2F;
         this.playEngineSound();
@@ -53,7 +62,12 @@ public class enginePowerElevator : MonoBehaviour
     }
 
     void rotateBlades(){
-
+        if(this.turnClocwise){
+            this.helipadRotationZ += this.rotationSteps;
+        } else {
+            this.helipadRotationZ -= this.rotationSteps;
+        }
+		this.blades.transform.Rotate(0,0,this.helipadRotationZ+this.rotationSteps);
     }
 
     void increseRotationSpeed(){
@@ -104,6 +118,6 @@ public class enginePowerElevator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        this.rotateBlades();
     }
 }
