@@ -13,6 +13,7 @@ using UnityEngine;
  *                          \         \     ,
  *                    """"""""""""""""""""""
  * Increases engine power rotation speed and helicopter elevation
+ * Handles Rotation and Elevation
  * We are going to change the name of this radio station to Kowalsky
  * to whom speed meant freedom of soul ...
  *
@@ -23,6 +24,8 @@ public class enginePowerElevator : MonoBehaviour
     public float initialAltitude = 0.0f;
     public float maxAltitude = 300.0f;
     public GameObject blades;
+
+    public GameObject tailRotor;//rotates y
 
     public GameObject helicopter;
 
