@@ -74,6 +74,10 @@ public class enginePowerElevator : MonoBehaviour
 		this.blades.transform.Rotate(0,0,this.helipadRotationZ+this.rotationSteps);
     }
 
+    void rotateTailRotor(){
+        this.tailRotor.transform.Rotate(0,0,this.helipadRotationZ+this.rotationSteps);
+    }
+
     void increseRotationSpeed(){
 
     }
@@ -123,5 +127,6 @@ public class enginePowerElevator : MonoBehaviour
     void Update()
     {
         this.rotateBlades();
+        this.rotateTailRotor();
     }
 }
