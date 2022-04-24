@@ -66,16 +66,21 @@ public class enginePowerElevator : MonoBehaviour
     }
 
     void rotateBlades(){
-        if(this.turnClocwise){
+        /*if(this.turnClocwise){
             this.helipadRotationZ += this.rotationSteps;
         } else {
             this.helipadRotationZ -= this.rotationSteps;
         }
-		this.blades.transform.Rotate(0,0,this.helipadRotationZ+this.rotationSteps);
+		this.blades.transform.Rotate(0,0,this.helipadRotationZ+this.rotationSteps);*/
+
+        float rotateTo = this.blades.transform.rotation.eulerAngles.z + this.rotationSteps;
+        this.blades.transform.Rotate(0,0,rotateTo);
     }
 
     void rotateTailRotor(){
-        this.tailRotor.transform.Rotate(0,0,this.helipadRotationZ+this.rotationSteps);
+        //this.tailRotor.transform.Rotate(0,0,this.helipadRotationZ+this.rotationSteps);
+        float rotateTo = this.tailRotor.transform.rotation.eulerAngles.z + this.rotationSteps;
+        this.tailRotor.transform.Rotate(0,0,rotateTo);
     }
 
     void increseRotationSpeed(){
