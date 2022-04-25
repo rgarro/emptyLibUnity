@@ -38,12 +38,12 @@ public class enginePowerElevator : MonoBehaviour
     private AudioSource soundPlayer;
     public AudioClip helicopterThrottleSoundClip;
 
-    public float rotationSteps = 0.87f;
+    private float rotationSteps = 0.01f;
     public bool turnClocwise = true;
     private float helipadRotationZ;
 
     public float topRotationSpeed;
-    
+    public int enginePowerSliderYpos = 25;
 
     //private int rotationSteps = 5;
     
@@ -108,7 +108,7 @@ public class enginePowerElevator : MonoBehaviour
     }
 
     void moveForward(){
-
+        //there goes the challenger being followed by the blue meanies on wheels ..
     }
 
     void moveBackward(){
@@ -127,6 +127,11 @@ public class enginePowerElevator : MonoBehaviour
         //find a cheap joystick ina walmart next to an airbase where real pilots have stepped
     }
 
+    void OnGUI()
+    {
+        //thaiRed bull VS starBucks brunette will fight the smokeShopBlonde ...
+        this.rotationSteps = GUI.HorizontalSlider(new Rect(25, this.enginePowerSliderYpos, 100, 30), this.rotationSteps, 0.0F, 10.0F);//will joystick this.
+    }
 
     // Update is called once per frame
     void Update()
