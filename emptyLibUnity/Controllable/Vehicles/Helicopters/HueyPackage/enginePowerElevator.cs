@@ -44,6 +44,8 @@ public class enginePowerElevator : MonoBehaviour
 
     public float topRotationSpeed;
     public int enginePowerSliderYpos = 25;
+    public int enginePowerSliderXpos = 25;
+    public string engineThrottleLabel = "Engine Power";
 
     //private int rotationSteps = 5;
     
@@ -130,7 +132,8 @@ public class enginePowerElevator : MonoBehaviour
     void OnGUI()
     {
         //thaiRed bull VS starBucks brunette will fight the smokeShopBlonde ...
-        this.rotationSteps = GUI.HorizontalSlider(new Rect(25, this.enginePowerSliderYpos, 100, 30), this.rotationSteps, 0.0F, 10.0F);//will joystick this.
+        GUI.Box(new Rect(this.enginePowerSliderXpos - 20,this.enginePowerSliderYpos - 15,275,30), this.engineThrottleLabel);
+        this.rotationSteps = GUI.HorizontalSlider(new Rect(this.enginePowerSliderXpos, this.enginePowerSliderYpos, 250, 50), this.rotationSteps, 0.0F, 50.0F);//will joystick this.
     }
 
     // Update is called once per frame
