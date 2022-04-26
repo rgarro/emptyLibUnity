@@ -92,12 +92,14 @@ public class enginePowerElevator : MonoBehaviour
 
     void changeHelicopterAltitude(){
         if(this.helicopter.transform.position.y < this.maxAltitude){
-             var step =  this.rotationSteps * Time.deltaTime; // calculate time to last to move distance ..
-            //if to min rotation steps to elevate
-            Vector3 target = new Vector3(this.helicopter.transform.position.x, this.helicopter.transform.position.y +this.altitudeSteps,this.helicopter.transform.position.z);
-            this.helicopter.transform.position = Vector3.MoveTowards(this.helicopter.transform.position, target, step);
+            if(this.helicopter.transform.position.y < (this.helicopter.transform.position.y +this.altitudeSteps)){
+                 var step =  this.rotationSteps * Time.deltaTime; // calculate time to last to move distance ..
+                //if to min rotation steps to elevate
+                Vector3 target = new Vector3(this.helicopter.transform.position.x, this.helicopter.transform.position.y +this.altitudeSteps,this.helicopter.transform.position.z);
+                this.helicopter.transform.position = Vector3.MoveTowards(this.helicopter.transform.position, target, step);
+            }
         }else{
-
+            Debug.Log("Max altitude reached ...");
         }
     }
 
@@ -148,8 +150,8 @@ public class enginePowerElevator : MonoBehaviour
     
 
         Debug.Log("ALTITUDE: " + this.helicopter.transform.position.y);
-        string altitudeLabel = "ALTITUDE: " + this.helicopter.transform.position.y;
-        GUI.Label(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos+20, 100, 20), altitudeLabel);
+        string subAltitudeLabel = "ALTITUDE: " + Mathf.Ceil(this.helicopter.transform.position.y);
+        GUI.Label(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos+20, 100, 20), subAltitudeLabel);
         
     
     }
