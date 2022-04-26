@@ -39,6 +39,7 @@ public class enginePowerElevator : MonoBehaviour
     public AudioClip helicopterThrottleSoundClip;
 
     private float rotationSteps = 0.01f;
+    private float altitudeSteps = 0.01f;
     public bool turnClocwise = true;
     private float helipadRotationZ;
 
@@ -46,6 +47,10 @@ public class enginePowerElevator : MonoBehaviour
     public int enginePowerSliderYpos = 25;
     public int enginePowerSliderXpos = 25;
     public string engineThrottleLabel = "Engine Power";
+
+    public int altitudeSliderYpos = 25;
+    public int altitudeSliderXpos = 25;
+    public string altitudeLabel = "Altitude";
 
     //private int rotationSteps = 5;
     
@@ -89,7 +94,7 @@ public class enginePowerElevator : MonoBehaviour
 
     }
 
-    void increaseHelicopterAltitude(){
+    void changeHelicopterAltitude(){
 
     }
 
@@ -134,6 +139,9 @@ public class enginePowerElevator : MonoBehaviour
         //thaiRed bull VS starBucks brunette will fight the smokeShopBlonde ...
         GUI.Box(new Rect(this.enginePowerSliderXpos - 20,this.enginePowerSliderYpos - 15,275,30), this.engineThrottleLabel);
         this.rotationSteps = GUI.HorizontalSlider(new Rect(this.enginePowerSliderXpos, this.enginePowerSliderYpos, 250, 50), this.rotationSteps, 0.0F, 50.0F);//will joystick this.
+
+        GUI.Box(new Rect(this.altitudeSliderXpos - 20,this.altitudeSliderYpos - 15,275,30), this.altitudeLabel);
+        this.altitudeSteps = GUI.HorizontalSlider(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos, 250, 50), this.altitudeSteps, 0.0F, 50.0F);//will joystick this.
     }
 
     // Update is called once per frame
@@ -141,5 +149,6 @@ public class enginePowerElevator : MonoBehaviour
     {
         this.rotateBlades();
         this.rotateTailRotor();
+        this.changeHelicopterAltitude();
     }
 }
