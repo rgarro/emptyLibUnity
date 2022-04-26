@@ -21,8 +21,8 @@ using UnityEngine;
  */
 public class enginePowerElevator : MonoBehaviour
 {
-    public float initialAltitude = 0.0f;
-    public float maxAltitude = 300.0f;
+    public float initialAltitude = 1.38f;
+    public float maxAltitude = 44.4f;
     public GameObject blades;
 
     public GameObject tailRotor;//rotates y
@@ -90,12 +90,15 @@ public class enginePowerElevator : MonoBehaviour
         this.tailRotor.transform.Rotate(0,0,rotateTo);
     }
 
-    void increseRotationSpeed(){
-
-    }
-
     void changeHelicopterAltitude(){
+        if(this.helicopter.transform.position.y < this.maxAltitude){
+             var step =  this.rotationSteps * Time.deltaTime; // calculate time to last to move distance ..
+            //if to min rotation steps to elevate
+            Vector3 target = new Vector3(this.helicopter.transform.position.x, this.helicopter.transform.position.y +this.altitudeSteps,this.helicopter.transform.position.z);
+            this.helicopter.transform.position = Vector3.MoveTowards(this.helicopter.transform.position, target, step);
+        }else{
 
+        }
     }
 
     void yawLeft(){
@@ -142,6 +145,13 @@ public class enginePowerElevator : MonoBehaviour
 
         GUI.Box(new Rect(this.altitudeSliderXpos - 20,this.altitudeSliderYpos - 15,275,30), this.altitudeLabel);
         this.altitudeSteps = GUI.HorizontalSlider(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos, 250, 50), this.altitudeSteps, 0.0F, 50.0F);//will joystick this.
+    
+
+        Debug.Log("ALTITUDE: " + this.helicopter.transform.position.y);
+        string altitudeLabel = "ALTITUDE: " + this.helicopter.transform.position.y;
+        GUI.Label(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos+20, 100, 20), altitudeLabel);
+        
+    
     }
 
     // Update is called once per frame
