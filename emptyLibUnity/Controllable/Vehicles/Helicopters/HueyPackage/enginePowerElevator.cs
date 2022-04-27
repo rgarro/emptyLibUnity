@@ -39,6 +39,7 @@ public class enginePowerElevator : MonoBehaviour
     public AudioClip helicopterThrottleSoundClip;
 
     private float rotationSteps = 0.01f;
+    private float lastRotationSteps = 0.01f;
     private float altitudeSteps = 0.01f;
     public bool turnClocwise = true;
     private float helipadRotationZ;
@@ -92,11 +93,21 @@ public class enginePowerElevator : MonoBehaviour
 
     void changeHelicopterAltitude(){
         if(this.helicopter.transform.position.y < this.maxAltitude){
-            if(this.helicopter.transform.position.y < (this.helicopter.transform.position.y +this.altitudeSteps)){
+            
+
+            //if(this.helicopter.transform.position.y < (this.helicopter.transform.position.y +this.altitudeSteps)){
+              if(this.altitudeSteps >= this.lastRotationSteps){  
                  var step =  this.rotationSteps * Time.deltaTime; // calculate time to last to move distance ..
                 //if to min rotation steps to elevate
                 Vector3 target = new Vector3(this.helicopter.transform.position.x, this.helicopter.transform.position.y +this.altitudeSteps,this.helicopter.transform.position.z);
                 this.helicopter.transform.position = Vector3.MoveTowards(this.helicopter.transform.position, target, step);
+                this.lastRotationSteps = this.altitudeSteps;
+            }else{
+                var step =  this.rotationSteps * Time.deltaTime; // calculate time to last to move distance ..
+                //if to min rotation steps to elevate
+                Vector3 target = new Vector3(this.helicopter.transform.position.x, this.helicopter.transform.position.y - this.altitudeSteps* 3,this.helicopter.transform.position.z);
+                this.helicopter.transform.position = Vector3.MoveTowards(this.helicopter.transform.position, target, step);
+                this.lastRotationSteps = this.altitudeSteps;
             }
         }else{
             Debug.Log("Max altitude reached ...");
