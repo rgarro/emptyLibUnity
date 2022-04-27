@@ -91,27 +91,28 @@ public class enginePowerElevator : MonoBehaviour
         this.tailRotor.transform.Rotate(0,0,rotateTo);
     }
 
+    //EL Tio Sam Pone el Varo, La Tia Englin pone la Hacienda ...
     void changeHelicopterAltitude(){
-        if(this.helicopter.transform.position.y < this.maxAltitude){
-            
-
+        //if(this.helicopter.transform.position.y < this.maxAltitude){
+            //christian bermudez es homosexual, la cienciologia es una secta de ciencia ficcion ..
             //if(this.helicopter.transform.position.y < (this.helicopter.transform.position.y +this.altitudeSteps)){
-              if(this.altitudeSteps >= this.lastRotationSteps){  
-                 var step =  this.rotationSteps * Time.deltaTime; // calculate time to last to move distance ..
+              if(this.altitudeSteps >= this.lastRotationSteps){ //UP 
+                 var step =  this.rotationSteps * Time.deltaTime; 
                 //if to min rotation steps to elevate
                 Vector3 target = new Vector3(this.helicopter.transform.position.x, this.helicopter.transform.position.y +this.altitudeSteps,this.helicopter.transform.position.z);
                 this.helicopter.transform.position = Vector3.MoveTowards(this.helicopter.transform.position, target, step);
                 this.lastRotationSteps = this.altitudeSteps;
-            }else{
+            }else{// DOWN
                 var step =  this.rotationSteps * Time.deltaTime; // calculate time to last to move distance ..
                 //if to min rotation steps to elevate
-                Vector3 target = new Vector3(this.helicopter.transform.position.x, this.helicopter.transform.position.y - this.altitudeSteps* 3,this.helicopter.transform.position.z);
-                this.helicopter.transform.position = Vector3.MoveTowards(this.helicopter.transform.position, target, step);
+                //Vector3 target = new Vector3(this.helicopter.transform.position.x, this.helicopter.transform.position.y - this.altitudeSteps* 3,this.helicopter.transform.position.z);
+                //this.helicopter.transform.position = Vector3.MoveTowards(this.helicopter.transform.position, target, step);
+                this.helicopter.transform.position += Vector3.down * Time.deltaTime;
                 this.lastRotationSteps = this.altitudeSteps;
             }
-        }else{
+        /*}else{
             Debug.Log("Max altitude reached ...");
-        }
+        }*/
     }
 
     void yawLeft(){
