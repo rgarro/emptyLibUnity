@@ -38,9 +38,9 @@ public class enginePowerElevator : MonoBehaviour
     private AudioSource soundPlayer;
     public AudioClip helicopterThrottleSoundClip;
 
-    private float rotationSteps = 0.01f;
-    private float lastRotationSteps = 0.01f;
-    private float altitudeSteps = 0.01f;
+    private float rotationSteps = 0.00f;
+    private float lastRotationSteps = 0.00f;
+    private float altitudeSteps = 0.00f;
     public bool turnClocwise = true;
     private float helipadRotationZ;
 
@@ -91,11 +91,13 @@ public class enginePowerElevator : MonoBehaviour
         this.tailRotor.transform.Rotate(0,0,rotateTo);
     }
 
-    //EL Tio Sam Pone el Varo, La Tia Englin pone la Hacienda ...
+    
     void changeHelicopterAltitude(){
-        float step =  this.altitudeSteps * Time.deltaTime; 
-        Vector3 target = new Vector3(this.helicopter.transform.position.x, this.altitudeSteps,this.helicopter.transform.position.z);
-        this.helicopter.transform.position = Vector3.MoveTowards(this.helicopter.transform.position, target, step);
+        if(this.rotationSteps > 20){
+            float step =  this.altitudeSteps * Time.deltaTime; 
+            Vector3 target = new Vector3(this.helicopter.transform.position.x, this.altitudeSteps,this.helicopter.transform.position.z);
+            this.helicopter.transform.position = Vector3.MoveTowards(this.helicopter.transform.position, target, step);    
+        }
     }
 
     void yawLeft(){
@@ -144,7 +146,7 @@ public class enginePowerElevator : MonoBehaviour
         this.altitudeSteps = GUI.HorizontalSlider(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos, 250, 50), this.altitudeSteps, 0.0F, 50.0F);//will joystick this.
     
 
-        Debug.Log("ALTITUDE: " + this.helicopter.transform.position.y);
+        Debug.Log("Engine Power: " + this.rotationSteps);
         string subAltitudeLabel = "ALTITUDE: " + Mathf.Ceil(this.helicopter.transform.position.y);
         GUI.Label(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos+20, 100, 20), subAltitudeLabel);
         
