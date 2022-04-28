@@ -93,26 +93,9 @@ public class enginePowerElevator : MonoBehaviour
 
     //EL Tio Sam Pone el Varo, La Tia Englin pone la Hacienda ...
     void changeHelicopterAltitude(){
-        //if(this.helicopter.transform.position.y < this.maxAltitude){
-            //christian bermudez es homosexual, la cienciologia es una secta de ciencia ficcion ..
-            //if(this.helicopter.transform.position.y < (this.helicopter.transform.position.y +this.altitudeSteps)){
-              if(this.altitudeSteps >= this.lastRotationSteps){ //UP 
-                 var step =  this.rotationSteps * Time.deltaTime; 
-                //if to min rotation steps to elevate
-                Vector3 target = new Vector3(this.helicopter.transform.position.x, this.helicopter.transform.position.y +this.altitudeSteps,this.helicopter.transform.position.z);
-                this.helicopter.transform.position = Vector3.MoveTowards(this.helicopter.transform.position, target, step);
-                this.lastRotationSteps = this.altitudeSteps;
-            }else{// DOWN
-                var step =  this.rotationSteps * Time.deltaTime; // calculate time to last to move distance ..
-                //if to min rotation steps to elevate
-                //Vector3 target = new Vector3(this.helicopter.transform.position.x, this.helicopter.transform.position.y - this.altitudeSteps* 3,this.helicopter.transform.position.z);
-                //this.helicopter.transform.position = Vector3.MoveTowards(this.helicopter.transform.position, target, step);
-                this.helicopter.transform.position += Vector3.down * Time.deltaTime;
-                this.lastRotationSteps = this.altitudeSteps;
-            }
-        /*}else{
-            Debug.Log("Max altitude reached ...");
-        }*/
+        float step =  this.altitudeSteps * Time.deltaTime; 
+        Vector3 target = new Vector3(this.helicopter.transform.position.x, this.altitudeSteps,this.helicopter.transform.position.z);
+        this.helicopter.transform.position = Vector3.MoveTowards(this.helicopter.transform.position, target, step);
     }
 
     void yawLeft(){
