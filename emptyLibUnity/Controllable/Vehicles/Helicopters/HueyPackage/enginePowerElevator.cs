@@ -14,6 +14,7 @@ using UnityEngine;
  *                    """"""""""""""""""""""
  * Increases engine power rotation speed and helicopter elevation
  * Handles Rotation and Elevation
+ *
  * We are going to change the name of this radio station to Kowalsky
  * to whom speed meant freedom of soul ...
  *
@@ -52,6 +53,7 @@ public class enginePowerElevator : MonoBehaviour
     public int altitudeSliderYpos = 25;
     public int altitudeSliderXpos = 25;
     public string altitudeLabel = "Altitude";
+    private string enginePowerLabel;
 
     //private int rotationSteps = 5;
     
@@ -96,7 +98,10 @@ public class enginePowerElevator : MonoBehaviour
         if(this.rotationSteps > 20){
             float step =  this.altitudeSteps * Time.deltaTime; 
             Vector3 target = new Vector3(this.helicopter.transform.position.x, this.altitudeSteps,this.helicopter.transform.position.z);
-            this.helicopter.transform.position = Vector3.MoveTowards(this.helicopter.transform.position, target, step);    
+            this.helicopter.transform.position = Vector3.MoveTowards(this.helicopter.transform.position, target, step);  
+            this.enginePowerLabel = "Engine Power: "+this.rotationSteps + " WATS";  
+        } else{
+            this.enginePowerLabel = "Increase Engine Power";
         }
     }
 
@@ -138,19 +143,16 @@ public class enginePowerElevator : MonoBehaviour
 
     void OnGUI()
     {
-        //thaiRed bull VS starBucks brunette will fight the smokeShopBlonde ...
         GUI.Box(new Rect(this.enginePowerSliderXpos - 20,this.enginePowerSliderYpos - 15,275,30), this.engineThrottleLabel);
         this.rotationSteps = GUI.HorizontalSlider(new Rect(this.enginePowerSliderXpos, this.enginePowerSliderYpos, 250, 50), this.rotationSteps, 0.0F, 50.0F);//will joystick this.
 
         GUI.Box(new Rect(this.altitudeSliderXpos - 20,this.altitudeSliderYpos - 15,275,30), this.altitudeLabel);
         this.altitudeSteps = GUI.HorizontalSlider(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos, 250, 50), this.altitudeSteps, 0.0F, 50.0F);//will joystick this.
-    
 
         Debug.Log("Engine Power: " + this.rotationSteps);
         string subAltitudeLabel = "ALTITUDE: " + Mathf.Ceil(this.helicopter.transform.position.y);
         GUI.Label(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos+20, 100, 20), subAltitudeLabel);
-        
-    
+        GUI.Label(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos+40, 150, 20), this.enginePowerLabel);
     }
 
     // Update is called once per frame
