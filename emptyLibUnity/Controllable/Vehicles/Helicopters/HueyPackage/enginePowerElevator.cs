@@ -54,6 +54,10 @@ public class enginePowerElevator : MonoBehaviour
     public int altitudeSliderXpos = 25;
     public string altitudeLabel = "Altitude";
     private string enginePowerLabel;
+    private float rudderSteps = 25.00F;//keep this in the middle
+    public string rudderLabel = "Rudder";
+    public int rudderSliderXpos = 25;
+    public int rudderSliderYpos = 25;
 
     //private int rotationSteps = 5;
     
@@ -130,11 +134,20 @@ public class enginePowerElevator : MonoBehaviour
     }
 
     void rudderLeft(){
-
+        Debug.Log("will rudder left");
     }
 
     void rudderRight(){
+        Debug.Log("will rudder right");
+    }
 
+    void rudder(){
+        if(this.rudderSteps > 25){
+            this.rudderRight();
+        }
+        if(this.rudderSteps < 25){
+            this.rudderLeft();
+        }
     }
 
     void joystickControls(){
@@ -149,10 +162,13 @@ public class enginePowerElevator : MonoBehaviour
         GUI.Box(new Rect(this.altitudeSliderXpos - 20,this.altitudeSliderYpos - 15,275,30), this.altitudeLabel);
         this.altitudeSteps = GUI.HorizontalSlider(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos, 250, 50), this.altitudeSteps, 0.0F, 50.0F);//will joystick this.
 
-        Debug.Log("Engine Power: " + this.rotationSteps);
+        //Debug.Log("Engine Power: " + this.rotationSteps);
         string subAltitudeLabel = "ALTITUDE: " + Mathf.Ceil(this.helicopter.transform.position.y);
         GUI.Label(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos+20, 100, 20), subAltitudeLabel);
         GUI.Label(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos+40, 150, 20), this.enginePowerLabel);
+
+        GUI.Box(new Rect(this.rudderSliderXpos - 20,this.rudderSliderYpos - 15,275,30), this.rudderLabel);
+        this.rudderSteps = GUI.HorizontalSlider(new Rect(this.rudderSliderXpos, this.rudderSliderYpos, 250, 50), this.rudderSteps, 0.0F, 50.0F);
     }
 
     // Update is called once per frame
@@ -161,5 +177,6 @@ public class enginePowerElevator : MonoBehaviour
         this.rotateBlades();
         this.rotateTailRotor();
         this.changeHelicopterAltitude();
+        this.rudder();
     }
 }
