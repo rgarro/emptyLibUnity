@@ -134,11 +134,13 @@ public class enginePowerElevator : MonoBehaviour
     }
 
     void rudderLeft(){
-        Debug.Log("will rudder left");
+        float rotateY = (25 - this.rudderSteps) * -1;
+        Debug.Log("will rudder left: " + rotateY);
     }
 
     void rudderRight(){
-        Debug.Log("will rudder right");
+        float rotateY = this.rudderSteps - 25;
+        Debug.Log("will rudder right: " + rotateY);
     }
 
     void rudder(){
