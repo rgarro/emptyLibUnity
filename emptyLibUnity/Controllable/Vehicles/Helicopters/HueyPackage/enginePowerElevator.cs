@@ -86,7 +86,6 @@ public class enginePowerElevator : MonoBehaviour
             this.helipadRotationZ -= this.rotationSteps;
         }
 		this.blades.transform.Rotate(0,0,this.helipadRotationZ+this.rotationSteps);*/
-
         float rotateTo = this.blades.transform.rotation.eulerAngles.z + this.rotationSteps;
         this.blades.transform.Rotate(0,0,rotateTo);
     }
@@ -162,17 +161,18 @@ public class enginePowerElevator : MonoBehaviour
     {
         GUI.Box(new Rect(this.enginePowerSliderXpos - 20,this.enginePowerSliderYpos - 15,275,30), this.engineThrottleLabel);
         this.rotationSteps = GUI.HorizontalSlider(new Rect(this.enginePowerSliderXpos, this.enginePowerSliderYpos, 250, 50), this.rotationSteps, 0.0F, 50.0F);//will joystick this.
-
-        GUI.Box(new Rect(this.altitudeSliderXpos - 20,this.altitudeSliderYpos - 15,275,30), this.altitudeLabel);
-        this.altitudeSteps = GUI.HorizontalSlider(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos, 250, 50), this.altitudeSteps, 0.0F, 50.0F);//will joystick this.
-
+         if(this.rotationSteps > 20){
+            GUI.Box(new Rect(this.altitudeSliderXpos - 20,this.altitudeSliderYpos - 15,275,30), this.altitudeLabel);
+            this.altitudeSteps = GUI.HorizontalSlider(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos, 250, 50), this.altitudeSteps, 0.0F, 50.0F);//will joystick this.
+         }
         //Debug.Log("Engine Power: " + this.rotationSteps);
         string subAltitudeLabel = "ALTITUDE: " + Mathf.Ceil(this.helicopter.transform.position.y);
         GUI.Label(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos+20, 100, 20), subAltitudeLabel);
         GUI.Label(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos+40, 150, 20), this.enginePowerLabel);
-
-        GUI.Box(new Rect(this.rudderSliderXpos - 20,this.rudderSliderYpos - 15,275,30), this.rudderLabel);
-        this.rudderSteps = GUI.HorizontalSlider(new Rect(this.rudderSliderXpos, this.rudderSliderYpos, 250, 50), this.rudderSteps, 0.0F, 50.0F);
+        if(this.helicopter.transform.position.y > 5){
+            GUI.Box(new Rect(this.rudderSliderXpos - 20,this.rudderSliderYpos - 15,275,30), this.rudderLabel);
+            this.rudderSteps = GUI.HorizontalSlider(new Rect(this.rudderSliderXpos, this.rudderSliderYpos, 250, 50), this.rudderSteps, 0.0F, 50.0F);
+        }
     }
 
     // Update is called once per frame
