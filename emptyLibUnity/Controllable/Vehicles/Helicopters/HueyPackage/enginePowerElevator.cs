@@ -58,6 +58,8 @@ public class enginePowerElevator : MonoBehaviour
     public string rudderLabel = "Rudder";
     public int rudderSliderXpos = 25;
     public int rudderSliderYpos = 25;
+    public int minAltitudeToRudder = 4;
+    public int minRotationStepsToElevate = 15;
 
     //private int rotationSteps = 5;
     
@@ -161,7 +163,7 @@ public class enginePowerElevator : MonoBehaviour
     {
         GUI.Box(new Rect(this.enginePowerSliderXpos - 20,this.enginePowerSliderYpos - 15,275,30), this.engineThrottleLabel);
         this.rotationSteps = GUI.HorizontalSlider(new Rect(this.enginePowerSliderXpos, this.enginePowerSliderYpos, 250, 50), this.rotationSteps, 0.0F, 50.0F);//will joystick this.
-         if(this.rotationSteps > 20){
+         if(this.rotationSteps > this.minRotationStepsToElevate){//will elevate at min rotationSteps
             GUI.Box(new Rect(this.altitudeSliderXpos - 20,this.altitudeSliderYpos - 15,275,30), this.altitudeLabel);
             this.altitudeSteps = GUI.HorizontalSlider(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos, 250, 50), this.altitudeSteps, 0.0F, 50.0F);//will joystick this.
          }
@@ -169,7 +171,7 @@ public class enginePowerElevator : MonoBehaviour
         string subAltitudeLabel = "ALTITUDE: " + Mathf.Ceil(this.helicopter.transform.position.y);
         GUI.Label(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos+20, 100, 20), subAltitudeLabel);
         GUI.Label(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos+40, 150, 20), this.enginePowerLabel);
-        if(this.helicopter.transform.position.y > 5){
+        if(this.helicopter.transform.position.y > this.minAltitudeToRudder){ //will rudder at min altitude
             GUI.Box(new Rect(this.rudderSliderXpos - 20,this.rudderSliderYpos - 15,275,30), this.rudderLabel);
             this.rudderSteps = GUI.HorizontalSlider(new Rect(this.rudderSliderXpos, this.rudderSliderYpos, 250, 50), this.rudderSteps, 0.0F, 50.0F);
         }
