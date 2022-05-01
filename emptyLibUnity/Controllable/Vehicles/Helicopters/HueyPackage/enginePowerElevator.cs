@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 /**
+ * Will Test KiteSurf Gear for Money 
  *
  *                ,,,,,,,,,,---''''---,,,,,,,,,,
  *      --''''''''          ````][''''          ''''''''--
@@ -175,6 +176,26 @@ public class enginePowerElevator : MonoBehaviour
             GUI.Box(new Rect(this.rudderSliderXpos - 20,this.rudderSliderYpos - 15,275,30), this.rudderLabel);
             this.rudderSteps = GUI.HorizontalSlider(new Rect(this.rudderSliderXpos, this.rudderSliderYpos, 250, 50), this.rudderSteps, 0.0F, 50.0F);
         }
+    }
+
+    /**
+    * A bug fix I figured out after smoking a flying monkey joint and watched a F35 blasting Hums in the sky ...
+    * Altitue power control disjunctions on inecuations must have a fallback to a safe state
+    */
+    void descendToTheGround(){//Engine power lost fallback
+    //should appear rigidBody on Terrain diferences from min altitude
+    // should listen collition to stop descend
+        if(this.helicopter.transform.position.y < this.getGroundPosition()){
+this.helicopter.transform.position += Vector3.down * Time.deltaTime;
+        }
+    }
+
+    void altitudeFromGround(){
+
+    }
+
+    void getGroundPosition(){
+
     }
 
     // Update is called once per frame
