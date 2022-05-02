@@ -94,20 +94,20 @@ public class enginePowerElevator : MonoBehaviour
     }
 
     void rotateTailRotor(){
-        //this.tailRotor.transform.Rotate(0,0,this.helipadRotationZ+this.rotationSteps);
         float rotateTo = this.tailRotor.transform.rotation.eulerAngles.z + this.rotationSteps;
         this.tailRotor.transform.Rotate(0,0,rotateTo);
     }
 
     
     void changeHelicopterAltitude(){
-        if(this.rotationSteps > 20){
+        if(this.rotationSteps > this.minRotationStepsToElevate){
             float step =  this.altitudeSteps * Time.deltaTime; 
             Vector3 target = new Vector3(this.helicopter.transform.position.x, this.altitudeSteps,this.helicopter.transform.position.z);
             this.helicopter.transform.position = Vector3.MoveTowards(this.helicopter.transform.position, target, step);  
             this.enginePowerLabel = "Engine Power: "+this.rotationSteps + " WATS";  
         } else{
             this.enginePowerLabel = "Increase Engine Power";
+            this.descendToTheGround();
         }
     }
 
@@ -190,11 +190,8 @@ public class enginePowerElevator : MonoBehaviour
         }
     }
 
-    void altitudeFromGround(){
-
-    }
-
     int getGroundPosition(){
+
         return 1;
     }
 
