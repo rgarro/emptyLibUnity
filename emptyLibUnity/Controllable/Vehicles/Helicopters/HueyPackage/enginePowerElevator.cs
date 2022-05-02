@@ -185,8 +185,8 @@ public class enginePowerElevator : MonoBehaviour
     void descendToTheGround(){//Engine power lost fallback
     //should appear rigidBody on Terrain diferences from min altitude
     // should listen collition to stop descend
-        if(this.helicopter.transform.position.y < this.getGroundPosition()){
-this.helicopter.transform.position += Vector3.down * Time.deltaTime;
+        if(this.helicopter.transform.position.y > this.getGroundPosition()){
+            this.helicopter.transform.position += Vector3.down * Time.deltaTime;
         }
     }
 
@@ -194,8 +194,8 @@ this.helicopter.transform.position += Vector3.down * Time.deltaTime;
 
     }
 
-    void getGroundPosition(){
-
+    int getGroundPosition(){
+        return 1;
     }
 
     // Update is called once per frame
