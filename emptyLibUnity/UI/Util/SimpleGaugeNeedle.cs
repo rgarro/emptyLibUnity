@@ -31,13 +31,13 @@ namespace emptyLibUnity.UI.Util {
 	
 	public void getTilter(double tiltVal){
 		this.tilter = tiltVal;
-//Debug.Log(this.tilter);
+//Debug.Log(this.tilter);//here
 		this.setRotation();
 	}
 
 	protected void setRotation(){
 		//LIM farright, farleft = (x/cosY)*H
-		//slope = rise/run alaways a rate
+		//slope = rise/run alaways a rate ..
 		string current_style = this.styles[this.selectedStyleKey];
 		switch(current_style){
 			case "descending":
