@@ -31,6 +31,14 @@ public class aIEnemyLiner : MonoBehaviour {
 	protected string theScore;
 	public GUISkin btnSkin;
 	public int count = 0;
+	private IEnumerator coroutine;
+
+	void Start(){
+		coroutine = spawnWaves();
+        StartCoroutine(coroutine);
+
+        print("Malians taking Sirte Surf Spot " + Time.time);
+	}
 
 	IEnumerator spawnWaves(){
 		yield return new WaitForSeconds (startWait);
