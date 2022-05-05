@@ -61,6 +61,8 @@ public class enginePowerElevator : MonoBehaviour
     public int rudderSliderYpos = 25;
     public int minAltitudeToRudder = 4;
     public int minRotationStepsToElevate = 15;
+    public float pitchAngleFront = 10.00f;
+    public float pitchAngleBack = -10.00f;
 
     //private int rotationSteps = 5;
     
@@ -158,6 +160,16 @@ public class enginePowerElevator : MonoBehaviour
 
     void joystickControls(){
         //find a cheap joystick ina walmart next to an airbase where real pilots have stepped
+        if (Input.GetKey("up"))
+        {
+            Debug.Log("up arrow key is held down");
+            this.moveForward();
+        }
+
+        if (Input.GetKey("down"))
+        {
+            Debug.Log("down arrow key is held down");
+        }
     }
 
     void OnGUI()
