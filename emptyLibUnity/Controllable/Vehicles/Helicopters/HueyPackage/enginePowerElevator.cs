@@ -131,10 +131,11 @@ public class enginePowerElevator : MonoBehaviour
 
     void moveForward(){
         //there goes the challenger being followed by the blue meanies on wheels ..
+        this.pitchFront();
     }
 
     void moveBackward(){
-
+        this.pitchBack();
     }
 
     void rudderLeft(){
@@ -169,6 +170,7 @@ public class enginePowerElevator : MonoBehaviour
         if (Input.GetKey("down"))
         {
             Debug.Log("down arrow key is held down");
+            this.moveBackward();
         }
     }
 
@@ -214,5 +216,6 @@ public class enginePowerElevator : MonoBehaviour
         this.rotateTailRotor();
         this.changeHelicopterAltitude();
         this.rudder();
+        this.joystickControls();
     }
 }
