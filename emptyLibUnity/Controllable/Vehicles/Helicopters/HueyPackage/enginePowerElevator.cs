@@ -63,6 +63,7 @@ public class enginePowerElevator : MonoBehaviour
     public int minRotationStepsToElevate = 15;
     public float pitchAngleFront = 10.00f;
     public float pitchAngleBack = -10.00f;
+    public float pitchSteps = 1.00f;
 
     
     // Start is called before the first frame update
@@ -123,11 +124,18 @@ public class enginePowerElevator : MonoBehaviour
     }
 
     void pitchFront(){
-      this.helicopter.transform.Rotate(this.pitchAngleFront,0,0);
-    }
+        if(this.helicopter.transform.eulerAngles.x < this.pitchAngleFront){
+            float angle = this.helicopter.transform.eulerAngles.x + this.pitchSteps;
+            this.helicopter.transform.Rotate(angle,0,0);      
+        }
+      
+    }//roots manuva next type of motion
 
     void pitchBack(){
-        this.helicopter.transform.Rotate(pitchAngleBack,0,0);
+        if(this.helicopter.transform.eulerAngles.x > this.pitchAngleBack){
+            float angle = this.helicopter.transform.eulerAngles.x + this.pitchSteps;
+            this.helicopter.transform.Rotate(angle,0,0);
+        }
     }
 
     void moveForward(){
