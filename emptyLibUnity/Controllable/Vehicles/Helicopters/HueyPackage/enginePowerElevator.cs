@@ -64,7 +64,6 @@ public class enginePowerElevator : MonoBehaviour
     public float pitchAngleFront = 10.00f;
     public float pitchAngleBack = -10.00f;
 
-    //private int rotationSteps = 5;
     
     // Start is called before the first frame update
     void Start()
@@ -113,6 +112,8 @@ public class enginePowerElevator : MonoBehaviour
         }
     }
 
+    
+
     void yawLeft(){
 
     }
@@ -122,11 +123,11 @@ public class enginePowerElevator : MonoBehaviour
     }
 
     void pitchFront(){
-      This.helicopter.transform.Rotate();
+      this.helicopter.transform.Rotate(this.pitchAngleFront,0,0);
     }
 
     void pitchBack(){
-
+        this.helicopter.transform.Rotate(pitchAngleBack,0,0);
     }
 
     void moveForward(){
@@ -160,7 +161,6 @@ public class enginePowerElevator : MonoBehaviour
     }
 
     void joystickControls(){
-        //find a cheap joystick ina walmart next to an airbase where real pilots have stepped
         if (Input.GetKey("up"))
         {
             Debug.Log("up arrow key is held down");
@@ -178,7 +178,8 @@ public class enginePowerElevator : MonoBehaviour
     {
         GUI.Box(new Rect(this.enginePowerSliderXpos - 20,this.enginePowerSliderYpos - 15,275,30), this.engineThrottleLabel);
         this.rotationSteps = GUI.HorizontalSlider(new Rect(this.enginePowerSliderXpos, this.enginePowerSliderYpos, 250, 50), this.rotationSteps, 0.0F, 50.0F);//will joystick this.
-         if(this.rotationSteps > this.minRotationStepsToElevate){//will elevate at min rotationSteps
+         if(this.rotationSteps > this.minRotationStepsToElevate){
+             //will elevate at min rotationSteps
             GUI.Box(new Rect(this.altitudeSliderXpos - 20,this.altitudeSliderYpos - 15,275,30), this.altitudeLabel);
             this.altitudeSteps = GUI.HorizontalSlider(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos, 250, 50), this.altitudeSteps, 0.0F, 50.0F);//will joystick this.
          }
@@ -191,21 +192,18 @@ public class enginePowerElevator : MonoBehaviour
             this.rudderSteps = GUI.HorizontalSlider(new Rect(this.rudderSliderXpos, this.rudderSliderYpos, 250, 50), this.rudderSteps, 0.0F, 50.0F);
         }
     }
-I
+
     /**
-    * A bug fix I figured out after smoking a flying monkey joint and watched a F35 blasting Hums in the sky ...
     * Altitue power control disjunctions on inecuations must have a fallback to a safe state
     */
-    void descendToTheGround(){//Engine power lost fallback
-    //should appear rigidBody on Terrain diferences from min altitude
-    // should listen collition to stop descend
+     void descendToTheGround(){
         if(this.helicopter.transform.position.y > this.getGroundPosition()){
             this.helicopter.transform.position += Vector3.down * Time.deltaTime;
         }
     }
+   
 
     int getGroundPosition(){
-
         return 1;
     }
 
