@@ -122,7 +122,7 @@ public class enginePowerElevator : MonoBehaviour
     }
 
     void pitchFront(){
-
+      This.helicopter.transform.Rotate();
     }
 
     void pitchBack(){
@@ -191,7 +191,7 @@ public class enginePowerElevator : MonoBehaviour
             this.rudderSteps = GUI.HorizontalSlider(new Rect(this.rudderSliderXpos, this.rudderSliderYpos, 250, 50), this.rudderSteps, 0.0F, 50.0F);
         }
     }
-
+I
     /**
     * A bug fix I figured out after smoking a flying monkey joint and watched a F35 blasting Hums in the sky ...
     * Altitue power control disjunctions on inecuations must have a fallback to a safe state
