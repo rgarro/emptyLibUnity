@@ -133,7 +133,7 @@ public class enginePowerElevator : MonoBehaviour
 
     void pitchBack(){
         if(this.helicopter.transform.eulerAngles.x > this.pitchAngleBack){
-            float angle = this.helicopter.transform.eulerAngles.x + this.pitchSteps;
+            float angle = this.helicopter.transform.eulerAngles.x - this.pitchSteps;
             this.helicopter.transform.Rotate(angle,0,0);
         }
     }
@@ -198,6 +198,7 @@ public class enginePowerElevator : MonoBehaviour
         if(this.helicopter.transform.position.y > this.minAltitudeToRudder){ //will rudder at min altitude
             GUI.Box(new Rect(this.rudderSliderXpos - 20,this.rudderSliderYpos - 15,275,30), this.rudderLabel);
             this.rudderSteps = GUI.HorizontalSlider(new Rect(this.rudderSliderXpos, this.rudderSliderYpos, 250, 50), this.rudderSteps, 0.0F, 50.0F);
+            
         }
     }
 
@@ -222,6 +223,8 @@ public class enginePowerElevator : MonoBehaviour
         this.rotateTailRotor();
         this.changeHelicopterAltitude();
         this.rudder();
-        this.joystickControls();
+        if(this.helicopter.transform.position.y > this.minAltitudeToRudder){ 
+            this.joystickControls();
+        }
     }
 }
