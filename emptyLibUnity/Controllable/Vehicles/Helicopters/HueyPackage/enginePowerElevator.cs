@@ -124,17 +124,20 @@ public class enginePowerElevator : MonoBehaviour
     }
 
     void pitchFront(){
-        if(this.helicopter.transform.eulerAngles.x < this.pitchAngleFront){
-            float angle = this.helicopter.transform.eulerAngles.x + this.pitchSteps;
+        if(this.helicopter.transform.eulerAngles.x > this.pitchAngleFront){
+            float angle = this.helicopter.transform.eulerAngles.x - this.pitchSteps;
             this.helicopter.transform.Rotate(angle,0,0);      
         }
       
-    }//roots manuva next type of motion
+    }
 
     void pitchBack(){
-        if(this.helicopter.transform.eulerAngles.x > this.pitchAngleBack){
-            float angle = this.helicopter.transform.eulerAngles.x - this.pitchSteps;
+        Debug.Log("pitch back "+ this.helicopter.transform.eulerAngles.x  +" < " + this.pitchAngleBack);
+        if(this.helicopter.transform.eulerAngles.x < this.pitchAngleBack){
+            float angle = this.helicopter.transform.eulerAngles.x + this.pitchSteps;
             this.helicopter.transform.Rotate(angle,0,0);
+        }else{
+            Debug.Log("Backward Inclination Reached ..");
         }
     }
 
@@ -171,13 +174,13 @@ public class enginePowerElevator : MonoBehaviour
     void joystickControls(){
         if (Input.GetKey("up"))
         {
-            Debug.Log("up arrow key is held down");
+            Debug.Log("up arrow: "+ this.helicopter.transform.eulerAngles.x);
             this.moveForward();
         }
 
         if (Input.GetKey("down"))
         {
-            Debug.Log("down arrow key is held down");
+            Debug.Log("down arrow: " + this.helicopter.transform.eulerAngles.x);
             this.moveBackward();
         }
     }
@@ -198,7 +201,7 @@ public class enginePowerElevator : MonoBehaviour
         if(this.helicopter.transform.position.y > this.minAltitudeToRudder){ //will rudder at min altitude
             GUI.Box(new Rect(this.rudderSliderXpos - 20,this.rudderSliderYpos - 15,275,30), this.rudderLabel);
             this.rudderSteps = GUI.HorizontalSlider(new Rect(this.rudderSliderXpos, this.rudderSliderYpos, 250, 50), this.rudderSteps, 0.0F, 50.0F);
-            
+
         }
     }
 
