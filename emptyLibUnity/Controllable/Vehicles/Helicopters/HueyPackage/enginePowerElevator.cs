@@ -124,9 +124,12 @@ public class enginePowerElevator : MonoBehaviour
     }
 
     void pitchFront(){
+        Debug.Log("pitch front "+ this.helicopter.transform.eulerAngles.x  +" > " + this.pitchAngleBack);
         if(this.helicopter.transform.eulerAngles.x > this.pitchAngleFront){
             float angle = this.helicopter.transform.eulerAngles.x - this.pitchSteps;
             this.helicopter.transform.Rotate(angle,0,0);      
+        }else{
+            Debug.Log("Forward Inclination Reached ..");
         }
       
     }
