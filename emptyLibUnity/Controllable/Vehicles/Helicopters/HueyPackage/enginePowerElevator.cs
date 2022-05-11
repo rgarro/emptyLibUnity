@@ -195,6 +195,7 @@ public class enginePowerElevator : MonoBehaviour
 
     void OnGUI()
     {
+         Debug.Log("Helicopter X: "+ this.helicopter.transform.eulerAngles.x );
         GUI.Box(new Rect(this.enginePowerSliderXpos - 20,this.enginePowerSliderYpos - 15,275,30), this.engineThrottleLabel);
         this.rotationSteps = GUI.HorizontalSlider(new Rect(this.enginePowerSliderXpos, this.enginePowerSliderYpos, 250, 50), this.rotationSteps, 0.0F, 50.0F);//will joystick this.
          if(this.rotationSteps > this.minRotationStepsToElevate){
