@@ -186,6 +186,11 @@ public class enginePowerElevator : MonoBehaviour
             Debug.Log("down arrow: " + this.helicopter.transform.eulerAngles.x);
             this.moveBackward();
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Un gavilan federal le venia siguiendo el rumbo ...");
+        }
     }
 
     void OnGUI()
