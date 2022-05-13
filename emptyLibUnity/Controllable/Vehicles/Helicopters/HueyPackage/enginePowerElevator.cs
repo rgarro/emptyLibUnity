@@ -64,6 +64,7 @@ public class enginePowerElevator : MonoBehaviour
     public float pitchAngleFront = 10.00f;
     public float pitchAngleBack = -10.00f;
     public float pitchSteps = 1.00f;
+    public float ceroCorrection = 260.00f;
 
     
     // Start is called before the first frame update
