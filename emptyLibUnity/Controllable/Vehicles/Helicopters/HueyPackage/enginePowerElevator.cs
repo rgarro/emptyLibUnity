@@ -130,7 +130,8 @@ public class enginePowerElevator : MonoBehaviour
             float angle = this.helicopter.transform.eulerAngles.x - this.pitchSteps;
             this.helicopter.transform.Rotate(angle,0,0);      
         }else{
-            Debug.Log("Forward Inclination Reached ..");
+            //Debug.Log("Forward Inclination Reached ..");
+            this.helicopter.transform.position += Vector3.forward * Time.deltaTime;//times speed later
         }
       
     }
@@ -141,7 +142,8 @@ public class enginePowerElevator : MonoBehaviour
             float angle = this.helicopter.transform.eulerAngles.x + this.pitchSteps;
             this.helicopter.transform.Rotate(angle,0,0);
         }else{
-            Debug.Log("Backward Inclination Reached ..");
+            //Debug.Log("Backward Inclination Reached ..");
+            this.helicopter.transform.position += Vector3.back * Time.deltaTime;//times speed later
         }
     }
 
