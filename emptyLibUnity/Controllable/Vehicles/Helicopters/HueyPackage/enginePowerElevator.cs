@@ -131,7 +131,7 @@ public class enginePowerElevator : MonoBehaviour
             this.helicopter.transform.Rotate(angle,0,0);      
         }else{
             //Debug.Log("Forward Inclination Reached ..");
-            this.helicopter.transform.position += Vector3.forward * Time.deltaTime;//times speed later
+            this.helicopter.transform.position += Vector3.forward * (Time.deltaTime * 3);//times speed later
         }
       
     }
@@ -143,12 +143,11 @@ public class enginePowerElevator : MonoBehaviour
             this.helicopter.transform.Rotate(angle,0,0);
         }else{
             //Debug.Log("Backward Inclination Reached ..");
-            this.helicopter.transform.position += Vector3.back * Time.deltaTime;//times speed later
+            this.helicopter.transform.position += Vector3.back * (Time.deltaTime*3);//times speed later
         }
     }
 
     void moveForward(){
-        //there goes the challenger being followed by the blue meanies on wheels ..
         this.pitchFront();
     }
 
@@ -213,7 +212,7 @@ public class enginePowerElevator : MonoBehaviour
         if(this.helicopter.transform.position.y > this.minAltitudeToRudder){ //will rudder at min altitude
             GUI.Box(new Rect(this.rudderSliderXpos - 20,this.rudderSliderYpos - 15,275,30), this.rudderLabel);
             this.rudderSteps = GUI.HorizontalSlider(new Rect(this.rudderSliderXpos, this.rudderSliderYpos, 250, 50), this.rudderSteps, 0.0F, 50.0F);
-
+            //forward speed control here ..
         }
     }
 
