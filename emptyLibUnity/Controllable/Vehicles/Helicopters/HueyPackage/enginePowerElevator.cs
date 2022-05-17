@@ -65,6 +65,7 @@ public class enginePowerElevator : MonoBehaviour
     public float pitchAngleBack = -10.00f;
     public float pitchSteps = 1.00f;
     public float ceroCorrection = 260.00f;
+    public int forwardSpeed = 3;
 
     
     // Start is called before the first frame update
@@ -131,7 +132,7 @@ public class enginePowerElevator : MonoBehaviour
             this.helicopter.transform.Rotate(angle,0,0);      
         }else{
             //Debug.Log("Forward Inclination Reached ..");
-            this.helicopter.transform.position += Vector3.forward * (Time.deltaTime * 3);//times speed later
+            this.helicopter.transform.position += Vector3.forward * (Time.deltaTime * this.forwardSpeed);//times speed later
         }
       
     }
@@ -143,7 +144,7 @@ public class enginePowerElevator : MonoBehaviour
             this.helicopter.transform.Rotate(angle,0,0);
         }else{
             //Debug.Log("Backward Inclination Reached ..");
-            this.helicopter.transform.position += Vector3.back * (Time.deltaTime*3);//times speed later
+            this.helicopter.transform.position += Vector3.back * (Time.deltaTime*this.forwardSpeed);//times speed later
         }
     }
 
