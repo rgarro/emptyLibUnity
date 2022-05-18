@@ -53,6 +53,9 @@ public class enginePowerElevator : MonoBehaviour
 
     public int altitudeSliderYpos = 25;
     public int altitudeSliderXpos = 25;
+    public int fwSliderXpos = 25;
+    public int fwSliderYpos = 25;
+    public string fwLabel = "FW Speed";
     public string altitudeLabel = "Altitude";
     private string enginePowerLabel;
     private float rudderSteps = 25.00F;//keep this in the middle
@@ -65,7 +68,8 @@ public class enginePowerElevator : MonoBehaviour
     public float pitchAngleBack = -10.00f;
     public float pitchSteps = 1.00f;
     public float ceroCorrection = 260.00f;
-    public int forwardSpeed = 3;
+    public float forwardSpeed = 3.0f;
+    private bool showForwardSpeedSlider = false;
 
     
     // Start is called before the first frame update
@@ -126,24 +130,28 @@ public class enginePowerElevator : MonoBehaviour
     }
 
     void pitchFront(){
-        Debug.Log("pitch front "+ this.helicopter.transform.eulerAngles.x  +" > " + this.pitchAngleBack);
+        //Debug.Log("pitch front "+ this.helicopter.transform.eulerAngles.x  +" > " + this.pitchAngleBack);
         if(this.helicopter.transform.eulerAngles.x > this.pitchAngleFront){
             float angle = this.helicopter.transform.eulerAngles.x - this.pitchSteps;
-            this.helicopter.transform.Rotate(angle,0,0);      
+            this.helicopter.transform.Rotate(angle,0,0);
+            this.showForwardSpeedSlider = false;      
         }else{
             //Debug.Log("Forward Inclination Reached ..");
+            this.showForwardSpeedSlider = true;
             this.helicopter.transform.position += Vector3.forward * (Time.deltaTime * this.forwardSpeed);//times speed later
         }
       
     }
 
     void pitchBack(){
-        Debug.Log("pitch back "+ this.helicopter.transform.eulerAngles.x  +" < " + this.pitchAngleBack);
+        //Debug.Log("pitch back "+ this.helicopter.transform.eulerAngles.x  +" < " + this.pitchAngleBack);
         if(this.helicopter.transform.eulerAngles.x < this.pitchAngleBack){
             float angle = this.helicopter.transform.eulerAngles.x + this.pitchSteps;
             this.helicopter.transform.Rotate(angle,0,0);
+            this.showForwardSpeedSlider = false;
         }else{
             //Debug.Log("Backward Inclination Reached ..");
+            this.showForwardSpeedSlider = true;
             this.helicopter.transform.position += Vector3.back * (Time.deltaTime*this.forwardSpeed);//times speed later
         }
     }
@@ -192,13 +200,13 @@ public class enginePowerElevator : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Un gavilan federal le venia siguiendo el rumbo ...");
+            //Debug.Log("Un gavilan federal le venia siguiendo el rumbo ...");
         }
     }
 
     void OnGUI()
     {
-         Debug.Log("Helicopter X: "+ this.helicopter.transform.eulerAngles.x );
+        // Debug.Log("Helicopter X: "+ this.helicopter.transform.eulerAngles.x );
         GUI.Box(new Rect(this.enginePowerSliderXpos - 20,this.enginePowerSliderYpos - 15,275,30), this.engineThrottleLabel);
         this.rotationSteps = GUI.HorizontalSlider(new Rect(this.enginePowerSliderXpos, this.enginePowerSliderYpos, 250, 50), this.rotationSteps, 0.0F, 50.0F);//will joystick this.
          if(this.rotationSteps > this.minRotationStepsToElevate){
@@ -214,6 +222,10 @@ public class enginePowerElevator : MonoBehaviour
             GUI.Box(new Rect(this.rudderSliderXpos - 20,this.rudderSliderYpos - 15,275,30), this.rudderLabel);
             this.rudderSteps = GUI.HorizontalSlider(new Rect(this.rudderSliderXpos, this.rudderSliderYpos, 250, 50), this.rudderSteps, 0.0F, 50.0F);
             //forward speed control here ..
+            if(this.showForwardSpeedSlider){
+                GUI.Box(new Rect(this.fwSliderXpos-20,this.fwSliderYpos-15,275,30), this.fwLabel);
+                this.forwardSpeed = GUI.HorizontalSlider(new Rect(this.fwSliderXpos, this.fwSliderYpos, 250, 50), this.forwardSpeed, 0.0f, 5.0f);
+            }
         }
     }
 
