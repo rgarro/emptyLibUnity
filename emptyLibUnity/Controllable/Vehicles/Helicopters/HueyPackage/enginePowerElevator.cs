@@ -70,6 +70,8 @@ public class enginePowerElevator : MonoBehaviour
     public float ceroCorrection = 260.00f;
     public float forwardSpeed = 3.0f;
     private bool showForwardSpeedSlider = false;
+    public float maxForwardSpeed = 5.0f;
+    public string backForwardKeysLegend = "use up down arrow keys ...";
 
     
     // Start is called before the first frame update
@@ -188,19 +190,19 @@ public class enginePowerElevator : MonoBehaviour
     void joystickControls(){
         if (Input.GetKey("up"))
         {
-            Debug.Log("up arrow: "+ this.helicopter.transform.eulerAngles.x);
+           // Debug.Log("up arrow: "+ this.helicopter.transform.eulerAngles.x);
             this.moveForward();
         }
 
         if (Input.GetKey("down"))
         {
-            Debug.Log("down arrow: " + this.helicopter.transform.eulerAngles.x);
+            //Debug.Log("down arrow: " + this.helicopter.transform.eulerAngles.x);
             this.moveBackward();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //Debug.Log("Un gavilan federal le venia siguiendo el rumbo ...");
+            //will restart game on scape key press ...
         }
     }
 
@@ -217,6 +219,12 @@ public class enginePowerElevator : MonoBehaviour
         //Debug.Log("Engine Power: " + this.rotationSteps);
         string subAltitudeLabel = "ALTITUDE: " + Mathf.Ceil(this.helicopter.transform.position.y);
         GUI.Label(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos+20, 100, 20), subAltitudeLabel);
+        if(this.helicopter.transform.position.y > this.minAltitudeToRudder){
+            //can only be moved after min altitude reached
+            GUI.Label(new Rect(this.altitudeSliderXpos+90, this.altitudeSliderYpos+20, 150, 20), this.backForwardKeysLegend);
+        }
+        
+
         GUI.Label(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos+40, 150, 20), this.enginePowerLabel);
         if(this.helicopter.transform.position.y > this.minAltitudeToRudder){ //will rudder at min altitude
             GUI.Box(new Rect(this.rudderSliderXpos - 20,this.rudderSliderYpos - 15,275,30), this.rudderLabel);
@@ -224,7 +232,7 @@ public class enginePowerElevator : MonoBehaviour
             //forward speed control here ..
             if(this.showForwardSpeedSlider){
                 GUI.Box(new Rect(this.fwSliderXpos-20,this.fwSliderYpos-15,275,30), this.fwLabel);
-                this.forwardSpeed = GUI.HorizontalSlider(new Rect(this.fwSliderXpos, this.fwSliderYpos, 250, 50), this.forwardSpeed, 0.0f, 5.0f);
+                this.forwardSpeed = GUI.HorizontalSlider(new Rect(this.fwSliderXpos, this.fwSliderYpos, 250, 50), this.forwardSpeed, 0.0f, this.maxForwardSpeed);
             }
         }
     }
