@@ -72,6 +72,8 @@ public class enginePowerElevator : MonoBehaviour
     private bool showForwardSpeedSlider = false;
     public float maxForwardSpeed = 5.0f;
     public string backForwardKeysLegend = "use up down arrow keys ...";
+    public float pitchAngleRight = 10.00f;
+    public float pitchAngleLeft = -10.00f;
 
     
     // Start is called before the first frame update
@@ -124,11 +126,11 @@ public class enginePowerElevator : MonoBehaviour
     
 
     void yawLeft(){
-
+        Debug.Log("yaw left: " + this.helicopter.transform.eulerAngles.z);
     }
 
     void yawRight(){
-
+        Debug.Log("yaw right .." + this.helicopter.transform.eulerAngles.z);
     }
 
     void pitchFront(){
@@ -199,7 +201,12 @@ public class enginePowerElevator : MonoBehaviour
             //Debug.Log("down arrow: " + this.helicopter.transform.eulerAngles.x);
             this.moveBackward();
         }
-
+         if (Input.GetKey("left")){
+             this.yawLeft();
+         }
+        if (Input.GetKey("right")){
+            this.yawRight();
+         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             //will restart game on scape key press ...
