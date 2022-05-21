@@ -140,11 +140,10 @@ public class enginePowerElevator : MonoBehaviour
             this.helicopter.transform.Rotate(angle,0,0);
             this.showForwardSpeedSlider = false;      
         }else{
-            //Debug.Log("Forward Inclination Reached ..");
             this.showForwardSpeedSlider = true;
-            this.helicopter.transform.position += Vector3.forward * (Time.deltaTime * this.forwardSpeed);//times speed later
-        }
-      
+            //this.helicopter.transform.position += Vector3.forward * (Time.deltaTime * this.forwardSpeed);
+            this.helicopter.transform.Translate(Vector3.down * (Time.deltaTime * this.forwardSpeed));
+        } 
     }
 
     void pitchBack(){
