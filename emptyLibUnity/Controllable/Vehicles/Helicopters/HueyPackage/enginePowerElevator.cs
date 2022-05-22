@@ -74,6 +74,9 @@ public class enginePowerElevator : MonoBehaviour
     public string backForwardKeysLegend = "use up down arrow keys ...";
     public float pitchAngleRight = 10.00f;
     public float pitchAngleLeft = -10.00f;
+    public float yawAngleRight = 2.0f;
+    public float yawAngleLeft = -2.0f;
+    public float yawSteps = 0.05f;
 
     
     // Start is called before the first frame update
@@ -126,11 +129,19 @@ public class enginePowerElevator : MonoBehaviour
     
 
     void yawLeft(){
-        Debug.Log("yaw left: " + this.helicopter.transform.eulerAngles.z);
+        //Debug.Log("yaw left: " + this.helicopter.transform.eulerAngles.z);
+        if(this.helicopter.transform.eulerAngles.z > this.yawAngleLeft){
+            float angle = this.helicopter.transform.eulerAngles.z - this.yawSteps;
+            this.helicopter.transform.Rotate(0,0,angle);      
+        }
     }
 
     void yawRight(){
-        Debug.Log("yaw right .." + this.helicopter.transform.eulerAngles.z);
+        //Debug.Log("yaw right .." + this.helicopter.transform.eulerAngles.z);
+        if(this.helicopter.transform.eulerAngles.z < this.yawAngleRight){
+            float angle = this.helicopter.transform.eulerAngles.z + this.yawSteps;
+            this.helicopter.transform.Rotate(0,0,angle);      
+        }
     }
 
     void pitchFront(){
