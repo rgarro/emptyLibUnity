@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 /**
  * Will Test KiteSurf Gear for Money 
  *
@@ -220,8 +221,15 @@ public class enginePowerElevator : MonoBehaviour
          }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //will restart game on scape key press ...
+            this.doRestart();
         }
+    }
+
+     public void doRestart(){
+        //Debug.Log("will restart");
+        //Application.LoadLevel(Application.loadedLevel);
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 
     void OnGUI()
