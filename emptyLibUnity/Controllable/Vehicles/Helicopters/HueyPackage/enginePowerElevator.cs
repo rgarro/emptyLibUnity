@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using emptyLibUnity.UI.Util;
+using System;
+using emptyLibUnity.UI.Util;
+using UnityEngine.UI;
 /**
  * Will Test KiteSurf Gear for Money 
  *
@@ -79,6 +83,9 @@ public class enginePowerElevator : MonoBehaviour
     public float yawAngleLeft = -2.0f;
     public float yawSteps = 0.05f;
 
+    private SimpleGaugeNeedle altitudeNeedle;
+    public Image NeedleAltitude;
+
     
     // Start is called before the first frame update
     void Start()
@@ -90,6 +97,16 @@ public class enginePowerElevator : MonoBehaviour
         this.soundPlayer.volume = 0.2F;
         this.playEngineSound();
     }
+
+    void startDashItems(){
+		this.altitudeNeedle = new SimpleGaugeNeedle();
+		this.altitudeNeedle.Needle = this.NeedleAltitude;
+	}
+
+    void setAltitude(){
+		this.altitudeNeedle.getTilter(Mathf.Ceil(this.helicopter.transform.position.y));//fractals are the far end of the needle speed oscilation ...
+		this.altitudeNeedle.tiltNeedle();
+	}
 
     private void playEngineSound(){
         this.soundPlayer.clip = this.helicopterThrottleSoundClip;
