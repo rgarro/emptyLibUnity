@@ -96,6 +96,8 @@ public class enginePowerElevator : MonoBehaviour
         this.soundPlayer = GetComponent<AudioSource> ();
         this.soundPlayer.volume = 0.2F;
         this.playEngineSound();
+
+        this.startDashItems();
     }
 
     void startDashItems(){
@@ -304,5 +306,7 @@ public class enginePowerElevator : MonoBehaviour
         if(this.helicopter.transform.position.y > this.minAltitudeToRudder){ 
             this.joystickControls();
         }
+        //update gauges
+        this.setAltitude();
     }
 }
