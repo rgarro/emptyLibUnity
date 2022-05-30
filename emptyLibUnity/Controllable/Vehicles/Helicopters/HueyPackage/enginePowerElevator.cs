@@ -86,6 +86,9 @@ public class enginePowerElevator : MonoBehaviour
     private SimpleGaugeNeedle altitudeNeedle;
     public Image NeedleAltitude;
 
+     private SimpleGaugeNeedle rpmNeedle;
+    public Image NeedleRpm;
+
     
     // Start is called before the first frame update
     void Start()
@@ -103,6 +106,9 @@ public class enginePowerElevator : MonoBehaviour
     void startDashItems(){
 		this.altitudeNeedle = new SimpleGaugeNeedle();
 		this.altitudeNeedle.Needle = this.NeedleAltitude;
+
+        this.rpmNeedle = new SimpleGaugeNeedle();
+        this.rpmNeedle.Needle = this.NeedleRpm;
 	}
 
     void setAltitude(){
