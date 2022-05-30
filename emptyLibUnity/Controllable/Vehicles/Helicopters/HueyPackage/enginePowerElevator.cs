@@ -112,9 +112,15 @@ public class enginePowerElevator : MonoBehaviour
 	}
 
     void setAltitude(){
-		this.altitudeNeedle.getTilter(Mathf.Ceil(this.helicopter.transform.position.y));//fractals are the far end of the needle speed oscilation ...
+		this.altitudeNeedle.getTilter(Mathf.Ceil(this.helicopter.transform.position.y));
 		this.altitudeNeedle.tiltNeedle();
 	}
+
+     void setEnginePower(){
+		this.rpmNeedle.getTilter(this.rotationSteps);
+		this.rpmNeedle.tiltNeedle();
+	}
+
 
     private void playEngineSound(){
         this.soundPlayer.clip = this.helicopterThrottleSoundClip;
@@ -251,7 +257,8 @@ public class enginePowerElevator : MonoBehaviour
     }
 
      public void doRestart(){
-        //Debug.Log("will restart");
+        //Debug.Log("will restart")
+        //find confirm UI
         //Application.LoadLevel(Application.loadedLevel);
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
@@ -314,5 +321,6 @@ public class enginePowerElevator : MonoBehaviour
         }
         //update gauges
         this.setAltitude();
+        this.setEnginePower();
     }
 }
