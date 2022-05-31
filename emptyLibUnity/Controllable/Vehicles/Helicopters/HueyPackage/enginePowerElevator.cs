@@ -86,8 +86,11 @@ public class enginePowerElevator : MonoBehaviour
     private SimpleGaugeNeedle altitudeNeedle;
     public Image NeedleAltitude;
 
-     private SimpleGaugeNeedle rpmNeedle;
+    private SimpleGaugeNeedle rpmNeedle;
     public Image NeedleRpm;
+
+    private SimpleGaugeNeedle speedNeedle;
+    public Image NeedleSpeed;
 
     
     // Start is called before the first frame update
@@ -109,6 +112,9 @@ public class enginePowerElevator : MonoBehaviour
 
         this.rpmNeedle = new SimpleGaugeNeedle();
         this.rpmNeedle.Needle = this.NeedleRpm;
+
+         this.speedNeedle = new SimpleGaugeNeedle();
+        this.speedNeedle.Needle = this.NeedleSpeed;
 	}
 
     void setAltitude(){
@@ -119,6 +125,11 @@ public class enginePowerElevator : MonoBehaviour
      void setEnginePower(){
 		this.rpmNeedle.getTilter(this.rotationSteps);
 		this.rpmNeedle.tiltNeedle();
+	}
+
+    void setSpeedNeedle(){
+		this.speedNeedle.getTilter(this.forwardSpeed);
+		this.speedNeedle.tiltNeedle();
 	}
 
 
@@ -322,5 +333,6 @@ public class enginePowerElevator : MonoBehaviour
         //update gauges
         this.setAltitude();
         this.setEnginePower();
+        this.setSpeedNeedle();
     }
 }
