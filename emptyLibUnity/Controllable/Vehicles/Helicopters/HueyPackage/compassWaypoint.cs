@@ -22,6 +22,9 @@ public class compassWaypoint : MonoBehaviour
 {
 
     public GameObject helicopter;
+    private string frontDegreesQty;
+    public int frontLabelXpos = 25;
+    public int frontLabelYpos = 25;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +35,15 @@ public class compassWaypoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+     this.setFrontDegreesQty();   
+    }
+
+    void setFrontDegreesQty(){
+        this.frontDegreesQty = "_ "+Mathf.Round(this.helicopter.transform.eulerAngles.y)+" -";
+    }
+
+     void OnGUI()
+    {
+        GUI.Label(new Rect(this.frontLabelXpos, this.frontLabelYpos, 100, 20), this.frontDegreesQty);
     }
 }
