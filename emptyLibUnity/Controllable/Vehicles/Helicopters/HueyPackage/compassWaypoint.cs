@@ -69,7 +69,11 @@ public class compassWaypoint : MonoBehaviour
 
      void OnGUI()
     {
+        //North
         GUI.Label(new Rect(this.frontLabelXpos, this.frontLabelYpos-20, 100, 20), this.centerLetter);
         GUI.Label(new Rect(this.frontLabelXpos, this.frontLabelYpos, 100, 20), this.frontDegreesQty);
+        //West
+        GUI.Label(new Rect(this.leftLabelXpos, this.leftLabelYpos-20, 100, 20), this.leftLetter);
+        GUI.Label(new Rect(this.leftLabelXpos, this.leftLabelYpos, 100, 20), this.leftDegreesQty);
     }
 }
