@@ -32,6 +32,11 @@ public class compassWaypoint : MonoBehaviour
     public int leftLabelYpos = 25;
     private string leftLetter = "W";
 
+     private string rightDegreesQty;
+    public int rightLabelXpos = 400;
+    public int rightLabelYpos = 25;
+    private string rightLetter = "E";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +69,17 @@ public class compassWaypoint : MonoBehaviour
         }
         if(tmp>0 || tmp <90){
             this.centerLetter = "N";
+        }
+    }
+
+    void setRightDegreesQty(){
+        this.rightDegreesQty = "- "+Mathf.Round(this.helicopter.transform.eulerAngles.y + 45)+" ->";
+        float tmp = Mathf.Round(this.helicopter.transform.eulerAngles.y);
+         if(tmp==0){
+            this.leftLetter = "E";
+        }
+        if(tmp>0 || tmp <90){
+            this.centerLetter = "E";
         }
     }
 
