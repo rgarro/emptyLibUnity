@@ -48,6 +48,7 @@ public class compassWaypoint : MonoBehaviour
     {
      this.setFrontDegreesQty();  
      this.setLeftDegreesQty();
+     this.setRightDegreesQty();
     }
 
     void setFrontDegreesQty(){
@@ -68,7 +69,7 @@ public class compassWaypoint : MonoBehaviour
             this.leftLetter = "W";
         }
         if(tmp>0 || tmp <90){
-            this.centerLetter = "N";
+            this.leftLetter = "W";
         }
     }
 
@@ -76,10 +77,10 @@ public class compassWaypoint : MonoBehaviour
         this.rightDegreesQty = "- "+Mathf.Round(this.helicopter.transform.eulerAngles.y + 45)+" ->";
         float tmp = Mathf.Round(this.helicopter.transform.eulerAngles.y);
          if(tmp==0){
-            this.leftLetter = "E";
+            this.rightLetter = "E";
         }
         if(tmp>0 || tmp <90){
-            this.centerLetter = "E";
+            this.rightLetter = "E";
         }
     }
 
@@ -91,5 +92,8 @@ public class compassWaypoint : MonoBehaviour
         //West
         GUI.Label(new Rect(this.leftLabelXpos, this.leftLabelYpos-20, 100, 20), this.leftLetter);
         GUI.Label(new Rect(this.leftLabelXpos, this.leftLabelYpos, 100, 20), this.leftDegreesQty);
+        //East
+        GUI.Label(new Rect(this.rightLabelXpos, this.rightLabelYpos-20, 100, 20), this.rightLetter);
+        GUI.Label(new Rect(this.rightLabelXpos, this.rightLabelYpos, 100, 20), this.rightDegreesQty);
     }
 }
