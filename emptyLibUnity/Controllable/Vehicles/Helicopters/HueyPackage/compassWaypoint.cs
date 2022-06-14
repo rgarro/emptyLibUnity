@@ -54,6 +54,7 @@ public class compassWaypoint : MonoBehaviour
     void setFrontDegreesQty(){
         this.frontDegreesQty = "- "+Mathf.Round(this.helicopter.transform.eulerAngles.y)+" -";
         float tmp = Mathf.Round(this.helicopter.transform.eulerAngles.y);
+         this.centerLetter = "N";
          if(tmp==0){
             this.centerLetter = "N";
         }
@@ -65,6 +66,7 @@ public class compassWaypoint : MonoBehaviour
     void setLeftDegreesQty(){
         this.leftDegreesQty = "<- "+Mathf.Round(this.helicopter.transform.eulerAngles.y - 45)+" -";
         float tmp = Mathf.Round(this.helicopter.transform.eulerAngles.y);
+         this.leftLetter = "W";
          if(tmp==0){
             this.leftLetter = "W";
         }
@@ -76,6 +78,7 @@ public class compassWaypoint : MonoBehaviour
     void setRightDegreesQty(){
         this.rightDegreesQty = "- "+Mathf.Round(this.helicopter.transform.eulerAngles.y + 45)+" ->";
         float tmp = Mathf.Round(this.helicopter.transform.eulerAngles.y);
+         this.rightLetter = "E";
          if(tmp==0){
             this.rightLetter = "E";
         }
