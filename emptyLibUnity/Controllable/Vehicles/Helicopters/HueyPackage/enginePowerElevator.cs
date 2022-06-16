@@ -275,6 +275,10 @@ public class enginePowerElevator : MonoBehaviour
         SceneManager.LoadScene(scene.name);
     }
 
+    void displayInstructions(){
+        //use arrow keys on elevation and engine power
+    }
+
     void OnGUI()
     {
         // Debug.Log("Helicopter X: "+ this.helicopter.transform.eulerAngles.x );
@@ -304,6 +308,7 @@ public class enginePowerElevator : MonoBehaviour
                 this.forwardSpeed = GUI.HorizontalSlider(new Rect(this.fwSliderXpos, this.fwSliderYpos, 250, 50), this.forwardSpeed, 0.0f, this.maxForwardSpeed);
             }
         }
+        this.displayInstructions();
     }
 
     /**
