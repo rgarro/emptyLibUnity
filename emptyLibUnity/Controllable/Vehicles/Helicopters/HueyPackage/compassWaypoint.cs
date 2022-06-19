@@ -14,6 +14,7 @@ using UnityEngine;
  *                          \         \     ,
  *                    """"""""""""""""""""""
  * Displays Compass String From given object
+* mission amperson should be included
  *
  *
  *@author Rolando<rgarro@gmail.com>
