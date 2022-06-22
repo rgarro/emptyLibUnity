@@ -39,4 +39,20 @@ public class flightController : MonoBehaviour
     {
         
     }
+
+    void increaseEnginePower(){
+
+    }
+
+    void decreaseEnginePower(){
+
+    }
+
+    void diveLeft(){
+
+    }
+
+    void diveRight(){
+
+    }
 }
