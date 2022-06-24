@@ -56,10 +56,10 @@ public class compassWaypoint : MonoBehaviour
         this.frontDegreesQty = "- "+Mathf.Round(this.helicopter.transform.eulerAngles.y)+" -";
         float tmp = Mathf.Round(this.helicopter.transform.eulerAngles.y);
          this.centerLetter = "N";
-         if(tmp==0){
+         if(tmp<5 && tmp > -5){
             this.centerLetter = "N";
         }
-        if(tmp>0 || tmp <90){
+        if(tmp>5 && tmp <90){
             this.centerLetter = "NE";
         }
     }
