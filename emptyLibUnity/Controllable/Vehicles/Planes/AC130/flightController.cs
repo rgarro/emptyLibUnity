@@ -18,12 +18,11 @@ using UnityEngine;
  *                 |__   /     |---,--'"---+------+-'"
  *                    """     d"b="        '-----+t
  *                            q_p                '@
- * 
- * Olda Bustillos la del 96 era una peliroja graduada de Harvard
- * daba clases de programacion en una universidad de america central ...
- * junto a religiosos sandinistas y estudiantes filipinos bebiamos en el romeral
- * por aquellos dias que nadie tenia laptop ni celular y las llamadas costaban una moneda al amor
- * Peter Druker y sus libros descansaban la borrachera ... 
+ * high pressure areas near the pumping wind at 85 degrees elevation
+ * dream yoga right north to discover the spirit of a rattle snake shutting down my surfkite
+ * this happened 30 meters east from the falcon nest.. 
+ * the falcon , the snake and the awful gar are the same being ..
+ * eating the gar could make you increase your life span 80 years
  *
  *@author Rolando<rgarro@gmail.com>
  */
@@ -39,5 +38,21 @@ public class flightController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void increaseEnginePower(){
+
+    }
+
+    void decreaseEnginePower(){
+
+    }
+
+    void diveLeft(){
+
+    }
+
+    void diveRight(){
+
     }
 }
