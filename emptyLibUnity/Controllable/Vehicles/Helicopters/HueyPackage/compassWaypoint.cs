@@ -68,6 +68,12 @@ public class compassWaypoint : MonoBehaviour
         if(tmp>92 && tmp <178){
             this.centerLetter = "SE";
         }
+         if(tmp>178 && tmp <185){
+            this.centerLetter = "S";
+        }
+        if(tmp>185 && tmp <268){
+            this.centerLetter = "SW";
+        }
         
     }
 
@@ -75,11 +81,23 @@ public class compassWaypoint : MonoBehaviour
         this.leftDegreesQty = "<- "+Mathf.Round(this.helicopter.transform.eulerAngles.y - 45)+" -";
         float tmp = Mathf.Round(this.helicopter.transform.eulerAngles.y - 45);
          this.leftLetter = "W";
-         if(tmp==0){
+         /*if(tmp==0){
             this.leftLetter = "W";
         }
         if(tmp>0 || tmp <90){
             this.leftLetter = "W";
+        }*/
+         if(tmp<5 && tmp > -5){
+            this.leftLetter = "N";
+        }
+        if(tmp>5 && tmp <90){
+            this.leftLetter = "NE";
+        }
+        if(tmp<92 && tmp > 88){
+            this.leftLetter = "E";
+        }
+        if(tmp>92 && tmp <178){
+            this.leftLetter = "SE";
         }
     }
 
