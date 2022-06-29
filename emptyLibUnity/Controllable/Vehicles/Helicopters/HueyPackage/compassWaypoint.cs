@@ -74,7 +74,12 @@ public class compassWaypoint : MonoBehaviour
         if(tmp>185 && tmp <268){
             this.centerLetter = "SW";
         }
-        
+        if(tmp>268 && tmp <273){
+            this.centerLetter = "W";
+        }
+        if(tmp>273 && tmp <358){
+            this.centerLetter = "NW";
+        }
     }
 
     void setLeftDegreesQty(){
