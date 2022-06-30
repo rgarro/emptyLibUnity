@@ -14,7 +14,7 @@ using UnityEngine;
  *                          \         \     ,
  *                    """"""""""""""""""""""
  * Displays Compass String From given object
-* mission amperson should be included
+ * mission amperson should be included
  *
  *
  *@author Rolando<rgarro@gmail.com>
@@ -56,7 +56,7 @@ public class compassWaypoint : MonoBehaviour
         this.frontDegreesQty = "- "+Mathf.Round(this.helicopter.transform.eulerAngles.y)+" -";
         float tmp = Mathf.Round(this.helicopter.transform.eulerAngles.y);
          this.centerLetter = "N";
-         if(tmp<5 && tmp > -5){
+        if(tmp<5 && tmp > -5){
             this.centerLetter = "N";
         }
         if(tmp>5 && tmp <90){
@@ -85,14 +85,8 @@ public class compassWaypoint : MonoBehaviour
     void setLeftDegreesQty(){
         this.leftDegreesQty = "<- "+Mathf.Round(this.helicopter.transform.eulerAngles.y - 45)+" -";
         float tmp = Mathf.Round(this.helicopter.transform.eulerAngles.y - 45);
-         this.leftLetter = "W";
-         /*if(tmp==0){
-            this.leftLetter = "W";
-        }
-        if(tmp>0 || tmp <90){
-            this.leftLetter = "W";
-        }*/
-         if(tmp<5 && tmp > -5){
+        this.leftLetter = "W";
+        if(tmp<5 && tmp > -5){
             this.leftLetter = "N";
         }
         if(tmp>5 && tmp <90){
@@ -104,18 +98,54 @@ public class compassWaypoint : MonoBehaviour
         if(tmp>92 && tmp <178){
             this.leftLetter = "SE";
         }
+         if(tmp>178 && tmp <185){
+            this.leftLetter = "S";
+        }
+        if(tmp>185 && tmp <268){
+            this.leftLetter = "SW";
+        }
+        if(tmp>268 && tmp <273){
+            this.leftLetter = "W";
+        }
+        if(tmp>273 && tmp <358){
+            this.leftLetter = "NW";
+        }
     }
 
     void setRightDegreesQty(){
         this.rightDegreesQty = "- "+Mathf.Round(this.helicopter.transform.eulerAngles.y + 45)+" ->";
         float tmp = Mathf.Round(this.helicopter.transform.eulerAngles.y + 45);
-        Debug.Log(tmp + "el tmp");
+        //Debug.Log(tmp + "el tmp");
          this.rightLetter = "E";
-         if(tmp==0){
+         /*if(tmp==0){
             this.rightLetter = "E";
         }
         if(tmp>0 || tmp <90){
             this.rightLetter = "E";
+        }*/
+        if(tmp<5 && tmp > -5){
+            this.rightLetter = "N";
+        }
+        if(tmp>5 && tmp <90){
+            this.rightLetter = "NE";
+        }
+        if(tmp<92 && tmp > 88){
+            this.rightLetter = "E";
+        }
+        if(tmp>92 && tmp <178){
+            this.rightLetter = "SE";
+        }
+         if(tmp>178 && tmp <185){
+            this.rightLetter = "S";
+        }
+        if(tmp>185 && tmp <268){
+            this.rightLetter = "SW";
+        }
+        if(tmp>268 && tmp <273){
+            this.rightLetter = "W";
+        }
+        if(tmp>273 && tmp <358){
+            this.rightLetter = "NW";
         }
     }
 
