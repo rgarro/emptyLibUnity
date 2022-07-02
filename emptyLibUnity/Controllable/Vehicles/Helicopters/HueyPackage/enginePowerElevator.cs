@@ -180,7 +180,6 @@ public class enginePowerElevator : MonoBehaviour
     }
 
     void yawRight(){
-        //Debug.Log("yaw right .." + this.helicopter.transform.eulerAngles.z);
         if(this.helicopter.transform.eulerAngles.z < this.yawAngleRight){
             float angle = this.helicopter.transform.eulerAngles.z + this.yawSteps;
             this.helicopter.transform.Rotate(0,0,angle);      
@@ -188,28 +187,23 @@ public class enginePowerElevator : MonoBehaviour
     }
 
     void pitchFront(){
-        //Debug.Log("pitch front "+ this.helicopter.transform.eulerAngles.x  +" > " + this.pitchAngleBack);
         if(this.helicopter.transform.eulerAngles.x > this.pitchAngleFront){
             float angle = this.helicopter.transform.eulerAngles.x - this.pitchSteps;
             this.helicopter.transform.Rotate(angle,0,0);
             this.showForwardSpeedSlider = false;      
         }else{
             this.showForwardSpeedSlider = true;
-            //this.helicopter.transform.position += Vector3.forward * (Time.deltaTime * this.forwardSpeed);
             this.helicopter.transform.Translate(Vector3.down * (Time.deltaTime * this.forwardSpeed));
         } 
     }
 
     void pitchBack(){
-        //Debug.Log("pitch back "+ this.helicopter.transform.eulerAngles.x  +" < " + this.pitchAngleBack);
         if(this.helicopter.transform.eulerAngles.x < this.pitchAngleBack){
             float angle = this.helicopter.transform.eulerAngles.x + this.pitchSteps;
             this.helicopter.transform.Rotate(angle,0,0);
             this.showForwardSpeedSlider = false;
         }else{
-            //Debug.Log("Backward Inclination Reached ..");
             this.showForwardSpeedSlider = true;
-            //this.helicopter.transform.position += Vector3.back * (Time.deltaTime*this.forwardSpeed);
             this.helicopter.transform.Translate(Vector3.up * (Time.deltaTime * this.forwardSpeed));
         }
     }
