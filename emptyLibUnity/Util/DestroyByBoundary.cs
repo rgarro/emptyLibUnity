@@ -9,7 +9,7 @@ using UnityEngine.UI;
 /**
 * Destroy or restart game by colliding
 *
-*
+*@author Rolando<rgarro@gmail.com>
 */
 public class DestroyByBoundary : MonoBehaviour {
 
