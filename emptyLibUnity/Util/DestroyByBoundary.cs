@@ -17,7 +17,7 @@ public class DestroyByBoundary : MonoBehaviour {
 	{
 		// Destroy everything that leaves the trigger
 		//Destroy(other.gameObject);
-		//Debug.Log("will restart")
+		Debug.Log("will restart");
         //find confirm UI
         //Application.LoadLevel(Application.loadedLevel);
         Scene scene = SceneManager.GetActiveScene();
