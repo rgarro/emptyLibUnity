@@ -288,7 +288,7 @@ public class enginePowerElevator : MonoBehaviour
         GUI.Label(new Rect(this.altitudeSliderXpos, this.altitudeSliderYpos+20, 100, 20), subAltitudeLabel);
         if(this.helicopter.transform.position.y > this.minAltitudeToRudder){
             //can only be moved after min altitude reached
-            GUI.Label(new Rect(this.altitudeSliderXpos+90, this.altitudeSliderYpos+20, 150, 20), this.backForwardKeysLegend);
+            GUI.Label(new Rect(this.altitudeSliderXpos+90, this.altitudeSliderYpos+20,250, 20), this.backForwardKeysLegend);
         }
         
 
