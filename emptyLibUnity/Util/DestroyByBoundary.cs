@@ -23,4 +23,9 @@ public class DestroyByBoundary : MonoBehaviour {
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
 	}
+
+	 private void OnTriggerEnter(Collider other)
+    {
+		Debug.Log("will restart ..");
+    }
 }
