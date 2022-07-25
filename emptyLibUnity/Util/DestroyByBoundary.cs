@@ -13,6 +13,11 @@ using UnityEngine.UI;
 */
 public class DestroyByBoundary : MonoBehaviour {
 
+	 void Start()
+    {
+     Debug.Log("here destroy by boundary ..");   
+    }
+
 	void OnTriggerExit(Collider other)
 	{
 		// Destroy everything that leaves the trigger
