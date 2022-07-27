@@ -22,7 +22,7 @@ public class DestroyByBoundary : MonoBehaviour {
 	{
 		// Destroy everything that leaves the trigger
 		//Destroy(other.gameObject);
-		Debug.Log("will restart");
+		//Debug.Log("will restart HERE ....");
         //find confirm UI
         //Application.LoadLevel(Application.loadedLevel);
         Scene scene = SceneManager.GetActiveScene();
@@ -31,6 +31,6 @@ public class DestroyByBoundary : MonoBehaviour {
 
 	 private void OnTriggerEnter(Collider other)
     {
-		Debug.Log("will restart ..");
+		//Debug.Log("will restart HEREEE ..");
     }
 }
