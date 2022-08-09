@@ -13,7 +13,7 @@ using UnityEngine;
  * |pentax\`.__.'/     |
  * \=======`-..-'======/
  *  `-----------------'  
- *  Switch 6 Cameras around the helicopter like an octtree 
+ *  Switch 4 Cameras around the helicopter like quadtree 
  * 
  *@author Rolando<rgarro@gmail.com>
  */
