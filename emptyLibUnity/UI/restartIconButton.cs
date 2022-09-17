@@ -25,6 +25,7 @@ public class restartIconButton : MonoBehaviour
     public float IconY = 10;
     public float IconWidth = 128;
     public float IconHeight = 128;
+    public Rect windowRect = new Rect(20, 20, 120, 50);
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +37,8 @@ public class restartIconButton : MonoBehaviour
         if(GUI.Button(new Rect (this.IconX,this.IconY,this.IconWidth,this.IconHeight),this.RestartIcon)) 
         {
             //print ("you clicked the icon");
-            this.doRestart();//Confirm Box Here
+            windowRect = GUI.Window(0, windowRect, DoMyWindow, "My Window");
+            //this.doRestart();//Confirm Box Here
         }
     }
 
