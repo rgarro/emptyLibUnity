@@ -42,6 +42,10 @@ public class restartIconButton : MonoBehaviour
         }
     }
 
+    void DoMyWindow(){
+        Debug.Log("domywindow");
+    }
+
     // Update is called once per frame
     void Update()
     {
