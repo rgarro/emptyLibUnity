@@ -37,13 +37,17 @@ public class restartIconButton : MonoBehaviour
         if(GUI.Button(new Rect (this.IconX,this.IconY,this.IconWidth,this.IconHeight),this.RestartIcon)) 
         {
             //print ("you clicked the icon");
-            windowRect = GUI.Window(0, windowRect, DoMyWindow, "My Window");
+            windowRect = GUI.Window(0, this.windowRect, this.DoMyWindow, "My Window");
             //this.doRestart();//Confirm Box Here
         }
     }
 
-    void DoMyWindow(){
-        Debug.Log("domywindow");
+    void DoMyWindow(int windowID){
+        if (GUI.Button(new Rect(10, 20, 100, 20), "Hello World"))
+        {
+            print("Got a click");
+            Debug.Log("here in the window");
+        }
     }
 
     // Update is called once per frame
