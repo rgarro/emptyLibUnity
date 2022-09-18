@@ -1,7 +1,13 @@
-﻿using System.Collections;
+﻿using System.Runtime.CompilerServices;
+using System;
+using System.Globalization;
+using System.Diagnostics;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Diagnostics;
+using Debug = UnityEngine.Debug;
 /**
  *      _..--""````""--.._
  *    .'       |\/|       '.
@@ -25,18 +31,22 @@ public class restartIconButton : MonoBehaviour
     public float IconY = 10;
     public float IconWidth = 128;
     public float IconHeight = 128;
-    public Rect windowRect = new Rect(20, 20, 120, 50);
+    public float windowX = 20;
+    public float windowY = 20;
+    public float windowWidth = 300;
+    public float windowHeight = 300;
+    private Rect windowRect; 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.windowRect = new Rect(this.windowX, this.windowY, this.windowWidth,this.windowHeight);
     }
 
     void OnGUI(){
         if(GUI.Button(new Rect (this.IconX,this.IconY,this.IconWidth,this.IconHeight),this.RestartIcon)) 
         {
-            //print ("you clicked the icon");
+            Debug.Log("you clicked the icon");
             windowRect = GUI.Window(0, this.windowRect, this.DoMyWindow, "My Window");
             //this.doRestart();//Confirm Box Here
         }
@@ -48,6 +58,8 @@ public class restartIconButton : MonoBehaviour
             print("Got a click");
             Debug.Log("here in the window");
         }
+        // Make the windows be draggable.
+        GUI.DragWindow(new Rect(0, 0, 10000, 10000));
     }
 
     // Update is called once per frame
