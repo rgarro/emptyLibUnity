@@ -47,8 +47,8 @@ public class restartIconButton : MonoBehaviour
         if(GUI.Button(new Rect (this.IconX,this.IconY,this.IconWidth,this.IconHeight),this.RestartIcon)) 
         {
             Debug.Log("you clicked the icon");
-            windowRect = GUI.Window(0, this.windowRect, this.DoMyWindow, "My Window");
-            //this.doRestart();//Confirm Box Here
+            //windowRect = GUI.Window(0, this.windowRect, this.DoMyWindow, "My Window");
+            this.doRestart();//Confirm Box Here
         }
     }
 
