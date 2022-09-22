@@ -12,7 +12,7 @@ using UnityEngine;
  *                 `/.w***,   /(    )\   ,***w.\"
  *                  ^ ilmk ^c/ )    ( \c^      ^
  *                          'V')_)(_('V'
- *  Places a SoundCloud button that play/pause audioData
+ *  Places a SoundCloud button that Play/Pause audioData
  *
  * @author Rolando <rgarro@gmail.com>
  */
