@@ -39,6 +39,10 @@ public class gunCameraController : MonoBehaviour
 
     }
 
+    void shoot(){
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
