@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 /**
+ * Lord Vader will summon a SLINGSHOT SENTRY BAR .. 
  *         \    |\
  *         \   | \
  *         ____| |__
@@ -47,6 +48,18 @@ public class elevationWaypoint : MonoBehaviour
     void Start()
     {
         
+    }
+
+    void setTopElevation(){
+        
+    }
+
+    void setCenterElevation(){
+        
+    }
+
+    void setCeilElevation(){
+
     }
 
     // Update is called once per frame

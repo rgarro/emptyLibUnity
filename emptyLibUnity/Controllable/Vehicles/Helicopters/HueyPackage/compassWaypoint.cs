@@ -17,7 +17,7 @@ using UnityEngine;
  * mission amperson should be included
  *
  *
- *@author Rolando<rgarro@gmail.com>
+ *@author Rolando<rolando@emptyart.xyz>
  */
 public class compassWaypoint : MonoBehaviour
 {
