@@ -10,6 +10,11 @@ using UnityEngine;
 */
 public class elevationWaypoint : MonoBehaviour
 {
+    public GameObject Airplane;
+    private string frontDegreesQty;
+    public int topLabelXpos = 25;
+    public int topLabelYpos = 25;
+    
     // Start is called before the first frame update
     void Start()
     {
