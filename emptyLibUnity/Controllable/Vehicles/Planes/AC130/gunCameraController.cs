@@ -8,14 +8,6 @@ using UnityEngine;
  *         ' ~""""""""""""""`##(_))#H\"""""Y########
  *                           ))    \#H\       `"Y###
  *                           "      }#H)
- * The Wind Swell is two days in the future, I hid a chronic joint to smoke after having
- * taken five waves. I went there today, the manatis where whispering secret mantras
- * Lord Kanhapa is going to be there for five minutes, several nagpas from Boulder
- * are going to come with machigun relics from man slaugters
- * I saw a F22 climb 4000 meters in 3 seconds, that means aliens are on earth
- * the f22 engine can summon gas from black waters to tanks recovering the water
- * Saddam Hussein Migs never cleaned Tikrit so he lost his contract ...
- * Sad Hill cementery is not far from snowbird, theres an outlet mall there ...
  * 
  *
  *

@@ -42,6 +42,7 @@ public class elevationWaypoint : MonoBehaviour
     public int lowerLabelXpos = 400;
     public int lowerLabelYpos = 25;
     private string downlLetter = "Mtr";
+    private string elevationString;
 
 
     // Start is called before the first frame update
