@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 /**
- * Lord Vader will summon a SLINGSHOT SENTRY BAR .. 
  *         \    |\
  *         \   | \
  *         ____| |__

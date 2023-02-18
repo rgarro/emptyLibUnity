@@ -15,7 +15,7 @@ using UnityEngine;
  * _____.,-#%&$@%#&#~,._____
  *
  * === Will remove collided and trigger blast or visual effect ===
- *   includes score counter
+ *   Includes Score Counter
  *
  * @author Rolando <rolando@emptyart.xyz>
  */
