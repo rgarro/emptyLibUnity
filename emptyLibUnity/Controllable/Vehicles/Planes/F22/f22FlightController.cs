@@ -25,6 +25,8 @@ public class f22FlightController : MonoBehaviour
 {
     public float minSpeed;
     public float maxSpeed;
+    public GameObject airplane;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -35,5 +37,13 @@ public class f22FlightController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void closeCockpit(){
+
+    }
+
+    void openCockpit(){
+
     }
 }
