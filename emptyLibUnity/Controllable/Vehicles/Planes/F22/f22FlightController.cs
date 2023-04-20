@@ -26,6 +26,10 @@ public class f22FlightController : MonoBehaviour
     public float minSpeed;
     public float maxSpeed;
     public GameObject airplane;
+    private AudioSource soundPlayer;
+    public AudioClip AirPlaneEngineSoundClip;
+    public float minAltitude = 3.39f;
+    public float maxAltitude = 14.35f;
     
     // Start is called before the first frame update
     void Start()
