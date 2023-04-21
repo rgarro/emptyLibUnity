@@ -50,4 +50,8 @@ public class f22FlightController : MonoBehaviour
     void openCockpit(){
 
     }
+
+     void moveForward(){
+        this.AirPlane.transform.Translate(Vector3.back * (Time.deltaTime * this.yardsPerSecond));
+    }
 }
