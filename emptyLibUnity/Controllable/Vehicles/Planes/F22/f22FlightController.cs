@@ -41,7 +41,7 @@ public class f22FlightController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        this.moveForward();
     }
 
     void closeCockpit(){
@@ -53,6 +53,12 @@ public class f22FlightController : MonoBehaviour
     }
 
      void moveForward(){
+         //Debug.Log("moving forward ....");
+        this.AirPlane.transform.Translate(Vector3.back * (Time.deltaTime * this.yardsPerSecond));
+    }
+
+    //must descend with arrow button
+    void descend(){
         this.AirPlane.transform.Translate(Vector3.back * (Time.deltaTime * this.yardsPerSecond));
     }
 }
