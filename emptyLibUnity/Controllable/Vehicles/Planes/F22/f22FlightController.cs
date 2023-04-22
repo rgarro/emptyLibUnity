@@ -57,8 +57,13 @@ public class f22FlightController : MonoBehaviour
         this.AirPlane.transform.Translate(Vector3.back * (Time.deltaTime * this.yardsPerSecond));
     }
 
-    //must descend with arrow button
+    //must elevate with arrow button
     void descend(){
+        this.AirPlane.transform.Translate(Vector3.back * (Time.deltaTime * this.yardsPerSecond));
+    }
+
+    //must descend with arrow button
+    void elevate(){
         this.AirPlane.transform.Translate(Vector3.back * (Time.deltaTime * this.yardsPerSecond));
     }
 }
