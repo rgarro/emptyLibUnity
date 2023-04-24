@@ -41,6 +41,7 @@ public class f22FlightController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        this.joystickControls();
         this.moveForward();
     }
 
@@ -65,5 +66,9 @@ public class f22FlightController : MonoBehaviour
     //must descend with arrow button
     void elevate(){
         this.AirPlane.transform.Translate(Vector3.back * (Time.deltaTime * this.yardsPerSecond));
+    }
+
+    void joystickControls(){
+
     }
 }
