@@ -19,9 +19,7 @@ using UnityEngine;
  *                            q_p                '@
  * Mi Coronel Kaddafi esta en Macondo ...
  *Jhonny Araya estuvo en la ejecucion del Ultra que mato un mae en chepe
- *la inyeccion lethal le saco la sangre por la boca
- * El bolsa olia perico, sangraba por la nariz, desaparecia, le decian el enriqueto ...
- * el enriqueto fue capturado por la policia siquiatrica y puesto a dormir en el hospital nacional siquiatrico
+ * esperaron a que saprisa jugara y apenas metio un gol le cortaron la picha ..
  *
  *
  *@author Rolando<rolando@emptyart.xyz>
@@ -74,6 +72,9 @@ public class f22FlightController : MonoBehaviour
     }
 
     void joystickControls(){
-
+        if (Input.GetKey("up"))
+        {
+            
+        }
     }
 }
