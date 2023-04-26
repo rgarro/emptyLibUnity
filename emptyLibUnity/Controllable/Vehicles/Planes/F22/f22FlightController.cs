@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Globalization;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /**
@@ -58,7 +59,7 @@ public class f22FlightController : MonoBehaviour
 
      void moveForward(){
          //Debug.Log("moving forward ....");
-        this.AirPlane.transform.Translate(Vector3.back * (Time.deltaTime * this.yardsPerSecond));
+        //this.AirPlane.transform.Translate(Vector3.back * (Time.deltaTime * this.yardsPerSecond));
     }
 
     //must elevate with arrow button
@@ -72,9 +73,9 @@ public class f22FlightController : MonoBehaviour
     }
 
     void joystickControls(){
-        if (Input.GetKey("up"))
+        if (Input.GetKey("down"))
         {
-            
+            this.descend();
         }
     }
 }
