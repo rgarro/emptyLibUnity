@@ -18,9 +18,9 @@ using UnityEngine;
  *                 |__   /     |---,--'"---+------+-'"
  *                    """     d"b="        '-----+t
  *                            q_p                '@
- * Mi Coronel Kaddafi esta en Macondo ...
- *Jhonny Araya estuvo en la ejecucion del Ultra que mato un mae en chepe
- * esperaron a que saprisa jugara y apenas metio un gol le cortaron la picha ..
+ * Sirte Surf Spot Malian Curse ...
+ * the Zintan brigadist were flying Doutone Gear
+ *  
  *
  *
  *@author Rolando<rolando@emptyart.xyz>
@@ -69,13 +69,17 @@ public class f22FlightController : MonoBehaviour
 
     //must descend with arrow button
     void elevate(){
-        this.AirPlane.transform.Translate(Vector3.back * (Time.deltaTime * this.yardsPerSecond));
+        this.AirPlane.transform.Translate(Vector3.forward * (Time.deltaTime * this.yardsPerSecond));
     }
 
     void joystickControls(){
         if (Input.GetKey("down"))
         {
             this.descend();
+        }
+        if (Input.GetKey("up"))
+        {
+            this.elevate();
         }
     }
 }
