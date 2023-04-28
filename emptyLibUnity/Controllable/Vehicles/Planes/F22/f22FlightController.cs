@@ -35,6 +35,8 @@ public class f22FlightController : MonoBehaviour
     public float minAltitude = 3.39f;
     public float maxAltitude = 14.35f;
     public float yardsPerSecond = 2.0f;
+    public float sideDiveAccelerationRate = 2.00f;
+    private bool isDived = false;
     
     // Start is called before the first frame update
     void Start()
@@ -70,6 +72,22 @@ public class f22FlightController : MonoBehaviour
     //must descend with arrow button
     void elevate(){
         this.AirPlane.transform.Translate(Vector3.forward * (Time.deltaTime * this.yardsPerSecond));
+    }
+
+    void diveLeft(){
+        this.AirPlane.transform.Translate(Vector3.right * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));
+        if(!this.isDived){
+            this.AirPlane.transform.Rotate(0,0,this.diveCurveAngleZ*-1);
+            this.isDived = true;
+        }
+    }
+
+    void diveRight(){
+        this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));
+        if(!this.isDived){
+            this.AirPlane.transform.Rotate(0,0,this.diveCurveAngleZ);
+            this.isDived = true;
+        }
     }
 
     void joystickControls(){
