@@ -37,6 +37,21 @@ public class f22FlightController : MonoBehaviour
     public float yardsPerSecond = 2.0f;
     public float sideDiveAccelerationRate = 2.00f;
     private bool isDived = false;
+
+    public int enginePowerSliderYpos = 25;
+    public int enginePowerSliderXpos = 25;
+    public string engineThrottleLabel = "Engine Power";
+    public float diveCurveAngleZ = 1.00f;
+    
+//    private bool isDivedr = false;
+    private bool isElevated = false;
+    private bool isdElevated = false;
+    public float elevationCurveAngleX = 3.25f;
+    public float descendingCurveAngleX = -3.25f;
+    public float elevationStep = 0.2f;
+    public float maxZBoundaryPos = 10.2f;
+    public float returnZpos = 900.1f;
+
     
     // Start is called before the first frame update
     void Start()
