@@ -18,8 +18,7 @@ using UnityEngine;
  *                 |__   /     |---,--'"---+------+-'"
  *                    """     d"b="        '-----+t
  *                            q_p                '@
- * Sirte Surf Spot Malian Curse ...
- * the Zintan brigadist were flying Doutone Gear
+ *  the game to appear kitesurfing in arenal
  *  
  *
  *
@@ -43,7 +42,7 @@ public class f22FlightController : MonoBehaviour
     public string engineThrottleLabel = "Engine Power";
     public float diveCurveAngleZ = 1.00f;
     
-//    private bool isDivedr = false;
+//private bool isDivedr = false;
     private bool isElevated = false;
     private bool isdElevated = false;
     public float elevationCurveAngleX = 3.25f;
