@@ -18,7 +18,8 @@ using UnityEngine;
  *                 |__   /     |---,--'"---+------+-'"
  *                    """     d"b="        '-----+t
  *                            q_p                '@
- *  the game to appear kitesurfing in arenal
+ *  The Game to appear kitesurfing in Arenal
+ * Taking off Bahia Salinas
  *  
  *
  *
@@ -112,6 +113,10 @@ public class f22FlightController : MonoBehaviour
         if (Input.GetKey("up"))
         {
             this.elevate();
+        }
+         if (Input.GetKey("left"))
+        {
+            
         }
     }
 }
