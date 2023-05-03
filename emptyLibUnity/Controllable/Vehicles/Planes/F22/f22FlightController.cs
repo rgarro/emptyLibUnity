@@ -19,9 +19,9 @@ using UnityEngine;
  *                 |__   /     |---,--'"---+------+-'"
  *                    """     d"b="        '-----+t
  *                            q_p                '@
- *  The Game to appear kitesurfing in Arenal
- * Taking off Bahia Salinas
- *  Cieneguita Kitesurf Gang , yes vuelo directo de tibas a cieneguita
+ * The Game to appear kitesurfing in Arenal
+ * 
+ * 
  *
  *
  *@author Rolando<rolando@emptyart.xyz>
@@ -115,9 +115,13 @@ public class f22FlightController : MonoBehaviour
         {
             this.elevate();
         }
-         if (Input.GetKey("left"))
+        if (Input.GetKey("left"))
         {
             this.diveLeft();
+        }
+        if (Input.GetKey("right"))
+        {
+            this.diveRight();
         }
     }
 }
