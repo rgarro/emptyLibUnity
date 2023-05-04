@@ -123,5 +123,9 @@ public class f22FlightController : MonoBehaviour
         {
             this.diveRight();
         }
+        if (Input.GetKey("a"))
+        {
+            //this.increaseSpeed();
+        }
     }
 }
