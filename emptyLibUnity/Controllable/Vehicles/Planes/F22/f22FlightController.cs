@@ -57,7 +57,8 @@ public class f22FlightController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.soundPlayer = GetComponent<AudioSource> ();
+        this.soundPlayer.volume = 0.2F;
     }
 
     // Update is called once per frame
