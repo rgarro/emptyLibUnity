@@ -43,8 +43,8 @@ public class f22FlightController : MonoBehaviour
     public int enginePowerSliderXpos = 25;
     public string engineThrottleLabel = "Engine Power";
     public float diveCurveAngleZ = 1.00f;
-    
-//private bool isDivedr = false;
+    public bool cockpit_is_closed = false;
+    //private bool isDivedr = false;
     private bool isElevated = false;
     private bool isdElevated = false;
     public float elevationCurveAngleX = 3.25f;
