@@ -20,7 +20,7 @@ using UnityEngine;
  *                    """     d"b="        '-----+t
  *                            q_p                '@
  * The Game to appear kitesurfing in Arenal
- * 
+ * Or going to Providencia and sail to cartagena
  * 
  *
  *
@@ -78,7 +78,7 @@ public class f22FlightController : MonoBehaviour
 
      void moveForward(){
          //Debug.Log("moving forward ....");
-        //this.AirPlane.transform.Translate(Vector3.back * (Time.deltaTime * this.yardsPerSecond));
+        this.AirPlane.transform.Translate(Vector3.back * (Time.deltaTime * this.yardsPerSecond));
     }
 
     //must elevate with arrow button
