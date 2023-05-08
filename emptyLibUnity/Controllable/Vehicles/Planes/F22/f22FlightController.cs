@@ -78,7 +78,7 @@ public class f22FlightController : MonoBehaviour
 
      void moveForward(){
          //Debug.Log("moving forward ....");
-        this.AirPlane.transform.Translate(Vector3.back * (Time.deltaTime * this.yardsPerSecond));
+        this.AirPlane.transform.Translate(Vector3.down * (Time.deltaTime * this.yardsPerSecond));
     }
 
     //must elevate with arrow button
