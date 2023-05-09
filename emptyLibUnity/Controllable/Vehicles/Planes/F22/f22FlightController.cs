@@ -19,8 +19,8 @@ using UnityEngine;
  *                 |__   /     |---,--'"---+------+-'"
  *                    """     d"b="        '-----+t
  *                            q_p                '@
- * The Game to appear kitesurfing in Arenal
- * Or going to Providencia and sail to cartagena
+ * The Game to appear Kitesurfing in Arenal
+ * Or going to Providencia and sail to Cartagena
  * 
  *
  *
@@ -31,6 +31,7 @@ public class f22FlightController : MonoBehaviour
     public float minSpeed;
     public float maxSpeed;
     public GameObject AirPlane;
+    public GameObject Cockpit;
     private AudioSource soundPlayer;
     public AudioClip AirPlaneEngineSoundClip;
     public float minAltitude = 3.39f;
@@ -68,6 +69,7 @@ public class f22FlightController : MonoBehaviour
         this.moveForward();
     }
 
+    
     void closeCockpit(){
 
     }
