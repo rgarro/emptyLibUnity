@@ -130,5 +130,9 @@ public class f22FlightController : MonoBehaviour
         {
             //this.increaseSpeed();
         }
+         if (Input.GetKey("a"))
+        {
+            //this.decreaseSpeed();
+        }
     }
 }
