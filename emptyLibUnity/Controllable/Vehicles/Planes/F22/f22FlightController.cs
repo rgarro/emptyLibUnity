@@ -109,6 +109,14 @@ public class f22FlightController : MonoBehaviour
         }
     }
 
+    void increaseSpeed(){
+
+    }
+
+    void decreaseSpeed(){
+        
+    }
+
     void joystickControls(){
         if (Input.GetKey("down"))
         {
