@@ -65,6 +65,17 @@ public class f22FlightController : MonoBehaviour
         this.soundPlayer.volume = 0.2F;
     }
 
+    void startDashItems(){
+        this.speedNeedle = new SimpleGaugeNeedle();
+        //this.speedNeedle = this.AddComponent(typeof(SimpleGaugeNeedle)) as SimpleGaugeNeedle;
+        this.speedNeedle.Needle = this.NeedleSpeed;
+    }
+
+       void setSpeedNeedle(){
+		this.speedNeedle.getTilter(this.yardsPerSecond);
+		this.speedNeedle.tiltNeedle();
+	}
+
     // Update is called once per frame
     void Update()
     {
