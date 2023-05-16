@@ -55,7 +55,7 @@ public class f22FlightController : MonoBehaviour
     public float maxZBoundaryPos = 10.2f;
     public float returnZpos = 900.1f;
 
- private SimpleGaugeNeedle speedNeedle;
+    private SimpleGaugeNeedle speedNeedle;
     public Image NeedleSpeed;
     
     // Start is called before the first frame update
@@ -63,6 +63,7 @@ public class f22FlightController : MonoBehaviour
     {
         this.soundPlayer = GetComponent<AudioSource> ();
         this.soundPlayer.volume = 0.2F;
+        this.startDashItems();
     }
 
     void startDashItems(){
