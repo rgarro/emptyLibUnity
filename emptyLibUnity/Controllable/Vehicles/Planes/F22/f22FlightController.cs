@@ -56,6 +56,7 @@ public class f22FlightController : MonoBehaviour
     public float maxZBoundaryPos = 10.2f;
     public float returnZpos = 900.1f;
     public float maxYardsPerSecond = 70.1f;
+    public float initYardsPerSecond = 2.1f;
 
     private SimpleGaugeNeedle speedNeedle;
     public Image NeedleSpeed;
@@ -140,7 +141,7 @@ public class f22FlightController : MonoBehaviour
 
      void OnGUI(){
         GUI.Box(new Rect(this.enginePowerSliderXpos - 20,this.enginePowerSliderYpos - 15,275,30), this.engineThrottleLabel);
-        this.yardsPerSecond = GUI.HorizontalSlider(new Rect(this.enginePowerSliderXpos, this.enginePowerSliderYpos, 250, 50), this.yardsPerSecond, 2.0F, this.maxYardsPerSecond);
+        this.yardsPerSecond = GUI.HorizontalSlider(new Rect(this.enginePowerSliderXpos, this.enginePowerSliderYpos, 250, 50), this.yardsPerSecond, this.initYardsPerSecond, this.maxYardsPerSecond);
     }
 
     void joystickControls(){
