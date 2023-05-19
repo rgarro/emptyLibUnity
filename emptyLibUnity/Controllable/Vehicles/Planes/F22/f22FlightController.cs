@@ -55,6 +55,7 @@ public class f22FlightController : MonoBehaviour
     public float elevationStep = 0.2f;
     public float maxZBoundaryPos = 10.2f;
     public float returnZpos = 900.1f;
+    public float maxYardsPerSecond = 70.1f;
 
     private SimpleGaugeNeedle speedNeedle;
     public Image NeedleSpeed;
@@ -113,8 +114,8 @@ public class f22FlightController : MonoBehaviour
     }
 
     void diveLeft(){
-        Debug.Log(" ....");
-        this.AirPlane.transform.Translate(Vector3.right * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));
+        Debug.Log(" Diving Left ....");
+        this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));
         if(!this.isDived){
             this.AirPlane.transform.Rotate(0,0,this.diveCurveAngleZ*-1);
             this.isDived = true;
@@ -122,7 +123,7 @@ public class f22FlightController : MonoBehaviour
     }
 
     void diveRight(){
-        this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));
+        this.AirPlane.transform.Translate(Vector3.right * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));
         if(!this.isDived){
             this.AirPlane.transform.Rotate(0,0,this.diveCurveAngleZ);
             this.isDived = true;
@@ -139,7 +140,7 @@ public class f22FlightController : MonoBehaviour
 
      void OnGUI(){
         GUI.Box(new Rect(this.enginePowerSliderXpos - 20,this.enginePowerSliderYpos - 15,275,30), this.engineThrottleLabel);
-        this.yardsPerSecond = GUI.HorizontalSlider(new Rect(this.enginePowerSliderXpos, this.enginePowerSliderYpos, 250, 50), this.yardsPerSecond, 2.0F, 10.0F);
+        this.yardsPerSecond = GUI.HorizontalSlider(new Rect(this.enginePowerSliderXpos, this.enginePowerSliderYpos, 250, 50), this.yardsPerSecond, 2.0F, this.maxYardsPerSecond);
     }
 
     void joystickControls(){
