@@ -14,7 +14,7 @@ using UnityEngine;
  *      \ ADOBE   ',
  *       \___Fireworks',_                        _..----.._
  *       [______       "'==.I\_____________..--"<__\\_n@___4\,_
- *     ,..-=T         __   ____________          \/  "'" O<==  ""-+.._
+ *     ,..-=T      __ GOL____________ DE SAPRISSA \/  "'" O<==  ""-+.._
  *     I____|_____    }_>=========I>=**""''==-------------==-   " |   "'-.,___
  *     [_____,.--'"             _______         ""--=<""-----=====+==--''""
  *     ""'-=+..,,__,-----,_____|       |         -=* |
@@ -22,7 +22,7 @@ using UnityEngine;
  *                    """     d"b="        '-----+t
  *                            q_p                '@
  * The Game to appear Kitesurfing in Arenal
- * Or going to Providencia and sail to Cartagena
+ * 
  * 
  *
  *
@@ -58,6 +58,8 @@ public class f22FlightController : MonoBehaviour
 
     private SimpleGaugeNeedle speedNeedle;
     public Image NeedleSpeed;
+
+
     
     // Start is called before the first frame update
     void Start()
@@ -83,6 +85,7 @@ public class f22FlightController : MonoBehaviour
     {
         this.joystickControls();
         this.moveForward();
+         this.setSpeedNeedle();
     }
 
     
@@ -110,6 +113,7 @@ public class f22FlightController : MonoBehaviour
     }
 
     void diveLeft(){
+        Debug.Log(" ....");
         this.AirPlane.transform.Translate(Vector3.right * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));
         if(!this.isDived){
             this.AirPlane.transform.Rotate(0,0,this.diveCurveAngleZ*-1);
@@ -131,6 +135,11 @@ public class f22FlightController : MonoBehaviour
 
     void decreaseSpeed(){
         
+    }
+
+     void OnGUI(){
+        GUI.Box(new Rect(this.enginePowerSliderXpos - 20,this.enginePowerSliderYpos - 15,275,30), this.engineThrottleLabel);
+        this.yardsPerSecond = GUI.HorizontalSlider(new Rect(this.enginePowerSliderXpos, this.enginePowerSliderYpos, 250, 50), this.yardsPerSecond, 2.0F, 10.0F);
     }
 
     void joystickControls(){
