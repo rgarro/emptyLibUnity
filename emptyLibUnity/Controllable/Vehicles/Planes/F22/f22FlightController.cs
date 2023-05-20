@@ -61,6 +61,17 @@ public class f22FlightController : MonoBehaviour
     private SimpleGaugeNeedle speedNeedle;
     public Image NeedleSpeed;
 
+    public Texture2D closeCockpitIcon;
+    public float IconX = 10;
+    public float IconY = 10;
+    public float IconWidth = 128;
+    public float IconHeight = 128;
+    public float windowX = 20;
+    public float windowY = 20;
+    public float windowWidth = 300;
+    public float windowHeight = 300;
+    private Rect windowRect; 
+
 
     
     // Start is called before the first frame update
@@ -68,6 +79,7 @@ public class f22FlightController : MonoBehaviour
     {
         this.soundPlayer = GetComponent<AudioSource> ();
         this.soundPlayer.volume = 0.2F;
+        this.windowRect = new Rect(this.windowX, this.windowY, this.windowWidth,this.windowHeight);
         this.startDashItems();
     }
 
@@ -116,11 +128,12 @@ public class f22FlightController : MonoBehaviour
 
     void diveLeft(){
         Debug.Log(" Diving Left ....");
-        this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));
-        if(!this.isDived){
+        //this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));
+        this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* 2);
+        /*if(!this.isDived){
             this.AirPlane.transform.Rotate(0,0,this.diveCurveAngleZ*-1);
             this.isDived = true;
-        }
+        }*/
     }
 
     void diveRight(){
@@ -142,6 +155,10 @@ public class f22FlightController : MonoBehaviour
      void OnGUI(){
         GUI.Box(new Rect(this.enginePowerSliderXpos - 20,this.enginePowerSliderYpos - 15,275,30), this.engineThrottleLabel);
         this.yardsPerSecond = GUI.HorizontalSlider(new Rect(this.enginePowerSliderXpos, this.enginePowerSliderYpos, 250, 50), this.yardsPerSecond, this.initYardsPerSecond, this.maxYardsPerSecond);
+         if(GUI.Button(new Rect (this.IconX,this.IconY,this.IconWidth,this.IconHeight),this.closeCockpitIcon)) 
+        {
+            Debug.Log("you clicked the icon");
+        }
     }
 
     void joystickControls(){
