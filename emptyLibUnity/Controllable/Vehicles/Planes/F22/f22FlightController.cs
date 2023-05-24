@@ -61,6 +61,9 @@ public class f22FlightController : MonoBehaviour
     private SimpleGaugeNeedle speedNeedle;
     public Image NeedleSpeed;
 
+    private SimpleGaugeNeedle altitudeNeedle;
+    public Image NeedleAltitude;
+
     public Texture2D closeCockpitIcon;
     public float IconX = 10;
     public float IconY = 10;
@@ -89,9 +92,14 @@ public class f22FlightController : MonoBehaviour
         this.speedNeedle.Needle = this.NeedleSpeed;
     }
 
-       void setSpeedNeedle(){
+    void setSpeedNeedle(){
 		this.speedNeedle.getTilter(this.yardsPerSecond);
 		this.speedNeedle.tiltNeedle();
+	}
+
+    void setAltitudeNeedle(){
+		//this.speedNeedle.getTilter(this.yardsPerSecond);
+		//this.speedNeedle.tiltNeedle();
 	}
 
     // Update is called once per frame
