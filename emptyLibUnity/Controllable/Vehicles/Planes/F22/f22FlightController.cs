@@ -22,7 +22,9 @@ using UnityEngine;
  *                    """     d"b="        '-----+t
  *                            q_p                '@
  * The Game to appear Kitesurfing in Arenal
- * 
+ * Blitzkrieg lite wind in Bocabarranca
+ * Brazilian Scannia turbodiesel 
+ * a fumao maconha ...
  * 
  *
  *
@@ -90,6 +92,8 @@ public class f22FlightController : MonoBehaviour
         this.speedNeedle = new SimpleGaugeNeedle();
         //this.speedNeedle = this.AddComponent(typeof(SimpleGaugeNeedle)) as SimpleGaugeNeedle;
         this.speedNeedle.Needle = this.NeedleSpeed;
+        this.altitudeNeedle = new SimpleGaugeNeedle();
+        this.altitudeNeedle.Needle =  new SimpleGaugeNeedle();
     }
 
     void setSpeedNeedle(){
