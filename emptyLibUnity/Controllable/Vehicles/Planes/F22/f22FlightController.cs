@@ -1,4 +1,7 @@
-﻿using System;
+﻿using System.Threading;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System;
 using System.Globalization;
 using System.Collections;
 using System.Collections.Generic;
@@ -93,7 +96,7 @@ public class f22FlightController : MonoBehaviour
         //this.speedNeedle = this.AddComponent(typeof(SimpleGaugeNeedle)) as SimpleGaugeNeedle;
         this.speedNeedle.Needle = this.NeedleSpeed;
         this.altitudeNeedle = new SimpleGaugeNeedle();
-        this.altitudeNeedle.Needle =  new SimpleGaugeNeedle();
+        this.altitudeNeedle.Needle = this.NeedleAltitude;
     }
 
     void setSpeedNeedle(){
@@ -139,7 +142,7 @@ public class f22FlightController : MonoBehaviour
     }
 
     void diveLeft(){
-        Debug.Log(" Diving Left ....");
+        //Debug.Log(" Diving Left ....");
         //this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));
         this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* 2);
         /*if(!this.isDived){
@@ -169,7 +172,7 @@ public class f22FlightController : MonoBehaviour
         this.yardsPerSecond = GUI.HorizontalSlider(new Rect(this.enginePowerSliderXpos, this.enginePowerSliderYpos, 250, 50), this.yardsPerSecond, this.initYardsPerSecond, this.maxYardsPerSecond);
          if(GUI.Button(new Rect (this.IconX,this.IconY,this.IconWidth,this.IconHeight),this.closeCockpitIcon)) 
         {
-            Debug.Log("you clicked the icon");
+            //Debug.Log("you clicked the icon");
         }
     }
 
