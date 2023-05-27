@@ -25,9 +25,6 @@ using UnityEngine;
  *                    """     d"b="        '-----+t
  *                            q_p                '@
  * The Game to appear Kitesurfing in Arenal
- * Blitzkrieg lite wind in Bocabarranca
- * Brazilian Scannia turbodiesel 
- * a fumao maconha ...
  * 
  *
  *
@@ -62,7 +59,8 @@ public class f22FlightController : MonoBehaviour
     public float returnZpos = 900.1f;
     public float maxYardsPerSecond = 70.1f;
     public float initYardsPerSecond = 2.1f;
-
+    public float degreesToCloseCokpit = 15.1f;
+    public float degreesToOpenCokpit = 15.1f;
     private SimpleGaugeNeedle speedNeedle;
     public Image NeedleSpeed;
 
