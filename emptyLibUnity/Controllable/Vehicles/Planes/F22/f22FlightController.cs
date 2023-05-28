@@ -117,11 +117,17 @@ public class f22FlightController : MonoBehaviour
 
     
     void closeCockpit(){
-
+        if(!this.cockpit_is_closed){
+this.Cockpit.transform.Rotate(0,0,this.degreesToCloseCokpit);
+            this.cockpit_is_closed = true;
+        }
     }
 
     void openCockpit(){
+        if(this.cockpit_is_closed){
 
+            this.cockpit_is_closed = false;
+        }
     }
 
      void moveForward(){
