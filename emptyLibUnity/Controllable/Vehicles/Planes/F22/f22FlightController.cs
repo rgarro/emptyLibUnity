@@ -125,7 +125,7 @@ this.Cockpit.transform.Rotate(0,0,this.degreesToCloseCokpit);
 
     void openCockpit(){
         if(this.cockpit_is_closed){
-
+this.Cockpit.transform.Rotate(0,0,this.degreesToOpenCokpit);
             this.cockpit_is_closed = false;
         }
     }
