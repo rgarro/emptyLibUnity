@@ -51,7 +51,7 @@ public class f22FlightController : MonoBehaviour
     public bool cockpit_is_closed = false;
     //private bool isDivedr = false;
     private bool isElevated = false;
-    private bool isdElevated = false;
+    //private bool isdElevated = false;
     public float elevationCurveAngleX = 3.25f;
     public float descendingCurveAngleX = -3.25f;
     public float elevationStep = 0.2f;
