@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Reflection.PortableExecutable;
+using System.Threading;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System;
@@ -103,8 +104,9 @@ public class f22FlightController : MonoBehaviour
 	}
 
     void setAltitudeNeedle(){
-		//this.speedNeedle.getTilter(this.yardsPerSecond);
-		//this.speedNeedle.tiltNeedle();
+        Debug.Log(this.this.AirPlane.transform.position.y+" went out kite surfing ..");
+		this.altitudeNeedle.getTilter(this.this.AirPlane.transform.position.y);
+		this.altitudeNeedle.tiltNeedle();
 	}
 
     // Update is called once per frame
