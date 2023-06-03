@@ -1,4 +1,4 @@
-﻿using System.Reflection.PortableExecutable;
+﻿//using System.Reflection.PortableExecutable;
 using System.Threading;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
@@ -104,8 +104,8 @@ public class f22FlightController : MonoBehaviour
 	}
 
     void setAltitudeNeedle(){
-        Debug.Log(this.this.AirPlane.transform.position.y+" went out kite surfing ..");
-		this.altitudeNeedle.getTilter(this.this.AirPlane.transform.position.y);
+        //Debug.Log(this.AirPlane.transform.position.y+" went out kite surfing ..");
+		this.altitudeNeedle.getTilter(this.AirPlane.transform.position.y);
 		this.altitudeNeedle.tiltNeedle();
 	}
 
