@@ -139,7 +139,9 @@ this.Cockpit.transform.Rotate(0,0,this.degreesToOpenCokpit);
 
     //must elevate with arrow button
     void descend(){
-        this.AirPlane.transform.Translate(Vector3.back * (Time.deltaTime * this.yardsPerSecond));
+        if(this.AirPlane.transform.position.y > this.minAltitude){
+            this.AirPlane.transform.Translate(Vector3.back * (Time.deltaTime * this.yardsPerSecond));
+        }
     }
 
     //must descend with arrow button
