@@ -144,7 +144,9 @@ this.Cockpit.transform.Rotate(0,0,this.degreesToOpenCokpit);
 
     //must descend with arrow button
     void elevate(){
-        this.AirPlane.transform.Translate(Vector3.forward * (Time.deltaTime * this.yardsPerSecond));
+        if(this.AirPlane.transform.position.y < this.maxAltitude){
+            this.AirPlane.transform.Translate(Vector3.forward * (Time.deltaTime * this.yardsPerSecond));
+        }
     }
 
     void diveLeft(){
