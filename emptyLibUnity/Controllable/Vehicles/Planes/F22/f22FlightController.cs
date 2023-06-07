@@ -127,13 +127,13 @@ this.Cockpit.transform.Rotate(0,0,this.degreesToCloseCokpit);
 
     void openCockpit(){
         if(this.cockpit_is_closed){
-this.Cockpit.transform.Rotate(0,0,this.degreesToOpenCokpit);
+            this.Cockpit.transform.Rotate(0,0,this.degreesToOpenCokpit);
             this.cockpit_is_closed = false;
         }
     }
 
      void moveForward(){
-         //Debug.Log("moving forward ....");
+        //Debug.Log("moving forward ...");
         this.AirPlane.transform.Translate(Vector3.down * (Time.deltaTime * this.yardsPerSecond));
     }
 
