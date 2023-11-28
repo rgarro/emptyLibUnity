@@ -10,6 +10,9 @@ using UnityEngine;
  * -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
  * No voy en Tren Voy en Avion ..
  * Motocar running on tracks with side boundaries
+ * Se cogieron a las del colegio de senoritas en un vagon del tren de orotina
+ * sus novios goleaban en calleblancos , la pelicula esta en bar mazinger 5 esquinas
+ *
  *
  *
  *@author Rolando<rgarro@gmail.com>
@@ -22,9 +25,19 @@ public class simpleGTLocomotive : MonoBehaviour
     [SerializeField] WheelCollider backRight;
     [SerializeField] WheelCollider backLeft;
 
+    public float acceleration = 500f;
+    public float breakingForce = 300f;
+
+    private float currentAcceleration = 0f;
+    private float currentBreakForce = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
+        
+    }
+
+    private void fixedUpdate(){
         
     }
 
