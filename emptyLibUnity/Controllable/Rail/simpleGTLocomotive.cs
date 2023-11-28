@@ -16,6 +16,12 @@ using UnityEngine;
  */
 public class simpleGTLocomotive : MonoBehaviour
 {
+
+    [SerializeField] WheelCollider frontRight;
+    [SerializeField] WheelCollider frontLeft;
+    [SerializeField] WheelCollider backRight;
+    [SerializeField] WheelCollider backLeft;
+
     // Start is called before the first frame update
     void Start()
     {
