@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Globalization;
+using System;
+using System.Security.Cryptography;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /**
@@ -38,6 +44,13 @@ public class simpleGTLocomotive : MonoBehaviour
     }
 
     private void fixedUpdate(){
+        //forward reverse
+        if(Input.GetKey(KeyCode.Space)){
+            this.currentBreakForce = this.breakingForce;
+        }else
+        {
+            this.currentBreakForce = 0f;
+        }
         
     }
 
