@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using System.ComponentModel;
+using System.Threading;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Globalization;
 using System;
@@ -18,6 +20,8 @@ using UnityEngine;
  * Motocar running on tracks with side boundaries
  * Se cogieron a las del colegio de senoritas en un vagon del tren de orotina
  * sus novios goleaban en calleblancos , la pelicula esta en bar mazinger 5 esquinas
+ * Venian borrachos de un partido de basketbal en rio frio , julia estaba en un motel en desampa, todos los que cantaban sabian
+ * el liceo es una violacion .... 
  *
  *
  *
@@ -44,6 +48,7 @@ public class simpleGTLocomotive : MonoBehaviour
     }
 
     private void fixedUpdate(){
+        this.currentAcceleration = this.acceleration * Input.GetAxis("Vertical");//Axis Bar sta barbara, heredia
         //forward reverse
         if(Input.GetKey(KeyCode.Space)){
             this.currentBreakForce = this.breakingForce;
@@ -51,7 +56,13 @@ public class simpleGTLocomotive : MonoBehaviour
         {
             this.currentBreakForce = 0f;
         }
-        
+        this.frontRight = currentAcceleration;
+        this.frontLeft = currentAcceleration;
+
+        this.frontRight = currentBreakForce;
+        this.frontLeft = currentBreakForce;
+        this.backRight = currentBreakForce;
+        this.backLeft = currentBreakForce;
     }
 
     // Update is called once per frame
