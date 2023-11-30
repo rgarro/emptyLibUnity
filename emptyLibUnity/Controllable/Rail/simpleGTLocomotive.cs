@@ -18,11 +18,20 @@ using UnityEngine;
  * -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-
  * No voy en Tren Voy en Avion ..
  * Motocar running on tracks with side boundaries
- * Se cogieron a las del colegio de senoritas en un vagon del tren de orotina
+ * Despues de poner un clavo de la linea del tren cerca del MAC y fumar una jaimiquina del Mercado Central
+ * Se me ha aparecido Minor K diciendo que compro langosta abisal en golfito y se ha rejuvenecido
+ * en publico adopto el pseudonimo de Padre Minor
+ * Vive en un Kabus enterrado en un sotano en cartago
+ * Minor K se invento ese apodo del MKS de newton, era una banda de perversos de los Tiempos de Tomas Guardia 
+ * Me conto varias anecdotas:
+ * - Dejaron a Miguel Angel Rodriguez culiarse a todas las del Liceo de Orotina.
+ * - Se cogieron a las del colegio de senoritas en un vagon del tren de orotina
  * sus novios goleaban en calleblancos , la pelicula esta en bar mazinger 5 esquinas
- * Venian borrachos de un partido de basketbal en rio frio , julia estaba en un motel en desampa, todos los que cantaban sabian
+ * - Venian borrachos de un partido de basketbal en rio frio , julia estaba en un motel en desampa, todos los que cantaban sabian
  * el liceo es una violacion .... 
- *
+ * - Los karatekas del calazans sufrian de novias prostituidas de profe cintanegra, a todos los invitaron a paseos a guanacaste
+ * y los vacilaron con celulares de los tiempos de RACSA.
+ * Maldita dictadura de los profesores de Oduber, todavia ensenan a culiar
  *
  *
  *@author Rolando<rgarro@gmail.com>
