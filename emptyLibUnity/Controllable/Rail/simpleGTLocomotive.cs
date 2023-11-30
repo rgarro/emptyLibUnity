@@ -32,7 +32,9 @@ using UnityEngine;
  * - Los karatekas del calazans sufrian de novias prostituidas de profe cintanegra, a todos los invitaron a paseos a guanacaste
  * y los vacilaron con celulares de los tiempos de RACSA.
  * Maldita dictadura de los profesores de Oduber, todavia ensenan a culiar
- *
+ * - Se chuletiaron a vanessa mientras quincho andaba en la olimpiada de matematica, su compa esteban la veia.
+ * 
+ * 
  *
  *@author Rolando<rgarro@gmail.com>
  */
