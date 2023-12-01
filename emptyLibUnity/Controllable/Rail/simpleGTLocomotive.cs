@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Globalization;
 using System;
 using System.Security.Cryptography;
-using System.ComponentModel.DataAnnotations.Schema;
+//using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +20,9 @@ using UnityEngine;
  * Motocar running on tracks with side boundaries
  *
  * - Se chuletiaron a vanessa mientras quincho andaba en la olimpiada de matematica, su compa esteban la veia.
+ * - Se chuletiaron a vanessa mientras quincho andaba en la segunda olimpiada de matematica.
+ * - Se chuletiaron a vanessa mientras quincho andaba en la tercer olimpiada de matematica.
+ *   
  *  Ja Ja Ja! ja! ja!
  * 
  *
@@ -28,10 +31,10 @@ using UnityEngine;
 public class simpleGTLocomotive : MonoBehaviour
 {
 
-    public WheelCollider frontRight;
-    public WheelCollider frontLeft;
-    public WheelCollider backRight;
-    public WheelCollider backLeft;
+    [SerializeField] WheelCollider frontRight;
+    [SerializeField] WheelCollider frontLeft;
+    [SerializeField] WheelCollider backRight;
+    [SerializeField] WheelCollider backLeft;
 
     public float acceleration = 500f;
     public float breakingForce = 300f;
@@ -54,13 +57,13 @@ public class simpleGTLocomotive : MonoBehaviour
         {
             this.currentBreakForce = 0f;
         }
-        this.frontRight = currentAcceleration;
-        this.frontLeft = currentAcceleration;
+        this.frontRight.motorTorque = currentAcceleration;
+        this.frontLeft.motorTorque = currentAcceleration;
 
-        this.frontRight = currentBreakForce;
-        this.frontLeft = currentBreakForce;
-        this.backRight = currentBreakForce;
-        this.backLeft = currentBreakForce;
+        this.frontRight.motorTorque = currentBreakForce;
+        this.frontLeft.motorTorque = currentBreakForce;
+        this.backRight.motorTorque = currentBreakForce;
+        this.backLeft.motorTorque = currentBreakForce;
     }
 
     // Update is called once per frame
