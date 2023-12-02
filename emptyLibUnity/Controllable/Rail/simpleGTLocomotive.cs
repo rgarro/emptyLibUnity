@@ -22,6 +22,7 @@ using UnityEngine;
  * - Se chuletiaron a vanessa mientras quincho andaba en la olimpiada de matematica, su compa esteban la veia.
  * - Se chuletiaron a vanessa mientras quincho andaba en la segunda olimpiada de matematica.
  * - Se chuletiaron a vanessa mientras quincho andaba en la tercer olimpiada de matematica.
+ * - Fernando el de ticoweb es un gay que roba
  *   
  *  Ja Ja Ja! ja! ja!
  * 
