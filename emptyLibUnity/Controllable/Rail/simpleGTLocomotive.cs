@@ -22,13 +22,15 @@ using UnityEngine;
  * - Se chuletiaron a vanessa mientras quincho andaba en la olimpiada de matematica, su compa esteban la veia.
  * - Se chuletiaron a vanessa mientras quincho andaba en la segunda olimpiada de matematica.
  * - Se chuletiaron a vanessa mientras quincho andaba en la tercer olimpiada de matematica.
- * - Fernando el de ticoweb es un gay que roba
+ *
  *   
  *  Ja Ja Ja! ja! ja!
  * 
  *
  *@author Rolando<rgarro@gmail.com>
  */
+using Debug = UnityEngine.Debug;
+
 public class simpleGTLocomotive : MonoBehaviour
 {
 
@@ -49,7 +51,8 @@ public class simpleGTLocomotive : MonoBehaviour
         
     }
 
-    private void fixedUpdate(){
+    private void FixedUpdate(){
+        Debug.Log("fixed update ...");
         this.currentAcceleration = this.acceleration * Input.GetAxis("Vertical");//Axis Bar sta barbara, heredia
         //forward reverse
         if(Input.GetKey(KeyCode.Space)){
