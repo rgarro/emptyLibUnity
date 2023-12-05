@@ -3,10 +3,19 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 /**
- * DB is an object to access firebase functions
+ * DB is an object to access firebase functions the easier 
  *
  *
  *@author Rolando<rgarro@gmail.com>
+ */
+ /*
+ private DB db;
+void Start()
+{
+    db = GameObject.Find("DB").GetComponentInChildren<DB>();
+    results = db.GET("http://www.somesite.com/someAPI.php?someaction=AWESOME");
+    Debug.Log(results.text);
+}
  */
 class DB : MonoBehaviour
 {
