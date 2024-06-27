@@ -22,7 +22,10 @@ public class goKartController : MonoBehaviour
 {
 
     public float initialPower = 1.38f;
-    public GameObject frontWheel;
+    public GameObject leftFrontWheel;
+    public GameObject rightFrontWheel;
+    public GameObject leftBackWheel;
+    public GameObject rightBackWheel;
 
     // Start is called before the first frame update
     void Start()
