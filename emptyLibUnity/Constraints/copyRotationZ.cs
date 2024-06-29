@@ -43,7 +43,7 @@ public class copyRotationZ : MonoBehaviour
     }
 
     void getFromRotation(){
-        this.fromDegrees = this.fromObject.transform.eulerAngles.z
+        this.fromDegrees = this.fromObject.transform.eulerAngles.z;
     }
 
     // Update is called once per frame
