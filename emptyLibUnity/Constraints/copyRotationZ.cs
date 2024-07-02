@@ -50,7 +50,7 @@ public class copyRotationZ : MonoBehaviour
     void Update()
     {
         this.getFromRotation();
-        Vector3 newRotation = new Vector3(this.toObject.transform.eulerAngles.x, this.toObject.transform.eulerAngles.z,this.fromDegrees);
+        Vector3 newRotation = new Vector3(this.toObject.transform.eulerAngles.x, this.toObject.transform.eulerAngles.y,this.fromDegrees);
         this.toObject.transform.eulerAngles = newRotation;
     }
 }
