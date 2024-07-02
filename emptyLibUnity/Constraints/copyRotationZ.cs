@@ -1,4 +1,7 @@
-﻿using System.Globalization;
+﻿using System.Xml.Schema;
+using System.Runtime.CompilerServices;
+using System;
+using System.Globalization;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,14 +28,15 @@ using UnityEngine;
  *   /__|  DT / DV  |__\
  *   | ||           |\ \
  *
- *
+ * initially Both input and output objects must have rotationZ = 0;
  *
  *@author Rolando<rgarro@gmail.com>
  */
 public class copyRotationZ : MonoBehaviour
 {
-    public GameObject fromObject;
-    public GameObject toObject;
+    public GameObject fromObject;//must  have  z rotation = 0
+    public GameObject toObject;//must  have  z rotation = 0
+    public Boolean Invert = false;
 
     private float fromDegrees;
 
@@ -50,6 +54,11 @@ public class copyRotationZ : MonoBehaviour
     void Update()
     {
         this.getFromRotation();
+        if(this.Invert){
+            //if(Mathf.Sign(this.fromDegrees)){
+                this.fromDegrees = this.fromDegrees *  -1;
+            //}
+        }
         Vector3 newRotation = new Vector3(this.toObject.transform.eulerAngles.x, this.toObject.transform.eulerAngles.y,this.fromDegrees);
         this.toObject.transform.eulerAngles = newRotation;
     }
