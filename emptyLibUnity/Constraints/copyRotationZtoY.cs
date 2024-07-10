@@ -1,12 +1,35 @@
-﻿using System.Collections;
+﻿using System.Xml.Schema;
+using System.Runtime.CompilerServices;
+using System;
+using System.Globalization;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ * ================================================.
+ *      .-.   .-.     .--.                         |
+ *     | OO| | OO|   / _.-' .-.   .-.  .-.   .''.  |
+ *     |   | |   |   \  '-. '-'   '-'  '-'   '..'  |
+ *     '^^^' '^^^'    '--'                         |
+ * ===============.  .-.  .================.  .-.  |
+ *                | |   | |                |  '-'  |
+ *                | |   | |                |       |
+ *                | ':-:' |                |  .-.  |
+ * l42            |  '-'  |                |  '-'  |
+ * ==============='       '================'       |
+ *
+ * Simple Blender3d constraints not getting exported
+ * but the pivot points are respected so I figured out 
+ * how easy is to port them
+ *
+ *@author Rolando<rgarro@gmail.com>
+ */
 public class copyRotationZtoY : MonoBehaviour
 {
     public GameObject fromObject;//must  have  z rotation = 0
     public GameObject toObject;//must  have  y rotation = 0
-    public Boolean Invert = false;
+    public bool Invert = false;
+    public float offSet = 0;
 
     private float fromDegrees;
 
@@ -18,6 +41,9 @@ public class copyRotationZtoY : MonoBehaviour
 
     void getFromRotation(){
         this.fromDegrees = this.fromObject.transform.eulerAngles.z;
+        if(this.offSet > 0 || this.offSet < 0 ){
+            this.fromDegrees = this.fromDegrees + this.offSet;
+        }
     }
 
     // Update is called once per frame
