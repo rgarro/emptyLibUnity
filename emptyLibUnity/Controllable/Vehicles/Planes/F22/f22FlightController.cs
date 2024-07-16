@@ -18,7 +18,7 @@ using UnityEngine;
  *      \ ADOBE   ',
  *       \___Fireworks',_                        _..----.._
  *       [______       "'==.I\_____________..--"<__\\_n@___4\,_
- *     ,..-=T      __ GOL____________ DE SAPRISSA \/  "'" O<==  ""-+.._
+ *     ,..-=T      __ GOL____________ DE__SAPRISSA \/  "'" O<==  ""-+.._
  *     I____|_____    }_>=========I>=**""''==-------------==-   " |   "'-.,___
  *     [_____,.--'"             _______         ""--=<""-----=====+==--''""
  *     ""'-=+..,,__,-----,_____|       |         -=* |
@@ -134,7 +134,8 @@ this.Cockpit.transform.Rotate(0,0,this.degreesToCloseCokpit);
 
      void moveForward(){
         //Debug.Log("moving forward ...");
-        this.AirPlane.transform.Translate(Vector3.down * (Time.deltaTime * this.yardsPerSecond));
+        //this.AirPlane.transform.Translate(Vector3.down * (Time.deltaTime * this.yardsPerSecond));
+        this.AirPlane.transform.Translate(Vector3.forward * (Time.deltaTime * this.yardsPerSecond));
     }
 
     //must elevate with arrow button
