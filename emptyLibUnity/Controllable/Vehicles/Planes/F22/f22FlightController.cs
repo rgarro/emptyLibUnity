@@ -140,18 +140,18 @@ this.Cockpit.transform.Rotate(0,0,this.degreesToCloseCokpit);
 
     //must elevate with arrow button
     void descend(){
-        if(this.AirPlane.transform.position.y > this.minAltitude){
+        //if(this.AirPlane.transform.position.y > this.minAltitude){
             //this.AirPlane.transform.Translate(Vector3.back * (Time.deltaTime * this.yardsPerSecond));
             this.AirPlane.transform.Translate(Vector3.down * (Time.deltaTime * this.yardsPerSecond));
-        }
+        //}
     }
 
     //must descend with arrow button
     void elevate(){
-        if(this.AirPlane.transform.position.y < this.maxAltitude){
+        //if(this.AirPlane.transform.position.y < this.maxAltitude){
             //this.AirPlane.transform.Translate(Vector3.forward * (Time.deltaTime * this.yardsPerSecond));
             this.AirPlane.transform.Translate(Vector3.up * (Time.deltaTime * this.yardsPerSecond));
-        }
+        //}
     }
 
     void diveLeft(){
