@@ -25,7 +25,8 @@ using UnityEngine;
  *                 |__   /     |---,--'"---+------+-'"
  *                    """     d"b="        '-----+t
  *                            q_p                '@
- * The Game to appear Kitesurfing in Arenal
+ * The Game to appear Kitesurfing in Jaco
+ * without being noticed ...
  * 
  *
  *
@@ -153,22 +154,19 @@ this.Cockpit.transform.Rotate(0,0,this.degreesToCloseCokpit);
 
     void diveLeft(){
         //Debug.Log(" Diving Left ....");
-        //this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));        
-        this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime*3);
-
-        //this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* 2);
-        /*if(!this.isDived){
+        this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));        
+        if(!this.isDived){
             this.AirPlane.transform.Rotate(0,0,this.diveCurveAngleZ*-1);
             this.isDived = true;
-        }*/
+        }
     }
 
     void diveRight(){
         this.AirPlane.transform.Translate(Vector3.right * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));
-        /*if(!this.isDived){
+        if(!this.isDived){
             this.AirPlane.transform.Rotate(0,0,this.diveCurveAngleZ);
             this.isDived = true;
-        }*/
+        }
     }
 
     void increaseSpeed(){
