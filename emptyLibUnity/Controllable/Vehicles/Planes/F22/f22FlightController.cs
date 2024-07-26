@@ -50,6 +50,9 @@ public class f22FlightController : MonoBehaviour
     public int enginePowerSliderXpos = 25;
     public string engineThrottleLabel = "Engine Power";
     public float diveCurveAngleZ = 1.00f;
+    public float diveAngleLeft = 1.00f;
+    public float diveAngleRight = 1.00f;
+
     public bool cockpit_is_closed = false;
     //private bool isDivedr = false;
     private bool isElevated = false;
@@ -140,6 +143,7 @@ this.Cockpit.transform.Rotate(0,0,this.degreesToCloseCokpit);
 
     //must elevate with arrow button
     void descend(){
+        this.AirPlane.transform.Rotate(0,0,0);
         if(this.AirPlane.transform.position.y > this.minAltitude){
             this.AirPlane.transform.Translate(Vector3.down * (Time.deltaTime * this.yardsPerSecond));
         }
@@ -147,6 +151,7 @@ this.Cockpit.transform.Rotate(0,0,this.degreesToCloseCokpit);
 
     //must descend with arrow button
     void elevate(){
+        this.AirPlane.transform.Rotate(0,0,0);
         if(this.AirPlane.transform.position.y < this.maxAltitude){
             this.AirPlane.transform.Translate(Vector3.up * (Time.deltaTime * this.yardsPerSecond));
         }
@@ -154,19 +159,21 @@ this.Cockpit.transform.Rotate(0,0,this.degreesToCloseCokpit);
 
     void diveLeft(){
         //Debug.Log(" Diving Left ....");
-        this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));        
-        if(!this.isDived){
+        this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate)); 
+        this.AirPlane.transform.Rotate(0,0,diveAngleLeft);       
+        /*if(!this.isDived){
             this.AirPlane.transform.Rotate(0,0,this.diveCurveAngleZ*-1);
             this.isDived = true;
-        }
+        }*/
     }
 
     void diveRight(){
         this.AirPlane.transform.Translate(Vector3.right * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));
-        if(!this.isDived){
+        this.AirPlane.transform.Rotate(0,0,diveAngleRight);
+        /*if(!this.isDived){
             this.AirPlane.transform.Rotate(0,0,this.diveCurveAngleZ);
             this.isDived = true;
-        }
+        }*/
     }
 
     void increaseSpeed(){
