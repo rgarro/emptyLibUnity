@@ -168,6 +168,7 @@ public class f22FlightController : MonoBehaviour
 
     void diveLeft(){
         //Debug.Log(" Diving Left ....");
+        this.isRightDived = false;
         this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));                
         if(!this.isLeftDived){
             this.AirPlane.transform.Rotate(0,0,diveAngleLeft);
@@ -176,6 +177,7 @@ public class f22FlightController : MonoBehaviour
     }
 
     void diveRight(){
+        this.isLeftDived = false;
         this.AirPlane.transform.Translate(Vector3.right * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));
         if(!this.isRightDived){
             this.AirPlane.transform.Rotate(0,0,diveAngleRight);    
