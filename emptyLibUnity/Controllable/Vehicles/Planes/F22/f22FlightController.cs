@@ -87,7 +87,6 @@ public class f22FlightController : MonoBehaviour
     private Rect windowRect; 
 
 
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -167,7 +166,7 @@ public class f22FlightController : MonoBehaviour
     }
 
     void diveLeft(){
-        //Debug.Log(" Diving Left ....");
+        Debug.Log(" Diving Left ....");
         this.isRightDived = false;
         this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));                
         if(!this.isLeftDived){
