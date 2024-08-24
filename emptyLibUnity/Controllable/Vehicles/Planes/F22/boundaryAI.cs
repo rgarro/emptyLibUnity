@@ -35,7 +35,8 @@ public class boundaryAI : MonoBehaviour
 
     public float maxZpoint = 3000.0f;
     public GameObject AirPlane;
-    public float returnPoint = -180.0f; 
+    public float returnPoint = -180.0f;
+    public float maxYpoint = 3000.0f; 
 
     // Start is called before the first frame update
     void Start()
