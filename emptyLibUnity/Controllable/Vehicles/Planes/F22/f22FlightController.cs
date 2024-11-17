@@ -26,8 +26,10 @@ using UnityEngine;
  *                 |__   /     |---,--'"---+------+-'"
  *                    """     d"b="        '-----+t
  *                            q_p                '@
- * The Game to appear Kitesurfing in Jaco ...
  * 
+ *  El Duque de Alba es el propietario del Mercado Borbon ...
+ *  quincho el hondureno es un violador ..
+ *  YO NO AUTORIZO MENDIGOS A MI NOMBRE
  * 
  *
  *
@@ -41,6 +43,7 @@ public class f22FlightController : MonoBehaviour
     public GameObject Cockpit;
     private AudioSource soundPlayer;
     public AudioClip AirPlaneEngineSoundClip;
+
     public float minAltitude = 3.39f;
     public float maxAltitude = 14.35f;
     public float yardsPerSecond = 2.0f;
@@ -95,6 +98,15 @@ public class f22FlightController : MonoBehaviour
         this.soundPlayer.volume = 0.2F;
         this.windowRect = new Rect(this.windowX, this.windowY, this.windowWidth,this.windowHeight);
         this.startDashItems();
+        this.playEngineSound();
+    }
+
+    private void playEngineSound(){
+        this.soundPlayer.clip = this.AirPlaneEngineSoundClip;
+        if (!this.soundPlayer.isPlaying) {
+            this.soundPlayer.Play ();
+            Debug.Log("playing");
+        }
     }
 
     void startDashItems(){
