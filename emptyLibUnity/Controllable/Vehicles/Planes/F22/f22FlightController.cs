@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+﻿//using System.Diagnostics;
 //using System.Reflection.PortableExecutable;
 using System.Threading;
 //using System.Diagnostics;
@@ -27,7 +27,6 @@ using UnityEngine;
  *                    """     d"b="        '-----+t
  *                            q_p                '@
  * The Game to appear Kitesurfing in Jaco ...
- * Maicol Jordan es un hijueputa !!
  * 
  * 
  *
@@ -167,12 +166,12 @@ public class f22FlightController : MonoBehaviour
     }
 
     void diveLeft(){
-        Debug.Log(" Diving Left ....");
         this.isRightDived = false;
         this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));                
         if(!this.isLeftDived){
             this.AirPlane.transform.Rotate(0,0,diveAngleLeft);
             this.isLeftDived = true;
+            Debug.Log(" Diving Left ....");
         }
     }
 
@@ -216,15 +215,17 @@ public class f22FlightController : MonoBehaviour
         {
             if(this.isRightDived){
                 this.stabilize();
+            }else{
+                this.diveLeft();
             }
-            this.diveLeft();
         }
         if (Input.GetKey("right"))
         {
             if(this.isLeftDived){
                 this.stabilize();
+            }else{
+                this.diveRight();
             }
-            this.diveRight();
         }
         if (Input.GetKey("a"))
         {
