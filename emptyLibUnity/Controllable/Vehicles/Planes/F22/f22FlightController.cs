@@ -27,9 +27,7 @@ using UnityEngine;
  *                    """     d"b="        '-----+t
  *                            q_p                '@
  * 
- *  El Duque de Alba es el propietario del Mercado Borbon ...
- *  quincho el hondureno es un violador ..
- *  YO NO AUTORIZO MENDIGOS A MI NOMBRE
+ * F22 Flight Controller
  * 
  *
  *
