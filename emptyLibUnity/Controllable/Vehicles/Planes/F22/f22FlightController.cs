@@ -1,4 +1,5 @@
 ﻿//using System.Diagnostics;
+//using System.Diagnostics;
 //using System.Reflection.PortableExecutable;
 using System.Threading;
 //using System.Diagnostics;
@@ -19,7 +20,7 @@ using UnityEngine;
  *      \ ADOBE   ',
  *       \___Fireworks',_                        _..----.._
  *       [______       "'==.I\_____________..--"<__\\_n@___4\,_
- *     ,..-=T      __ GOL____________ DE__SAPRISSA \/  "'" O<==  ""-+.._
+ *     ,..-=T      __ GOL           DE  SAPR         "'" O<==  ""-+.._
  *     I____|_____    }_>=========I>=**""''==-------------==-   " |   "'-.,___
  *     [_____,.--'"             _______         ""--=<""-----=====+==--''""
  *     ""'-=+..,,__,-----,_____|       |         -=* |
@@ -87,6 +88,7 @@ public class f22FlightController : MonoBehaviour
     public float windowWidth = 300;
     public float windowHeight = 300;
     private Rect windowRect; 
+
 
 
     // Start is called before the first frame update
@@ -212,6 +214,9 @@ public class f22FlightController : MonoBehaviour
         }
     }
 
+    void shootRocket(){
+        Debug.Log("shoting ..");
+    }
     void joystickControls(){
         if (Input.GetKey("down"))
         {
@@ -244,6 +249,11 @@ public class f22FlightController : MonoBehaviour
          if (Input.GetKey("z"))
         {
             this.decreaseSpeed();
+        }
+
+         if (Input.GetKey("space"))
+        {
+            this.shootRocket();
         }
     }
 }
