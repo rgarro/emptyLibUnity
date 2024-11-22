@@ -19,7 +19,7 @@
  *  -       -"^-^"-           -"^-^"-         Fast strange ways ...
  *
  * Started as the ai moving engine of a mig35 prefab
- * this version wont hypnotize micromachines
+ * 
  * 
  * @author Rolanddo<rgarro@gmail.com>
  */
