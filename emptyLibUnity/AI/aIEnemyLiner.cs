@@ -12,7 +12,8 @@ using UnityEngine.UI;
  *   \ |/   \.-.  .-./   \| /
  *    '._       \/       _.'
  *       ''--..____..--''
- *    === Will Spawn enemies traveling up to a rect ===
+ *    === Will Spawn Game Objects Along a Bottom Spawn Vector 
+ *        Screening the Instances randomly  ===
  *         Fast Strange Times Fast Strange Ways  
  *
  * @author Rolando <rgarro@gmail.com>

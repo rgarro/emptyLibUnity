@@ -1,3 +1,4 @@
+using System;
 /**
  *              _.-'| ------- \,._
  *           .-'    |         |   ~'=-.
@@ -17,11 +18,11 @@
  *           /O.O\             /O.O\
  *          `====='           `====='       Fast strange times
  *  -       -"^-^"-           -"^-^"-         Fast strange ways ...
- * The Moving Forward StateMachine
+ * The Moving Forward State Machine
  * Intelligence of an opposing advancing gameObject  
  * Like AirPlanes or helicopters 
  * 
- * @author Rolanddo<rgarro@gmail.com>
+ * @author Rolando<rgarro@gmail.com>
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -31,12 +32,14 @@ using UnityEngine;
 public class jetMover : MonoBehaviour {
 
 	public float speed;
+	public Boolean rotateObject = true;
 
 	void Start ()
 	{
-		transform.Rotate(0, 180, 0);
+		if(this.rotateObject){
+			transform.Rotate(0, 180, 0);
+		}
 		GetComponent<Rigidbody>().velocity = transform.forward * speed;
-
 	}
 
 	void diveLeft(){

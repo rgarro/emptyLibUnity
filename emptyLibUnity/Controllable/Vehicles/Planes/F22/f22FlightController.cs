@@ -54,7 +54,7 @@ public class f22FlightController : MonoBehaviour
 
     public int enginePowerSliderYpos = 25;
     public int enginePowerSliderXpos = 25;
-    public string engineThrottleLabel = "Engine Power";
+    public string engineThrottleLabel = "Throttle";
     public float diveCurveAngleZ = 1.00f;
     public float diveAngleLeft = 1.00f;
     public float diveAngleRight = 1.00f;
