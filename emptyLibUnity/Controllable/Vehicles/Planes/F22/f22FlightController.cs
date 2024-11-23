@@ -110,8 +110,8 @@ public class f22FlightController : MonoBehaviour
     }
 
     void startDashItems(){
-        this.speedNeedle = new SimpleGaugeNeedle();
-        //this.speedNeedle = this.AddComponent(typeof(SimpleGaugeNeedle)) as SimpleGaugeNeedle;
+        //this.speedNeedle = new SimpleGaugeNeedle();
+        this.speedNeedle = this.AddComponent(typeof(SimpleGaugeNeedle)) as SimpleGaugeNeedle;
         this.speedNeedle.Needle = this.NeedleSpeed;
         this.altitudeNeedle = new SimpleGaugeNeedle();
         this.altitudeNeedle.Needle = this.NeedleAltitude;
