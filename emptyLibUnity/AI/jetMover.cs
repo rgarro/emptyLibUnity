@@ -17,9 +17,9 @@
  *           /O.O\             /O.O\
  *          `====='           `====='       Fast strange times
  *  -       -"^-^"-           -"^-^"-         Fast strange ways ...
- *
- * Started as the ai moving engine of a mig35 prefab
- * 
+ * The Moving Forward StateMachine
+ * Intelligence of an opposing advancing gameObject  
+ * Like AirPlanes or helicopters 
  * 
  * @author Rolanddo<rgarro@gmail.com>
  */
