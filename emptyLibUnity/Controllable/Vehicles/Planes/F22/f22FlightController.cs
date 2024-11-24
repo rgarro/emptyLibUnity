@@ -47,7 +47,7 @@ public class f22FlightController : MonoBehaviour
     public float maxAltitude = 14.35f;
     public float yardsPerSecond = 2.0f;
     public float sideDiveAccelerationRate = 2.00f;
-    private bool isDived = false;
+    //private bool isDived = false;
 
     private bool isLeftDived = false;
     private bool isRightDived = false;
@@ -110,8 +110,8 @@ public class f22FlightController : MonoBehaviour
     }
 
     void startDashItems(){
-        //this.speedNeedle = new SimpleGaugeNeedle();
-        this.speedNeedle = this.AddComponent(typeof(SimpleGaugeNeedle)) as SimpleGaugeNeedle;
+        this.speedNeedle = new SimpleGaugeNeedle();
+        //this.speedNeedle = this.AddComponent(typeof(SimpleGaugeNeedle)) as SimpleGaugeNeedle;
         this.speedNeedle.Needle = this.NeedleSpeed;
         this.altitudeNeedle = new SimpleGaugeNeedle();
         this.altitudeNeedle.Needle = this.NeedleAltitude;
