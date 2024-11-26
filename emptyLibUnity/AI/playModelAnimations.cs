@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class playModelAnimations : MonoBehaviour
 {
+
+    public string animationLabel = "andabaila";
+
     // Start is called before the first frame update
     void Start()
     {

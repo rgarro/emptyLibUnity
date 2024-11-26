@@ -42,6 +42,12 @@ public class jetMover : MonoBehaviour {
 		GetComponent<Rigidbody>().velocity = transform.forward * speed;
 	}
 
+	// Update is called once per frame
+    void Update()
+    {
+    
+    }
+
 	void diveLeft(){
 
 	}
