@@ -1,7 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ *  |\/\/\/|  
+ *  |      |  
+ *  |      |  
+ *  | (o)(o)  
+ *  C      _) 
+ *   | ,___|  
+ *   |   /    
+ *  /____\    
+ * /      \
+ * state machine removing prefab after time to live
+ *
+ *@author Rolando <rgarro@gmail.com>
+ */
 public class prefabTimeToLive : MonoBehaviour
 {
     public int seconds_to_live;
