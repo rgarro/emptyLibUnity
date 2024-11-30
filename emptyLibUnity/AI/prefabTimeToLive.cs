@@ -11,7 +11,7 @@ using UnityEngine;
  *   |   /    
  *  /____\    
  * /      \
- * state machine removing prefab after time to live
+ * State Machine removing prefab after after integer seconds to live
  *
  *@author Rolando <rgarro@gmail.com>
  */
