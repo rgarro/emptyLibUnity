@@ -12,7 +12,7 @@ using UnityEngine;
 public class shootLinealRocket : MonoBehaviour {
 
 	
-    Public GameObject rocketPrefab;
+    public GameObject rocketPrefab;
 
 	void Start ()
 	{

@@ -38,13 +38,18 @@ public class playModelAnimations : MonoBehaviour
 {
 
     public string animationLabel = "andabaila";
-    private Animation anim;
+    public Animation anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.anim = gameObject.GetComponent<Animation>();
-        this.anim[this.animationLabel].layer = 123;
+        //this.anim = gameObject.GetComponent<Animation>();
+        //this.anim[this.animationLabel].layer = 123;
+        this.doThePlay();
+    }
+//the Bears next season gaining a huge number of yards
+    void doThePlay(){
+        this.anim.Play(this.animationLabel);
     }
 
     // Update is called once per frame
@@ -53,6 +58,8 @@ public class playModelAnimations : MonoBehaviour
         if (this.anim.isPlaying)
         {
             return;
+        }else{
+            this.doThePlay();
         }
 
     }

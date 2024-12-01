@@ -18,18 +18,18 @@ using UnityEngine;
 public class prefabTimeToLive : MonoBehaviour
 {
     public int seconds_to_live;
-	public float timer;
+	private float timer;
 
 	// Use this for initialization
 	void Start () {
-		//Debug.Log ("tiramos ...");
+		//Debug.Log (" ...");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		timer += 1.0F * Time.deltaTime;
+		this.timer += 1.0F * Time.deltaTime;
 		//Debug.Log ("tiramos ..." + timer);
-		if (timer >= seconds_to_live)
+		if (this.timer >= this.seconds_to_live)
 		{
 			GameObject.Destroy(this.gameObject);
 		}
