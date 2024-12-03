@@ -118,6 +118,9 @@ public class f22FlightController : MonoBehaviour
     }
 
     void setSpeedNeedle(){
+        //the zero must be recordinated
+        //public double farLeft = 15.2F;
+	    //public double farRight = -13.02F;
 		this.speedNeedle.getTilter(this.yardsPerSecond);
 		this.speedNeedle.tiltNeedle();
 	}
