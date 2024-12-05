@@ -87,7 +87,9 @@ public class f22FlightController : MonoBehaviour
     public float windowY = 20;
     public float windowWidth = 300;
     public float windowHeight = 300;
-    private Rect windowRect; 
+    private Rect windowRect;
+
+    public farLeftGaugeNeddleCorrection = -2.0f; 
 
 
 
