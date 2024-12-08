@@ -138,7 +138,7 @@ public class f22FlightController : MonoBehaviour
         this.joystickControls();
         this.moveForward();
         this.setSpeedNeedle();
-        this.setAltitudeNeedle()
+        this.setAltitudeNeedle();
     }
 
     
