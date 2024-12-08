@@ -89,7 +89,7 @@ public class f22FlightController : MonoBehaviour
     public float windowHeight = 300;
     private Rect windowRect;
 
-    public farLeftGaugeNeddleCorrection = -2.0f; 
+    public float farLeftGaugeNeddleCorrection = -2.0f; 
 
 
 
@@ -123,7 +123,7 @@ public class f22FlightController : MonoBehaviour
         //the zero must be recordinated
         //public double farLeft = 15.2F;
 	    //public double farRight = -13.02F;
-		this.speedNeedle.getTilter(this.yardsPerSecond);
+		this.speedNeedle.getTilter(this.yardsPerSecond-this.farLeftGaugeNeddleCorrection);
 		this.speedNeedle.tiltNeedle();
 	}
 
@@ -137,7 +137,8 @@ public class f22FlightController : MonoBehaviour
     {
         this.joystickControls();
         this.moveForward();
-         this.setSpeedNeedle();
+        this.setSpeedNeedle();
+        this.setAltitudeNeedle()
     }
 
     
