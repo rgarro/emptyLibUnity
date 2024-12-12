@@ -20,7 +20,7 @@ using UnityEngine;
  *      \ ADOBE   ',
  *       \___Fireworks',_                        _..----.._
  *       [______       "'==.I\_____________..--"<__\\_n@___4\,_
- *     ,..-=T      __ GOL           DE  SAPR         "'" O<==  ""-+.._
+ *     ,..-=T      __ GOL           DE  SAPRisa       "'" O<==  ""-+.._
  *     I____|_____    }_>=========I>=**""''==-------------==-   " |   "'-.,___
  *     [_____,.--'"             _______         ""--=<""-----=====+==--''""
  *     ""'-=+..,,__,-----,_____|       |         -=* |
@@ -98,6 +98,8 @@ public class f22FlightController : MonoBehaviour
     public float flapsDescendAngle = 0.0f;
 
     public float flapsAngle = 0.0f;
+    public bool flaps_up = false;
+    public bool flaps_down = false;
 
     // Start is called before the first frame update
     void Start()
@@ -183,7 +185,12 @@ public class f22FlightController : MonoBehaviour
     }
     //must elevate with arrow button
     void descend(){
-        this.descendFlaps();
+        if(!this.flaps_down){
+            this.descendFlaps();
+            this.flaps_up = false;
+            this.flaps_down = true;
+        }
+        
         this.stabilize();
         if(this.AirPlane.transform.position.y > this.minAltitude){
             this.AirPlane.transform.Translate(Vector3.down * (Time.deltaTime * this.yardsPerSecond));
@@ -192,7 +199,11 @@ public class f22FlightController : MonoBehaviour
 
     //must descend with arrow button
     void elevate(){
-        this.ascendFlaps();
+        if(!this.flaps_up){
+            this.ascendFlaps();
+            this.flaps_up = true;
+            this.flaps_down = false;
+        }
         this.stabilize();
         if(this.AirPlane.transform.position.y < this.maxAltitude){
             this.AirPlane.transform.Translate(Vector3.up * (Time.deltaTime * this.yardsPerSecond));
