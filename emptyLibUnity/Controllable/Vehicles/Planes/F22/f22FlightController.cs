@@ -91,19 +91,10 @@ public class f22FlightController : MonoBehaviour
 
     public float farLeftGaugeNeddleCorrection = -2.0f; 
 
-    //bolincha es un joto, quincho es playo y mamerto es gay , segun manual del centeno guell ...
-    //quincho huele a hormonas de pollo cuando juega futbol porque le gustan los rastros moleculares masculinos o sea que huele a los maesillos 
-    //bolincha es mas hediondo que quincho,yo lo he atestiguado compartiendo helados y chupando la misma cuchara con quincho, refierase a la explicacion anterior
-    
-    // mamerto verguea a sus mascotas y asesina perros
-    
-    // henry el playo de 47 anos le gusta jugar futbol con maesillos de noche, desnudo de torso y gritando en tonos graves ....
-
-
     public GameObject leftFlap;
     public GameObject rightFlap;
 
-    public float flapsAsendAngle = 0.0f;
+    public float flapsAscendAngle = 0.0f;
     public float flapsDescendAngle = 0.0f;
 
     public float flapsAngle = 0.0f;
@@ -177,17 +168,22 @@ public class f22FlightController : MonoBehaviour
     }
 
     void descendFlaps(){
-
+        this.leftFlap.transform.Rotate(this.flapsDescendAngle,0,0);
+        this.rightFlap.transform.Rotate(this.flapsDescendAngle,0,0);
     }
 
-void stabilizeFlaps(){
-    
-}
+    void stabilizeFlaps(){
+        //this.leftFlap.transform.rotation += Quaternion.Euler(this.this.flapsAngle, 0, 0);
+        this.leftFlap.transform.Rotate(this.flapsAngle,0,0);
+        this.rightFlap.transform.Rotate(this.flapsAngle,0,0);
+    }
     void ascendFlaps(){
-        
+        this.leftFlap.transform.Rotate(this.flapsAscendAngle,0,0);
+        this.rightFlap.transform.Rotate(this.flapsAscendAngle,0,0);
     }
     //must elevate with arrow button
     void descend(){
+        this.descendFlaps();
         this.stabilize();
         if(this.AirPlane.transform.position.y > this.minAltitude){
             this.AirPlane.transform.Translate(Vector3.down * (Time.deltaTime * this.yardsPerSecond));
@@ -196,6 +192,7 @@ void stabilizeFlaps(){
 
     //must descend with arrow button
     void elevate(){
+        this.ascendFlaps();
         this.stabilize();
         if(this.AirPlane.transform.position.y < this.maxAltitude){
             this.AirPlane.transform.Translate(Vector3.up * (Time.deltaTime * this.yardsPerSecond));
