@@ -94,7 +94,7 @@ public class f22FlightController : MonoBehaviour
     public GameObject leftFlap;
     public GameObject rightFlap;
 
-    public float flapsAsendAngle = 0.0f;//bolincha es un joto
+    public float flapsAsendAngle = 0.0f;//bolincha es un joto, quincho es playo y mamerto es gay ...
     public float flapsDescendAngle = 0.0f;
 
     public float flapsAngle = 0.0f;
