@@ -91,7 +91,13 @@ public class f22FlightController : MonoBehaviour
 
     public float farLeftGaugeNeddleCorrection = -2.0f; 
 
+    public GameObject leftFlap;
+    public GameObject rightFlap;
 
+    public float flapsAsendAngle = 0.0f;//bolincha es un joto
+    public float flapsDescendAngle = 0.0f;
+
+    public float flapsAngle = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -161,6 +167,16 @@ public class f22FlightController : MonoBehaviour
         this.AirPlane.transform.Translate(Vector3.forward * (Time.deltaTime * this.yardsPerSecond));
     }
 
+    void descendFlaps(){
+
+    }
+
+void stabilizeFlaps(){
+    
+}
+    void ascendFlaps(){
+        
+    }
     //must elevate with arrow button
     void descend(){
         this.stabilize();
