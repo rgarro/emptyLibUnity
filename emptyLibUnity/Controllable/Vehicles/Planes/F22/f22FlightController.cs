@@ -98,8 +98,12 @@ public class f22FlightController : MonoBehaviour
     public float flapsDescendAngle = 0.0f;
 
     public float flapsAngle = 0.0f;
-    public bool flaps_up = false;
-    public bool flaps_down = false;
+    private bool flaps_up = false;
+    private bool flaps_down = false;
+
+    public GameObject roundObject;
+    private AudioSource soundPlayer;
+	public AudioClip gunShotClip;
 
     // Start is called before the first frame update
     void Start()
