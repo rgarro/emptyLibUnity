@@ -11,7 +11,7 @@
  *                     / /     | |        
  *                     /        |  
  *                   _^^oo    _^^oo  
- * on key pushes bullet from given position and  rotation at given speed
+ * on Key Pushes bullet from given position and  rotation at given speed
  *
  * @author Rolando <rgarro@gmail.com>
  */
@@ -53,9 +53,9 @@ public class gunLoader : MonoBehaviour {
 			float rotationX = this.transform.localEulerAngles.x;// + this.correctionAngle;
 			//float elevationY = this.transform.localEulerAngles.y;
 			float elevationY = (this.transform.rotation.y-90);//this.correctionAngle;
-Debug.Log("elevY9: "+elevationY);			
+//Debug.Log("elevY9: "+elevationY);			
 			float horizontalRotationZ = (this.turretObj.transform.localEulerAngles.z-180);
-Debug.Log("horizZ: " + horizontalRotationZ);			 
+//Debug.Log("horizZ: " + horizontalRotationZ);			 
 			Quaternion rotation = Quaternion.Euler(rotationX,elevationY,horizontalRotationZ);
 			Vector3 position = new Vector3(this.turretObj.transform.position.x,this.turretObj.transform.position.y,this.turretObj.transform.position.z);
 			GameObject go = (GameObject)Instantiate (this.bulletObj,position,rotation);

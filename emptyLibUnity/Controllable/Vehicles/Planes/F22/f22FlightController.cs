@@ -226,7 +226,7 @@ public class f22FlightController : MonoBehaviour
         if(!this.isLeftDived){
             this.AirPlane.transform.Rotate(0,0,diveAngleLeft);
             this.isLeftDived = true;
-            Debug.Log(" Diving Left ....");
+            //Debug.Log(" Diving Left ....");
         }
     }
 
@@ -236,7 +236,7 @@ public class f22FlightController : MonoBehaviour
         if(!this.isRightDived){
             this.AirPlane.transform.Rotate(0,0,diveAngleRight);    
             this.isRightDived = true;
-            Debug.Log("Is right dived..");
+            //Debug.Log("Is right dived..");
         }
     }
 
@@ -258,7 +258,11 @@ public class f22FlightController : MonoBehaviour
     }
 
     void shootRocket(){
-        Debug.Log("shoting ..");
+        Debug.Log("shooting ..");
+        //Quaternion rotation = Quaternion.Euler(rotationX,elevationY,horizontalRotationZ);
+        Quaternion rotation = this.AirPlane.transform.localEulerAngles;
+		Vector3 position = new Vector3(this.AirPlane.transform.position.x,this.AirPlane.transform.position.y,this.AirPlane.transform.position.z);
+        GameObject rocket = (GameObject)Instantiate (this.roundObject,position,rotation);
     }
     void joystickControls(){
         if (Input.GetKey("down"))
