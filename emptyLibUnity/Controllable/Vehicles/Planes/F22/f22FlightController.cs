@@ -101,9 +101,6 @@ public class f22FlightController : MonoBehaviour
     private bool flaps_up = false;
     private bool flaps_down = false;
 
-    public GameObject roundObject;
-    private AudioSource soundPlayer;
-	public AudioClip gunShotClip;
 
     // Start is called before the first frame update
     void Start()
@@ -119,7 +116,7 @@ public class f22FlightController : MonoBehaviour
         this.soundPlayer.clip = this.AirPlaneEngineSoundClip;
         if (!this.soundPlayer.isPlaying) {
             this.soundPlayer.Play ();
-            Debug.Log("playing");
+            //Debug.Log("playing");
         }
     }
 
@@ -257,13 +254,7 @@ public class f22FlightController : MonoBehaviour
         }
     }
 
-    void shootRocket(){
-        Debug.Log("shooting ..");
-        //Quaternion rotation = Quaternion.Euler(rotationX,elevationY,horizontalRotationZ);
-        Quaternion rotation = this.AirPlane.transform.localEulerAngles;
-		Vector3 position = new Vector3(this.AirPlane.transform.position.x,this.AirPlane.transform.position.y,this.AirPlane.transform.position.z);
-        GameObject rocket = (GameObject)Instantiate (this.roundObject,position,rotation);
-    }
+    
     void joystickControls(){
         if (Input.GetKey("down"))
         {
@@ -296,11 +287,6 @@ public class f22FlightController : MonoBehaviour
          if (Input.GetKey("z"))
         {
             this.decreaseSpeed();
-        }
-
-         if (Input.GetKey("space"))
-        {
-            this.shootRocket();
         }
     }
 }
