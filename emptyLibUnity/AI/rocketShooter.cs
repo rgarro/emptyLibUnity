@@ -1,7 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/**
+ *                            ______
+ *         |\_______________ (_____\\______________
+ * HH======#H###############H#######################
+ *         ' ~""""""""""""""`##(_))#H\"""""Y########
+ *                           ))    \#H\       `"Y###
+ *                           "      }#H)
+ * state machine controlling self proppeled objects instantiation
+ * 
+ *
+ *@author Rolando<rolando@emptyart.xyz>                       
+ */
 public class rocketShooter : MonoBehaviour
 {
 
@@ -16,11 +27,13 @@ public class rocketShooter : MonoBehaviour
     {
         this.soundPlayer = GetComponent<AudioSource> ();
 		this.soundPlayer.volume = 0.2F;
+        this.soundPlayer.clip = this.gunShotClip;
+         this.soundPlayer.loop = true;
     }
 
     void shootRocket(){
-        this.soundPlayer.clip = this.gunShotClip;
 		if (!this.soundPlayer.isPlaying) {
+             Debug.Log("sound on ");
 			this.soundPlayer.Play ();
 		}
         Quaternion rotation = Quaternion.Euler(this.AirPlane.transform.localEulerAngles.x,this.AirPlane.transform.localEulerAngles.y,this.AirPlane.transform.localEulerAngles.z);
