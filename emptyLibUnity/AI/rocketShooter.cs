@@ -9,7 +9,7 @@ public class rocketShooter : MonoBehaviour
     public GameObject roundObject;
     private AudioSource soundPlayer;
 	public AudioClip gunShotClip;
-    public bool shootingOn = true;
+    //public bool shootingOn = true;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +23,11 @@ public class rocketShooter : MonoBehaviour
 		if (!this.soundPlayer.isPlaying) {
 			this.soundPlayer.Play ();
 		}
-        Debug.Log("shooting ..");
-        //Quaternion rotation = Quaternion.Euler(rotationX,elevationY,horizontalRotationZ);
+        Quaternion rotation = Quaternion.Euler(this.AirPlane.transform.localEulerAngles.x,this.AirPlane.transform.localEulerAngles.y,this.AirPlane.transform.localEulerAngles.z);
         //Quaternion rotation = this.AirPlane.transform.localEulerAngles;
-		//Vector3 position = new Vector3(this.AirPlane.transform.position.x,this.AirPlane.transform.position.y,this.AirPlane.transform.position.z);
-        //GameObject rocket = (GameObject)Instantiate (this.roundObject,position,rotation);
+        Debug.Log("shooting ..: "+this.AirPlane.transform.localEulerAngles.x);
+		Vector3 position = new Vector3(this.AirPlane.transform.position.x,this.AirPlane.transform.position.y,this.AirPlane.transform.position.z);
+        GameObject rocket = (GameObject)Instantiate (this.roundObject,position,rotation);
     }
 
     // Update is called once per frame
