@@ -18,27 +18,16 @@ public class rocketShooter : MonoBehaviour
 
     public GameObject AirPlane;
     public GameObject roundObject;
-    //private AudioSource soundPlayer;
-	//public AudioClip gunShotClip;
-    //public bool shootingOn = true;
+    private bool is_shooting = false;
 
     // Start is called before the first frame update
     void Start()
     {
-       /* this.soundPlayer = GetComponent<AudioSource> ();
-		this.soundPlayer.volume = 0.2F;
-        this.soundPlayer.clip = this.gunShotClip;
-         this.soundPlayer.loop = true;*/
+       
     }
 
     void shootRocket(){
-		/*if (!this.soundPlayer.isPlaying) {
-             Debug.Log("sound on ");
-			this.soundPlayer.Play ();
-		}*/
         Quaternion rotation = Quaternion.Euler(this.AirPlane.transform.localEulerAngles.x,this.AirPlane.transform.localEulerAngles.y,this.AirPlane.transform.localEulerAngles.z);
-        //Quaternion rotation = this.AirPlane.transform.localEulerAngles;
-        Debug.Log("shooting ..: "+this.AirPlane.transform.localEulerAngles.x);
 		Vector3 position = new Vector3(this.AirPlane.transform.position.x,this.AirPlane.transform.position.y,this.AirPlane.transform.position.z);
         GameObject rocket = (GameObject)Instantiate (this.roundObject,position,rotation);
     }
