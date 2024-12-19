@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Diagnostics;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 /**
  *                            ______
  *         |\_______________ (_____\\______________
@@ -8,8 +11,10 @@ using UnityEngine;
  *         ' ~""""""""""""""`##(_))#H\"""""Y########
  *                           ))    \#H\       `"Y###
  *                           "      }#H)
- * state machine controlling self proppeled objects instantiation
- * 
+ * state machine controlling self propelled objects instantiation
+ * once per spacebar on key down event ...
+ *
+ * visual studio code theme and the slingshot code kite colors 
  *
  *@author Rolando<rolando@emptyart.xyz>                       
  */
@@ -27,9 +32,12 @@ public class rocketShooter : MonoBehaviour
     }
 
     void shootRocket(){
-        Quaternion rotation = Quaternion.Euler(this.AirPlane.transform.localEulerAngles.x,this.AirPlane.transform.localEulerAngles.y,this.AirPlane.transform.localEulerAngles.z);
-		Vector3 position = new Vector3(this.AirPlane.transform.position.x,this.AirPlane.transform.position.y,this.AirPlane.transform.position.z);
-        GameObject rocket = (GameObject)Instantiate (this.roundObject,position,rotation);
+        if(!this.is_shooting){
+            Quaternion rotation = Quaternion.Euler(this.AirPlane.transform.localEulerAngles.x,this.AirPlane.transform.localEulerAngles.y,this.AirPlane.transform.localEulerAngles.z);
+		    Vector3 position = new Vector3(this.AirPlane.transform.position.x,this.AirPlane.transform.position.y,this.AirPlane.transform.position.z);
+            GameObject rocket = (GameObject)Instantiate (this.roundObject,position,rotation);
+            this.is_shooting = true;
+        }
     }
 
     // Update is called once per frame
@@ -42,6 +50,11 @@ public class rocketShooter : MonoBehaviour
         if(Input.GetKey("space"))
         {
             this.shootRocket();
+        }
+        if (Input.GetKeyUp("space"))
+        {
+            Debug.Log("Space key released");
+            this.is_shooting = false;
         }
     }
 }
