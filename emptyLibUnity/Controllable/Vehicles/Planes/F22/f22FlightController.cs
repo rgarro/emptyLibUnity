@@ -219,22 +219,24 @@ public class f22FlightController : MonoBehaviour
 
     void diveLeft(){
         this.isRightDived = false;
-        this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));                
-        if(!this.isLeftDived){
+        //this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));
+        this.AirPlane.transform.Translate(Vector3.left  * (Time.deltaTime * this.yardsPerSecond));//the flying crosser                
+        /*if(!this.isLeftDived){
             this.AirPlane.transform.Rotate(0,0,diveAngleLeft);
             this.isLeftDived = true;
-            //Debug.Log(" Diving Left ....");
-        }
+            Debug.Log(" Diving Left ....");
+        }*/
     }
 
     void diveRight(){
         this.isLeftDived = false;
-        this.AirPlane.transform.Translate(Vector3.right * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));
-        if(!this.isRightDived){
+        //this.AirPlane.transform.Translate(Vector3.right * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));
+        this.AirPlane.transform.Translate(Vector3.right * (Time.deltaTime * this.yardsPerSecond));
+        /*if(!this.isRightDived){
             this.AirPlane.transform.Rotate(0,0,diveAngleRight);    
             this.isRightDived = true;
-            //Debug.Log("Is right dived..");
-        }
+            Debug.Log("Is right dived..");
+        }*/
     }
 
     void increaseSpeed(){

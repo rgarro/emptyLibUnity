@@ -11,12 +11,12 @@ using Debug = UnityEngine.Debug;
  *         ' ~""""""""""""""`##(_))#H\"""""Y########
  *                           ))    \#H\       `"Y###
  *                           "      }#H)
- * state machine controlling self propelled objects instantiation
+ * State Machine Controlling self propelled objects instantiation
  * once per spacebar on key down event ...
  *
  * visual studio code theme and the slingshot code kite colors 
  *
- *@author Rolando<rolando@emptyart.xyz>                       
+ *@author Rolando<rgarro@gmail.com>                       
  */
 public class rocketShooter : MonoBehaviour
 {
