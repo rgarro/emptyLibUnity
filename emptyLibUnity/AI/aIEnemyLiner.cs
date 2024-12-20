@@ -38,7 +38,7 @@ public class aIEnemyLiner : MonoBehaviour {
 		coroutine = spawnWaves();
         StartCoroutine(coroutine);
 
-        print("Malians taking Sirte Surf Spot " + Time.time);
+        //print("Malians taking Sirte Surf Spot " + Time.time);//mataron la primera shakira el dia que murio kaddafi
 	}
 
 	IEnumerator spawnWaves(){
@@ -48,10 +48,10 @@ public class aIEnemyLiner : MonoBehaviour {
 				Vector3 spawnPosition = new Vector3 (Random.Range (spawnValues.x - distanceFromSpanwnX, spawnValues.x + distanceFromSpanwnX), spawnValues.y, spawnValues.z);
 				Quaternion spawnRotation = Quaternion.identity;
 				if(this.count%2 == 0){
-					print("instanciando A");
+					//print("instanciando A");
 					Instantiate (hazard, spawnPosition, spawnRotation);
 				}else{
-					print("instanciando B");
+					//print("instanciando B");
 					Instantiate (hazardB, spawnPosition, spawnRotation);
 				}
 				this.count = this.count + 1;

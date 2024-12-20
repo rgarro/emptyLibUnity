@@ -20,7 +20,7 @@ using UnityEngine;
  *      \ ADOBE   ',
  *       \___Fireworks',_                        _..----.._
  *       [______       "'==.I\_____________..--"<__\\_n@___4\,_
- *     ,..-=T      __ GOL           DE  SAPRisa       "'" O<==  ""-+.._
+ *     ,..-=T      __ GOL           DE  SAPRissa       "'" O<==  ""-+.._
  *     I____|_____    }_>=========I>=**""''==-------------==-   " |   "'-.,___
  *     [_____,.--'"             _______         ""--=<""-----=====+==--''""
  *     ""'-=+..,,__,-----,_____|       |         -=* |
@@ -32,7 +32,7 @@ using UnityEngine;
  * 
  *
  *
- *@author Rolando<rolando@emptyart.xyz>
+ *@author Rolando<rgarro@gmail.com>
  */
 public class f22FlightController : MonoBehaviour
 {
