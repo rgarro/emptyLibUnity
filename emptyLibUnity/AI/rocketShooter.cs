@@ -23,6 +23,7 @@ public class rocketShooter : MonoBehaviour
 
     public GameObject AirPlane;
     public GameObject roundObject;
+    public float spaceToFront = 100.1f;
     private bool is_shooting = false;
 
     // Start is called before the first frame update
@@ -34,7 +35,7 @@ public class rocketShooter : MonoBehaviour
     void shootRocket(){
         if(!this.is_shooting){
             Quaternion rotation = Quaternion.Euler(this.AirPlane.transform.localEulerAngles.x,this.AirPlane.transform.localEulerAngles.y,this.AirPlane.transform.localEulerAngles.z);
-		    Vector3 position = new Vector3(this.AirPlane.transform.position.x,this.AirPlane.transform.position.y,this.AirPlane.transform.position.z);
+		    Vector3 position = new Vector3(this.AirPlane.transform.position.x,this.AirPlane.transform.position.y,this.AirPlane.transform.position.z+this.spaceToFront);
             GameObject rocket = (GameObject)Instantiate (this.roundObject,position,rotation);
             this.is_shooting = true;
         }
