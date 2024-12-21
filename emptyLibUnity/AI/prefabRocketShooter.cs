@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//using System.Diagnostics;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /**
@@ -57,13 +58,13 @@ public class prefabRocketShooter : MonoBehaviour
 
     void shootRocket(){
             Quaternion rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
-		    Vector3 position = new Vector3(transform.position.x,transform.position.y,transform.position.z+30);//this.spaceToFront);
+		    Vector3 position = new Vector3(transform.position.x,transform.position.y+20,transform.position.z);//this.spaceToFront);
             GameObject rocket = (GameObject)Instantiate (this.roundObject,position,rotation);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //Debug.Log(transform.position.z+" ojo");
     }
 }
