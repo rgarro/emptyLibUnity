@@ -59,6 +59,7 @@ public class prefabRocketShooter : MonoBehaviour
     void shootRocket(){
             Quaternion rotation = Quaternion.Euler(transform.localEulerAngles.x,transform.localEulerAngles.y,transform.localEulerAngles.z);
 		    Vector3 position = new Vector3(transform.position.x,transform.position.y+20,transform.position.z);//this.spaceToFront);
+            //Instantiate(_weaponPrefab, transform.position + new Vector3(0, 1, 0), Quaternion.identity);
             GameObject rocket = (GameObject)Instantiate (this.roundObject,position,rotation);
     }
 
