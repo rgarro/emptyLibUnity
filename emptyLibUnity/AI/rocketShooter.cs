@@ -54,7 +54,7 @@ public class rocketShooter : MonoBehaviour
         }
         if (Input.GetKeyUp("space"))
         {
-            Debug.Log("Space key released");
+            //Debug.Log("Space key released");
             this.is_shooting = false;
         }
     }

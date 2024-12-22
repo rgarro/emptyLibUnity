@@ -52,6 +52,9 @@ public class prefabRocketShooter : MonoBehaviour
         yield return new WaitForSeconds(this.secondsUntilFire);
         this.shootRocket();
 
+        yield return new WaitForSeconds(this.secondsUntilFire);
+        this.shootRocket();
+
         //After we have waited 5 seconds print the time again.
         //Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
