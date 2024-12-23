@@ -23,7 +23,7 @@ using UnityEngine;
  * en las licoreras de heredia venden vapes de cbd si uno pregunta descaradamente
  * El ejercito sandinista le disparaba obuses de mota petrificada a los contras , que desertaban y se venian a chepe a monchar.
  * Tirar piedras de mota petrificada en el crater del volcan arenal hacia nubes que pijiaban canas y tilaran.
- * Bombear humo de mota petrificada a 800 metros de profunfidad hace que exista el plasma pijiante, frankling chang vendia fumar mota en orbita
+ * Bombear humo de mota petrificada a 2800 metros de profunfidad en el oceano hace que exista el plasma pijiante, 
  *
  *
  *@author Rolando<rgarro@gmail.com>
