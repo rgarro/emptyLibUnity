@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//using System.Diagnostics;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /**
@@ -36,7 +37,12 @@ public class enemyRocketDetonator : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         //Output the Collider's GameObject's name
-        Debug.Log("colision here: ");
-        Debug.Log(collision.collider.name);
+        //Debug.Log("colision BEGIN: ");
+        Debug.Log("colision: "+ collision.gameObject.tag);
+        if(collision.gameObject.tag == "mi28Prefab"){
+            Debug.Log("colision: "+ collision.gameObject.tag);
+        }
+        //Debug.Log(collision.collider.name);
+        //Debug.Log("colision END ");
     }
 }
