@@ -10,13 +10,6 @@ using UnityEngine;
  * ===============.  .-.  .================.  .-.  |
  *
  * D Am A G E CountDown Text Widget...
- * the real book of jazz is the bible
- * cueva de los cangrejos negros de calleblancos
- * grietas profundas del rio virilla
- * en los tiempos de aranjuez bajaba la marea 
- * se fumaban una trementina con terciopelo en el alto de guadalupe
- * dragones de komodo aparecieron donde asesinaron partidarios de Korazon Akino
- * hay huevos de peces en el hielo de las estrellas fugaces ..
  *
  *
  *
@@ -58,6 +51,6 @@ public class damageCountdown : MonoBehaviour
 	}
 
     void UpdateRemainingLife(){
-		this.theScore = this.remainingLife  + "% Remainig";
+		this.theScore = this.remainingLife  + "% Remaining";
 	}
 }
