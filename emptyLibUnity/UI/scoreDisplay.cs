@@ -23,6 +23,7 @@ public class scoreDisplay : MonoBehaviour
     public int Score =0;
     protected string theScore;
     public GUIStyle style;
+    public string scorePrefix = "Points";
     
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,6 @@ public class scoreDisplay : MonoBehaviour
 	}
 
 	void UpdateScore(){
-		this.theScore = Score  + " Points";
+		this.theScore = Score  + this.scorePrefix;
 	}
 }

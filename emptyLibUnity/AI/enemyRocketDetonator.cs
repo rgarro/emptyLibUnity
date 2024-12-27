@@ -8,14 +8,14 @@ using UnityEngine;
  *                                 o ooo
  *                                   o oo
  *                                      o o      |   #)
- *                                       oo     _|_|_#_    - el ara san juan recoge metano de las aguas negras de moin  -
+ *                                       oo     _|_|_#_    - Fucking Destroy Punk rock is about Math   -
  *                                         o   | 751   |
  *    __                    ___________________|       |_________________
  *   |   -_______-----------                                              \
- *  >|    _____                                 SS RECOPE         --->     )
+ *  >|    _____                                                   --->     )
  *   |__ -     ---------_________________________________________________ /
  *
- * on collide enemy rockets will subtract life points to collided and trigger explosion object
+ * on Collide enemy rockets will subtract life points to collided and trigger explosion object
  *
  *
  *@author Rolando<rgarro@gmail.com>
@@ -23,11 +23,33 @@ using UnityEngine;
 public class enemyRocketDetonator : MonoBehaviour
 {
 
-    public string enemyObjectTag = "perroNegro";
+    public string enemyObjectTag = "superSaiyan";
+    public string scoreManagerTag = "BatComputer";
+    //private int downedTargetCount = 0;
+    private GameObject scoreUpdater;
+    private GameObject damageCountdown;
+    public int ptsToIncrease = 10;
+    public bool isDamage = false;
+     public GameObject explosion;
+
     // Start is called before the first frame update
     void Start()
     {
+        this.getScoreManager();
+    }
+
+    void getScoreManager(){
+        if(this.isDamage){
+            this.damageCountdown = GameObject.FindWithTag(this.scoreManagerTag);
+        }else{
+            this.scoreUpdater = GameObject.FindWithTag(this.scoreManagerTag);
+        }
         
+    }
+
+    public void increaseScore(){
+            scoreDisplay tmpObj = this.scoreUpdater.GetComponent(typeof(scoreDisplay)) as scoreDisplay;
+            tmpObj.addScore(this.ptsToIncrease);
     }
 
     // Update is called once per frame
@@ -36,15 +58,18 @@ public class enemyRocketDetonator : MonoBehaviour
         
     }
 
+    void tomeChichi(Collision collision){
+        Debug.Log("Tome Chichi : "+ collision.gameObject.tag);
+        this.increaseScore();
+        GameObject e = Instantiate(this.explosion) as GameObject;
+        e.transform.position = transform.position;
+        Destroy(collision.gameObject);
+    }
+
     void OnCollisionEnter(Collision collision)
     {
-        //Output the Collider's GameObject's name
-        //Debug.Log("colision BEGIN: ");
-        Debug.Log("colision: "+ collision.gameObject.tag);
         if(collision.gameObject.tag == this.enemyObjectTag){
-            Debug.Log("tome chichi : "+ collision.gameObject.tag);
+            this.tomeChichi(collision);
         }
-        //Debug.Log(collision.collider.name);
-        //Debug.Log("colision END ");
     }
 }

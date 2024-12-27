@@ -9,7 +9,7 @@ using UnityEngine;
  *   '^^^' '^^^'    '--'                           |
  * ===============.  .-.  .================.  .-.  |
  *
- * Susana, encontremonos por la glorieta de San Juan en el parque de Coyoacan y nos escapamos a Monterrey ...
+ * D Am A G E CountDown Text Widget...
  *
  * @author Rolando <rgarro@gmail.com>
  */
