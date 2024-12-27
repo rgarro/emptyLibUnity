@@ -39,11 +39,11 @@ public class enemyRocketDetonator : MonoBehaviour
     }
 
     void getScoreManager(){
-        if(this.isDamage){
-            this.damageCountdown = GameObject.FindWithTag(this.scoreManagerTag);
-        }else{
+        //if(this.isDamage){
+           // this.damageCountdown = GameObject.FindWithTag(this.scoreManagerTag);
+        //}else{
             this.scoreUpdater = GameObject.FindWithTag(this.scoreManagerTag);
-        }
+        //}
         
     }
 

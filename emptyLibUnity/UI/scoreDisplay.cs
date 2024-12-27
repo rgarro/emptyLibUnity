@@ -23,7 +23,7 @@ public class scoreDisplay : MonoBehaviour
     public int Score =0;
     protected string theScore;
     public GUIStyle style;
-    public string scorePrefix = "Points";
+    public string scorePrefix = " Points";
     
     // Start is called before the first frame update
     void Start()
