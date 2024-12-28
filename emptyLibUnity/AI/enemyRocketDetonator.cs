@@ -8,7 +8,7 @@ using UnityEngine;
  *                                 o ooo
  *                                   o oo
  *                                      o o      |   #)
- *                                       oo     _|_|_#_    - Fucking Destroy Punk rock is about Math   -
+ *                                       oo     _|_|_#_    - Fucking Destroy Punk Rock is about Math   -
  *                                         o   | 751   |
  *    __                    ___________________|       |_________________
  *   |   -_______-----------                                              \

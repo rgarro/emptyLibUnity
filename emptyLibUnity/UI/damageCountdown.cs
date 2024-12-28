@@ -9,7 +9,7 @@ using UnityEngine;
  *   '^^^' '^^^'    '--'                           |
  * ===============.  .-.  .================.  .-.  |
  *
- * D Am A G E CountDown Text Widget...
+ * D Am A G E CountDown Text Widget ...
  *
  *
  *
