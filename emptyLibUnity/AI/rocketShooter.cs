@@ -14,7 +14,9 @@ using Debug = UnityEngine.Debug;
  * State Machine Controlling self propelled objects instantiation
  * once per spacebar on key down event ...
  *
- * visual studio code theme and the slingshot code kite colors 
+ *
+ *
+ *
  *
  *@author Rolando<rgarro@gmail.com>                       
  */

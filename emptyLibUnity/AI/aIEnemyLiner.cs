@@ -39,8 +39,6 @@ public class aIEnemyLiner : MonoBehaviour {
 	void Start(){
 		coroutine = spawnWaves();
         StartCoroutine(coroutine);
-
-        //print("Malians taking Sirte Surf Spot " + Time.time);//mataron la primera shakira el dia que murio kaddafi
 	}
 
 	IEnumerator spawnWaves(){

@@ -15,7 +15,7 @@ using UnityEngine;
  *  >|    _____                                                   --->     )
  *   |__ -     ---------_________________________________________________ /
  *
- * on Collide enemy rockets will subtract life points to collided and trigger explosion object
+ * onCollide enemy rockets will subtract life points to collided and trigger explosion object
  *
  *
  *
