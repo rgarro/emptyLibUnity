@@ -18,6 +18,7 @@ using UnityEngine;
  * on Collide enemy rockets will subtract life points to collided and trigger explosion object
  *
  *
+ *
  *@author Rolando<rgarro@gmail.com>
  */
 public class enemyRocketDetonator : MonoBehaviour
