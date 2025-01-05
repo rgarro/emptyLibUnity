@@ -17,6 +17,7 @@ using Debug = UnityEngine.Debug;
  * Honduras perdio un F5 intentando destruir un scud que va a caer en los puentes del virilla
  * hay unos 15 scuds inteligentes que no se mataron cayendo 
  * hoy es la pena de muerte de tres periodistas en la carcel de Esteli
+ * a varios ticos que participaron en la contra y fueron capturados los llevaron a matar al futuro
  *
  *
  *@author Rolando<rgarro@gmail.com>                       
