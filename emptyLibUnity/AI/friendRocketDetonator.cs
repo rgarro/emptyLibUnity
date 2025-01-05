@@ -34,12 +34,18 @@ public class friendRocketDetonator : MonoBehaviour
         this.damageCountdown = GameObject.FindWithTag(this.scoreManagerTag);
     }
 
+    public void increaseDamage(){
+             damageCountdown tmpObj = this.damageCountdown.GetComponent(typeof(damageCountdown)) as damageCountdown;
+             //Debug.Log("decrease pts ...");
+            tmpObj.decreaseLife();
+    }
+
     void tomeChichi(Collision collision){
         Debug.Log("fume mota y lea poesia : "+ collision.gameObject.tag);
-        //this.increaseScore();
-        //GameObject e = Instantiate(this.explosion) as GameObject;
-        //e.transform.position = transform.position;
-        //Destroy(collision.gameObject);
+        this.increaseDamage();
+        GameObject e = Instantiate(this.explosion) as GameObject;
+        e.transform.position = transform.position;
+        Destroy(collision.gameObject);//God save the queen she aint a human been ...
     }
 
     void OnCollisionEnter(Collision collision)

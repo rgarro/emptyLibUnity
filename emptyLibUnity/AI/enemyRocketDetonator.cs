@@ -17,6 +17,7 @@ using UnityEngine;
  *
  * onCollide enemy rockets will subtract life points to collided and trigger explosion object
  *
+ * 
  *
  *
  *@author Rolando<rgarro@gmail.com>
@@ -40,12 +41,7 @@ public class enemyRocketDetonator : MonoBehaviour
     }
 
     void getScoreManager(){
-        //if(this.isDamage){
-           // this.damageCountdown = GameObject.FindWithTag(this.scoreManagerTag);
-        //}else{
             this.scoreUpdater = GameObject.FindWithTag(this.scoreManagerTag);
-        //}
-        
     }
 
     public void increaseScore(){
@@ -64,7 +60,7 @@ public class enemyRocketDetonator : MonoBehaviour
         this.increaseScore();
         GameObject e = Instantiate(this.explosion) as GameObject;
         e.transform.position = transform.position;
-        Destroy(collision.gameObject);
+        Destroy(collision.gameObject);//fucking destroy
     }
 
     void OnCollisionEnter(Collision collision)

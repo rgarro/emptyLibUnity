@@ -14,8 +14,9 @@ using Debug = UnityEngine.Debug;
  * State Machine Controlling self propelled objects instantiation
  * once per spacebar on key down event ...
  *
- *
- *
+ * Honduras perdio un F5 intentando destruir un scud que va a caer en los puentes del virilla
+ * hay unos 15 scuds inteligentes que no se mataron cayendo 
+ * hoy es la pena de muerte de tres periodistas en la carcel de Esteli
  *
  *
  *@author Rolando<rgarro@gmail.com>                       
