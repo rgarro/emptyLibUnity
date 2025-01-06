@@ -45,7 +45,7 @@ public class damageCountdown : MonoBehaviour
 	}
 
     public void decreaseLife(){
-        //Debug.Log("decreasing life .." + scoreValue);
+        Debug.Log("decreasing life .." + scoreValue);
 		this.remainingLife -= this.lifeToDecreasePerHit;
 		this.UpdateRemainingLife();
 	}
@@ -53,4 +53,8 @@ public class damageCountdown : MonoBehaviour
     void UpdateRemainingLife(){
 		this.theScore = this.remainingLife  + "% Remaining";
 	}
+
+    void stopGameAndPromptNext(){
+        
+    }
 }
