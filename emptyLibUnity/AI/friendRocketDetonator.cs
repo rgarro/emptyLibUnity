@@ -45,7 +45,9 @@ public class friendRocketDetonator : MonoBehaviour
         this.increaseDamage();
         GameObject e = Instantiate(this.explosion) as GameObject;
         e.transform.position = transform.position;
+        //corregir error de camara aqui
         Destroy(collision.gameObject);//God save the queen she aint a human been ...
+
     }
 
     void OnCollisionEnter(Collision collision)
