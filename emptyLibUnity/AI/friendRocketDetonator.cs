@@ -24,6 +24,7 @@ public class friendRocketDetonator : MonoBehaviour
     public int ptsToIncrease = 10;
     public bool isDamage = false;
      public GameObject explosion;
+     public GameObject inactiveCamera;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,8 +47,8 @@ public class friendRocketDetonator : MonoBehaviour
         GameObject e = Instantiate(this.explosion) as GameObject;
         e.transform.position = transform.position;
         //corregir error de camara aqui
-        Destroy(collision.gameObject);//God save the queen she aint a human been ...
-
+        //Destroy(collision.gameObject);//God save the queen she aint a human been ...
+        this.inactiveCamera.SetActive(true);
     }
 
     void OnCollisionEnter(Collision collision)
