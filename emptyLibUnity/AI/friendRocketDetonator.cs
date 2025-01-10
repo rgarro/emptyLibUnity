@@ -19,6 +19,7 @@ public class friendRocketDetonator : MonoBehaviour
 {
      public string enemyObjectTag = "maestroRoshi";
     public string scoreManagerTag = "BatComputer";
+    public string inactiveCameraTag = "inactiveCam";
     //private int downedTargetCount = 0;
     private GameObject damageCountdown;
     public int ptsToIncrease = 10;
@@ -35,6 +36,10 @@ public class friendRocketDetonator : MonoBehaviour
         this.damageCountdown = GameObject.FindWithTag(this.scoreManagerTag);
     }
 
+    void getInactiveCamera(){
+        this.inactiveCamera = GameObject.FindWithTag(this.inactiveCameraTag);
+    }
+
     public void increaseDamage(){
              damageCountdown tmpObj = this.damageCountdown.GetComponent(typeof(damageCountdown)) as damageCountdown;
              //Debug.Log("decrease pts ...");
@@ -47,8 +52,9 @@ public class friendRocketDetonator : MonoBehaviour
         GameObject e = Instantiate(this.explosion) as GameObject;
         e.transform.position = transform.position;
         //corregir error de camara aqui
-        //Destroy(collision.gameObject);//God save the queen she aint a human been ...
+        Destroy(collision.gameObject);//God save the queen she aint a human been ...
         this.inactiveCamera.SetActive(true);
+        //Restart popup with legend 
     }
 
     void OnCollisionEnter(Collision collision)
