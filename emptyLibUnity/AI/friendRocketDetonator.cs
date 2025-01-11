@@ -25,11 +25,12 @@ public class friendRocketDetonator : MonoBehaviour
     public int ptsToIncrease = 10;
     public bool isDamage = false;
      public GameObject explosion;
-     public GameObject inactiveCamera;
+     private GameObject inactiveCamera;
     // Start is called before the first frame update
     void Start()
     {
         this.getDamageManager();
+        this.getInactiveCamera();
     }
 
     void getDamageManager(){
