@@ -9,7 +9,7 @@ using UnityEngine;
  *   '^^^' '^^^'    '--'                           |
  * ===============.  .-.  .================.  .-.  |
  *
- * D Am A G E CountDown Text Widget ...
+ * D Am A G E Count Down Text Widget ...
  *
  *
  *
@@ -55,6 +55,6 @@ public class damageCountdown : MonoBehaviour
 	}
 
     void stopGameAndPromptNext(){
-
+//dallas cowboys next season ..
     }
 }

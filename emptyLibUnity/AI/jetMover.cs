@@ -36,10 +36,11 @@ public class jetMover : MonoBehaviour {
 
 	void Start ()
 	{
+		//its just the sign of the times going forward in reverse ..
 		if(this.rotateObject){
 			transform.Rotate(0, 180, 0);
 		}
-		GetComponent<Rigidbody>().velocity = transform.forward * speed;
+		GetComponent<Rigidbody>().velocity = transform.forward * speed;//still he who laughs last is just a hand in the bush ..
 	}
 
 	// Update is called once per frame
