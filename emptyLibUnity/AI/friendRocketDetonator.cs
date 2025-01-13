@@ -42,11 +42,11 @@ public class friendRocketDetonator : MonoBehaviour
 
     void getActiveCamera(){
         this.activeCamera = GameObject.FindWithTag(this.activeCameraTag);
-        Debug.Log("active camera : " + this.activeCamera);
+        //Debug.Log("active camera : " + this.activeCamera);
     }
     void getInactiveCamera(){
         this.inactiveCamera = GameObject.FindWithTag(this.inactiveCameraTag);
-        Debug.Log("inactive camera : " + this.inactiveCamera);
+        //Debug.Log("inactive camera : " + this.inactiveCamera);
     }
 
     public void increaseDamage(){
@@ -58,13 +58,16 @@ public class friendRocketDetonator : MonoBehaviour
     void tomeChichi(Collision collision){
         Debug.Log("Fume mota y lea Poesia : "+ collision.gameObject.tag);
         this.increaseDamage();
+        Debug.Log("explode instance ");
         GameObject e = Instantiate(this.explosion) as GameObject;
         e.transform.position = transform.position;
         //corregir error de camara aqui
+        Debug.Log("camera switch ");
         this.inactiveCamera.SetActive(true);
+        this.activeCamera.SetActive(false);
         Destroy(collision.gameObject);//God save the queen she aint a human been ...
         //Restart popup with legend 
-        Debug.Log("where do we go from here... ");
+        Debug.Log("where do we go from here ... ");//piedreros de la policia fiscal le roban dinero a vendedores de mota en tlatihuacan
     }
 
     void OnCollisionEnter(Collision collision)
