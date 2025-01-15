@@ -9,7 +9,7 @@ using UnityEngine;
  *  `%%| /\[][][]|%
  * ___||_||______|%&,__ in the city of fallen angels where the ocean meets the sand you will form a strong alliance and the world most awesome band ..
  *
- * will detect round collitions on player and increase player damage
+ * Will detect round collitions on player and call .damageCounDown from tag in BatComputer
  *
  *
  *
@@ -46,7 +46,7 @@ public class friendRocketDetonator : MonoBehaviour
     }
     void getInactiveCamera(){
         this.inactiveCamera = GameObject.FindWithTag(this.inactiveCameraTag);
-        //Debug.Log("inactive camera : " + this.inactiveCamera);
+        Debug.Log("inactive camera : " + this.inactiveCamera);
     }
 
     public void increaseDamage(){
@@ -58,15 +58,14 @@ public class friendRocketDetonator : MonoBehaviour
     void tomeChichi(Collision collision){
         Debug.Log("Fume mota y lea Poesia : "+ collision.gameObject.tag);
         this.increaseDamage();
-        Debug.Log("explode instance ");
-        GameObject ae = Instantiate(this.laexplosion) as GameObject;
-        ae.transform.position = transform.position;
+        //Debug.Log("explode instance ");
+        //GameObject ae = Instantiate(this.laexplosion) as GameObject;
+        //ae.transform.position = transform.position;
         //corregir error de camara aqui
         Debug.Log("camera switch ");
+        //this.activeCamera.SetActive(false);
         this.inactiveCamera.SetActive(true);
         Destroy(collision.gameObject);//God save the queen she aint a human been ...
-        //this.activeCamera.SetActive(false);
-        
         //Restart popup with legend 
         Debug.Log("where do we go from here ... ");//piedreros de la policia fiscal le roban dinero a vendedores de mota en tlatihuacan
     }

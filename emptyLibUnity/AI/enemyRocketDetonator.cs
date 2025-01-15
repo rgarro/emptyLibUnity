@@ -56,7 +56,7 @@ public class enemyRocketDetonator : MonoBehaviour
     }
 
     void tomeChichi(Collision collision){
-        Debug.Log("Tome Chichi : "+ collision.gameObject.tag);
+        //Debug.Log("Tome Chichi : "+ collision.gameObject.tag);
         this.increaseScore();
         GameObject e = Instantiate(this.explosion) as GameObject;
         e.transform.position = transform.position;
