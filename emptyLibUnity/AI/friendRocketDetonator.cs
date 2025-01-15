@@ -24,8 +24,8 @@ public class friendRocketDetonator : MonoBehaviour
     //private int downedTargetCount = 0;
     private GameObject damageCountdown;
     public int ptsToIncrease = 10;
-    public bool isDamage = false;
-     public GameObject explosion;
+    //public bool isDamage = false;
+     public GameObject laexplosion;
      private GameObject inactiveCamera;
      private GameObject activeCamera;
     // Start is called before the first frame update
@@ -59,13 +59,14 @@ public class friendRocketDetonator : MonoBehaviour
         Debug.Log("Fume mota y lea Poesia : "+ collision.gameObject.tag);
         this.increaseDamage();
         Debug.Log("explode instance ");
-        GameObject e = Instantiate(this.explosion) as GameObject;
-        e.transform.position = transform.position;
+        GameObject ae = Instantiate(this.laexplosion) as GameObject;
+        ae.transform.position = transform.position;
         //corregir error de camara aqui
         Debug.Log("camera switch ");
         this.inactiveCamera.SetActive(true);
-        this.activeCamera.SetActive(false);
         Destroy(collision.gameObject);//God save the queen she aint a human been ...
+        //this.activeCamera.SetActive(false);
+        
         //Restart popup with legend 
         Debug.Log("where do we go from here ... ");//piedreros de la policia fiscal le roban dinero a vendedores de mota en tlatihuacan
     }
