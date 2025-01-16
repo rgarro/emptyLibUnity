@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Exception;
 /**
  *             +
  *            /_\
@@ -46,7 +48,7 @@ public class friendRocketDetonator : MonoBehaviour
     }
     void getInactiveCamera(){
         this.inactiveCamera = GameObject.FindWithTag(this.inactiveCameraTag);
-        Debug.Log("inactive camera : " + this.inactiveCamera);
+        //Debug.Log("inactive camera : " + this.inactiveCamera);
     }
 
     public void increaseDamage(){
@@ -56,18 +58,25 @@ public class friendRocketDetonator : MonoBehaviour
     }
 
     void tomeChichi(Collision collision){
-        Debug.Log("Fume mota y lea Poesia : "+ collision.gameObject.tag);
-        this.increaseDamage();
-        //Debug.Log("explode instance ");
-        //GameObject ae = Instantiate(this.laexplosion) as GameObject;
-        //ae.transform.position = transform.position;
-        //corregir error de camara aqui
-        Debug.Log("camera switch ");
-        //this.activeCamera.SetActive(false);
-        this.inactiveCamera.SetActive(true);
-        Destroy(collision.gameObject);//God save the queen she aint a human been ...
-        //Restart popup with legend 
-        Debug.Log("where do we go from here ... ");//piedreros de la policia fiscal le roban dinero a vendedores de mota en tlatihuacan
+        try
+        {
+            Debug.Log("Fume mota y lea Poesia : "+ collision.gameObject.tag);
+            this.increaseDamage();
+            //Debug.Log("explode instance ");
+            //GameObject ae = Instantiate(this.laexplosion) as GameObject;
+            //ae.transform.position = transform.position;
+            //corregir error de camara aqui
+            Debug.Log("camera switch ");
+            this.activeCamera.SetActive(false);
+            this.inactiveCamera.SetActive(true);
+            Destroy(collision.gameObject);//God save the queen she aint a human been ...
+            //Restart popup with legend 
+            Debug.Log("where do we go from here ... ");//piedreros de la policia fiscal le roban dinero a vendedores de mota en tlatihuacan   
+        }
+        catch (Exception ex)
+        {
+            Debug.LogException(ex, this);
+        }
     }
 
     void OnCollisionEnter(Collision collision)
