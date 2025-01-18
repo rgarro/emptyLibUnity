@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Exception;
+//using System.Exception;
 /**
  *             +
  *            /_\
@@ -48,7 +48,12 @@ public class friendRocketDetonator : MonoBehaviour
     }
     void getInactiveCamera(){
         this.inactiveCamera = GameObject.FindWithTag(this.inactiveCameraTag);
-        //Debug.Log("inactive camera : " + this.inactiveCamera);
+        Debug.Log("inactive camera tag: " + inactiveCameraTag);
+        if (this.inactiveCamera) {
+            Debug.Log(this.inactiveCamera.name);
+        } else {
+            Debug.Log("No esta la jodida camara inactive , fuck !");
+        }
     }
 
     public void increaseDamage(){
@@ -67,13 +72,13 @@ public class friendRocketDetonator : MonoBehaviour
             //ae.transform.position = transform.position;
             //corregir error de camara aqui
             Debug.Log("camera switch ");
+            this.inactiveCamera.SetActive(true);
             this.activeCamera.SetActive(false);
-            //this.inactiveCamera.SetActive(true);
             Destroy(collision.gameObject);//God save the queen she aint a human been ...
             //Restart popup with legend 
-            Debug.Log("where do we go from here ... ");//piedreros de la policia fiscal le roban dinero a vendedores de mota en tlatihuacan   
+            Debug.Log("where do we go from here ... ");  
         }
-        catch (Exception e)
+        catch (System.Exception e)
         {
             Debug.LogException(e, this);
         }
