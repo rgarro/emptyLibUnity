@@ -68,14 +68,14 @@ public class friendRocketDetonator : MonoBehaviour
             //corregir error de camara aqui
             Debug.Log("camera switch ");
             this.activeCamera.SetActive(false);
-            this.inactiveCamera.SetActive(true);
+            //this.inactiveCamera.SetActive(true);
             Destroy(collision.gameObject);//God save the queen she aint a human been ...
             //Restart popup with legend 
             Debug.Log("where do we go from here ... ");//piedreros de la policia fiscal le roban dinero a vendedores de mota en tlatihuacan   
         }
-        catch (Exception ex)
+        catch (Exception e)
         {
-            Debug.LogException(ex, this);
+            Debug.LogException(e, this);
         }
     }
 
