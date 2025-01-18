@@ -43,12 +43,14 @@ public class friendRocketDetonator : MonoBehaviour
     }
 
     void getActiveCamera(){
-        this.activeCamera = GameObject.FindWithTag(this.activeCameraTag);
-        //Debug.Log("active camera : " + this.activeCamera);
+        this.inactiveCamera = GameObject.Find("Camera");
+        //this.activeCamera = GameObject.FindWithTag("activeCam");//(this.activeCameraTag);
+        Debug.Log("active camera : " + this.activeCamera.tag);
     }
     void getInactiveCamera(){
-        this.inactiveCamera = GameObject.FindWithTag(this.inactiveCameraTag);
-        Debug.Log("inactive camera tag: " + inactiveCameraTag);
+        this.inactiveCamera = GameObject.Find("inactiveCamera");
+        //this.inactiveCamera = GameObject.FindWithTag("inactiveCam");//(this.inactiveCameraTag);
+        Debug.Log("inactive camera tag: " + inactiveCamera.tag);
         if (this.inactiveCamera) {
             Debug.Log(this.inactiveCamera.name);
         } else {
