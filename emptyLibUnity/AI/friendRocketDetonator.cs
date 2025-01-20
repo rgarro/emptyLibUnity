@@ -28,7 +28,11 @@ public class friendRocketDetonator : MonoBehaviour
     public int ptsToIncrease = 10;
     //public bool isDamage = false;
      public GameObject laexplosion;
-     private GameObject inactiveCamera;
+     //private GameObject inactiveCamera;
+     [SerializeField]
+private GameObject inactiveCamera;
+
+     [SerializeField]
      private GameObject activeCamera;
     // Start is called before the first frame update
     void Start()
@@ -44,13 +48,13 @@ public class friendRocketDetonator : MonoBehaviour
 
     void getActiveCamera(){
         //this.inactiveCamera = GameObject.Find("Camera");
-        this.activeCamera = GameObject.FindWithTag("activeCam");//(this.activeCameraTag);
         Debug.Log("active camera : " + this.activeCamera.tag);
+        this.activeCamera = GameObject.FindWithTag("activeCam");//(this.activeCameraTag);
     }
     void getInactiveCamera(){
         //this.inactiveCamera = GameObject.Find("inactiveCamera");
-        this.inactiveCamera = GameObject.FindWithTag("inactiveCam");//(this.inactiveCameraTag);
         Debug.Log("inactive camera tag: " + inactiveCamera.tag);
+        this.inactiveCamera = GameObject.FindWithTag("inactiveCam");//(this.inactiveCameraTag);
         if (this.inactiveCamera) {
             Debug.Log(this.inactiveCamera.name);
         } else {
