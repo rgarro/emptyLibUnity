@@ -29,10 +29,10 @@ public class friendRocketDetonator : MonoBehaviour
     //public bool isDamage = false;
      public GameObject laexplosion;
      //private GameObject inactiveCamera;
-     [SerializeField]
+     //[SerializeField]
 private GameObject inactiveCamera;
 
-     [SerializeField]
+     //[SerializeField]
      private GameObject activeCamera;
     // Start is called before the first frame update
     void Start()
@@ -48,12 +48,12 @@ private GameObject inactiveCamera;
 
     void getActiveCamera(){
         //this.inactiveCamera = GameObject.Find("Camera");
-        Debug.Log("active camera : " + this.activeCamera.tag);
+        Debug.Log("active camera : " + this.activeCameraTag);
         this.activeCamera = GameObject.FindWithTag("activeCam");//(this.activeCameraTag);
     }
     void getInactiveCamera(){
         //this.inactiveCamera = GameObject.Find("inactiveCamera");
-        Debug.Log("inactive camera tag: " + inactiveCamera.tag);
+        Debug.Log("inactive camera tag: " + inactiveCameraTag);
         this.inactiveCamera = GameObject.FindWithTag("inactiveCam");//(this.inactiveCameraTag);
         if (this.inactiveCamera) {
             Debug.Log(this.inactiveCamera.name);
