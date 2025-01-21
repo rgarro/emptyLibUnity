@@ -49,16 +49,16 @@ private GameObject inactiveCamera;
     void getActiveCamera(){
         //this.inactiveCamera = GameObject.Find("Camera");
         Debug.Log("active camera : " + this.activeCameraTag);
-        this.activeCamera = GameObject.FindWithTag(this.activeCameraTag);
+        this.activeCamera = GameObject.FindGameObjectWithTag(this.activeCameraTag);
     }
     void getInactiveCamera(){
         //this.inactiveCamera = GameObject.Find("inactiveCamera");
         Debug.Log("inactive camera tag: " + inactiveCameraTag);
-        this.inactiveCamera = GameObject.FindWithTag(this.inactiveCameraTag); 
+        this.inactiveCamera = GameObject.FindGameObjectWithTag(this.inactiveCameraTag); 
     }
 
     public void increaseDamage(){
-             damageCountdown tmpObj = this.damageCountdown.GetComponent(typeof(damageCountdown)) as damageCountdown;
+            damageCountdown tmpObj = this.damageCountdown.GetComponent(typeof(damageCountdown)) as damageCountdown;
              //Debug.Log("decrease pts ...");
             tmpObj.decreaseLife();
     }
