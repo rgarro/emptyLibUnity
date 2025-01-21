@@ -37,9 +37,9 @@ private GameObject inactiveCamera;
     // Start is called before the first frame update
     void Start()
     {
-        this.getDamageManager();
-        this.getInactiveCamera();
-        this.getActiveCamera();
+        //this.getDamageManager();
+        //this.getInactiveCamera();
+        //this.getActiveCamera();
     }
 
     void getDamageManager(){
@@ -49,17 +49,12 @@ private GameObject inactiveCamera;
     void getActiveCamera(){
         //this.inactiveCamera = GameObject.Find("Camera");
         Debug.Log("active camera : " + this.activeCameraTag);
-        this.activeCamera = GameObject.FindWithTag("activeCam");//(this.activeCameraTag);
+        this.activeCamera = GameObject.FindWithTag(this.activeCameraTag);
     }
     void getInactiveCamera(){
         //this.inactiveCamera = GameObject.Find("inactiveCamera");
         Debug.Log("inactive camera tag: " + inactiveCameraTag);
-        this.inactiveCamera = GameObject.FindWithTag("inactiveCam");//(this.inactiveCameraTag);
-        if (this.inactiveCamera) {
-            Debug.Log(this.inactiveCamera.name);
-        } else {
-            Debug.Log("No esta la jodida camara inactive , fuck !");
-        }
+        this.inactiveCamera = GameObject.FindWithTag(this.inactiveCameraTag); 
     }
 
     public void increaseDamage(){
@@ -71,6 +66,9 @@ private GameObject inactiveCamera;
     void tomeChichi(Collision collision){
         try
         {
+            this.getDamageManager();
+            this.getInactiveCamera();
+            this.getActiveCamera();
             Debug.Log("Fume mota y lea Poesia : "+ collision.gameObject.tag);
             this.increaseDamage();
             //Debug.Log("explode instance ");
