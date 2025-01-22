@@ -12,7 +12,7 @@ using UnityEngine;
  *
  *------------------------------------------------
  * Allows to switch from two available cameras
- * follow camera showld be active, buttons horizontal line
+ * follow camera should be active, buttons horizontal line
  *
  * @author Rolando <rgarro@gmail.com>
  */
@@ -35,6 +35,10 @@ public class biCameraSwitcher : MonoBehaviour
     public int buttonHeight = 40;
     public int buttonY = 40;
     public string boxLabel = "Cameras";
+
+    public bool displayButtons = true;
+
+    public int spaceXCornerFromFirst = 55;
    
 
     void Start()
@@ -48,7 +52,7 @@ public class biCameraSwitcher : MonoBehaviour
     void OnGUI(){
       GUI.skin = this.btnSkin;
       GUI.Box(new Rect(this.buttons_x_corner,this.boxY,this.boxWidth,this.boxHeight), this.boxLabel);
-      if(GUI.Button(new Rect(this.buttons_x_corner+10,this.buttonY,this.buttonWidth,this.buttonHeight), GunCamera2d))
+      if(GUI.Button(new Rect(this.buttons_x_corner+this.spaceXCornerFromFirst,this.buttonY,this.buttonWidth,this.buttonHeight), GunCamera2d))
         {
             if(this.gun_camera_is_hidden){
                 this.gun_camera_is_hidden = false;

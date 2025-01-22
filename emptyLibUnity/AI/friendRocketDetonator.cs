@@ -30,7 +30,7 @@ public class friendRocketDetonator : MonoBehaviour
      public GameObject laexplosion;
      //private GameObject inactiveCamera;
      //[SerializeField]
-private GameObject inactiveCamera;
+    private GameObject inactiveCamera;
 
      //[SerializeField]
      private GameObject activeCamera;
@@ -67,8 +67,8 @@ private GameObject inactiveCamera;
         try
         {
             this.getDamageManager();
-            this.getInactiveCamera();
-            this.getActiveCamera();
+            //this.getInactiveCamera();
+            //this.getActiveCamera();
             Debug.Log("Fume mota y lea Poesia : "+ collision.gameObject.tag);
             this.increaseDamage();
             //Debug.Log("explode instance ");
