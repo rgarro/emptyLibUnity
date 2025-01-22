@@ -50,32 +50,29 @@ public class biCameraSwitcher : MonoBehaviour
     }
 
     void OnGUI(){
-      GUI.skin = this.btnSkin;
-      GUI.Box(new Rect(this.buttons_x_corner,this.boxY,this.boxWidth,this.boxHeight), this.boxLabel);
-      if(GUI.Button(new Rect(this.buttons_x_corner+this.spaceXCornerFromFirst,this.buttonY,this.buttonWidth,this.buttonHeight), GunCamera2d))
-        {
-            if(this.gun_camera_is_hidden){
-                this.gun_camera_is_hidden = false;
-                this.gun_camera.SetActive(true);
-
+        if(this.displayButtons){
+            GUI.skin = this.btnSkin;
+            GUI.Box(new Rect(this.buttons_x_corner,this.boxY,this.boxWidth,this.boxHeight), this.boxLabel);
+            if(GUI.Button(new Rect(this.buttons_x_corner+this.spaceXCornerFromFirst,this.buttonY,this.buttonWidth,this.buttonHeight), GunCamera2d))
+            {
+                if(this.gun_camera_is_hidden){
+                    this.gun_camera_is_hidden = false;
+                    this.gun_camera.SetActive(true);                
+                    this.follow_camera_is_hidden = true;
+                    this.follow_camera.SetActive(false);
                 
-                this.follow_camera_is_hidden = true;
-                this.follow_camera.SetActive(false);
-                
-            } 
-        }
+                } 
+            }
     
-        if(GUI.Button(new Rect(this.buttons_x_corner+55,this.buttonY,this.buttonWidth,this.buttonHeight), FollowIcon)) 
-        {
-            if(this.follow_camera_is_hidden){
-                this.follow_camera_is_hidden = false;
-                this.follow_camera.SetActive(true);
-
-                this.gun_camera_is_hidden = true;
-                this.gun_camera.SetActive(false);
-
-                
-            } 
+            if(GUI.Button(new Rect(this.buttons_x_corner+55,this.buttonY,this.buttonWidth,this.buttonHeight), FollowIcon)) 
+            {
+                if(this.follow_camera_is_hidden){
+                    this.follow_camera_is_hidden = false;
+                    this.follow_camera.SetActive(true);
+                    this.gun_camera_is_hidden = true;
+                    this.gun_camera.SetActive(false);
+                } 
+            }
         }
     }
 

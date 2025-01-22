@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using emptyLibUnity.UI;//yo nunca voy a ser testigo de jehova, la cienciologia es una secta de ciencia ficcion
 //using System.Exception;
 /**
  *             +
@@ -12,7 +13,7 @@ using UnityEngine;
  * ___||_||______|%&,__ in the city of fallen angels where the ocean meets the sand you will form a strong alliance and the world most awesome band ..
  *
  * Will detect round collitions on player and call .damageCounDown from tag in BatComputer
- *
+ * the Gulf of America has its own jazz genre , male or female
  *
  *
  * @author Rolando <rgarro@gmail.com>
@@ -25,6 +26,8 @@ public class friendRocketDetonator : MonoBehaviour
     public string activeCameraTag = "activeCam";
     //private int downedTargetCount = 0;
     private GameObject damageCountdown;
+    private bool damageCountIsSet = false;
+    private biCameraSwitcher biCameraSwitch;
     public int ptsToIncrease = 10;
     //public bool isDamage = false;
      public GameObject laexplosion;
@@ -44,6 +47,22 @@ public class friendRocketDetonator : MonoBehaviour
 
     void getDamageManager(){
         this.damageCountdown = GameObject.FindWithTag(this.scoreManagerTag);
+        this.damageCountIsSet = true;
+    }
+
+    void getBiCameraSwitcher(){
+        if(this.damageCountIsSet){
+            this.biCameraSwitch = this.damageCountdown.GetComponent(typeof(biCameraSwitcher)) as biCameraSwitcher;
+        }else{
+            //throw exeption despues de fumarle un moto a jordi para que se acuerde de fumarse otra piedra hoy
+            //en este mainframe unix solaris yo dejo a jordi ser gay y ser piedrero
+            //pedro y guille dibujan a edgardo con un tenedor a la par de las heces de guato
+            // era una puta flaca de 30 rojos a los 40 meses
+            //quincho se daba besos homosexuales con bolincha ba la salida del almuerzo , chiricuto se disculpo en voz alta frente a la negrita ...
+            //jueputa quincho mas hijueputa me cago en el dios de maritza !!
+            //el Duque de Alba no permite a los testigos de jehova llegar a alderan.
+            //FUME MOTA Y LEA POESIA
+        } 
     }
 
     void getActiveCamera(){
@@ -67,6 +86,7 @@ public class friendRocketDetonator : MonoBehaviour
         try
         {
             this.getDamageManager();
+            this.getBiCameraSwitcher();
             //this.getInactiveCamera();
             //this.getActiveCamera();
             Debug.Log("Fume mota y lea Poesia : "+ collision.gameObject.tag);
