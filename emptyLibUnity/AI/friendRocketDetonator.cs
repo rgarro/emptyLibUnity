@@ -54,13 +54,7 @@ public class friendRocketDetonator : MonoBehaviour
         if(this.damageCountIsSet){
             this.biCameraSwitch = this.damageCountdown.GetComponent(typeof(biCameraSwitcher)) as biCameraSwitcher;
         }else{
-            //throw exeption despues de fumarle un moto a jordi para que se acuerde de fumarse otra piedra hoy
-            //en este mainframe unix solaris yo dejo a jordi ser gay y ser piedrero
-            //pedro y guille dibujan a edgardo con un tenedor a la par de las heces de guato
-            // era una puta flaca de 30 rojos a los 40 meses
-            //quincho se daba besos homosexuales con bolincha ba la salida del almuerzo , chiricuto se disculpo en voz alta frente a la negrita ...
-            //jueputa quincho mas hijueputa me cago en el dios de maritza !!
-            //el Duque de Alba no permite a los testigos de jehova llegar a alderan.
+            throw new Exception("getDamageCountdown before.")
             //FUME MOTA Y LEA POESIA
         } 
     }
@@ -89,15 +83,18 @@ public class friendRocketDetonator : MonoBehaviour
             this.getBiCameraSwitcher();
             //this.getInactiveCamera();
             //this.getActiveCamera();
+            Debug.Log("camera switch ");
+            this.biCameraSwitch.gun_camera.SetActive(true);
+            this.biCameraSwitch.follow_camera.SetActive(false);
             Debug.Log("Fume mota y lea Poesia : "+ collision.gameObject.tag);
             this.increaseDamage();
             //Debug.Log("explode instance ");
             //GameObject ae = Instantiate(this.laexplosion) as GameObject;
             //ae.transform.position = transform.position;
             //corregir error de camara aqui
-            Debug.Log("camera switch ");
-            this.inactiveCamera.SetActive(true);
-            this.activeCamera.SetActive(false);
+            
+            //this.inactiveCamera.SetActive(true);
+            //this.activeCamera.SetActive(false);
             Destroy(collision.gameObject);//God save the queen she aint a human been ...
             //Restart popup with legend 
             Debug.Log("where do we go from here ... ");  
