@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using emptyLibUnity.UI;//yo nunca voy a ser testigo de jehova, la cienciologia es una secta de ciencia ficcion
+using emptyLibUnity.UI;
 //using System.Exception;
 /**
  *             +
@@ -10,10 +10,10 @@ using emptyLibUnity.UI;//yo nunca voy a ser testigo de jehova, la cienciologia e
  *  ,%%%______|O|
  *  %%%/_________\
  *  `%%| /\[][][]|%
- * ___||_||______|%&,__ in the city of fallen angels where the ocean meets the sand you will form a strong alliance and the world most awesome band ..
+ * ___||_||______|%&,__ November Rain , Slash solo ..
  *
  * Will detect round collitions on player and call .damageCounDown from tag in BatComputer
- * the Gulf of America has its own jazz genre , male or female
+ * 
  *
  *
  * @author Rolando <rgarro@gmail.com>
@@ -61,12 +61,10 @@ public class friendRocketDetonator : MonoBehaviour
 
     void getActiveCamera(){
         //this.inactiveCamera = GameObject.Find("Camera");
-        Debug.Log("active camera : " + this.activeCameraTag);
         this.activeCamera = GameObject.FindGameObjectWithTag(this.activeCameraTag);
     }
     void getInactiveCamera(){
         //this.inactiveCamera = GameObject.Find("inactiveCamera");
-        Debug.Log("inactive camera tag: " + inactiveCameraTag);
         this.inactiveCamera = GameObject.FindGameObjectWithTag(this.inactiveCameraTag); 
     }
 
@@ -81,20 +79,18 @@ public class friendRocketDetonator : MonoBehaviour
         {
             this.getDamageManager();
             this.getBiCameraSwitcher();
-            //this.getInactiveCamera();
+            //this.getInactiveCamera();//getByTag fails from prefabs instantiating prefabs
             //this.getActiveCamera();
+            //this.inactiveCamera.SetActive(true);
+            //this.activeCamera.SetActive(false);
             Debug.Log("camera switch ");
             this.biCameraSwitch.gun_camera.SetActive(true);
             this.biCameraSwitch.follow_camera.SetActive(false);
-            Debug.Log("Fume mota y lea Poesia : "+ collision.gameObject.tag);
+            Debug.Log("Fume Mota y lea Poesia : "+ collision.gameObject.tag);
             this.increaseDamage();
             //Debug.Log("explode instance ");
             //GameObject ae = Instantiate(this.laexplosion) as GameObject;
             //ae.transform.position = transform.position;
-            //corregir error de camara aqui
-            
-            //this.inactiveCamera.SetActive(true);
-            //this.activeCamera.SetActive(false);
             Destroy(collision.gameObject);//God save the queen she aint a human been ...
             //Restart popup with legend 
             Debug.Log("where do we go from here ... ");  
