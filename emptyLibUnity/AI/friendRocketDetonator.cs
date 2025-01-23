@@ -24,8 +24,10 @@ public class friendRocketDetonator : MonoBehaviour
     public string scoreManagerTag = "BatComputer";
     public string inactiveCameraTag = "inactiveCam";
     public string activeCameraTag = "activeCam";
+    public GameObject bombContainerTag = "bolsaNinja";
     //private int downedTargetCount = 0;
     private GameObject damageCountdown;
+    private GameObject bombsBag;
     private bool damageCountIsSet = false;
     private biCameraSwitcher biCameraSwitch;
     public int ptsToIncrease = 10;
@@ -50,11 +52,13 @@ public class friendRocketDetonator : MonoBehaviour
         this.damageCountIsSet = true;
     }
 
+    void getBombsContainer(){}
+
     void getBiCameraSwitcher(){
         if(this.damageCountIsSet){
             this.biCameraSwitch = this.damageCountdown.GetComponent(typeof(biCameraSwitcher)) as biCameraSwitcher;
         }else{
-            throw new Exception("getDamageCountdown before.")
+            throw new Exception("getDamageCountdown before.");
             //FUME MOTA Y LEA POESIA
         } 
     }
@@ -79,6 +83,7 @@ public class friendRocketDetonator : MonoBehaviour
         {
             this.getDamageManager();
             this.getBiCameraSwitcher();
+            this.getBombsContainer();
             //this.getInactiveCamera();//getByTag fails from prefabs instantiating prefabs
             //this.getActiveCamera();
             //this.inactiveCamera.SetActive(true);
