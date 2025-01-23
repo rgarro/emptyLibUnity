@@ -97,16 +97,20 @@ public class friendRocketDetonator : MonoBehaviour
             //this.getActiveCamera();
             //this.inactiveCamera.SetActive(true);
             //this.activeCamera.SetActive(false);
-            Debug.Log("camera switch ");
-            this.biCameraSwitch.gun_camera.SetActive(true);
-            this.biCameraSwitch.follow_camera.SetActive(false);
-            Debug.Log("Fume Mota y lea Poesia : "+ collision.gameObject.tag);
             this.increaseDamage();
             Debug.Log("explode instance ");
             GameObject ae = Instantiate(this.bombCont.f22HitByRocketExplode) as GameObject;
             ae.transform.position = transform.position;
+            
+            Debug.Log("camera switch ");
+            this.biCameraSwitch.gun_camera.SetActive(true);
+            this.biCameraSwitch.follow_camera.SetActive(false);
+            
             Destroy(collision.gameObject);//God save the queen she aint a human been ...
+            Debug.Log("Fume Mota y lea Poesia : "+ collision.gameObject.tag);
+            
             //Restart popup with legend 
+            //los testigos de jehova y la cienciologia son sectas de ciencia ficcion que esperan fondos de canada apuntando a todos los del barrio de mendigos ..
             Debug.Log("where do we go from here ... ");  
         }
         catch (System.Exception e)
