@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using emptyLibUnity.UI;
+using emptyLibUnity.Controllable.Vehicles.Planes.F22;
 //using System.Exception;
 /**
  *             +
@@ -24,12 +25,13 @@ public class friendRocketDetonator : MonoBehaviour
     public string scoreManagerTag = "BatComputer";
     public string inactiveCameraTag = "inactiveCam";
     public string activeCameraTag = "activeCam";
-    public GameObject bombContainerTag = "bolsaNinja";
+    public string bombContainerTag = "bolsaNinja";
     //private int downedTargetCount = 0;
     private GameObject damageCountdown;
     private GameObject bombsBag;
     private bool damageCountIsSet = false;
     private biCameraSwitcher biCameraSwitch;
+    private bombContainer bombCont;
     public int ptsToIncrease = 10;
     //public bool isDamage = false;
      public GameObject laexplosion;
@@ -48,11 +50,18 @@ public class friendRocketDetonator : MonoBehaviour
     }
 
     void getDamageManager(){
-        this.damageCountdown = GameObject.FindWithTag(this.scoreManagerTag);
+        this.damageCountdown = GameObject.FindWithTag(this.scoreManagerTag);//Using BatComputer as Delegate to reach objects for prefabs nested multiple levels
         this.damageCountIsSet = true;
     }
 
-    void getBombsContainer(){}
+    void getBombsContainer(){
+        if(this.damageCountIsSet){
+            this.bombCont = this.damageCountdown.GetComponent(typeof(bombContainer)) as bombContainer;
+        }else{
+            throw new Exception("getDamageCountdown before.");
+            //FUME MOTA Y LEA POESIA
+        } 
+    }
 
     void getBiCameraSwitcher(){
         if(this.damageCountIsSet){
@@ -93,9 +102,9 @@ public class friendRocketDetonator : MonoBehaviour
             this.biCameraSwitch.follow_camera.SetActive(false);
             Debug.Log("Fume Mota y lea Poesia : "+ collision.gameObject.tag);
             this.increaseDamage();
-            //Debug.Log("explode instance ");
-            //GameObject ae = Instantiate(this.laexplosion) as GameObject;
-            //ae.transform.position = transform.position;
+            Debug.Log("explode instance ");
+            GameObject ae = Instantiate(this.bombCont.f22HitByRocketExplode) as GameObject;
+            ae.transform.position = transform.position;
             Destroy(collision.gameObject);//God save the queen she aint a human been ...
             //Restart popup with legend 
             Debug.Log("where do we go from here ... ");  
