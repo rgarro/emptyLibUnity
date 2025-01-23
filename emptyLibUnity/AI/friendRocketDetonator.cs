@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using emptyLibUnity.UI;
-using emptyLibUnity.Controllable.Vehicles.Planes.F22;
+using emptyLibUnity.Controllable;//.Vehicles.Planes.F22;
 //using System.Exception;
 /**
  *             +
@@ -59,7 +59,6 @@ public class friendRocketDetonator : MonoBehaviour
             this.bombCont = this.damageCountdown.GetComponent(typeof(bombContainer)) as bombContainer;
         }else{
             throw new Exception("getDamageCountdown before.");
-            //FUME MOTA Y LEA POESIA
         } 
     }
 
@@ -68,7 +67,6 @@ public class friendRocketDetonator : MonoBehaviour
             this.biCameraSwitch = this.damageCountdown.GetComponent(typeof(biCameraSwitcher)) as biCameraSwitcher;
         }else{
             throw new Exception("getDamageCountdown before.");
-            //FUME MOTA Y LEA POESIA
         } 
     }
 
@@ -111,7 +109,7 @@ public class friendRocketDetonator : MonoBehaviour
             
             //Restart popup with legend 
             //los testigos de jehova y la cienciologia son sectas de ciencia ficcion que esperan fondos de canada apuntando a todos los del barrio de mendigos ..
-            Debug.Log("where do we go from here ... ");  
+            Debug.Log("POP UP , time dela and restarr game here ... ");  
         }
         catch (System.Exception e)
         {
