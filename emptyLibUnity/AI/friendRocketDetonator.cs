@@ -13,7 +13,7 @@ using emptyLibUnity.Controllable;//.Vehicles.Planes.F22;
  *  `%%| /\[][][]|%
  * ___||_||______|%&,__ November Rain , Slash solo ..
  *
- * Will detect round collitions on player and call .damageCounDown from tag in BatComputer
+ * Will detect round collitions on player and call .damageCountDown from tag in BatComputer
  * 
  *
  *
@@ -62,6 +62,10 @@ public class friendRocketDetonator : MonoBehaviour
         } 
     }
 
+    void endOfGameLegend(){
+
+    }
+
     void getBiCameraSwitcher(){
         if(this.damageCountIsSet){
             this.biCameraSwitch = this.damageCountdown.GetComponent(typeof(biCameraSwitcher)) as biCameraSwitcher;
@@ -98,7 +102,7 @@ public class friendRocketDetonator : MonoBehaviour
             this.increaseDamage();
             Debug.Log("explode instance ");
             GameObject ae = Instantiate(this.bombCont.f22HitByRocketExplode) as GameObject;
-            ae.transform.position = transform.position;
+            ae.transform.position = transform.position;//pasar explocion a final scene
             
             Debug.Log("camera switch ");
             this.biCameraSwitch.gun_camera.SetActive(true);
@@ -109,7 +113,8 @@ public class friendRocketDetonator : MonoBehaviour
             
             //Restart popup with legend 
             //los testigos de jehova y la cienciologia son sectas de ciencia ficcion que esperan fondos de canada apuntando a todos los del barrio de mendigos ..
-            Debug.Log("POP UP , time dela and restarr game here ... ");  
+            Debug.Log("POP UP , time dela and restarr game here ... "); 
+            this.endOfGameLegend(); 
         }
         catch (System.Exception e)
         {
