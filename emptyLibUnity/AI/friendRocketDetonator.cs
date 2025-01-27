@@ -41,6 +41,16 @@ public class friendRocketDetonator : MonoBehaviour
 
      //[SerializeField]
      private GameObject activeCamera;
+     public float windowX = 325;
+    public float windowY = 30;
+    public float windowHeight = 170;
+    public float windowWidth = 150;
+	private Rect windowRect;
+    public GUIStyle style;
+    protected string theScore = "::: GAME OVER :::";
+    private bool gameIsOver = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,7 +73,7 @@ public class friendRocketDetonator : MonoBehaviour
     }
 
     void endOfGameLegend(){
-
+        this.gameIsOver = true;
     }
 
     void getBiCameraSwitcher(){
@@ -128,6 +138,13 @@ public class friendRocketDetonator : MonoBehaviour
             this.tomeChichi(collision);
         }
     }
+
+    void OnGUI(){
+        if(this.gameIsOver){
+            this.windowRect = new Rect(this.windowX,this.windowY,this.windowHeight,this.windowWidth);		
+		    GUI.Label(this.windowRect,this.theScore,this.style);
+        }
+	}
 
     // Update is called once per frame
     void Update()
