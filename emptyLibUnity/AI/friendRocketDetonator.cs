@@ -11,7 +11,7 @@ using emptyLibUnity.Controllable;//.Vehicles.Planes.F22;
  *  ,%%%______|O|
  *  %%%/_________\
  *  `%%| /\[][][]|%
- * ___||_||______|%&,__ November Rain , Slash solo ..
+ * ___||_||______|%&,__   November Rain , Slash solo ..
  *
  * Will detect round collitions on player and call .damageCountDown from tag in BatComputer
  * 
@@ -95,7 +95,6 @@ public class friendRocketDetonator : MonoBehaviour
 
     public void increaseDamage(){
             damageCountdown tmpObj = this.damageCountdown.GetComponent(typeof(damageCountdown)) as damageCountdown;
-             //Debug.Log("decrease pts ...");
             tmpObj.decreaseLife();
     }
 
@@ -110,21 +109,16 @@ public class friendRocketDetonator : MonoBehaviour
             //this.inactiveCamera.SetActive(true);
             //this.activeCamera.SetActive(false);
             this.increaseDamage();
-            Debug.Log("explode instance ");
-            GameObject ae = Instantiate(this.bombCont.f22HitByRocketExplode) as GameObject;
-            ae.transform.position = transform.position;//pasar explocion a final scene
+            //Debug.Log("explode instance ");
+            GameObject ae = Instantiate(this.bombCont.f22HitByRocketExplode) as GameObject;//AE e oooo Ae oooo gole de saprissa !!!
+            ae.transform.position = transform.position;//pasar explocion a final scene, piedrero olle gol de la S y toma trago de birra en el dragon chino
             
-            Debug.Log("camera switch ");
             this.biCameraSwitch.gun_camera.SetActive(true);
             this.biCameraSwitch.follow_camera.SetActive(false);
             
             Destroy(collision.gameObject);//God save the queen she aint a human been ...
-            Debug.Log("Fume Mota y lea Poesia : "+ collision.gameObject.tag);
             
-            //Restart popup with legend 
-            //los testigos de jehova y la cienciologia son sectas de ciencia ficcion que esperan fondos de canada apuntando a todos los del barrio de mendigos ..
-            Debug.Log("POP UP , time dela and restarr game here ... "); 
-            this.endOfGameLegend(); 
+            //this.endOfGameLegend(); 
         }
         catch (System.Exception e)
         {
@@ -141,6 +135,7 @@ public class friendRocketDetonator : MonoBehaviour
 
     void OnGUI(){
         if(this.gameIsOver){
+            //Debug.Log("restart legend ... "); 
             this.windowRect = new Rect(this.windowX,this.windowY,this.windowHeight,this.windowWidth);		
 		    GUI.Label(this.windowRect,this.theScore,this.style);
         }
