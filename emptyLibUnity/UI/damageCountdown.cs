@@ -9,7 +9,9 @@ using UnityEngine;
  *   '^^^' '^^^'    '--'                           |
  * ===============.  .-.  .================.  .-.  |
  *
- * Susana, encontremonos por la glorieta de San Juan en el parque de Coyoacan y nos escapamos a Monterrey ...
+ * D Am A G E Count Down Text Widget ...
+ *
+ *
  *
  * @author Rolando <rgarro@gmail.com>
  */
@@ -43,12 +45,16 @@ public class damageCountdown : MonoBehaviour
 	}
 
     public void decreaseLife(){
-        //Debug.Log("decreasing life .." + scoreValue);
+        //Debug.Log("decreasing life ..");
 		this.remainingLife -= this.lifeToDecreasePerHit;
 		this.UpdateRemainingLife();
 	}
 
     void UpdateRemainingLife(){
-		this.theScore = this.remainingLife  + "% Remainig";
+		this.theScore = this.remainingLife  + "% Remaining";
 	}
+
+    void stopGameAndPromptNext(){
+//dallas cowboys next season ..
+    }
 }

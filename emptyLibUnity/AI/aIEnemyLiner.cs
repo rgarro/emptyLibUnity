@@ -12,8 +12,11 @@ using UnityEngine.UI;
  *   \ |/   \.-.  .-./   \| /
  *    '._       \/       _.'
  *       ''--..____..--''
- *    === Will Spawn enemies traveling up to a rect ===
+ *    === Will Spawn Game Objects Along a Bottom Spawn Vector 
+ *        Screening the Instances randomly  ===
  *         Fast Strange Times Fast Strange Ways  
+ *
+ *
  *
  * @author Rolando <rgarro@gmail.com>
  */
@@ -36,8 +39,6 @@ public class aIEnemyLiner : MonoBehaviour {
 	void Start(){
 		coroutine = spawnWaves();
         StartCoroutine(coroutine);
-
-        print("Malians taking Sirte Surf Spot " + Time.time);
 	}
 
 	IEnumerator spawnWaves(){
@@ -47,8 +48,10 @@ public class aIEnemyLiner : MonoBehaviour {
 				Vector3 spawnPosition = new Vector3 (Random.Range (spawnValues.x - distanceFromSpanwnX, spawnValues.x + distanceFromSpanwnX), spawnValues.y, spawnValues.z);
 				Quaternion spawnRotation = Quaternion.identity;
 				if(this.count%2 == 0){
+					//print("instanciando A");
 					Instantiate (hazard, spawnPosition, spawnRotation);
 				}else{
+					//print("instanciando B");
 					Instantiate (hazardB, spawnPosition, spawnRotation);
 				}
 				this.count = this.count + 1;

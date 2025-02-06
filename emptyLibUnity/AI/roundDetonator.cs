@@ -17,7 +17,7 @@ using UnityEngine;
  * === Will remove collided and trigger blast or visual effect ===
  *   Includes Score Counter
  *
- * @author Rolando <rolando@emptyart.xyz>
+ * @author Rolando <rgarro@gmail.com>
  */
 public class roundDetonator : MonoBehaviour
 {

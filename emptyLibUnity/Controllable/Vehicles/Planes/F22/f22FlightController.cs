@@ -1,6 +1,8 @@
-﻿//using System.Reflection.PortableExecutable;
+﻿//using System.Diagnostics;
+//using System.Diagnostics;
+//using System.Reflection.PortableExecutable;
 using System.Threading;
-using System.Diagnostics;
+//using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System;
 using System.Globalization;
@@ -18,18 +20,19 @@ using UnityEngine;
  *      \ ADOBE   ',
  *       \___Fireworks',_                        _..----.._
  *       [______       "'==.I\_____________..--"<__\\_n@___4\,_
- *     ,..-=T      __ GOL____________ DE SAPRISSA \/  "'" O<==  ""-+.._
+ *     ,..-=T      __ GOL           DE  SAPRISSA       "'" O<==  ""-+.._
  *     I____|_____    }_>=========I>=**""''==-------------==-   " |   "'-.,___
  *     [_____,.--'"             _______         ""--=<""-----=====+==--''""
  *     ""'-=+..,,__,-----,_____|       |         -=* |
  *                 |__   /     |---,--'"---+------+-'"
  *                    """     d"b="        '-----+t
  *                            q_p                '@
- * The Game to appear Kitesurfing in Arenal
+ * 
+ * F22 Flight Controller
  * 
  *
  *
- *@author Rolando<rolando@emptyart.xyz>
+ *@author Rolando<rgarro@gmail.com>
  */
 public class f22FlightController : MonoBehaviour
 {
@@ -39,16 +42,23 @@ public class f22FlightController : MonoBehaviour
     public GameObject Cockpit;
     private AudioSource soundPlayer;
     public AudioClip AirPlaneEngineSoundClip;
+
     public float minAltitude = 3.39f;
     public float maxAltitude = 14.35f;
     public float yardsPerSecond = 2.0f;
     public float sideDiveAccelerationRate = 2.00f;
-    private bool isDived = false;
+    //private bool isDived = false;
+
+    private bool isLeftDived = false;
+    private bool isRightDived = false;
 
     public int enginePowerSliderYpos = 25;
     public int enginePowerSliderXpos = 25;
-    public string engineThrottleLabel = "Engine Power";
+    public string engineThrottleLabel = "Throttle";
     public float diveCurveAngleZ = 1.00f;
+    public float diveAngleLeft = 1.00f;
+    public float diveAngleRight = 1.00f;
+
     public bool cockpit_is_closed = false;
     //private bool isDivedr = false;
     private bool isElevated = false;
@@ -77,10 +87,21 @@ public class f22FlightController : MonoBehaviour
     public float windowY = 20;
     public float windowWidth = 300;
     public float windowHeight = 300;
-    private Rect windowRect; 
+    private Rect windowRect;
+
+    public float farLeftGaugeNeddleCorrection = -2.0f; 
+
+    public GameObject leftFlap;
+    public GameObject rightFlap;
+
+    public float flapsAscendAngle = 0.0f;
+    public float flapsDescendAngle = 0.0f;
+
+    public float flapsAngle = 0.0f;
+    private bool flaps_up = false;
+    private bool flaps_down = false;
 
 
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -88,6 +109,15 @@ public class f22FlightController : MonoBehaviour
         this.soundPlayer.volume = 0.2F;
         this.windowRect = new Rect(this.windowX, this.windowY, this.windowWidth,this.windowHeight);
         this.startDashItems();
+        this.playEngineSound();
+    }
+
+    private void playEngineSound(){
+        this.soundPlayer.clip = this.AirPlaneEngineSoundClip;
+        if (!this.soundPlayer.isPlaying) {
+            this.soundPlayer.Play ();
+            //Debug.Log("playing");
+        }
     }
 
     void startDashItems(){
@@ -99,12 +129,14 @@ public class f22FlightController : MonoBehaviour
     }
 
     void setSpeedNeedle(){
-		this.speedNeedle.getTilter(this.yardsPerSecond);
+        //the zero must be recordinated
+        //public double farLeft = 15.2F;
+	    //public double farRight = -13.02F;
+		this.speedNeedle.getTilter(this.yardsPerSecond-this.farLeftGaugeNeddleCorrection);
 		this.speedNeedle.tiltNeedle();
 	}
 
     void setAltitudeNeedle(){
-        //Debug.Log(this.AirPlane.transform.position.y+" went out kite surfing ..");
 		this.altitudeNeedle.getTilter(this.AirPlane.transform.position.y);
 		this.altitudeNeedle.tiltNeedle();
 	}
@@ -114,13 +146,14 @@ public class f22FlightController : MonoBehaviour
     {
         this.joystickControls();
         this.moveForward();
-         this.setSpeedNeedle();
+        this.setSpeedNeedle();
+        this.setAltitudeNeedle();
     }
 
     
     void closeCockpit(){
         if(!this.cockpit_is_closed){
-this.Cockpit.transform.Rotate(0,0,this.degreesToCloseCokpit);
+            this.Cockpit.transform.Rotate(0,0,this.degreesToCloseCokpit);
             this.cockpit_is_closed = true;
         }
     }
@@ -134,39 +167,76 @@ this.Cockpit.transform.Rotate(0,0,this.degreesToCloseCokpit);
 
      void moveForward(){
         //Debug.Log("moving forward ...");
-        this.AirPlane.transform.Translate(Vector3.down * (Time.deltaTime * this.yardsPerSecond));
+        this.AirPlane.transform.Translate(Vector3.forward * (Time.deltaTime * this.yardsPerSecond));
     }
 
+    void descendFlaps(){
+        this.leftFlap.transform.Rotate(this.flapsDescendAngle,0,0);
+        this.rightFlap.transform.Rotate(this.flapsDescendAngle,0,0);
+    }
+
+    void stabilizeFlaps(){
+        //this.leftFlap.transform.rotation += Quaternion.Euler(this.this.flapsAngle, 0, 0);
+        this.leftFlap.transform.Rotate(this.flapsAngle,0,0);
+        this.rightFlap.transform.Rotate(this.flapsAngle,0,0);
+    }
+    void ascendFlaps(){
+        this.leftFlap.transform.Rotate(this.flapsAscendAngle,0,0);
+        this.rightFlap.transform.Rotate(this.flapsAscendAngle,0,0);
+    }
     //must elevate with arrow button
     void descend(){
+        if(!this.flaps_down){
+            this.descendFlaps();
+            this.flaps_up = false;
+            this.flaps_down = true;
+        }
+        
+        this.stabilize();
         if(this.AirPlane.transform.position.y > this.minAltitude){
-            this.AirPlane.transform.Translate(Vector3.back * (Time.deltaTime * this.yardsPerSecond));
+            this.AirPlane.transform.Translate(Vector3.down * (Time.deltaTime * this.yardsPerSecond));
         }
     }
 
     //must descend with arrow button
     void elevate(){
+        if(!this.flaps_up){
+            this.ascendFlaps();
+            this.flaps_up = true;
+            this.flaps_down = false;
+        }
+        this.stabilize();
         if(this.AirPlane.transform.position.y < this.maxAltitude){
-            this.AirPlane.transform.Translate(Vector3.forward * (Time.deltaTime * this.yardsPerSecond));
+            this.AirPlane.transform.Translate(Vector3.up * (Time.deltaTime * this.yardsPerSecond));
         }
     }
 
+    void stabilize(){
+        this.AirPlane.transform.Rotate(0,0,0);
+        this.isLeftDived = false;
+        this.isRightDived = false;
+    }
+
     void diveLeft(){
-        //Debug.Log(" Diving Left ....");
+        this.isRightDived = false;
         //this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));
-        this.AirPlane.transform.Translate(Vector3.left * Time.deltaTime* 2);
-        /*if(!this.isDived){
-            this.AirPlane.transform.Rotate(0,0,this.diveCurveAngleZ*-1);
-            this.isDived = true;
+        this.AirPlane.transform.Translate(Vector3.left  * (Time.deltaTime * this.yardsPerSecond));//the flying crosser                
+        /*if(!this.isLeftDived){
+            this.AirPlane.transform.Rotate(0,0,diveAngleLeft);
+            this.isLeftDived = true;
+            Debug.Log(" Diving Left ....");
         }*/
     }
 
     void diveRight(){
-        this.AirPlane.transform.Translate(Vector3.right * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));
-        if(!this.isDived){
-            this.AirPlane.transform.Rotate(0,0,this.diveCurveAngleZ);
-            this.isDived = true;
-        }
+        this.isLeftDived = false;
+        //this.AirPlane.transform.Translate(Vector3.right * Time.deltaTime* (this.yardsPerSecond/this.sideDiveAccelerationRate));
+        this.AirPlane.transform.Translate(Vector3.right * (Time.deltaTime * this.yardsPerSecond));
+        /*if(!this.isRightDived){
+            this.AirPlane.transform.Rotate(0,0,diveAngleRight);    
+            this.isRightDived = true;
+            Debug.Log("Is right dived..");
+        }*/
     }
 
     void increaseSpeed(){
@@ -186,6 +256,7 @@ this.Cockpit.transform.Rotate(0,0,this.degreesToCloseCokpit);
         }
     }
 
+    
     void joystickControls(){
         if (Input.GetKey("down"))
         {
@@ -197,17 +268,25 @@ this.Cockpit.transform.Rotate(0,0,this.degreesToCloseCokpit);
         }
         if (Input.GetKey("left"))
         {
-            this.diveLeft();
+            if(this.isRightDived){
+                this.stabilize();
+            }else{
+                this.diveLeft();
+            }
         }
         if (Input.GetKey("right"))
         {
-            this.diveRight();
+            if(this.isLeftDived){
+                this.stabilize();
+            }else{
+                this.diveRight();
+            }
         }
         if (Input.GetKey("a"))
         {
             this.increaseSpeed();
         }
-         if (Input.GetKey("a"))
+         if (Input.GetKey("z"))
         {
             this.decreaseSpeed();
         }
