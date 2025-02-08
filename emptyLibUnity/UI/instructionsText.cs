@@ -25,7 +25,7 @@ using UnityEngine;
  * ─────────▀█▌▐█████▌▐█▀─────────
  * ────────────███████────────────
  * Displays a textbox with Instruction Text
- * I cant save cybertron ...
+ * I cant save Cybertron for free...
  *
  *@author Rolando <rgarro@gmail.com>
  */
@@ -35,7 +35,8 @@ public class instructionsText : MonoBehaviour
     public float windowY = 65;
     public float windowHeight = 170;
     public float windowWidth = 150;
-    public string instructionsString = "Drive: Arrow Keys \n\nTurn Turret: F, G\n\nElevation: up R down T\n\nShoot: spacebar";
+    //public string instructionsString = "Drive: Arrow Keys \n\nTurn Turret: F, G\n\nElevation: up R down T\n\nShoot: spacebar";
+public string instructionsString = "Move with Arrow Keys \n\nElevate until you encouter the Enemy  Helicopter \n\nShoot rocket with spacebar \n\nRestart with Key Button";
     public string labelString = "Instructions";
     public float marginVal = 25;
     private Rect windowRect;
