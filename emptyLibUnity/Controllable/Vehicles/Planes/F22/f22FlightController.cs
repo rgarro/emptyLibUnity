@@ -116,7 +116,7 @@ public class f22FlightController : MonoBehaviour
         this.soundPlayer.clip = this.AirPlaneEngineSoundClip;
         if (!this.soundPlayer.isPlaying) {
             this.soundPlayer.Play ();
-            //Debug.Log("playing");
+            
         }
     }
 
