@@ -8,8 +8,8 @@
  *   \ |/   \.-.  .-./   \| /
  *    '._       \/       _.'
  *       ''--..____..--''
- *    === DRINK A BEER AT MOES BAR TIBAS ===
- *   No Vote nunca por Nelson aunque sea  de tibas  , jA Jaa ...
+ *    === fume mota y lea poesia ===
+ *   
  *
  * @author Rolando <rgarro@gmail.com>
  */
@@ -23,7 +23,7 @@ public class autoRestart : MonoBehaviour
     public GameObject vehicle;
     public float minPosY = -10;
 
-    private
+    //private
     // Start is called before the first frame update
     void Start()
     {

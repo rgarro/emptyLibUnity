@@ -56,20 +56,11 @@ public class machineGunAI : MonoBehaviour
 
     void openFire(){
         /*
-        la primera version la escribi junto a Carol y Charlie
-        en los pupitres de Avventa en los galerones del parque industrial en 2007,
-        Esta version esta dedicada a tavo quien me metio en esto del opengl y me enseño a denunciar comprando mota en calleblancos .
-        En los 80's Aviones de guerra volavan sobre las cumbres del volcan Barva, 
-        Pensamos que eran Migs que venian del Yemmen
-        Los Marines mataron a Sombra mi compañero del cole, porque vivia en Chiriki
-        Triple AAA era una hojalateria por calle 12 cerca de las paradas de Bagaces
-        Mis vecinos perdieron duelos a cuchillo contra los constructores de la Ruta32 en el 79 ,
-        A los tibaseños que fueron a la guerra de los contras , los envenenamos con anfetaminas
-        al norte de Rio Frio despues de amputarles los genitales en el 83
-        La Barra de Tibas perecio en duelos de pedradas en las afueras de la discoteca LeBarons en el 87
-        los arrancatroncas murieron en Tikrit en el 96
-        Sorprendi una gorda trotando , escondiendo una pistola automatica cerca se SanMiguel de Heredia
-        Yo soy un aprendiz de Miguel Salguereo, CostaRica is like this. .....
+        la cabeza de jonas sabimbi estaba escondida en un cuarto en WestPoint collin powell la puso en un high school de brooklin infestado de panteras negras
+        jonas sabimbi tomaba un veneno que envenena la muerte, le han degollado con una daga romana de los tiempos de Vespaciano con la que laceraron el pene de un ladron y se la lanzaron a cristianos para que pelearan contra gladiadores
+        Uno de los cristianos mato un leon famelico y las vestales los dejaron marchar ...
+        Una de las vestales conservo la daga en una capilla en las Afueras de cornwall por 800 anos
+
         a =  _root.tank_mc._y - this._y;
 			b =  _root.tank_mc._x - this._x;
 			anguloRadianes = Math.atan2(b,a);
