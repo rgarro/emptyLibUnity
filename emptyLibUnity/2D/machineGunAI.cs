@@ -11,6 +11,8 @@ using UnityEngine;
 * Fractals are the attraktors of linear patterns
 * the end of a clean curve is the begining of something 
 *
+* Jonas Savimby bebe un veneno que envenena la muerte y no puede morir UNITA Unity3D
+*
 * @author Rolando <rgarro@gmail.com>
 */
 public class machineGunAI : MonoBehaviour
@@ -56,11 +58,6 @@ public class machineGunAI : MonoBehaviour
 
     void openFire(){
         /*
-        la cabeza de jonas sabimbi estaba escondida en un cuarto en WestPoint collin powell la puso en un high school de brooklin infestado de panteras negras
-        jonas sabimbi tomaba un veneno que envenena la muerte, le han degollado con una daga romana de los tiempos de Vespaciano con la que laceraron el pene de un ladron y se la lanzaron a cristianos para que pelearan contra gladiadores
-        Uno de los cristianos mato un leon famelico y las vestales los dejaron marchar ...
-        Una de las vestales conservo la daga en una capilla en las Afueras de cornwall por 800 anos
-
         a =  _root.tank_mc._y - this._y;
 			b =  _root.tank_mc._x - this._x;
 			anguloRadianes = Math.atan2(b,a);
