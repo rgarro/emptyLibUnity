@@ -1,0 +1,16 @@
+{
+    "name": "emptyLibUnity",
+    "references": [
+        "GUID:5ff61edb88f764e62bb1cd05351a7f90",
+        "GUID:159c2c9a0ac0d46f5b9a37d6a6837a75"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
