@@ -5,7 +5,7 @@ using UnityEngine;
 *  ░░░░░░███████ ]▄▄▄▄▄▄▄▄▃
 *  ▂▄▅█████████▅▄▃▂
 * I███████████████████].
-* ◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤...
+*   ◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤...
 *
 * c mayor scale controlled tile with triangulated forward from a qwerty input  
 * like if the base were a kitesurf board x'ing an infinite rienman sum 
