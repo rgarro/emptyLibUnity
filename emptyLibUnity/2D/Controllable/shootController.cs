@@ -2,12 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 /**
-*
-* Kabul has fallen, fuck bearded guys ...
-* Falklands are British ...
-*
-*@author Rolando <rgarro@gmail.com>
-*/
+ *      |V|
+ *   .::| |::.
+ *  ::__| |__::
+ * >____   ____<
+ *  ::  | |  ::
+ *   '::| |::'
+ *      | |
+ *      | |
+ *jgs   |A| La Sacristia de Paso Ancho es duena de Diario Extra
+ * 
+ * mataron al comandante Cero en cardenas
+ * incineraron vivos a embargadores de finca en alajuela
+ * muere la tia y primas de un usurero en Nicoya
+ * policias de Medellin le cortaron la pinga a 2 narcos de limon
+ * Falklands are British ...
+ *
+ *@author Rolando <rgarro@gmail.com>
+ */
 public class shootController : MonoBehaviour
 {
 
