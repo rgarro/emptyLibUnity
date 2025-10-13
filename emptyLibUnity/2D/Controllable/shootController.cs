@@ -10,13 +10,9 @@ using UnityEngine;
  *   '::| |::'
  *      | |
  *      | |
- *jgs   |A| La Sacristia de Paso Ancho es duena de Diario Extra
+ *jgs   |A| Dios es Amor !!
  * 
- * mataron al comandante Cero en cardenas
- * incineraron vivos a embargadores de finca en alajuela
- * muere la tia y primas de un usurero en Nicoya
- * policias de Medellin le cortaron la pinga a 2 narcos de limon
- * Falklands are British ...
+ *
  *
  *@author Rolando <rgarro@gmail.com>
  */
