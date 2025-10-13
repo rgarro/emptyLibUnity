@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Globalization;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /**
@@ -39,7 +40,12 @@ public class roundMover : MonoBehaviour
     }
 
     void nextStep(){
-        transform.Translate(0,Time.deltaTime*this.roundVelocity,0);   
+        if(this.is_rocket){
+            transform.Translate(0,Time.deltaTime*this.roundVelocity,0);
+        }
+        if(this.is_round){
+            transform.Translate(0,Time.deltaTime*this.roundVelocity,0);
+        }
     }
 
     // Update is called once per frame
