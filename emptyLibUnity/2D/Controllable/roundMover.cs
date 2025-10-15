@@ -33,6 +33,7 @@ public class roundMover : MonoBehaviour
     public GameObject roundBody;
     public bool is_rocket = false;
     public bool is_round = false;
+    public bool opposite_direction = false;
 
     void Start()
     {
@@ -41,10 +42,18 @@ public class roundMover : MonoBehaviour
 
     void nextStep(){
         if(this.is_rocket){
-            transform.Translate(0,Time.deltaTime*this.roundVelocity,0);
+            if(this.opposite_direction){
+                transform.Translate(0,(Time.deltaTime*this.roundVelocity)*-1,0);
+            } else {
+                transform.Translate(0,Time.deltaTime*this.roundVelocity,0);
+            }
         }
         if(this.is_round){
-            transform.Translate(0,Time.deltaTime*this.roundVelocity,0);
+            if(this.opposite_direction){
+                transform.Translate(0,(Time.deltaTime*this.roundVelocity)*-1,0);
+            } else {
+                transform.Translate(0,Time.deltaTime*this.roundVelocity,0);
+            }
         }
     }
 
