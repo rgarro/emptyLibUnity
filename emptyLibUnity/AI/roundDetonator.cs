@@ -64,7 +64,13 @@ public class roundDetonator : MonoBehaviour
         }
     }
 
+    void OnCollisionEnter(Collision collision){//3D VERSION ...
+        Debug.Log("Collision detected with: " + collision.gameObject.name);
+    }
+
+
     private void OnTriggerEnter2D(Collider2D other){
+        //Debug.Log("collision .."); 
         if(this.originTag == other.gameObject.tag){
         
         }else{
