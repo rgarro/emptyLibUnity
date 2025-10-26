@@ -25,6 +25,7 @@ public class damageCountdown : MonoBehaviour
     public int remainingLife = 100;
     public int lifeToDecreasePerHit = 5;
     protected string theScore;
+    public string remainingLabel = "Remaining";
     public GUIStyle style;
 
     // Start is called before the first frame update
@@ -51,7 +52,7 @@ public class damageCountdown : MonoBehaviour
 	}
 
     void UpdateRemainingLife(){
-		this.theScore = this.remainingLife  + "% Remaining";
+		this.theScore = this.remainingLife  + " "+ remainingLabel;
 	}
 
     void stopGameAndPromptNext(){
