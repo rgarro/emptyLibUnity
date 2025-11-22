@@ -84,8 +84,10 @@ public class restartTimerOut : MonoBehaviour
             seconds = seconds - 1;
             this.timeOutStr = seconds + " " + this.concatLegend;
 			Debug.Log("timeStr: "+this.timeOutStr);
-            if(seconds > 2){
+            if(seconds < 2){
                 //restart game here
+                Scene scene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(scene.name);
             }
 			yield return new WaitForSeconds (1);
 		}
