@@ -35,7 +35,7 @@ public class instructionsText : MonoBehaviour
     public float windowY = 65;
     public float windowHeight = 170;
     public float windowWidth = 150;
-    //public string instructionsString = "Drive: Arrow Keys \n\nTurn Turret: F, G\n\nElevation: up R down T\n\nShoot: spacebar";
+    //public string instructionsString = "Drive: Arrow Keys \n\nBrakes: F, G\n\nDump Loader: Slider\n\nDump Loader near the warehouse";
 public string instructionsString = "Move with Arrow Keys \n\nElevate until you encouter the Enemy  Helicopter \n\nShoot rocket with spacebar \n\nRestart with Key Button";
     public string labelString = "Instructions";
     public float marginVal = 25;
@@ -55,7 +55,7 @@ public string instructionsString = "Move with Arrow Keys \n\nElevate until you e
     // Start is called before the first frame update
     void Start()
     {
-       
+       this.instructionsString = this.instructionsString.Replace("\\n", "\n");
     }
 
     // Update is called once per frame
