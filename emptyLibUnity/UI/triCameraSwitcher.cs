@@ -69,7 +69,7 @@ public class triCameraSwitcher : MonoBehaviour
                 } 
             }
     
-            if(GUI.Button(new Rect(this.buttons_x_corner+55,this.buttonY,this.buttonWidth,this.buttonHeight), MainCameraIcon)) 
+            if(GUI.Button(new Rect(this.buttons_x_corner+110,this.buttonY,this.buttonWidth,this.buttonHeight), MainCameraIcon)) 
             {
                 if(this.main_camera_is_hidden){
                     this.follow_camera_is_hidden = true;
