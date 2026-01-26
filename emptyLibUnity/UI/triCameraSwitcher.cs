@@ -7,7 +7,7 @@ using UnityEngine;
  *        |Kodak|__Ll__| [==] ||
  *        |     | .--. | """" ||
  *        |     |( () )|      ||
- *   jgs  |     | `--' |      |/
+ *     s  |     | `--' |      |/
  *        `-----'------'------'
  *
  *------------------------------------------------
@@ -43,7 +43,7 @@ public class triCameraSwitcher : MonoBehaviour
 
     public bool displayButtons = true;
 
-    public int spaceXCornerFromFirst = 55;
+    public int spaceXCornerFromFirst = 65;
     
     // Start is called before the first frame update
     void Start()
@@ -69,7 +69,7 @@ public class triCameraSwitcher : MonoBehaviour
                 } 
             }
     
-            if(GUI.Button(new Rect(this.buttons_x_corner+110,this.buttonY,this.buttonWidth,this.buttonHeight), MainCameraIcon)) 
+            if(GUI.Button(new Rect(this.buttons_x_corner+(this.spaceXCornerFromFirst*2),this.buttonY,this.buttonWidth,this.buttonHeight), MainCameraIcon)) 
             {
                 if(this.main_camera_is_hidden){
                     this.follow_camera_is_hidden = true;
@@ -80,9 +80,9 @@ public class triCameraSwitcher : MonoBehaviour
                     this.main_camera.SetActive(true);
                 } 
             }
-            if(GUI.Button(new Rect(this.buttons_x_corner+55,this.buttonY,this.buttonWidth,this.buttonHeight), FrontCameraIcon)) 
+            if(GUI.Button(new Rect(this.buttons_x_corner+(this.spaceXCornerFromFirst*3),this.buttonY,this.buttonWidth,this.buttonHeight), FrontCameraIcon)) 
             {
-                if(this.main_camera_is_hidden){
+                if(this.front_camera_is_hidden){
                     this.follow_camera_is_hidden = true;
                     this.follow_camera.SetActive(false);
                     this.main_camera_is_hidden = true;
