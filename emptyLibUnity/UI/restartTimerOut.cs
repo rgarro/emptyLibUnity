@@ -31,8 +31,6 @@ using UnityEngine.SceneManagement;
  * Displays cancellable TimeOut until restarts the entire game
  * supposed to be Relayed remotely by player action
  *
- * Un Delegado es un Relay Remoto Accesible publicamente, decia un perverso que compro un titulo en la U latina y se posaba de dueno ...
- *
  *
  *
  *@author Rolando <rgarro@gmail.com> <https://emptyart.github.io>
@@ -84,7 +82,7 @@ public class restartTimerOut : MonoBehaviour
 		while(true){
             seconds = seconds - 1;
             this.timeOutStr = seconds + " " + this.concatLegend;
-			Debug.Log("timeStr: "+this.timeOutStr);
+			//Debug.Log("timeStr: "+this.timeOutStr);
             if(seconds < 2){
                 //restart game here
                 Scene scene = SceneManager.GetActiveScene();
