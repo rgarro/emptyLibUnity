@@ -14,13 +14,16 @@ using UnityEngine;
  * Allows to switch from two available cameras
  * follow camera should be active, buttons horizontal line
  *
- * @author Rolando <rgarro@gmail.com>
+ *
+ *
+ * @author Rolando <rgarro@gmail.com> <https://emptyart.github.io>
  */
 public class biCameraSwitcher : MonoBehaviour
 {
     protected bool gun_camera_is_hidden =  true;//forklift carriage camera
     protected bool follow_camera_is_hidden =  false;
     public int buttons_x_corner = 200;
+    public int box_x_corner = 200;//bullDozer cameras tweak
 
     public GUISkin btnSkin;
     public Texture2D GunCamera2d;
@@ -52,7 +55,7 @@ public class biCameraSwitcher : MonoBehaviour
     void OnGUI(){
         if(this.displayButtons){
             GUI.skin = this.btnSkin;
-            GUI.Box(new Rect(this.buttons_x_corner,this.boxY,this.boxWidth,this.boxHeight), this.boxLabel);
+            GUI.Box(new Rect(this.box_x_corner,this.boxY,this.boxWidth,this.boxHeight), this.boxLabel);
             if(GUI.Button(new Rect(this.buttons_x_corner+this.spaceXCornerFromFirst,this.buttonY,this.buttonWidth,this.buttonHeight), GunCamera2d))
             {
                 if(this.gun_camera_is_hidden){
@@ -64,7 +67,7 @@ public class biCameraSwitcher : MonoBehaviour
                 } 
             }
     
-            if(GUI.Button(new Rect(this.buttons_x_corner+55,this.buttonY,this.buttonWidth,this.buttonHeight), FollowIcon)) 
+            if(GUI.Button(new Rect(this.buttons_x_corner+this.spaceXCornerFromFirst+55,this.buttonY,this.buttonWidth,this.buttonHeight), FollowIcon)) 
             {
                 if(this.follow_camera_is_hidden){
                     this.follow_camera_is_hidden = false;
