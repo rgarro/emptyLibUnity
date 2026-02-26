@@ -20,7 +20,7 @@ using UnityEngine;
  */
 public class biCameraSwitcher : MonoBehaviour
 {
-    protected bool gun_camera_is_hidden =  true;//forklift carriage camera
+    protected bool gun_camera_is_hidden =  true;//Forklift carriage camera
     protected bool follow_camera_is_hidden =  false;
     public int buttons_x_corner = 200;
     public int box_x_corner = 200;//bullDozer cameras tweak
